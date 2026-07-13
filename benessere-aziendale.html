@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Programmi di Benessere Aziendale di Nicoletta Ingusci — interventi tailor made per team e organizzazioni, credibili e misurabili."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://nicolettaingusci.it/benessere-aziendale.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Nicoletta Ingusci"/>
+  <meta property="og:locale" content="it_IT"/>
+  <meta property="og:title" content="Benessere Aziendale — Nicoletta Ingusci"/>
+  <meta property="og:description" content="Programmi di Benessere Aziendale di Nicoletta Ingusci — interventi tailor made per team e organizzazioni, credibili e misurabili."/>
+  <meta property="og:url" content="https://nicolettaingusci.it/benessere-aziendale.html"/>
+  <meta property="og:image" content="https://nicolettaingusci.it/Assets/Foto/benessereaziendale.webp"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Benessere Aziendale — Nicoletta Ingusci"/>
+  <meta name="twitter:description" content="Programmi di Benessere Aziendale di Nicoletta Ingusci — interventi tailor made per team e organizzazioni, credibili e misurabili."/>
+  <meta name="twitter:image" content="https://nicolettaingusci.it/Assets/Foto/benessereaziendale.webp"/>
+  <title>Benessere Aziendale — Nicoletta Ingusci</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="stylesheet" href="css/tokens.css"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <style>
+    /* Stili specifici pagina aziendale */
+    .az-hero-image {
+      position: absolute; right: 0; top: 0; bottom: 0;
+      width: 40%; overflow: hidden; z-index: 0;
+    }
+    .az-hero-image img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(0.5) saturate(0.6);
+      mix-blend-mode: luminosity;
+      opacity: 0.35;
+    }
+    @media (max-width: 767px) { .az-hero-image { display: none; } }
+
+    .az-section { padding: var(--space-xl) 0; position: relative; overflow: hidden; }
+    .az-section--dark    { background: var(--g-corporate); }
+    .az-section--medium  { background: #2d3d2e; }
+    .az-section--accent  { background: linear-gradient(135deg, #4a5a4b 0%, #9F644A 100%); }
+    .az-section--neutral { background: var(--c-neutral-050); }
+    .az-section--green   { background: var(--c-green-100); }
+
+    .az-text-white { color: var(--c-white); }
+    .az-text-muted { color: rgba(255,255,255,0.7); }
+
+    .az-card {
+      padding: 1.6rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      clip-path: polygon(0 0, 95% 0, 100% 10%, 100% 100%, 5% 100%, 0 90%);
+      transition: border-color var(--transition-base), background var(--transition-base);
+    }
+    .az-card:hover { border-color: rgba(230,191,145,0.45); background: rgba(255,255,255,0.04); }
+    .az-card__title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--c-white); margin-bottom: 0.5rem; }
+    .az-card__desc  { font-size: 0.875rem; color: rgba(255,255,255,0.6); line-height: 1.65; }
+
+    .process-step--dark .process-step__num  { color: rgba(230,191,145,0.25); }
+    .process-step--dark .process-step__title { color: var(--c-white); }
+    .process-step--dark .process-step__desc  { color: rgba(255,255,255,0.6); }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nicoletta Ingusci",
+    "jobTitle": "Istruttrice di Yoga E-RYT 800 e Mental Coach ICF",
+    "url": "https://nicolettaingusci.it",
+    "image": "https://nicolettaingusci.it/Assets/Foto/lafondatrice.webp",
+    "knowsAbout": ["Yoga","Coaching","Benessere Aziendale","Mindfulness","Pranayama"]
+  }
+  </script>
+</head>
+<body>
+
+<div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="eventi.html">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
+<header class="site-header with-infobar">
+  <div class="header-inner">
+    <a href="index.html" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
+      <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
+      <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
+    </a>
+    <nav class="site-nav" aria-label="Navigazione principale">
+      <ul class="site-nav__links" role="list">
+        <li><a class="site-nav__link" href="chi-sono.html">Chi sono</a></li>
+        <li><a class="site-nav__link" href="yoga.html">Yoga</a></li>
+        <li><a class="site-nav__link" href="coaching.html">Coaching</a></li>
+        <li><a class="site-nav__link" href="benessere-aziendale.html">Benessere aziendale</a></li>
+        <li><a class="site-nav__link" href="eventi.html">Eventi</a></li>
+        <li><a class="site-nav__link" href="news.html">Risorse</a></li>
+        <li><a class="site-nav__link" href="contatti.html">Contatti</a></li>
+      </ul>
+    </nav>
+    <a href="contatti.html" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
+    <button class="hamburger" aria-label="Apri menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<nav class="mobile-nav" aria-label="Menu mobile" aria-hidden="true">
+  <a class="mobile-nav__link" href="chi-sono.html">Chi sono</a>
+  <a class="mobile-nav__link" href="yoga.html">Yoga</a>
+  <a class="mobile-nav__link" href="coaching.html">Coaching</a>
+  <a class="mobile-nav__link" href="benessere-aziendale.html">Benessere aziendale</a>
+  <a class="mobile-nav__link" href="eventi.html">Eventi</a>
+  <a class="mobile-nav__link" href="news.html">Risorse</a>
+  <a class="mobile-nav__link" href="contatti.html">Contatti</a>
+  <a href="contatti.html" class="btn btn--primary">Prenota una&nbsp;call</a>
+</nav>
+
+<main>
+
+<!-- PAGE HERO — dark con immagine -->
+<section class="page-hero page-hero--dark" style="min-height:520px;display:flex;align-items:flex-end;">
+  <div class="az-hero-image" aria-hidden="true">
+    <img src="Assets/Foto/benessereaziendale.webp" alt=""/>
+  </div>
+  <svg class="aziendale-frag aziendale-frag--1" viewBox="0 0 460 460" fill="none" aria-hidden="true"><polygon points="40,0 460,18 420,460 0,442" stroke="#E6BF91" stroke-width="1" fill="none"/></svg>
+  <svg class="aziendale-frag aziendale-frag--2" viewBox="0 0 320 320" fill="none" aria-hidden="true"><polygon points="25,0 320,12 295,320 0,308" stroke="#93A496" stroke-width="1" fill="none"/></svg>
+  <div class="container" style="position:relative;z-index:1;padding-bottom:var(--space-xl);">
+    <div class="page-hero__inner">
+      <span class="section-label section-label--peach">Per le&nbsp;organizzazioni</span>
+      <h1 style="color:var(--c-white);">Benessere aziendale che&nbsp;produce risultati concreti.</h1>
+      <p class="page-hero__desc" style="color:rgba(255,255,255,0.75);">Programmi tailor made per&nbsp;team e&nbsp;organizzazioni. Non attività di&nbsp;wellness generiche, ma&nbsp;interventi integrati, credibili e&nbsp;adattati al&nbsp;contesto specifico di&nbsp;ogni realtà.</p>
+      <div class="page-hero__ctas">
+        <a href="contatti.html" class="btn btn--cream">Richiedi una&nbsp;proposta personalizzata</a>
+        <a href="eventi.html" class="btn btn--secondary">Scopri gli&nbsp;eventi</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IL PROBLEMA -->
+<section class="az-section az-section--medium">
+  <svg style="position:absolute;top:-40px;left:-40px;opacity:0.06;pointer-events:none;" width="300" height="300" viewBox="0 0 300 300" fill="none" aria-hidden="true"><polygon points="20,0 300,12 280,300 0,288" stroke="#E6BF91" stroke-width="1"/></svg>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="az-problem-layout">
+      <div class="reveal">
+        <span class="section-label section-label--peach">Il problema</span>
+        <h2 class="az-text-white" style="margin-top:1rem;">Le organizzazioni che&nbsp;non investono nel&nbsp;benessere pagano un&nbsp;prezzo elevato.</h2>
+        <p class="az-text-muted" style="margin-top:1.2rem;line-height:1.8;">Stress cronico, burnout, turnover, difficoltà di&nbsp;concentrazione e&nbsp;collaborazione sono segnali che&nbsp;il&nbsp;benessere delle&nbsp;persone non è una&nbsp;questione accessoria. <span style="white-space:nowrap">È una&nbsp;variabile</span> che&nbsp;impatta direttamente sulla performance e&nbsp;sulla qualità del&nbsp;lavoro.</p>
+      </div>
+      <div class="reveal">
+        <p class="az-segnali-label">Segnali da&nbsp;riconoscere</p>
+        <div class="az-segnali-list">
+          <div class="az-segnale">
+            <span class="az-segnale__num">01</span>
+            <p class="az-segnale__text">Stress e&nbsp;sovraccarico diffusi nel&nbsp;team</p>
+          </div>
+          <div class="az-segnale">
+            <span class="az-segnale__num">02</span>
+            <p class="az-segnale__text">Difficoltà di&nbsp;focus, concentrazione e&nbsp;presenza</p>
+          </div>
+          <div class="az-segnale">
+            <span class="az-segnale__num">03</span>
+            <p class="az-segnale__text">Tensioni relazionali e&nbsp;scarsa coesione</p>
+          </div>
+          <div class="az-segnale">
+            <span class="az-segnale__num">04</span>
+            <p class="az-segnale__text">Assenteismo elevato o&nbsp;segnali di&nbsp;burnout</p>
+          </div>
+          <div class="az-segnale">
+            <span class="az-segnale__num">05</span>
+            <p class="az-segnale__text">Difficoltà ad attrarre e&nbsp;trattenere talenti</p>
+          </div>
+          <div class="az-segnale">
+            <span class="az-segnale__num">06</span>
+            <p class="az-segnale__text">Programmi di&nbsp;welfare esistenti ma&nbsp;poco efficaci</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COME INIZIARE -->
+<section class="az-section az-section--accent" style="position:relative;overflow:hidden;">
+  <svg style="position:absolute;top:-60px;right:-60px;opacity:0.08;pointer-events:none;" width="380" height="380" viewBox="0 0 380 380" fill="none" aria-hidden="true"><polygon points="28,0 380,14 352,380 0,366" stroke="#fff" stroke-width="1"/></svg>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="section__header section__header--centered reveal" style="margin-bottom:4rem;">
+      <span class="section-label section-label--light">Come iniziare</span>
+      <h2 style="color:var(--c-white);">Il processo di&nbsp;collaborazione.</h2>
+      <p style="color:rgba(255,255,255,0.65);max-width:46ch;margin:0.8rem auto 0;font-size:0.95rem;line-height:1.75;">Tre passi semplici per&nbsp;avviare un&nbsp;programma costruito sul contesto reale della&nbsp;tua organizzazione.</p>
+    </div>
+    <div class="az-process-list reveal">
+      <div class="az-process-item">
+        <span class="az-process-item__num">01</span>
+        <div class="az-process-item__body">
+          <p class="az-process-item__step">Primo passo</p>
+          <h3 class="az-process-item__title">Call conoscitiva</h3>
+          <p class="az-process-item__desc">Una conversazione per&nbsp;capire le&nbsp;esigenze dell'organizzazione, le&nbsp;aspettative <span style="white-space:nowrap">e&nbsp;il contesto in cui si opera.</span></p>
+        </div>
+      </div>
+      <div class="az-process-item">
+        <span class="az-process-item__num">02</span>
+        <div class="az-process-item__body">
+          <p class="az-process-item__step">Secondo passo</p>
+          <h3 class="az-process-item__title">Proposta personalizzata</h3>
+          <p class="az-process-item__desc">Presentazione di&nbsp;un&nbsp;programma costruito sulle esigenze emerse, con&nbsp;struttura, contenuti, format e&nbsp;budget indicativo.</p>
+        </div>
+      </div>
+      <div class="az-process-item">
+        <span class="az-process-item__num">03</span>
+        <div class="az-process-item__body">
+          <p class="az-process-item__step">Terzo passo</p>
+          <h3 class="az-process-item__title">Implementazione e&nbsp;follow-up</h3>
+          <p class="az-process-item__desc">Avvio del&nbsp;programma con&nbsp;possibilità di&nbsp;adattamenti in corso e&nbsp;momenti di&nbsp;verifica dei&nbsp;risultati.</p>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:3.5rem;" class="reveal">
+      <a href="contatti.html" class="btn btn--cream">Richiedi una&nbsp;proposta personalizzata</a>
+    </div>
+  </div>
+</section>
+
+<!-- I RISULTATI -->
+<section class="az-section az-section--dark" style="background:linear-gradient(180deg,#1f2a20 0%,#2d3d2e 100%);">
+  <div class="container">
+    <div class="section__header section__header--centered reveal" style="margin-bottom:3.5rem;">
+      <span class="section-label section-label--peach">I risultati</span>
+      <h2 class="az-text-white">Cosa cambia nelle&nbsp;persone e&nbsp;nell'organizzazione.</h2>
+    </div>
+    <div class="az-risultati-grid reveal">
+      <div class="az-risultato">
+        <div class="az-risultato__icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none"><path d="M14 4C14 4 6 9 6 16a8 8 0 0016 0c0-7-8-12-8-12z" stroke="#E6BF91" stroke-width="1.2"/><path d="M14 13v5" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <h4 class="az-risultato__title">Riduzione di&nbsp;stress e&nbsp;burnout</h4>
+        <p class="az-risultato__desc">Strumenti concreti per&nbsp;gestire il&nbsp;carico e&nbsp;prevenire l'esaurimento delle&nbsp;persone.</p>
+      </div>
+      <div class="az-risultato">
+        <div class="az-risultato__icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="9" stroke="#E6BF91" stroke-width="1.2"/><path d="M10 14l3 3 5-5" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4 class="az-risultato__title">Focus e&nbsp;presenza migliorati</h4>
+        <p class="az-risultato__desc">Più concentrazione, qualità dell'attenzione e&nbsp;capacità decisionale nel&nbsp;lavoro quotidiano.</p>
+      </div>
+      <div class="az-risultato">
+        <div class="az-risultato__icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none"><path d="M8 20l6-8 6 8" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round"/><circle cx="14" cy="9" r="3" stroke="#E6BF91" stroke-width="1.2"/></svg>
+        </div>
+        <h4 class="az-risultato__title">Maggiore coesione dei&nbsp;team</h4>
+        <p class="az-risultato__desc">Relazioni più collaborative, comunicazione più efficace, meno conflitti e&nbsp;tensioni.</p>
+      </div>
+      <div class="az-risultato">
+        <div class="az-risultato__icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none"><rect x="5" y="8" width="18" height="12" rx="1" stroke="#E6BF91" stroke-width="1.2"/><path d="M9 13h10M9 16h6" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <h4 class="az-risultato__title">Strumenti concreti e&nbsp;applicabili</h4>
+        <p class="az-risultato__desc">Pratiche trasferibili nella&nbsp;routine lavorativa e&nbsp;personale di&nbsp;ogni collaboratore.</p>
+      </div>
+      <div class="az-risultato">
+        <div class="az-risultato__icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none"><path d="M7 14h14M14 7l7 7-7 7" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4 class="az-risultato__title">Interventi adattati al&nbsp;contesto</h4>
+        <p class="az-risultato__desc">Nessun programma generico: ogni intervento è costruito sul contesto specifico dell'organizzazione.</p>
+      </div>
+      <div class="az-risultato">
+        <div class="az-risultato__icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none"><path d="M7 20l4-8 3 4 3-6 4 10" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="4" width="20" height="20" rx="1" stroke="#E6BF91" stroke-width="1.2"/></svg>
+        </div>
+        <h4 class="az-risultato__title">Approccio credibile e&nbsp;misurabile</h4>
+        <p class="az-risultato__desc">Fondato su&nbsp;evidenze scientifiche, con&nbsp;risultati monitorabili nel&nbsp;tempo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIANZE / CASI PLACEHOLDER -->
+<section class="az-section az-section--neutral">
+  <div class="container">
+    <div class="section__header section__header--centered reveal">
+      <span class="section-label">Testimonianze</span>
+      <h2>Chi ha già scelto questo&nbsp;approccio.</h2>
+    </div>
+    <div class="grid-3 reveal" role="list">
+      <article class="testi-card" role="listitem">
+        <div class="testi-card__mark" aria-hidden="true">&ldquo;</div>
+        <p class="testi-card__text">[Testimonianza — da&nbsp;aggiornare con&nbsp;una&nbsp;recensione reale e&nbsp;autorizzata. Non inventare contenuti.]</p>
+        <div class="testi-card__footer">
+          <p class="testi-card__name">[Nome — da&nbsp;aggiornare]</p>
+          <p class="testi-card__role">[Ruolo aziendale — opzionale]</p>
+          <span class="testi-card__path">[Benessere Aziendale]</span>
+        </div>
+      </article>
+      <article class="testi-card" role="listitem">
+        <div class="testi-card__mark" aria-hidden="true">&ldquo;</div>
+        <p class="testi-card__text">[Testimonianza — da&nbsp;aggiornare con&nbsp;una&nbsp;recensione reale e&nbsp;autorizzata.]</p>
+        <div class="testi-card__footer">
+          <p class="testi-card__name">[Nome — da&nbsp;aggiornare]</p>
+          <p class="testi-card__role">[Ruolo — opzionale]</p>
+          <span class="testi-card__path">[Benessere Aziendale]</span>
+        </div>
+      </article>
+      <article class="testi-card" role="listitem">
+        <div class="testi-card__mark" aria-hidden="true">&ldquo;</div>
+        <p class="testi-card__text">[Testimonianza — da&nbsp;aggiornare con&nbsp;una&nbsp;recensione reale e&nbsp;autorizzata.]</p>
+        <div class="testi-card__footer">
+          <p class="testi-card__name">[Nome — da&nbsp;aggiornare]</p>
+          <p class="testi-card__role">[Ruolo — opzionale]</p>
+          <span class="testi-card__path">[Benessere Aziendale]</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FORM -->
+<section class="az-section az-section--medium" style="background:var(--g-corporate);">
+  <svg style="position:absolute;top:-60px;right:-60px;opacity:0.07;pointer-events:none;" width="400" height="400" viewBox="0 0 400 400" fill="none" aria-hidden="true"><polygon points="30,0 400,15 370,400 0,385" stroke="#E6BF91" stroke-width="1"/></svg>
+  <div class="container" style="position:relative;z-index:1;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;" class="az-section__inner">
+      <div class="reveal">
+        <span class="section-label section-label--peach">Inizia da&nbsp;qui</span>
+        <h2 class="az-text-white" style="margin-bottom:1.2rem;">Parliamo del&nbsp;tuo contesto.</h2>
+        <p class="az-text-muted" style="margin-bottom:2rem;">Ogni organizzazione è diversa. Il primo passo è sempre una&nbsp;conversazione per&nbsp;capire le&nbsp;esigenze reali e&nbsp;valutare insieme il&nbsp;tipo di&nbsp;intervento più adatto.</p>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div style="display:flex;align-items:center;gap:0.8rem;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#E6BF91" stroke-width="1"/><path d="M6 9l2 2 4-4" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-size:0.88rem;color:rgba(255,255,255,0.7);">Prima call conoscitiva gratuita</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.8rem;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#E6BF91" stroke-width="1"/><path d="M6 9l2 2 4-4" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-size:0.88rem;color:rgba(255,255,255,0.7);">Proposta personalizzata senza impegno</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.8rem;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#E6BF91" stroke-width="1"/><path d="M6 9l2 2 4-4" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-size:0.88rem;color:rgba(255,255,255,0.7);">Risposta entro [tempi — da&nbsp;aggiornare]</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <form class="contact-form" novalidate aria-label="Richiesta informazioni benessere aziendale">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="az-name">Nome e&nbsp;cognome <span aria-hidden="true">*</span></label>
+              <input type="text" id="az-name" name="name" required placeholder="Il tuo nome" autocomplete="name"/>
+            </div>
+            <div class="form-group">
+              <label for="az-email">Email aziendale <span aria-hidden="true">*</span></label>
+              <input type="email" id="az-email" name="email" required placeholder="email@azienda.it" autocomplete="email"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="az-company">Azienda / Organizzazione</label>
+            <input type="text" id="az-company" name="company" placeholder="Nome dell'organizzazione"/>
+          </div>
+          <div class="form-group">
+            <label for="az-role">Ruolo</label>
+            <input type="text" id="az-role" name="role" placeholder="HR Manager, CEO, Responsabile Welfare…"/>
+          </div>
+          <div class="form-group">
+            <label for="az-message">Cosa state cercando? <span aria-hidden="true">*</span></label>
+            <textarea id="az-message" name="message" required placeholder="Descrivete brevemente la vostra esigenza e il contesto organizzativo…"></textarea>
+          </div>
+          <div class="form-group form-group--checkbox">
+            <input type="checkbox" id="az-privacy" name="privacy" required/>
+            <label for="az-privacy">Ho letto e&nbsp;accetto la&nbsp;<a href="#">Privacy Policy</a>. I dati saranno trattati nel&nbsp;rispetto della&nbsp;normativa vigente.</label>
+          </div>
+          <button type="submit" class="btn btn--cream" style="width:100%;justify-content:center;">Richiedi una&nbsp;proposta personalizzata</button>
+          <div class="form-success" role="alert">Richiesta inviata. Nicoletta o&nbsp;il suo team ti contatteranno a breve.</div>
+          <p class="form-microcopy">Questa è una&nbsp;simulazione frontend. Nessun dato viene effettivamente inviato.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__main">
+      <div class="footer__brand">
+        <div class="footer__logo"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></div>
+        <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
+        <div class="footer__social" aria-label="Social media">
+          <a href="#" class="footer__social-link" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" class="footer__social-link" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="yoga.html">Yoga</a></li><li><a class="footer__link" href="coaching.html">Coaching</a></li><li><a class="footer__link" href="benessere-aziendale.html">Benessere aziendale</a></li><li><a class="footer__link" href="eventi.html">Eventi e&nbsp;retreat</a></li></ul></div>
+      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="chi-sono.html">Chi sono</a></li><li><a class="footer__link" href="news.html">News e&nbsp;risorse</a></li><li><a class="footer__link" href="podcast.html">Podcast</a></li><li><a class="footer__link" href="contatti.html">Contatti</a></li></ul></div>
+      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="mailto:[email@dominio.it]">[email — da&nbsp;inserire]</a></p><p class="footer__contact-item">[Città — da&nbsp;inserire]</p></div>
+    </div>
+    <div class="footer__bottom">
+      <nav class="footer__legal" aria-label="Link legali"><a href="#">Privacy Policy</a><a href="#">Cookie Policy</a><a href="#">Credits</a></nav>
+      <p class="footer__copy">&copy; <span class="footer-year"></span> Nicoletta Ingusci. Tutti i diritti riservati.</p>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+/* ============================================================
+   DESIGN TOKENS — Nicoletta Ingusci
+   ============================================================ */
+
+:root {
+
+  /* --- Colori --- */
+  --c-green-700:   #637664;
+  --c-green-500:   #93A496;
+  --c-green-100:   #D8E2D9;
+  --c-neutral-050: #FAFAFA;
+  --c-neutral-400: #A8ABA2;
+  --c-black:       #000000;
+  --c-cream:       #F8F0C5;
+  --c-peach:       #E6BF91;
+  --c-terracotta:  #9F644A;
+  --c-white:       #FFFFFF;
+
+  /* --- Gradienti --- */
+  --g-green-soft:    linear-gradient(135deg, #637664 0%, #93A496 100%);
+  --g-warm-soft:     linear-gradient(135deg, #F8F0C5 0%, #E6BF91 100%);
+  --g-hero:          linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 100%);
+  --g-corporate:     linear-gradient(135deg, #637664 0%, #3d4a3e 60%, #1f261f 100%);
+  --g-corporate-warm:linear-gradient(135deg, #4a5a4b 0%, #9F644A 100%);
+  --g-cream-green:   linear-gradient(160deg, #F8F0C5 0%, #D8E2D9 60%, #93A496 100%);
+
+  /* --- Tipografia --- */
+  --font-display: "Syne", sans-serif;
+  --font-body:    "Josefin Sans", sans-serif;
+
+  /* --- Spaziature --- */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  2rem;
+  --space-lg:  4rem;
+  --space-xl:  6rem;
+  --space-2xl: 9rem;
+
+  /* --- Container --- */
+  --container-max: 1280px;
+  --container-pad: 2rem;
+
+  /* --- Border radius --- */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-full: 999px;
+
+  /* --- Transizioni --- */
+  --transition-fast:   150ms ease;
+  --transition-base:   300ms ease;
+  --transition-slow:   600ms ease;
+  --transition-xslow:  900ms ease;
+
+  /* --- Opacità frammenti --- */
+  --frag-opacity: 0.15;
+  --frag-opacity-md: 0.25;
+
+  /* --- Z-index --- */
+  --z-base:    1;
+  --z-above:   10;
+  --z-header:  100;
+  --z-overlay: 200;
+  --z-modal:   300;
+
+  /* --- Breakpoint reference (usati in JS) --- */
+  --bp-mobile: 480px;
+  --bp-tablet: 768px;
+  --bp-desktop: 1024px;
+}
+
+/* Riduzione movimento */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast:   0ms;
+    --transition-base:   0ms;
+    --transition-slow:   0ms;
+    --transition-xslow:  0ms;
+  }
+}
