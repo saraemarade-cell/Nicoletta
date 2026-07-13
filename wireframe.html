@@ -1,581 +1,1295 @@
-
-<title>Wireframe — Nicoletta Ingusci</title>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Wireframe HiFi — Nicoletta Ingusci</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ─── RESET & TOKENS ─────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --c-green-700:   #637664;
+  --c-green-500:   #93A496;
+  --c-green-100:   #D8E2D9;
+  --c-neutral-050: #FAFAFA;
+  --c-neutral-400: #A8ABA2;
+  --c-black:       #000000;
+  --c-cream:       #F8F0C5;
+  --c-peach:       #E6BF91;
+  --c-terracotta:  #9F644A;
+  --c-white:       #FFFFFF;
+  --font-display:  'Syne', sans-serif;
+  --font-body:     'Josefin Sans', sans-serif;
+  --clip-photo:    polygon(0 0, 86% 0, 100% 14%, 100% 100%, 14% 100%, 0 86%);
+}
 
-  :root {
-    --bg: #F2F2F0;
-    --surface: #FFFFFF;
-    --block: #E6E6E2;
-    --block-dark: #B8B8B2;
-    --block-accent: #D0DDE8;
-    --block-green: #C8D8C9;
-    --block-terracotta: #E8D4CC;
-    --border: #CCCCC6;
-    --text: #2A2A28;
-    --muted: #888884;
-    --label: #555552;
-    --tag-bg: #2A2A28;
-    --tag-text: #F2F2F0;
-    --tab-active: #2A2A28;
-    --tab-inactive: #999994;
-    --hatch: repeating-linear-gradient(
-      -45deg, transparent, transparent 4px,
-      rgba(0,0,0,0.08) 4px, rgba(0,0,0,0.08) 5px
-    );
-    --font: -apple-system, 'Segoe UI', system-ui, sans-serif;
-    --mono: 'Courier New', monospace;
-  }
+body { font-family: var(--font-body); background: #1a1a1a; color: var(--c-black); font-size: 14px; line-height: 1.6; }
 
-  body {
-    font-family: var(--font);
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-  }
+/* ─── CHROME UI ──────────────────────────────── */
+.chrome {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: #111; border-bottom: 1px solid #333;
+  display: flex; align-items: center; gap: 0; height: 44px;
+}
+.chrome__tabs {
+  display: flex; overflow-x: auto; flex: 1;
+  scrollbar-width: none;
+}
+.chrome__tabs::-webkit-scrollbar { display: none; }
+.chrome__tab {
+  flex-shrink: 0; padding: 0 20px; height: 44px;
+  font-family: var(--font-body); font-size: 11px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: rgba(255,255,255,0.4);
+  background: transparent; border: none; border-right: 1px solid #222;
+  cursor: pointer; white-space: nowrap; transition: all 0.15s;
+  display: flex; align-items: center; gap: 6px;
+}
+.chrome__tab:hover { color: rgba(255,255,255,0.7); background: #1e1e1e; }
+.chrome__tab.active {
+  color: #fff; background: #2a2a2a;
+  border-bottom: 2px solid var(--c-green-700);
+  margin-bottom: -1px;
+}
+.chrome__dot {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--c-green-700);
+  display: none;
+}
+.chrome__tab.active .chrome__dot { display: block; }
+.chrome__info {
+  padding: 0 16px; font-size: 10px; font-family: monospace;
+  color: rgba(255,255,255,0.3); white-space: nowrap;
+  border-left: 1px solid #333;
+}
 
-  /* ── TOP BAR ── */
-  .topbar {
-    position: sticky; top: 0; z-index: 100;
-    background: var(--text);
-    padding: 0.75rem 1.5rem;
-    display: flex; align-items: center; gap: 1.5rem;
-  }
-  .topbar__title {
-    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: rgba(255,255,255,0.5); white-space: nowrap;
-  }
-  .topbar__pages {
-    display: flex; gap: 0.25rem; flex-wrap: wrap;
-  }
-  .tab {
-    padding: 0.35rem 0.85rem;
-    font-size: 0.72rem; font-family: var(--mono);
-    background: none; border: 1px solid rgba(255,255,255,0.15);
-    color: rgba(255,255,255,0.5); cursor: pointer;
-    border-radius: 3px; transition: all 0.15s;
-    white-space: nowrap;
-  }
-  .tab:hover { border-color: rgba(255,255,255,0.4); color: rgba(255,255,255,0.8); }
-  .tab.active { background: #fff; color: #2A2A28; border-color: #fff; }
+/* ─── VIEWPORT ───────────────────────────────── */
+.viewport-wrap {
+  margin-top: 44px;
+  background: #1a1a1a;
+  padding: 24px;
+  min-height: calc(100vh - 44px);
+}
+.page-frame { display: none; }
+.page-frame.active { display: block; }
 
-  /* ── CANVAS ── */
-  .canvas {
-    padding: 2rem 1.5rem;
-    display: flex; gap: 2rem;
-    align-items: flex-start;
-  }
+/* ─── SHARED SITE ELEMENTS ───────────────────── */
+.site-shell {
+  background: var(--c-white);
+  box-shadow: 0 8px 60px rgba(0,0,0,0.5);
+  max-width: 1280px;
+  margin: 0 auto;
+  overflow: hidden;
+}
 
-  /* ── PAGE FRAME ── */
-  .page-frame {
-    flex: 1; min-width: 0;
-    display: none;
-    flex-direction: column;
-    gap: 0;
-    max-width: 840px;
-  }
-  .page-frame.active { display: flex; }
+/* Info Bar */
+.s-infobar {
+  background: var(--c-black); color: var(--c-white);
+  font-family: var(--font-body); font-size: 12px;
+  padding: 8px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  letter-spacing: 0.05em;
+}
+.s-infobar a { color: var(--c-peach); text-decoration: none; }
+.s-infobar__x { color: rgba(255,255,255,0.4); font-size: 10px; }
 
-  .page-title-bar {
-    display: flex; align-items: baseline; gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  .page-title-bar h2 {
-    font-size: 1rem; font-weight: 700; letter-spacing: -0.01em;
-  }
-  .page-title-bar span {
-    font-size: 0.7rem; font-family: var(--mono); color: var(--muted);
-  }
+/* Header */
+.s-header {
+  background: var(--c-white); border-bottom: 1px solid #eee;
+  padding: 0 48px; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.s-header--dark { background: rgba(0,0,0,0.85); border-bottom-color: rgba(255,255,255,0.1); }
+.s-logo {
+  font-family: var(--font-display); font-size: 15px; font-weight: 700;
+  letter-spacing: 0.05em; color: var(--c-black); text-transform: uppercase;
+}
+.s-header--dark .s-logo { color: var(--c-white); }
+.s-nav { display: flex; align-items: center; gap: 28px; }
+.s-nav a {
+  font-family: var(--font-body); font-size: 11px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--c-black); text-decoration: none;
+}
+.s-header--dark .s-nav a { color: rgba(255,255,255,0.8); }
+.s-header-btn {
+  font-family: var(--font-body); font-size: 11px; letter-spacing: 0.1em;
+  text-transform: uppercase; background: var(--c-green-700); color: var(--c-white);
+  border: none; padding: 9px 20px; cursor: pointer;
+}
 
-  /* ── SECTION BLOCKS ── */
-  .wf-section {
-    border: 1.5px solid var(--border);
-    border-top: none;
-    background: var(--surface);
-    position: relative;
-    overflow: hidden;
-  }
-  .wf-section:first-child { border-top: 1.5px solid var(--border); }
+/* Container */
+.s-container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
 
-  .wf-section--neutral { background: #F7F7F5; }
-  .wf-section--cream   { background: #FAF8F4; }
-  .wf-section--dark    { background: #2D3D2E; }
-  .wf-section--medium  { background: #3D4D3E; }
-  .wf-section--accent  { background: linear-gradient(135deg,#4a5a4b,#9F644A); }
-  .wf-section--green   { background: #1F3220; }
-  .wf-section--terracotta { background: #9F644A; }
-  .wf-section--peach-dark { background: #8A4835; }
+/* Section sizes */
+.s-section { padding: 80px 0; }
+.s-section--sm { padding: 48px 0; }
+.s-section--lg { padding: 100px 0; }
 
-  .section-tag {
-    position: absolute; top: 0.6rem; right: 0.6rem;
-    font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
-    font-family: var(--mono); padding: 0.2rem 0.5rem;
-    background: var(--tag-bg); color: var(--tag-text); border-radius: 2px;
-    opacity: 0.7;
-  }
-  .wf-section--dark .section-tag,
-  .wf-section--medium .section-tag,
-  .wf-section--accent .section-tag,
-  .wf-section--green .section-tag,
-  .wf-section--terracotta .section-tag {
-    background: rgba(255,255,255,0.2); color: #fff;
-  }
+/* Backgrounds */
+.bg-white   { background: var(--c-white); }
+.bg-neutral { background: var(--c-neutral-050); }
+.bg-green100{ background: var(--c-green-100); }
+.bg-dark    { background: #2A2A28; }
+.bg-darkgreen { background: #1F3220; }
+.bg-corporate { background: linear-gradient(135deg, #637664 0%, #3d4a3e 60%, #1f261f 100%); }
+.bg-corp-warm { background: linear-gradient(135deg, #4a5a4b 0%, #9F644A 100%); }
+.bg-cream   { background: var(--c-cream); }
+.bg-terracotta { background: var(--c-terracotta); }
 
-  .section-inner { padding: 1rem 1.2rem; }
+/* Labels */
+.s-label {
+  display: inline-block; font-family: var(--font-body); font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--c-green-700); margin-bottom: 14px;
+}
+.s-label--light { color: rgba(255,255,255,0.55); }
+.s-label--peach { color: var(--c-terracotta); }
 
-  /* blocks inside sections */
-  .wf-label {
-    font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase;
-    font-family: var(--mono); color: var(--muted); margin-bottom: 0.3rem;
-  }
-  .wf-label--light { color: rgba(255,255,255,0.5); }
-  .wf-h1   { height: 20px; background: var(--block); border-radius: 2px; margin-bottom:0.4rem; width: 75%; }
-  .wf-h2   { height: 14px; background: var(--block); border-radius: 2px; margin-bottom:0.3rem; }
-  .wf-h3   { height: 11px; background: var(--block); border-radius: 2px; margin-bottom:0.25rem; }
-  .wf-text { height: 8px;  background: var(--block); border-radius: 2px; margin-bottom:0.2rem; }
-  .wf-text-w80 { width:80%; }
-  .wf-text-w60 { width:60%; }
-  .wf-text-w45 { width:45%; }
-  .wf-h1--light, .wf-h2--light, .wf-h3--light, .wf-text--light {
-    background: rgba(255,255,255,0.22);
-  }
+/* Headings */
+.s-h1 {
+  font-family: var(--font-display); font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800; line-height: 1.1; letter-spacing: -0.02em;
+  color: var(--c-black); margin-bottom: 20px;
+}
+.s-h1--light { color: var(--c-white); }
+.s-h2 {
+  font-family: var(--font-display); font-size: clamp(24px, 3vw, 38px);
+  font-weight: 700; line-height: 1.15; letter-spacing: -0.02em;
+  color: var(--c-black); margin-bottom: 16px;
+}
+.s-h2--light { color: var(--c-white); }
+.s-h3 {
+  font-family: var(--font-display); font-size: 18px; font-weight: 700;
+  color: var(--c-black); margin-bottom: 10px;
+}
+.s-h3--light { color: var(--c-white); }
+.s-p {
+  font-family: var(--font-body); font-size: 13px; line-height: 1.7;
+  color: var(--c-neutral-400); margin-bottom: 12px;
+}
+.s-p--light { color: rgba(255,255,255,0.65); }
 
-  .wf-btn {
-    display: inline-block; height: 26px; border-radius: 3px;
-    background: var(--block-accent); margin-right: 0.4rem; margin-top: 0.4rem;
-    vertical-align: top;
-  }
-  .wf-btn--sm  { width: 90px; }
-  .wf-btn--md  { width: 140px; }
-  .wf-btn--lg  { width: 180px; }
-  .wf-btn--ghost { background: none; border: 1.5px solid var(--border); }
-  .wf-btn--light { background: rgba(255,255,255,0.3); }
-  .wf-btn--light-ghost { background: none; border: 1.5px solid rgba(255,255,255,0.3); }
+/* Buttons */
+.s-btn {
+  display: inline-block; font-family: var(--font-body); font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none;
+  padding: 13px 28px; border: 1.5px solid transparent; cursor: pointer;
+  transition: all 0.2s;
+}
+.s-btn--primary { background: var(--c-black); color: var(--c-white); border-color: var(--c-black); }
+.s-btn--secondary { background: transparent; color: var(--c-black); border-color: var(--c-black); }
+.s-btn--outline { background: transparent; color: var(--c-green-700); border-color: var(--c-green-700); }
+.s-btn--cream { background: var(--c-cream); color: var(--c-black); border-color: var(--c-cream); }
+.s-btn--light { background: var(--c-white); color: var(--c-black); border-color: var(--c-white); }
+.s-btn--light-ghost { background: transparent; color: var(--c-white); border-color: rgba(255,255,255,0.6); }
+.s-btn--warm { background: var(--c-terracotta); color: var(--c-white); border-color: var(--c-terracotta); }
 
-  .wf-img {
-    background: var(--hatch); background-color: var(--block);
-    border-radius: 2px; overflow: hidden;
-    position: relative; flex-shrink: 0;
-  }
-  .wf-img::after {
-    content: '📷'; font-size: 1.2rem;
-    position: absolute; top:50%; left:50%;
-    transform: translate(-50%,-50%);
-    opacity: 0.3;
-  }
-  .wf-img--geom { clip-path: polygon(0 0,86% 0,100% 14%,100% 100%,14% 100%,0 86%); }
+.s-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
 
-  /* grid helpers */
-  .wf-2col { display: grid; grid-template-columns:1fr 1fr; gap:1rem; }
-  .wf-2col--4060 { grid-template-columns:4fr 6fr; }
-  .wf-3col { display: grid; grid-template-columns:1fr 1fr 1fr; gap:0.6rem; }
-  .wf-4col { display: grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:0.5rem; }
+/* Tags */
+.s-tag {
+  display: inline-block; font-family: var(--font-body); font-size: 10px;
+  letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px;
+  border: 1px solid; margin: 3px;
+}
+.s-tag--green { border-color: var(--c-green-700); color: var(--c-green-700); }
+.s-tag--peach { border-color: var(--c-terracotta); color: var(--c-terracotta); }
 
-  .wf-card {
-    background: var(--block); border-radius: 3px; padding: 0.7rem;
-    border-top: 2px solid var(--block-dark);
-  }
-  .wf-card--dark { background: rgba(255,255,255,0.08); border-top-color: rgba(230,191,145,0.6); }
-  .wf-card--green { border-top: 2px solid #5D8A60; background: rgba(255,255,255,0.06); }
-  .wf-card__icon { width:24px; height:24px; border-radius:50%; background:var(--block-dark); margin-bottom:0.4rem; }
-  .wf-card__icon--light { background: rgba(255,255,255,0.2); }
+/* Grid */
+.s-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.s-3col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+.s-4col { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 20px; }
+.s-2col-equal { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
 
-  .wf-num {
-    font-size: 2.5rem; font-family: var(--mono); color: var(--block-dark);
-    line-height: 1; margin-bottom:0.2rem;
-  }
-  .wf-num--light { color: rgba(255,255,255,0.15); }
+/* Photo placeholder */
+.s-photo {
+  width: 100%; background: var(--c-green-100);
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.s-photo--geom { clip-path: var(--clip-photo); }
+.s-photo::after {
+  content: ''; position: absolute; inset: 0;
+  background: repeating-linear-gradient(-45deg, transparent, transparent 8px, rgba(99,118,100,0.08) 8px, rgba(99,118,100,0.08) 9px);
+}
+.s-photo-label {
+  font-family: var(--font-body); font-size: 10px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--c-green-700); z-index: 1;
+}
 
-  .wf-divider { width:1px; background: var(--border); align-self: stretch; }
-  .wf-divider--light { background: rgba(255,255,255,0.15); }
+/* Divider */
+.s-divider { width: 100%; height: 1px; background: #eee; }
 
-  .wf-row { display:flex; align-items:center; gap:0.6rem; margin-bottom:0.3rem; }
+/* Section label row */
+.s-section-header { margin-bottom: 52px; }
+.s-section-header--center { text-align: center; }
 
-  /* ── INFO PANEL ── */
-  .info-panel {
-    width: 240px; flex-shrink: 0;
-    position: sticky; top: 70px;
-    display: flex; flex-direction: column; gap: 0.5rem;
-  }
-  .info-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 4px; padding: 0.9rem;
-  }
-  .info-card__title {
-    font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.14em;
-    font-family: var(--mono); color: var(--muted); margin-bottom: 0.5rem;
-  }
-  .info-card__body { font-size: 0.78rem; line-height: 1.5; color: var(--label); }
-  .info-card__body b { color: var(--text); }
+/* Footer */
+.s-footer {
+  background: #111; padding: 60px 48px 32px;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+}
+.s-footer-col__title {
+  font-family: var(--font-body); font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 16px;
+}
+.s-footer-link {
+  display: block; font-family: var(--font-body); font-size: 12px;
+  color: rgba(255,255,255,0.55); text-decoration: none; margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+.s-footer-logo {
+  font-family: var(--font-display); font-size: 16px; font-weight: 700;
+  color: var(--c-white); letter-spacing: 0.05em; margin-bottom: 12px;
+}
+.s-footer-copy {
+  grid-column: 1/-1; border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 24px; font-family: var(--font-body); font-size: 11px;
+  color: rgba(255,255,255,0.25); letter-spacing: 0.06em;
+  display: flex; justify-content: space-between;
+}
 
-  .legend { display:flex; flex-direction:column; gap:0.4rem; }
-  .legend-item { display:flex; align-items:center; gap:0.5rem; font-size:0.72rem; color:var(--label); }
-  .legend-dot { width:10px; height:10px; border-radius:2px; flex-shrink:0; }
+/* Method block */
+.s-method-block {
+  border-left: 2px solid var(--c-green-700);
+  padding: 16px 20px; margin: 20px 0;
+  background: rgba(99,118,100,0.05);
+  font-family: var(--font-body); font-size: 12.5px; line-height: 1.7;
+  color: var(--c-neutral-400); font-style: italic;
+}
 
-  /* ── HEADER BLOCK ── */
-  .wf-header {
-    background: #fff; border-bottom: 1.5px solid var(--border);
-    padding: 0.6rem 1.2rem;
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 1rem;
-  }
-  .wf-header--dark { background: rgba(0,0,0,0.4); border-bottom-color: rgba(255,255,255,0.1); }
-  .wf-logo { width: 80px; height: 18px; background: var(--block); border-radius: 2px; }
-  .wf-logo--light { background: rgba(255,255,255,0.3); }
-  .wf-nav { display:flex; gap:0.5rem; }
-  .wf-nav-item { width:44px; height:8px; background:var(--block); border-radius:1px; }
-  .wf-nav-item--light { background: rgba(255,255,255,0.2); }
+/* Stat counter */
+.s-stat { margin: 24px 0; }
+.s-stat__num {
+  font-family: var(--font-display); font-size: 52px; font-weight: 800;
+  color: var(--c-green-700); letter-spacing: -0.03em; line-height: 1;
+}
+.s-stat__label {
+  font-family: var(--font-body); font-size: 11px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--c-neutral-400);
+}
 
-  /* hero */
-  .wf-hero { padding: 2rem 1.2rem 1.5rem; }
-  .wf-hero--dark { padding: 3rem 1.2rem 2rem; }
+/* Testimonianza */
+.s-testi {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  padding: 28px; position: relative;
+}
+.s-testi::before {
+  content: '"'; font-family: var(--font-display); font-size: 48px;
+  color: var(--c-peach); position: absolute; top: 12px; left: 20px;
+  line-height: 1; opacity: 0.5;
+}
+.s-testi-text {
+  font-family: var(--font-body); font-size: 12.5px; line-height: 1.7;
+  color: rgba(255,255,255,0.7); margin: 16px 0 12px; padding-top: 8px;
+}
+.s-testi-name {
+  font-family: var(--font-body); font-size: 10px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--c-peach);
+}
 
-  /* infobar */
-  .wf-infobar {
-    background: #2A2A28; padding: 0.35rem 1.2rem;
-    display:flex; align-items:center; justify-content:space-between;
-  }
-  .wf-infobar-text { height:6px; width:60%; background:rgba(255,255,255,0.2); border-radius:1px; }
-  .wf-infobar-x { width:10px; height:10px; background:rgba(255,255,255,0.15); border-radius:50%; }
+/* Card */
+.s-card {
+  background: var(--c-white); border: 1px solid #eee;
+  overflow: hidden;
+}
+.s-card__img { width: 100%; height: 180px; overflow: hidden; }
+.s-card__body { padding: 24px; }
+.s-card__cat {
+  font-family: var(--font-body); font-size: 10px; letter-spacing: 0.15em;
+  text-transform: uppercase; display: inline-block; margin-bottom: 8px;
+}
+.s-card__cat--green { color: var(--c-green-700); }
+.s-card__cat--peach { color: var(--c-terracotta); }
+.s-card__arrow {
+  font-family: var(--font-body); font-size: 11px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--c-black); margin-top: 16px;
+  display: block;
+}
 
-  /* process list */
-  .wf-process { display:flex; flex-direction:column; gap:0.7rem; position:relative; padding-left:1.2rem; }
-  .wf-process::before { content:''; position:absolute; left:0.35rem; top:0.5rem; bottom:0.5rem; width:1.5px; background:rgba(255,255,255,0.15); }
-  .wf-process-item { display:flex; align-items:flex-start; gap:0.6rem; }
-  .wf-process-dot { width:10px; height:10px; border-radius:50%; background:rgba(230,191,145,0.6); flex-shrink:0; margin-top:2px; }
+/* Step numerato */
+.s-step { padding: 0 28px; }
+.s-step:first-child { padding-left: 0; }
+.s-step:last-child { padding-right: 0; }
+.s-step-num {
+  font-family: var(--font-display); font-size: 48px; font-weight: 800;
+  color: var(--c-green-100); letter-spacing: -0.03em; line-height: 1;
+  margin-bottom: 8px;
+}
 
-  /* footer */
-  .wf-footer {
-    background: #1A1A18; padding: 1rem 1.2rem;
-    display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:1rem;
-  }
+/* FAQ */
+.s-faq-item {
+  border-top: 1px solid #eee; padding: 16px 0;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.s-faq-q {
+  font-family: var(--font-body); font-size: 13px; letter-spacing: 0.03em;
+  color: var(--c-black);
+}
+.s-faq-icon { color: var(--c-green-700); font-size: 18px; }
 
-  /* faq */
-  .wf-faq-item {
-    border-top: 1px solid var(--border); padding: 0.5rem 0;
-    display:flex; align-items:center; justify-content:space-between;
-  }
-  .wf-faq-plus { width:14px; height:14px; background:var(--block); border-radius:50%; flex-shrink:0; }
+/* Input */
+.s-input {
+  width: 100%; border: 1px solid #ddd; padding: 13px 16px;
+  font-family: var(--font-body); font-size: 12px; letter-spacing: 0.05em;
+  color: var(--c-black); background: var(--c-white); margin-bottom: 12px;
+  outline: none;
+}
+.s-input--dark {
+  background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15);
+  color: var(--c-white);
+}
+.s-textarea {
+  width: 100%; border: 1px solid #ddd; padding: 13px 16px; height: 100px;
+  font-family: var(--font-body); font-size: 12px; color: var(--c-black);
+  background: var(--c-white); margin-bottom: 12px; resize: none;
+}
+.s-textarea--dark {
+  background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15);
+  color: var(--c-white);
+}
 
-  /* annotation */
-  .wf-note {
-    font-size: 0.62rem; color: #888; font-family: var(--mono);
-    background: #FFFDE8; border-left: 2px solid #F0C040;
-    padding: 0.25rem 0.5rem; margin-top: 0.3rem;
-  }
+/* Hero dark full */
+.s-hero-dark {
+  background: #1e2a1f;
+  position: relative; min-height: 520px;
+  display: flex; align-items: flex-end; padding: 0 0 60px;
+}
+.s-hero-dark::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%);
+}
+.s-hero-dark__inner { position: relative; z-index: 1; padding: 0 48px; }
 
-  /* nav-item active */
-  .wf-nav-item.active-pg { background: #2A2A28; border-radius: 2px; }
+/* Page hero light */
+.s-page-hero {
+  padding: 80px 48px 60px; background: var(--c-neutral-050);
+}
+.s-page-hero--cream { background: var(--c-cream); }
+
+/* Cert compact */
+.s-cert {
+  display: flex; align-items: center; gap: 40px;
+  padding: 32px 0; flex-wrap: wrap;
+}
+.s-cert-badges { display: flex; gap: 16px; }
+.s-cert-badge {
+  width: 64px; height: 64px; background: var(--c-green-100);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-body); font-size: 8px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--c-green-700); text-align: center;
+  padding: 4px;
+}
+.s-cert-sep { width: 1px; height: 72px; background: var(--c-green-100); flex-shrink: 0; }
+.s-cert-num {
+  font-family: var(--font-display); font-size: 40px; font-weight: 800;
+  color: var(--c-green-700); line-height: 1;
+}
+.s-cert-num-label {
+  font-family: var(--font-body); font-size: 10px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--c-neutral-400);
+}
+.s-cert-list { flex: 1; }
+.s-cert-list li {
+  font-family: var(--font-body); font-size: 12px; color: var(--c-neutral-400);
+  list-style: none; padding: 4px 0;
+  display: flex; align-items: center; gap: 8px;
+}
+.s-cert-list li::before {
+  content: ''; width: 6px; height: 6px;
+  background: var(--c-peach); transform: rotate(45deg); flex-shrink: 0;
+}
+
+/* Target section */
+.s-target { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.s-target-item {
+  display: flex; align-items: flex-start; gap: 20px;
+  padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.s-target-num {
+  font-family: var(--font-display); font-size: 32px; font-weight: 800;
+  color: rgba(255,255,255,0.1); flex-shrink: 0; line-height: 1;
+}
+.s-target-text {
+  font-family: var(--font-body); font-size: 12.5px; color: rgba(255,255,255,0.7);
+  padding-top: 6px; line-height: 1.6;
+}
+
+/* Benefit card */
+.s-benefit {
+  border: 1px solid rgba(255,255,255,0.1); padding: 24px;
+}
+.s-benefit-icon {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(230,191,145,0.15); display: flex; align-items: center;
+  justify-content: center; margin-bottom: 14px; font-size: 14px;
+}
+
+/* Process item */
+.s-process { position: relative; padding-left: 0; }
+.s-process-item { display: flex; gap: 16px; margin-bottom: 28px; position: relative; }
+.s-process-dot {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--c-peach); flex-shrink: 0; margin-top: 3px; z-index: 1;
+}
+
+/* Valori item */
+.s-valori-item { display: flex; gap: 14px; margin-bottom: 24px; }
+.s-valori-dot {
+  width: 8px; height: 8px; background: var(--c-peach);
+  flex-shrink: 0; margin-top: 5px;
+}
+.s-valori-label {
+  font-family: var(--font-display); font-size: 14px; font-weight: 700;
+  margin-bottom: 4px;
+}
+
+/* Evento row */
+.s-event-row {
+  display: flex; align-items: center; gap: 20px;
+  padding: 18px 0; border-bottom: 1px solid #eee;
+}
+.s-event-date {
+  width: 44px; text-align: center; flex-shrink: 0;
+}
+.s-event-day {
+  font-family: var(--font-display); font-size: 22px; font-weight: 800;
+  color: var(--c-green-700); line-height: 1;
+}
+.s-event-month {
+  font-family: var(--font-body); font-size: 9px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--c-neutral-400);
+}
+.s-event-type {
+  font-family: var(--font-body); font-size: 9px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--c-terracotta); margin-bottom: 3px;
+}
+.s-event-title {
+  font-family: var(--font-display); font-size: 14px; font-weight: 700;
+}
+.s-event-loc {
+  font-family: var(--font-body); font-size: 11px; color: var(--c-neutral-400);
+  margin-top: 2px;
+}
+
+/* Podcast row */
+.s-pod-row {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 0; border-bottom: 1px solid #eee;
+}
+.s-pod-play {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--c-green-100); display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0;
+  font-size: 12px; color: var(--c-green-700);
+}
+.s-pod-dur {
+  margin-left: auto; font-family: monospace; font-size: 11px;
+  color: var(--c-neutral-400); flex-shrink: 0;
+}
+
+/* Map */
+.s-map {
+  background: var(--c-green-100); height: 180px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.s-map::after {
+  content: ''; position: absolute; inset: 0;
+  background: repeating-linear-gradient(-45deg, transparent, transparent 12px, rgba(99,118,100,0.06) 12px, rgba(99,118,100,0.06) 13px);
+}
+.s-map-label {
+  font-family: var(--font-body); font-size: 10px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--c-green-700); z-index: 1;
+}
+
+/* Benessere az list */
+.s-az-list-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.s-az-icon {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(230,191,145,0.12); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--c-peach);
+}
+.s-az-label {
+  font-family: var(--font-body); font-size: 12.5px; color: rgba(255,255,255,0.75);
+}
+
+/* News card */
+.s-news-card { background: var(--c-white); border: 1px solid #eee; }
+.s-news-card-img {
+  width: 100%; height: 140px; background: var(--c-green-100);
+  overflow: hidden; position: relative;
+}
+.s-news-card-img::after {
+  content: ''; position: absolute; inset: 0;
+  background: repeating-linear-gradient(-45deg, transparent, transparent 8px, rgba(99,118,100,0.08) 8px, rgba(99,118,100,0.08) 9px);
+}
+.s-news-card-body { padding: 20px; }
+.s-news-card-cat {
+  font-family: var(--font-body); font-size: 9px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--c-green-700); margin-bottom: 6px;
+}
+.s-news-card-title {
+  font-family: var(--font-display); font-size: 14px; font-weight: 700;
+  line-height: 1.3; margin-bottom: 6px;
+}
+.s-news-card-date {
+  font-family: var(--font-body); font-size: 10px; color: var(--c-neutral-400);
+}
+
+/* CTA BOX strip */
+.s-cta-strip {
+  background: var(--c-white); border: 1px solid var(--c-green-100);
+  padding: 28px 36px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  flex-wrap: wrap; margin-top: 36px;
+}
+
+/* Shared footer shorthand */
+.s-footer-short {
+  background: #111; padding: 40px 48px 28px;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+}
 </style>
+</head>
+<body>
 
-<div class="topbar">
-  <div class="topbar__title">Wireframe · Nicoletta Ingusci</div>
-  <div class="topbar__pages">
-    <button class="tab active" onclick="showPage('home')">Home</button>
-    <button class="tab" onclick="showPage('chi-sono')">Chi sono</button>
-    <button class="tab" onclick="showPage('yoga')">Yoga</button>
-    <button class="tab" onclick="showPage('coaching')">Coaching</button>
-    <button class="tab" onclick="showPage('aziendale')">Aziendale</button>
-    <button class="tab" onclick="showPage('eventi')">Eventi</button>
-    <button class="tab" onclick="showPage('risorse')">Risorse</button>
-    <button class="tab" onclick="showPage('podcast')">Podcast</button>
-    <button class="tab" onclick="showPage('contatti')">Contatti</button>
+<!-- ─── CHROME ─────────────────────────── -->
+<div class="chrome">
+  <div class="chrome__tabs">
+    <button class="chrome__tab active" onclick="show('home',this)"><span class="chrome__dot"></span>Home</button>
+    <button class="chrome__tab" onclick="show('chi-sono',this)"><span class="chrome__dot"></span>Chi sono</button>
+    <button class="chrome__tab" onclick="show('yoga',this)"><span class="chrome__dot"></span>Yoga</button>
+    <button class="chrome__tab" onclick="show('coaching',this)"><span class="chrome__dot"></span>Coaching</button>
+    <button class="chrome__tab" onclick="show('aziendale',this)"><span class="chrome__dot"></span>Aziendale</button>
+    <button class="chrome__tab" onclick="show('eventi',this)"><span class="chrome__dot"></span>Eventi</button>
+    <button class="chrome__tab" onclick="show('news',this)"><span class="chrome__dot"></span>Risorse</button>
+    <button class="chrome__tab" onclick="show('podcast',this)"><span class="chrome__dot"></span>Podcast</button>
+    <button class="chrome__tab" onclick="show('contatti',this)"><span class="chrome__dot"></span>Contatti</button>
   </div>
+  <div class="chrome__info">Wireframe HiFi · nicolettaingusci.it</div>
 </div>
 
-<div class="canvas">
+<div class="viewport-wrap">
 
-<!-- ════════ INFO PANEL ════════ -->
-<div class="info-panel">
-  <div class="info-card">
-    <div class="info-card__title">Legenda</div>
-    <div class="legend">
-      <div class="legend-item"><div class="legend-dot" style="background:#E6E6E2;border:1px solid #ccc"></div> Blocco contenuto</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#C8DCF0"></div> CTA / Button</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#C8D8C9"></div> Sezione verde</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#E8D4CC"></div> Sezione terracotta</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#2D3D2E"></div> Sezione dark</div>
-      <div class="legend-item"><div class="legend-dot" style="background:repeating-linear-gradient(-45deg,#ddd,#ddd 3px,#f5f5f5 3px,#f5f5f5 6px)"></div> Immagine / Media</div>
-    </div>
+<!-- ══════════════════════════════════════  HOME  ══════════════════════════════════════ -->
+<div id="pf-home" class="page-frame active">
+<div class="site-shell">
+
+  <div class="s-infobar">
+    <span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#">Scopri le date</a></span>
+    <span class="s-infobar__x">✕</span>
   </div>
-  <div class="info-card" id="info-section">
-    <div class="info-card__title">Pagina selezionata</div>
-    <div class="info-card__body" id="info-body">
-      <b>Homepage</b><br>index.html<br><br>
-      Slider hero 3 slide, sezione introduzione 2-col, 3 percorsi, testimonianze, newsletter CTA.
-    </div>
-  </div>
-  <div class="info-card">
-    <div class="info-card__title">Componenti riutilizzati</div>
-    <div class="info-card__body">
-      Info bar · Navbar · Footer · Page hero · Target section (dark green) · Metodo steps · Benefici grid · CTA block · Testimonianze grid
-    </div>
-  </div>
-</div>
+  <header class="s-header">
+    <div class="s-logo">Nicoletta Ingusci</div>
+    <nav class="s-nav">
+      <a href="#">Chi sono</a><a href="#">Yoga</a><a href="#">Coaching</a>
+      <a href="#">Benessere aziendale</a><a href="#">Eventi</a>
+      <a href="#">Risorse</a><a href="#">Contatti</a>
+    </nav>
+    <button class="s-btn s-btn--primary">Prenota una call</button>
+  </header>
 
-<!-- ════════ PAGES ════════ -->
-<div style="flex:1;min-width:0;">
-
-<!-- ── HOME ── -->
-<div id="page-home" class="page-frame active">
-  <div class="page-title-bar"><h2>Homepage</h2><span>index.html</span></div>
-
-  <div class="wf-infobar"><div class="wf-infobar-text"></div><div class="wf-infobar-x"></div></div>
-  <div class="wf-header">
-    <div class="wf-logo"></div>
-    <div class="wf-nav"><div class="wf-nav-item active-pg"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div></div>
-    <div class="wf-btn wf-btn--sm"></div>
-  </div>
-
-  <div class="wf-section wf-section--dark" style="min-height:220px;position:relative;">
-    <div class="section-tag">HERO — SLIDER 3 SLIDE</div>
-    <div class="wf-hero--dark">
-      <div class="wf-2col">
-        <div>
-          <div class="wf-label wf-label--light" style="margin-bottom:.5rem;">slide indicator ○ ● ○</div>
-          <div class="wf-h1 wf-h1--light" style="width:90%;height:28px;"></div>
-          <div class="wf-h1 wf-h1--light" style="width:65%;height:28px;margin-top:.3rem;"></div>
-          <div style="margin-top:0.8rem;"><div class="wf-btn wf-btn--md wf-btn--light"></div><div class="wf-btn wf-btn--md wf-btn--light-ghost"></div></div>
-        </div>
-        <div class="wf-img wf-img--geom" style="height:140px;"></div>
+  <!-- HERO -->
+  <div class="s-hero-dark">
+    <div class="s-hero-dark__inner">
+      <div class="s-label s-label--light">Yoga · Coaching · Benessere</div>
+      <div class="s-h1 s-h1--light" style="max-width:660px;">Il benessere non è un traguardo.<br>È una pratica.</div>
+      <p class="s-p s-p--light" style="max-width:520px;">Un approccio integrato che mette in dialogo corpo, mente e conoscenze scientifiche per costruire equilibrio, consapevolezza e cambiamenti sostenibili.</p>
+      <div class="s-btns">
+        <button class="s-btn s-btn--light">Scopri l'approccio</button>
+        <button class="s-btn s-btn--light-ghost">Contatta Nicoletta</button>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:32px;">
+        <div style="width:28px;height:3px;background:#fff;opacity:1;"></div>
+        <div style="width:8px;height:3px;background:#fff;opacity:0.35;"></div>
+        <div style="width:8px;height:3px;background:#fff;opacity:0.35;"></div>
       </div>
     </div>
-    <div class="wf-note">JS: autoplay slider, scroll reveal. Foto con clip-path geometrica.</div>
   </div>
 
-  <div class="wf-section wf-section--neutral">
-    <div class="section-tag">CERTIFICAZIONI STRIP</div>
-    <div class="section-inner">
-      <div style="display:flex;gap:1.5rem;align-items:center;justify-content:center;padding:0.3rem 0;">
-        <div class="wf-img" style="width:50px;height:50px;"></div>
-        <div class="wf-img" style="width:50px;height:50px;"></div>
-        <div class="wf-divider" style="height:30px;"></div>
-        <div><div class="wf-h2" style="width:80px;height:22px;"></div><div class="wf-text wf-text-w80" style="margin-top:.3rem;width:100px;"></div></div>
-        <div class="wf-divider" style="height:30px;"></div>
-        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
-          <div class="wf-btn wf-btn--sm" style="height:18px;"></div>
-          <div class="wf-btn wf-btn--sm" style="height:18px;"></div>
-          <div class="wf-btn wf-btn--sm" style="height:18px;"></div>
+  <!-- CHI È / INTRO -->
+  <section class="s-section--lg bg-neutral">
+    <div class="s-container">
+      <div class="s-2col">
+        <div class="s-photo" style="height:380px;">
+          <span class="s-photo-label">lafondatrice.webp</span>
         </div>
-      </div>
-      <div class="wf-note">JS: contatore animato +3.000 al scroll.</div>
-    </div>
-  </div>
-
-  <div class="wf-section">
-    <div class="section-tag">INTRO — 2 COLONNE</div>
-    <div class="section-inner">
-      <div class="wf-2col wf-2col--4060" style="align-items:center;gap:1.5rem;">
-        <div class="wf-img wf-img--geom" style="height:200px;"></div>
         <div>
-          <div class="wf-label">La fondatrice</div>
-          <div class="wf-h2" style="width:85%;margin-bottom:.4rem;"></div>
-          <div class="wf-text wf-text-w80"></div><div class="wf-text"></div><div class="wf-text wf-text-w60"></div>
-          <div style="margin-top:.6rem;display:flex;gap:.4rem;flex-wrap:wrap;">
-            <div class="wf-btn wf-btn--sm" style="height:18px;background:var(--block-green);"></div>
-            <div class="wf-btn wf-btn--sm" style="height:18px;background:var(--block-terracotta);"></div>
+          <div class="s-label">Chi sono</div>
+          <div class="s-h2">Un metodo fondato su studio, ascolto e pratica concreta.</div>
+          <p class="s-p">Nicoletta Ingusci lavora con persone e organizzazioni per costruire percorsi di benessere reali, personalizzati e sostenibili, integrando yoga, coaching e conoscenze scientifiche.</p>
+          <div class="s-method-block">Non si tratta di proporre soluzioni rapide. Si tratta di costruire insieme un percorso che risponda a esigenze reali e produca cambiamenti duraturi.</div>
+          <div class="s-stat">
+            <div class="s-stat__num">+3.000</div>
+            <div class="s-stat__label">ore di insegnamento</div>
           </div>
-          <div class="wf-btn wf-btn--md" style="margin-top:.6rem;"></div>
+          <div style="margin-bottom:20px;">
+            <span class="s-tag s-tag--green">Yoga</span>
+            <span class="s-tag s-tag--green">Coaching</span>
+            <span class="s-tag s-tag--peach">Benessere psicofisico</span>
+            <span class="s-tag s-tag--green">Approccio scientifico</span>
+          </div>
+          <button class="s-btn s-btn--outline">Conosci il mio approccio</button>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="wf-section wf-section--neutral">
-    <div class="section-tag">I PERCORSI — 3 CARD</div>
-    <div class="section-inner">
-      <div class="wf-label" style="margin-bottom:.5rem;">I percorsi</div>
-      <div class="wf-h2" style="width:55%;margin-bottom:1rem;"></div>
-      <div class="wf-3col">
-        <div class="wf-card"><div class="wf-img" style="height:80px;margin-bottom:.5rem;"></div><div class="wf-label">Yoga</div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60"></div></div>
-        <div class="wf-card"><div class="wf-img" style="height:80px;margin-bottom:.5rem;"></div><div class="wf-label">Coaching</div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60"></div></div>
-        <div class="wf-card"><div class="wf-img" style="height:80px;margin-bottom:.5rem;"></div><div class="wf-label">Aziendale</div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60"></div></div>
+  <!-- I PERCORSI -->
+  <section class="s-section--lg bg-green100">
+    <div class="s-container">
+      <div class="s-section-header s-section-header--center">
+        <div class="s-label">I percorsi</div>
+        <div class="s-h2">Due vie, un solo approccio integrato.</div>
+        <p class="s-p" style="max-width:50ch;margin:0 auto;">Yoga e coaching sono strumenti distinti che puoi seguire separatamente o come parte di un percorso costruito intorno a te.</p>
+      </div>
+      <div class="s-2col-equal">
+        <div class="s-card">
+          <div class="s-card__img"><div class="s-photo" style="height:100%;"><span class="s-photo-label">yoga.webp</span></div></div>
+          <div class="s-card__body">
+            <span class="s-card__cat s-card__cat--green">Yoga</span>
+            <div class="s-h3">Il percorso Yoga</div>
+            <p class="s-p">Percorsi individuali e di gruppo. Pratica, respiro e consapevolezza radicati nella tradizione, orientati al benessere contemporaneo.</p>
+            <span class="s-card__arrow">Scopri il percorso →</span>
+          </div>
+        </div>
+        <div class="s-card">
+          <div class="s-card__img"><div class="s-photo" style="height:100%;"><span class="s-photo-label">coaching.webp</span></div></div>
+          <div class="s-card__body">
+            <span class="s-card__cat s-card__cat--peach">Coaching</span>
+            <div class="s-h3">Il percorso Coaching</div>
+            <p class="s-p">Chiarezza, strumenti concreti e cambiamenti sostenibili. Un metodo strutturato per fare chiarezza su sé stessi e scegliere con più consapevolezza.</p>
+            <span class="s-card__arrow">Scopri il percorso →</span>
+          </div>
+        </div>
+      </div>
+      <div class="s-cta-strip">
+        <div>
+          <div class="s-h3">Hai bisogno di un percorso su misura?</div>
+          <p class="s-p" style="margin:0;">Yoga e coaching possono essere integrati in un percorso costruito intorno a te.</p>
+        </div>
+        <button class="s-btn s-btn--primary">Richiedi informazioni</button>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="wf-section wf-section--dark">
-    <div class="section-tag">TESTIMONIANZE — 3 CARD</div>
-    <div class="section-inner">
-      <div class="wf-label wf-label--light" style="margin-bottom:.5rem;">Testimonianze</div>
-      <div class="wf-h2 wf-h2--light" style="width:50%;margin-bottom:1rem;"></div>
-      <div class="wf-3col">
-        <div class="wf-card wf-card--dark"><div class="wf-h2 wf-h2--light" style="width:20px;height:20px;margin-bottom:.4rem;"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80"></div><div class="wf-text wf-text--light wf-text-w60"></div></div>
-        <div class="wf-card wf-card--dark"><div class="wf-h2 wf-h2--light" style="width:20px;height:20px;margin-bottom:.4rem;"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80"></div><div class="wf-text wf-text--light wf-text-w60"></div></div>
-        <div class="wf-card wf-card--dark"><div class="wf-h2 wf-h2--light" style="width:20px;height:20px;margin-bottom:.4rem;"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80"></div><div class="wf-text wf-text--light wf-text-w60"></div></div>
+  <!-- BENESSERE AZIENDALE -->
+  <section class="s-section bg-dark">
+    <div class="s-container">
+      <div class="s-2col">
+        <div>
+          <div class="s-label s-label--peach">Per le organizzazioni</div>
+          <div class="s-h2 s-h2--light">Benessere aziendale che produce risultati concreti.</div>
+          <p class="s-p s-p--light">Programmi tailor made per team e organizzazioni. Non attività di wellness generiche, ma interventi integrati, credibili e misurabili.</p>
+          <div class="s-btns">
+            <button class="s-btn s-btn--cream">Scopri i programmi</button>
+            <button class="s-btn s-btn--light-ghost">Prenota una call</button>
+          </div>
+        </div>
+        <div>
+          <div class="s-az-list-item"><div class="s-az-icon">✓</div><div class="s-az-label">Riduzione di stress e burnout</div></div>
+          <div class="s-az-list-item"><div class="s-az-icon">◎</div><div class="s-az-label">Miglioramento di focus e presenza</div></div>
+          <div class="s-az-list-item"><div class="s-az-icon">⟳</div><div class="s-az-label">Maggiore coesione dei team</div></div>
+          <div class="s-az-list-item"><div class="s-az-icon">▣</div><div class="s-az-label">Strumenti concreti e applicabili</div></div>
+          <div class="s-az-list-item"><div class="s-az-icon">◈</div><div class="s-az-label">Percorsi adattati al contesto aziendale</div></div>
+          <div class="s-az-list-item"><div class="s-az-icon">↑</div><div class="s-az-label">Approccio credibile e misurabile</div></div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="wf-section wf-section--green">
-    <div class="section-tag">CTA NEWSLETTER</div>
-    <div class="section-inner" style="text-align:center;padding:1.5rem;">
-      <div class="wf-h2 wf-h2--light" style="width:50%;margin:0 auto .4rem;"></div>
-      <div class="wf-text wf-text--light wf-text-w60" style="margin:0 auto .8rem;"></div>
-      <div class="wf-btn wf-btn--md wf-btn--light" style="margin:0 auto;display:block;"></div>
+  <!-- TESTIMONIANZE -->
+  <section class="s-section bg-dark" style="border-top:1px solid rgba(255,255,255,0.06);">
+    <div class="s-container">
+      <div class="s-section-header s-section-header--center">
+        <div class="s-label s-label--light">Testimonianze</div>
+        <div class="s-h2 s-h2--light">Le parole di chi ha già percorso questa strada.</div>
+      </div>
+      <div class="s-3col">
+        <div class="s-testi"><p class="s-testi-text">Il percorso con Nicoletta mi ha aiutata a ritrovare un equilibrio che non credevo più possibile. Non è stata yoga, non è stato coaching — è stata una presenza costante e competente.</p><div class="s-testi-name">M.R. — Percorso individuale</div></div>
+        <div class="s-testi"><p class="s-testi-text">Abbiamo coinvolto Nicoletta per un programma aziendale. I risultati sono stati concreti e misurabili: il team è più presente, più connesso, più efficace.</p><div class="s-testi-name">G.B. — HR Manager</div></div>
+        <div class="s-testi"><p class="s-testi-text">Lo yoga che insegna Nicoletta non ha niente di generico. È un percorso costruito su di te, con un'attenzione al corpo e alla respirazione che non avevo mai trovato altrove.</p><div class="s-testi-name">L.C. — Percorso Yoga</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINALE -->
+  <section class="s-section--sm bg-darkgreen" style="text-align:center;">
+    <div class="s-container">
+      <div class="s-label s-label--light">Inizia da qui</div>
+      <div class="s-h2 s-h2--light" style="max-width:480px;margin:0 auto 16px;">Pronti a costruire qualcosa di reale?</div>
+      <p class="s-p s-p--light" style="max-width:400px;margin:0 auto 32px;">Scrivici per scoprire qual è il percorso più adatto a te.</p>
+      <button class="s-btn s-btn--light">Contatta Nicoletta</button>
+    </div>
+  </section>
+
+  <footer class="s-footer">
+    <div><div class="s-footer-logo">Nicoletta Ingusci</div><p style="font-family:var(--font-body);font-size:11px;color:rgba(255,255,255,0.3);line-height:1.6;max-width:26ch;">Yoga · Coaching · Benessere Aziendale. Un approccio integrato al benessere psicofisico.</p></div>
+    <div><div class="s-footer-col__title">Percorsi</div><a class="s-footer-link">Yoga</a><a class="s-footer-link">Coaching</a><a class="s-footer-link">Benessere Aziendale</a></div>
+    <div><div class="s-footer-col__title">Informazioni</div><a class="s-footer-link">Chi sono</a><a class="s-footer-link">Eventi</a><a class="s-footer-link">Risorse</a><a class="s-footer-link">Podcast</a></div>
+    <div><div class="s-footer-col__title">Contatti</div><a class="s-footer-link">Scrivimi</a><a class="s-footer-link">Instagram</a><a class="s-footer-link">LinkedIn</a></div>
+    <div class="s-footer-copy"><span>© 2025 Nicoletta Ingusci — P.IVA 00000000000</span><span>Privacy Policy · Cookie Policy</span></div>
+  </footer>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════  CHI SONO  ══════════════════════════════════════ -->
+<div id="pf-chi-sono" class="page-frame">
+<div class="site-shell">
+  <div class="s-infobar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#">Scopri le date</a></span><span class="s-infobar__x">✕</span></div>
+  <header class="s-header"><div class="s-logo">Nicoletta Ingusci</div><nav class="s-nav"><a href="#">Chi sono</a><a href="#">Yoga</a><a href="#">Coaching</a><a href="#">Benessere aziendale</a><a href="#">Eventi</a><a href="#">Risorse</a><a href="#">Contatti</a></nav><button class="s-btn s-btn--primary">Prenota una call</button></header>
+
+  <div class="s-page-hero">
+    <div class="s-container">
+      <div class="s-label">Nicoletta Ingusci</div>
+      <div class="s-h1" style="max-width:700px;">Un metodo fondato su studio, ascolto e pratica concreta.</div>
     </div>
   </div>
 
-  <div class="wf-footer">
-    <div><div class="wf-logo wf-logo--light" style="margin-bottom:.5rem;"></div><div class="wf-text" style="background:rgba(255,255,255,0.15);width:90%;margin-bottom:.3rem;"></div><div class="wf-text" style="background:rgba(255,255,255,0.15);width:70%;"></div></div>
-    <div><div class="wf-text" style="background:rgba(255,255,255,0.15);width:60%;margin-bottom:.4rem;height:10px;"></div><div class="wf-text" style="background:rgba(255,255,255,0.1);margin-bottom:.2rem;"></div><div class="wf-text" style="background:rgba(255,255,255,0.1);margin-bottom:.2rem;width:80%;"></div><div class="wf-text" style="background:rgba(255,255,255,0.1);width:70%;"></div></div>
-    <div><div class="wf-text" style="background:rgba(255,255,255,0.15);width:60%;margin-bottom:.4rem;height:10px;"></div><div class="wf-text" style="background:rgba(255,255,255,0.1);margin-bottom:.2rem;"></div><div class="wf-text" style="background:rgba(255,255,255,0.1);width:80%;"></div></div>
-    <div><div class="wf-text" style="background:rgba(255,255,255,0.15);width:60%;margin-bottom:.4rem;height:10px;"></div><div class="wf-text" style="background:rgba(255,255,255,0.1);margin-bottom:.2rem;width:90%;"></div><div class="wf-text" style="background:rgba(255,255,255,0.1);width:70%;"></div></div>
+  <section class="s-section--lg bg-neutral">
+    <div class="s-container">
+      <div class="s-2col">
+        <div class="s-photo s-photo--geom" style="height:420px;"><span class="s-photo-label">lafondatrice.webp</span></div>
+        <div>
+          <div class="s-label">La storia</div>
+          <div class="s-h2">Perché ho scelto questo approccio.</div>
+          <p class="s-p">Nel 2009 sono entrata per caso in una Shala, e ho sentito di aver trovato il mio posto nel mondo. Ho studiato con il maestro Prashant Pandey della scuola Bihar (India), apprendendo la tradizione yogica più autentica.</p>
+          <p class="s-p">Nel 2020 ho completato la formazione in NLP Coaching, dando forma a un metodo integrato. Nel 2019 ho fondato il progetto "Yoga, alleato contro il cancro", oggi attivo in tutta Italia.</p>
+          <div class="s-method-block">Il tappetino è il mio amico più fedele, compagno inseparabile di esplorazione dell'anima. Il benessere non è un traguardo, è una pratica.</div>
+          <div><span class="s-tag s-tag--green">E-RYT 800</span><span class="s-tag s-tag--green">YACEP</span><span class="s-tag s-tag--peach">ICF Global</span><span class="s-tag s-tag--green">+3.000h</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-section bg-neutral" style="border-top:1px solid #e8e8e8;">
+    <div class="s-container">
+      <div class="s-section-header s-section-header--center"><div class="s-label">I percorsi</div><div class="s-h2">Esplora i percorsi disponibili.</div></div>
+      <div class="s-3col">
+        <div class="s-card"><div class="s-card__img"><div class="s-photo" style="height:100%;"><span class="s-photo-label">yoga.webp</span></div></div><div class="s-card__body"><span class="s-card__cat s-card__cat--green">Yoga</span><div class="s-h3">Il percorso Yoga</div><p class="s-p">Pratica, respiro e consapevolezza.</p><span class="s-card__arrow">Scopri il percorso →</span></div></div>
+        <div class="s-card"><div class="s-card__img"><div class="s-photo" style="height:100%;"><span class="s-photo-label">coaching.webp</span></div></div><div class="s-card__body"><span class="s-card__cat s-card__cat--peach">Coaching</span><div class="s-h3">Il percorso Coaching</div><p class="s-p">Chiarezza, strumenti concreti e cambiamenti sostenibili.</p><span class="s-card__arrow">Scopri il percorso →</span></div></div>
+        <div class="s-card"><div class="s-card__img"><div class="s-photo" style="height:100%;"><span class="s-photo-label">benessereaziendale.webp</span></div></div><div class="s-card__body"><span class="s-card__cat s-card__cat--green">Aziendale</span><div class="s-h3">Benessere Aziendale</div><p class="s-p">Programmi tailor made per team e organizzazioni.</p><span class="s-card__arrow">Scopri i programmi →</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-section--lg bg-white">
+    <div class="s-container">
+      <div class="s-2col">
+        <div>
+          <div class="s-label">Valori e metodo</div>
+          <div class="s-h2">Come lavoro con le persone.</div>
+          <div class="s-valori-item"><div class="s-valori-dot"></div><div><div class="s-valori-label">Ascolto profondo</div><p class="s-p" style="margin:0;">Ogni percorso parte dall'ascolto reale della persona, non da un modello precostituito.</p></div></div>
+          <div class="s-valori-item"><div class="s-valori-dot"></div><div><div class="s-valori-label">Rigore scientifico</div><p class="s-p" style="margin:0;">L'approccio integra le conoscenze su sistema nervoso, anatomia funzionale e fisiologia.</p></div></div>
+          <div class="s-valori-item"><div class="s-valori-dot"></div><div><div class="s-valori-label">Pratica concreta</div><p class="s-p" style="margin:0;">Il cambiamento si costruisce nella vita quotidiana, non solo nelle sessioni.</p></div></div>
+        </div>
+        <div>
+          <div class="s-testi" style="background:rgba(99,118,100,0.05);border:1px solid var(--c-green-100);">
+            <p class="s-testi-text" style="color:rgba(0,0,0,0.6);">Il benessere non è qualcosa che si raggiunge. È qualcosa che si pratica ogni giorno, con strumenti adatti alla propria vita reale.</p>
+            <div class="s-testi-name" style="color:var(--c-terracotta);">— Nicoletta Ingusci</div>
+          </div>
+          <div style="border:1px solid var(--c-green-100);padding:24px;margin-top:20px;">
+            <div class="s-h3" style="font-size:14px;margin-bottom:8px;">Formazione</div>
+            <p class="s-p">E-RYT 800 Yoga Alliance · YACEP · NLP Coaching (EIC) · ICF Global · Scuola Bihar (India) · Anatomia funzionale applicata allo yoga</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-section--sm bg-neutral">
+    <div class="s-container">
+      <div class="s-label">Certificazioni</div>
+      <div class="s-h2" style="margin-bottom:32px;">Formazione riconosciuta a livello internazionale.</div>
+      <div class="s-cert">
+        <div class="s-cert-badges"><div class="s-cert-badge">E-RYT<br>500</div><div class="s-cert-badge">YACEP<br>2025</div></div>
+        <div class="s-cert-sep"></div>
+        <div><div class="s-cert-num">+3.000</div><div class="s-cert-num-label">ore di insegnamento</div></div>
+        <div class="s-cert-sep"></div>
+        <ul class="s-cert-list">
+          <li>Yoga Alliance E-RYT 500 · YACEP 2025</li>
+          <li>NLP Coach certificato ICF Global</li>
+          <li>Formazione Bihar School of Yoga (India)</li>
+          <li>Fondatrice "Yoga, alleato contro il cancro"</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-section--sm bg-darkgreen" style="text-align:center;">
+    <div class="s-container">
+      <div class="s-label s-label--light">Vuoi saperne di più?</div>
+      <div class="s-h2 s-h2--light" style="max-width:460px;margin:0 auto 28px;">Prenota una call conoscitiva gratuita.</div>
+      <button class="s-btn s-btn--light">Prenota ora</button>
+    </div>
+  </section>
+
+  <footer class="s-footer"><div><div class="s-footer-logo">Nicoletta Ingusci</div></div><div><div class="s-footer-col__title">Percorsi</div><a class="s-footer-link">Yoga</a><a class="s-footer-link">Coaching</a></div><div><div class="s-footer-col__title">Info</div><a class="s-footer-link">Chi sono</a><a class="s-footer-link">Podcast</a></div><div><div class="s-footer-col__title">Contatti</div><a class="s-footer-link">Scrivimi</a></div><div class="s-footer-copy"><span>© 2025 Nicoletta Ingusci</span><span>Privacy · Cookie</span></div></footer>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════  YOGA  ══════════════════════════════════════ -->
+<div id="pf-yoga" class="page-frame">
+<div class="site-shell">
+  <div class="s-infobar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#">Scopri le date</a></span><span class="s-infobar__x">✕</span></div>
+  <header class="s-header"><div class="s-logo">Nicoletta Ingusci</div><nav class="s-nav"><a href="#">Chi sono</a><a href="#">Yoga</a><a href="#">Coaching</a><a href="#">Benessere aziendale</a><a href="#">Eventi</a><a href="#">Risorse</a><a href="#">Contatti</a></nav><button class="s-btn s-btn--primary">Prenota una call</button></header>
+
+  <div class="s-page-hero bg-neutral">
+    <div class="s-container">
+      <div class="s-label">Percorso</div>
+      <div class="s-h1">Il percorso Yoga</div>
+      <p class="s-p" style="max-width:560px;">Uno strumento di conoscenza di sé che integra movimento, respiro e consapevolezza in modo scientifico, personalizzato e accessibile.</p>
+      <div class="s-btns"><button class="s-btn s-btn--primary">Richiedi informazioni</button><button class="s-btn s-btn--secondary">Scopri gli eventi</button></div>
+    </div>
   </div>
+
+  <section class="s-section--lg bg-neutral">
+    <div class="s-container">
+      <div class="s-2col">
+        <div>
+          <div class="s-label">Il percorso</div>
+          <div class="s-h2">Yoga non è solo una pratica fisica.</div>
+          <p class="s-p">È un sistema integrato che lavora su corpo, mente e respiro. Un percorso che parte dall'osservazione di sé per costruire equilibrio, consapevolezza e strumenti concreti.</p>
+          <div class="s-method-block">L'approccio si distingue per il rigore scientifico con cui integra la pratica tradizionale con le conoscenze sul sistema nervoso, sull'anatomia funzionale e sulla fisiologia del respiro.</div>
+          <div><span class="s-tag s-tag--green">Hatha Yoga</span><span class="s-tag s-tag--green">Pranayama</span><span class="s-tag s-tag--green">Mindfulness</span><span class="s-tag s-tag--peach">Approccio scientifico</span></div>
+        </div>
+        <div class="s-photo s-photo--geom" style="height:400px;"><span class="s-photo-label">yoga.webp</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-section--lg bg-darkgreen">
+    <div class="s-container">
+      <div class="s-target">
+        <div>
+          <div class="s-label s-label--light">A chi è rivolto</div>
+          <div class="s-h2 s-h2--light">Per chi vuole più di una lezione di yoga.</div>
+          <p class="s-p s-p--light">Un approccio consapevole e personalizzato, non una pratica generica di gruppo.</p>
+        </div>
+        <div>
+          <div class="s-target-item"><div class="s-target-num">01</div><div class="s-target-text">Chi sente stress o tensione fisica e vuole strumenti concreti per gestirli</div></div>
+          <div class="s-target-item"><div class="s-target-num">02</div><div class="s-target-text">Chi ha già una pratica e vuole approfondirla con un supporto esperto</div></div>
+          <div class="s-target-item"><div class="s-target-num">03</div><div class="s-target-text">Chi vuole imparare a usare il respiro come strumento di regolazione</div></div>
+          <div class="s-target-item"><div class="s-target-num">04</div><div class="s-target-text">Chi cerca un approccio radicato nella tradizione ma orientato alla vita contemporanea</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-section bg-white">
+    <div class="s-container">
+      <div class="s-section-header"><div class="s-label">Metodo e modalità</div><div class="s-h2">Come si svolge il percorso.</div></div>
+      <div class="s-3col" style="margin-bottom:40px;">
+        <div class="s-step" style="border-right:1px solid #eee;"><div class="s-step-num">01</div><div class="s-h3">Valutazione iniziale</div><p class="s-p">Una sessione conoscitiva per capire la tua storia e costruire un percorso su misura.</p></div>
+        <div class="s-step" style="border-right:1px solid #eee;"><div class="s-step-num">02</div><div class="s-h3">Pratica progressiva</div><p class="s-p">Sessioni individuali o di gruppo, in presenza a Milano o online, con cadenza settimanale.</p></div>
+        <div class="s-step"><div class="s-step-num">03</div><div class="s-h3">Integrazione quotidiana</div><p class="s-p">Strumenti pratici da applicare nella vita di tutti i giorni.</p></div>
+      </div>
+      <div class="s-4col">
+        <div style="padding:20px;background:var(--c-neutral-050);"><div class="s-h3" style="font-size:13px;">Individuale</div><p class="s-p">Lezioni 1:1 in presenza o online</p></div>
+        <div style="padding:20px;background:var(--c-neutral-050);"><div class="s-h3" style="font-size:13px;">Piccoli gruppi</div><p class="s-p">Max 6 persone, approccio personalizzato</p></div>
+        <div style="padding:20px;background:var(--c-neutral-050);"><div class="s-h3" style="font-size:13px;">Retreat</div><p class="s-p">Immersioni intensive in luoghi selezionati</p></div>
+        <div style="padding:20px;background:var(--c-neutral-050);"><div class="s-h3" style="font-size:13px;">Online</div><p class="s-p">Sessioni live in videochiamata, stessa qualità</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-section--sm bg-dark" style="text-align:center;">
+    <div class="s-container">
+      <div class="s-label s-label--light">Pronta a cominciare?</div>
+      <div class="s-h2 s-h2--light" style="max-width:440px;margin:0 auto 28px;">Inizia il tuo percorso Yoga.</div>
+      <button class="s-btn s-btn--light">Prenota la prima sessione</button>
+    </div>
+  </section>
+
+  <footer class="s-footer"><div><div class="s-footer-logo">Nicoletta Ingusci</div></div><div><div class="s-footer-col__title">Percorsi</div><a class="s-footer-link">Yoga</a><a class="s-footer-link">Coaching</a></div><div><div class="s-footer-col__title">Info</div><a class="s-footer-link">Chi sono</a><a class="s-footer-link">Eventi</a></div><div><div class="s-footer-col__title">Contatti</div><a class="s-footer-link">Scrivimi</a></div><div class="s-footer-copy"><span>© 2025 Nicoletta Ingusci</span><span>Privacy · Cookie</span></div></footer>
+</div>
 </div>
 
-<!-- ── CHI SONO ── -->
-<div id="page-chi-sono" class="page-frame">
-  <div class="page-title-bar"><h2>Chi sono</h2><span>chi-sono.html</span></div>
+<!-- ══════════════════════════════════════  COACHING  ══════════════════════════════════════ -->
+<div id="pf-coaching" class="page-frame">
+<div class="site-shell">
+  <div class="s-infobar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#">Scopri le date</a></span><span class="s-infobar__x">✕</span></div>
+  <header class="s-header"><div class="s-logo">Nicoletta Ingusci</div><nav class="s-nav"><a href="#">Chi sono</a><a href="#">Yoga</a><a href="#">Coaching</a><a href="#">Benessere aziendale</a><a href="#">Eventi</a><a href="#">Risorse</a><a href="#">Contatti</a></nav><button class="s-btn s-btn--primary">Prenota una call</button></header>
 
-  <div class="wf-infobar"><div class="wf-infobar-text"></div><div class="wf-infobar-x"></div></div>
-  <div class="wf-header">
-    <div class="wf-logo"></div>
-    <div class="wf-nav"><div class="wf-nav-item active-pg"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div></div>
-    <div class="wf-btn wf-btn--sm"></div>
+  <div class="s-page-hero s-page-hero--cream">
+    <div class="s-container">
+      <div class="s-label">Percorso</div>
+      <div class="s-h1">Il percorso Coaching</div>
+      <p class="s-p" style="max-width:540px;">Un percorso che porta chiarezza, strumenti concreti e direzione. Non soluzioni rapide, ma cambiamenti reali e sostenibili.</p>
+      <div class="s-btns"><button class="s-btn s-btn--primary">Prenota una consulenza</button><button class="s-btn s-btn--secondary">Scopri gli eventi</button></div>
+    </div>
   </div>
-  <div class="wf-section wf-section--neutral">
-    <div class="section-tag">PAGE HERO — LIGHT</div>
-    <div class="wf-hero"><div class="wf-label" style="margin-bottom:.4rem;">Nicoletta Ingusci</div><div class="wf-h1" style="width:80%;"></div></div>
+
+  <section class="s-section--lg bg-neutral">
+    <div class="s-container">
+      <div class="s-2col">
+        <div>
+          <div class="s-label">Il percorso</div>
+          <div class="s-h2">Coaching non è motivazione. È metodo.</div>
+          <p class="s-p">Il coaching di Nicoletta Ingusci non promette trasformazioni rapide né offre risposte preconfezionate. Offre un metodo rigoroso, basato sull'ascolto e su strumenti scientificamente fondati.</p>
+          <div class="s-method-block">Il percorso parte sempre da dove sei. Non da dove dovresti essere. Il lavoro consiste nel comprendere meglio la propria situazione, individuare i margini di cambiamento reale e costruire strumenti applicabili.</div>
+          <div><span class="s-tag s-tag--peach">Coaching individuale</span><span class="s-tag s-tag--peach">Chiarezza e direzione</span><span class="s-tag s-tag--green">Approccio scientifico</span></div>
+        </div>
+        <div class="s-photo s-photo--geom" style="height:400px;"><span class="s-photo-label">coaching.webp</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-section--lg bg-darkgreen">
+    <div class="s-container">
+      <div class="s-target">
+        <div>
+          <div class="s-label s-label--light">A chi è rivolto</div>
+          <div class="s-h2 s-h2--light">Per chi cerca direzione, non risposte preconfezionate.</div>
+        </div>
+        <div>
+          <div class="s-target-item"><div class="s-target-num">01</div><div class="s-target-text">Donne in una fase di transizione personale o professionale</div></div>
+          <div class="s-target-item"><div class="s-target-num">02</div><div class="s-target-text">Chi sente di essere bloccato senza riuscire a capire il perché</div></div>
+          <div class="s-target-item"><div class="s-target-num">03</div><div class="s-target-text">Chi vuole fare chiarezza su priorità, valori e direzione di vita</div></div>
+          <div class="s-target-item"><div class="s-target-num">04</div><div class="s-target-text">Chi ha già fatto un percorso ma sente che manca qualcosa</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-section bg-white">
+    <div class="s-container">
+      <div class="s-section-header"><div class="s-label">Come funziona</div><div class="s-h2">Non esiste un protocollo fisso.</div></div>
+      <div class="s-3col" style="margin-bottom:48px;">
+        <div class="s-step" style="border-right:1px solid #eee;"><div class="s-step-num">01</div><div class="s-h3">Sessione esplorativa</div><p class="s-p">Un primo incontro gratuito per capire dove sei e se il percorso fa per te.</p></div>
+        <div class="s-step" style="border-right:1px solid #eee;"><div class="s-step-num">02</div><div class="s-h3">Percorso su misura</div><p class="s-p">Sessioni individuali online o in presenza costruite intorno alle tue esigenze reali.</p></div>
+        <div class="s-step"><div class="s-step-num">03</div><div class="s-h3">Strumenti applicabili</div><p class="s-p">Ogni sessione produce qualcosa di concreto: una consapevolezza nuova, uno strumento, una decisione.</p></div>
+      </div>
+      <div class="s-3col">
+        <div class="s-benefit" style="background:var(--c-neutral-050);border-color:#eee;"><div class="s-benefit-icon" style="background:var(--c-green-100);">✦</div><div class="s-h3" style="font-size:14px;">Chiarezza interiore</div><p class="s-p">Comprendi meglio cosa vuoi davvero e perché.</p></div>
+        <div class="s-benefit" style="background:var(--c-neutral-050);border-color:#eee;"><div class="s-benefit-icon" style="background:var(--c-green-100);">⟶</div><div class="s-h3" style="font-size:14px;">Direzione concreta</div><p class="s-p">Identifichi i passi reali verso i tuoi obiettivi.</p></div>
+        <div class="s-benefit" style="background:var(--c-neutral-050);border-color:#eee;"><div class="s-benefit-icon" style="background:var(--c-green-100);">▲</div><div class="s-h3" style="font-size:14px;">Fiducia in te stessa</div><p class="s-p">Costruisci una relazione più solida con le tue capacità.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-section bg-neutral">
+    <div class="s-container">
+      <div class="s-2col" style="align-items:start;">
+        <div><div class="s-label">FAQ</div><div class="s-h2">Domande frequenti.</div><p class="s-p">Se hai altri dubbi, scrivimi direttamente.</p></div>
+        <div>
+          <div class="s-faq-item"><div class="s-faq-q">Quante sessioni servono?</div><div class="s-faq-icon">+</div></div>
+          <div class="s-faq-item"><div class="s-faq-q">Il coaching è online o in presenza?</div><div class="s-faq-icon">+</div></div>
+          <div class="s-faq-item"><div class="s-faq-q">Qual è la differenza tra coaching e psicoterapia?</div><div class="s-faq-icon">+</div></div>
+          <div class="s-faq-item"><div class="s-faq-q">Posso combinare coaching e yoga?</div><div class="s-faq-icon">+</div></div>
+          <div class="s-faq-item"><div class="s-faq-q">Come funziona la prima sessione gratuita?</div><div class="s-faq-icon">+</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-section--sm bg-terracotta" style="text-align:center;">
+    <div class="s-container">
+      <div class="s-label s-label--light">Inizia da qui</div>
+      <div class="s-h2 s-h2--light" style="max-width:440px;margin:0 auto 28px;">Prenota la tua prima sessione esplorativa.</div>
+      <button class="s-btn s-btn--light">Prenota ora — è gratuita</button>
+    </div>
+  </section>
+
+  <footer class="s-footer"><div><div class="s-footer-logo">Nicoletta Ingusci</div></div><div><div class="s-footer-col__title">Percorsi</div><a class="s-footer-link">Yoga</a><a class="s-footer-link">Coaching</a></div><div><div class="s-footer-col__title">Info</div><a class="s-footer-link">Chi sono</a></div><div><div class="s-footer-col__title">Contatti</div><a class="s-footer-link">Scrivimi</a></div><div class="s-footer-copy"><span>© 2025 Nicoletta Ingusci</span><span>Privacy · Cookie</span></div></footer>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════  AZIENDALE  ══════════════════════════════════════ -->
+<div id="pf-aziendale" class="page-frame">
+<div class="site-shell">
+  <div class="s-infobar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#">Scopri le date</a></span><span class="s-infobar__x">✕</span></div>
+  <header class="s-header s-header--dark"><div class="s-logo">Nicoletta Ingusci</div><nav class="s-nav"><a href="#">Chi sono</a><a href="#">Yoga</a><a href="#">Coaching</a><a href="#">Benessere aziendale</a><a href="#">Eventi</a><a href="#">Risorse</a><a href="#">Contatti</a></nav><button class="s-btn s-btn--light-ghost">Prenota una call</button></header>
+
+  <div style="background:#1e2a1f;min-height:460px;display:flex;align-items:flex-end;padding:0;position:relative;">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.7) 100%);"></div>
+    <div style="position:relative;z-index:1;padding:60px 48px;">
+      <div class="s-label s-label--light">Per le organizzazioni</div>
+      <div class="s-h1 s-h1--light" style="max-width:680px;">Il benessere dei team è una variabile che impatta direttamente sui risultati.</div>
+      <div class="s-btns"><button class="s-btn s-btn--cream">Scopri i programmi</button><button class="s-btn s-btn--light-ghost">Prenota una call</button></div>
+    </div>
   </div>
-  <div class="wf-section" style="padding-bottom:0.5rem;">
-    <div class="section-tag">LA STORIA — 2 COL</div>
-    <div class="section-inner"><div class="wf-2col" style="align-items:center;"><div class="wf-img wf-img--geom" style="height:180px;"></div><div><div class="wf-label">La storia</div><div class="wf-h2" style="margin-bottom:.4rem;"></div><div class="wf-text"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60"></div><div style="margin-top:.5rem;display:flex;gap:.4rem;"><div class="wf-btn wf-btn--sm" style="height:16px;background:var(--block-green);"></div><div class="wf-btn wf-btn--sm" style="height:16px;background:var(--block-terracotta);"></div></div></div></div></div>
+
+  <section class="s-section bg-corporate">
+    <div class="s-container">
+      <div class="s-2col">
+        <div>
+          <div class="s-label s-label--light">Il problema</div>
+          <div class="s-h2 s-h2--light">Lo stress non è un problema individuale.</div>
+          <p class="s-p s-p--light">È una variabile che impatta direttamente sulla produttività, sulla retention e sulla qualità del lavoro.</p>
+        </div>
+        <div>
+          <div class="s-target-item"><div class="s-target-num" style="font-size:20px;">01</div><div class="s-target-text">Turnover elevato e difficoltà nel trattenere i talenti</div></div>
+          <div class="s-target-item"><div class="s-target-num" style="font-size:20px;">02</div><div class="s-target-text">Calo della produttività e aumento degli errori</div></div>
+          <div class="s-target-item"><div class="s-target-num" style="font-size:20px;">03</div><div class="s-target-text">Conflitti relazionali e scarsa coesione del team</div></div>
+          <div class="s-target-item"><div class="s-target-num" style="font-size:20px;">04</div><div class="s-target-text">Assenze frequenti legate a stress e esaurimento</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-section bg-corp-warm">
+    <div class="s-container">
+      <div class="s-section-header s-section-header--center"><div class="s-label s-label--light">Come iniziare</div><div class="s-h2 s-h2--light">Un percorso in tre fasi.</div></div>
+      <div class="s-process">
+        <div class="s-process-item"><div class="s-process-dot"></div><div><div class="s-h3 s-h3--light">Analisi del contesto</div><p class="s-p s-p--light">Un primo incontro per comprendere le esigenze reali dell'organizzazione.</p></div></div>
+        <div class="s-process-item"><div class="s-process-dot"></div><div><div class="s-h3 s-h3--light">Progettazione del programma</div><p class="s-p s-p--light">Costruiamo insieme un intervento su misura: format, frequenza, obiettivi.</p></div></div>
+        <div class="s-process-item"><div class="s-process-dot"></div><div><div class="s-h3 s-h3--light">Erogazione e follow-up</div><p class="s-p s-p--light">Sessioni in azienda o online, con monitoraggio dei risultati.</p></div></div>
+      </div>
+      <div style="text-align:center;margin-top:36px;"><button class="s-btn s-btn--light">Richiedi una proposta</button></div>
+    </div>
+  </section>
+
+  <section class="s-section bg-dark">
+    <div class="s-container">
+      <div class="s-section-header s-section-header--center"><div class="s-label s-label--light">I risultati</div><div class="s-h2 s-h2--light">Cosa producono i programmi.</div></div>
+      <div class="s-3col">
+        <div class="s-benefit"><div class="s-benefit-icon">↓</div><div class="s-h3 s-h3--light" style="font-size:14px;">Riduzione dello stress</div><p class="s-p s-p--light">Strumenti pratici per gestire il carico cognitivo nel quotidiano.</p></div>
+        <div class="s-benefit"><div class="s-benefit-icon">◎</div><div class="s-h3 s-h3--light" style="font-size:14px;">Focus e presenza</div><p class="s-p s-p--light">Maggiore capacità di concentrazione e qualità del lavoro prodotto.</p></div>
+        <div class="s-benefit"><div class="s-benefit-icon">⟳</div><div class="s-h3 s-h3--light" style="font-size:14px;">Coesione del team</div><p class="s-p s-p--light">Miglioramento delle relazioni interne e della comunicazione.</p></div>
+        <div class="s-benefit"><div class="s-benefit-icon">▣</div><div class="s-h3 s-h3--light" style="font-size:14px;">Strumenti applicabili</div><p class="s-p s-p--light">Non teoria: pratiche concrete da usare ogni giorno.</p></div>
+        <div class="s-benefit"><div class="s-benefit-icon">↑</div><div class="s-h3 s-h3--light" style="font-size:14px;">Retention dei talenti</div><p class="s-p s-p--light">Le persone che stanno bene restano e producono di più.</p></div>
+        <div class="s-benefit"><div class="s-benefit-icon">✓</div><div class="s-h3 s-h3--light" style="font-size:14px;">Risultati misurabili</div><p class="s-p s-p--light">Ogni programma include indicatori di efficacia verificabili.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-section bg-dark" style="border-top:1px solid rgba(255,255,255,0.06);">
+    <div class="s-container">
+      <div class="s-2col" style="align-items:start;">
+        <div>
+          <div class="s-label s-label--light">Parliamone</div>
+          <div class="s-h2 s-h2--light">Raccontaci il tuo contesto aziendale.</div>
+          <p class="s-p s-p--light">Ogni organizzazione è diversa. Scrivici e costruiamo insieme una proposta su misura.</p>
+          <div style="margin-top:24px;"><div class="s-testi"><p class="s-testi-text">Abbiamo coinvolto Nicoletta per un programma aziendale. I risultati sono stati concreti: il team è più presente, più connesso, più efficace.</p><div class="s-testi-name">G.B. — HR Manager, 200+ dipendenti</div></div></div>
+        </div>
+        <div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:0px;">
+            <input class="s-input s-input--dark" placeholder="Nome e cognome"/>
+            <input class="s-input s-input--dark" placeholder="Azienda"/>
+          </div>
+          <input class="s-input s-input--dark" placeholder="Email aziendale"/>
+          <input class="s-input s-input--dark" placeholder="Numero di dipendenti"/>
+          <textarea class="s-textarea s-textarea--dark" placeholder="Descrivici brevemente il contesto e le esigenze del vostro team"></textarea>
+          <button class="s-btn s-btn--cream" style="width:100%;text-align:center;">Invia richiesta</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="s-footer"><div><div class="s-footer-logo">Nicoletta Ingusci</div></div><div><div class="s-footer-col__title">Percorsi</div><a class="s-footer-link">Yoga</a><a class="s-footer-link">Coaching</a><a class="s-footer-link">Aziendale</a></div><div><div class="s-footer-col__title">Info</div><a class="s-footer-link">Chi sono</a><a class="s-footer-link">Eventi</a></div><div><div class="s-footer-col__title">Contatti</div><a class="s-footer-link">Scrivimi</a></div><div class="s-footer-copy"><span>© 2025 Nicoletta Ingusci</span><span>Privacy · Cookie</span></div></footer>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════  EVENTI  ══════════════════════════════════════ -->
+<div id="pf-eventi" class="page-frame">
+<div class="site-shell">
+  <div class="s-infobar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#">Scopri le date</a></span><span class="s-infobar__x">✕</span></div>
+  <header class="s-header"><div class="s-logo">Nicoletta Ingusci</div><nav class="s-nav"><a href="#">Chi sono</a><a href="#">Yoga</a><a href="#">Coaching</a><a href="#">Benessere aziendale</a><a href="#">Eventi</a><a href="#">Risorse</a><a href="#">Contatti</a></nav><button class="s-btn s-btn--primary">Prenota una call</button></header>
+
+  <div class="s-page-hero bg-neutral">
+    <div class="s-container">
+      <div class="s-label">Calendario</div>
+      <div class="s-h1">Retreat, workshop e lezioni.</div>
+      <p class="s-p" style="max-width:500px;">Tutti gli appuntamenti in presenza e online. Iscriviti in anticipo — i posti sono limitati.</p>
+    </div>
   </div>
-  <div class="wf-section wf-section--neutral">
-    <div class="section-tag">I PERCORSI — 3 CARD</div>
-    <div class="section-inner"><div class="wf-label" style="margin-bottom:.5rem;text-align:center;">I percorsi</div><div class="wf-3col"><div class="wf-card"><div class="wf-img" style="height:60px;margin-bottom:.4rem;"></div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-card"><div class="wf-img" style="height:60px;margin-bottom:.4rem;"></div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-card"><div class="wf-img" style="height:60px;margin-bottom:.4rem;"></div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div></div></div>
+
+  <section class="s-section bg-white">
+    <div class="s-container">
+      <div class="s-section-header"><div class="s-label">Evento in evidenza</div></div>
+      <div class="s-2col" style="align-items:start;">
+        <div class="s-photo" style="height:300px;"><span class="s-photo-label">newseeventi.webp</span></div>
+        <div>
+          <div style="display:flex;gap:10px;margin-bottom:14px;"><span class="s-tag s-tag--green" style="margin:0;">Retreat</span><span class="s-tag s-tag--peach" style="margin:0;">Primavera 2025</span></div>
+          <div class="s-h2">Retreat Yoga & Mindfulness — Toscana</div>
+          <p class="s-p">Un weekend immersivo in un agriturismo in Toscana. Pratiche di yoga, pranayama e meditazione, sessioni di coaching, cibo sano e spazi di silenzio. Posti limitati a 10 partecipanti.</p>
+          <p class="s-p"><strong style="color:var(--c-black);">Quando:</strong> 15–17 maggio 2025 &nbsp;·&nbsp; <strong style="color:var(--c-black);">Dove:</strong> Casale Montalcino (SI)</p>
+          <div class="s-btns"><button class="s-btn s-btn--primary">Iscriviti ora</button><button class="s-btn s-btn--secondary">Scopri il programma</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-section bg-neutral">
+    <div class="s-container">
+      <div class="s-section-header"><div class="s-label">Prossimi eventi</div><div class="s-h2">Tutti gli appuntamenti.</div></div>
+      <div class="s-event-row"><div class="s-event-date"><div class="s-event-day">08</div><div class="s-event-month">Mar</div></div><div style="flex:1;"><div class="s-event-type">Workshop</div><div class="s-event-title">Pranayama — Respiro consapevole</div><div class="s-event-loc">Milano · Sala Esperia, Via Brera 12</div></div><button class="s-btn s-btn--secondary" style="font-size:10px;padding:8px 18px;">Iscriviti</button></div>
+      <div class="s-event-row"><div class="s-event-date"><div class="s-event-day">22</div><div class="s-event-month">Mar</div></div><div style="flex:1;"><div class="s-event-type">Lezione aperta</div><div class="s-event-title">Hatha Yoga per principianti</div><div class="s-event-loc">Online · Zoom</div></div><button class="s-btn s-btn--secondary" style="font-size:10px;padding:8px 18px;">Iscriviti</button></div>
+      <div class="s-event-row"><div class="s-event-date"><div class="s-event-day">05</div><div class="s-event-month">Apr</div></div><div style="flex:1;"><div class="s-event-type">Workshop</div><div class="s-event-title">Yoga Nidra — Rilassamento profondo</div><div class="s-event-loc">Milano · Studio Nicoletta</div></div><button class="s-btn s-btn--secondary" style="font-size:10px;padding:8px 18px;">Iscriviti</button></div>
+      <div class="s-event-row" style="border-bottom:none;"><div class="s-event-date"><div class="s-event-day">19</div><div class="s-event-month">Apr</div></div><div style="flex:1;"><div class="s-event-type">Giornata intensiva</div><div class="s-event-title">Corpo e mente — Una giornata di pratica integrata</div><div class="s-event-loc">Milano · Centro Benessere Navigli</div></div><button class="s-btn s-btn--secondary" style="font-size:10px;padding:8px 18px;">Iscriviti</button></div>
+    </div>
+  </section>
+
+  <section class="s-section--sm bg-darkgreen" style="text-align:center;"><div class="s-container"><div class="s-label s-label--light">Non trovi la data giusta?</div><div class="s-h2 s-h2--light" style="max-width:440px;margin:0 auto 28px;">Iscriviti alla newsletter per ricevere i prossimi appuntamenti.</div><button class="s-btn s-btn--light">Iscriviti alla newsletter</button></div></section>
+
+  <footer class="s-footer"><div><div class="s-footer-logo">Nicoletta Ingusci</div></div><div><div class="s-footer-col__title">Percorsi</div><a class="s-footer-link">Yoga</a><a class="s-footer-link">Coaching</a></div><div><div class="s-footer-col__title">Info</div><a class="s-footer-link">Chi sono</a><a class="s-footer-link">Podcast</a></div><div><div class="s-footer-col__title">Contatti</div><a class="s-footer-link">Scrivimi</a></div><div class="s-footer-copy"><span>© 2025 Nicoletta Ingusci</span><span>Privacy · Cookie</span></div></footer>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════  RISORSE  ══════════════════════════════════════ -->
+<div id="pf-news" class="page-frame">
+<div class="site-shell">
+  <div class="s-infobar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#">Scopri le date</a></span><span class="s-infobar__x">✕</span></div>
+  <header class="s-header"><div class="s-logo">Nicoletta Ingusci</div><nav class="s-nav"><a href="#">Chi sono</a><a href="#">Yoga</a><a href="#">Coaching</a><a href="#">Benessere aziendale</a><a href="#">Eventi</a><a href="#">Risorse</a><a href="#">Contatti</a></nav><button class="s-btn s-btn--primary">Prenota una call</button></header>
+
+  <div class="s-page-hero bg-neutral"><div class="s-container"><div class="s-label">Risorse</div><div class="s-h1">Articoli, riflessioni e strumenti pratici.</div></div></div>
+
+  <section class="s-section bg-white">
+    <div class="s-container">
+      <div class="s-section-header"><div class="s-label">In evidenza</div></div>
+      <div class="s-2col">
+        <div class="s-photo" style="height:280px;"><span class="s-photo-label">newseeventi2.webp</span></div>
+        <div>
+          <span class="s-tag s-tag--green" style="margin:0 0 14px;display:inline-block;">Yoga</span>
+          <div class="s-h2">Perché il respiro è il primo strumento di regolazione del sistema nervoso.</div>
+          <p class="s-p">Quando imparare a respirare non è una metafora — ma una pratica che cambia letteralmente il modo in cui il tuo corpo risponde allo stress.</p>
+          <p class="s-p" style="font-size:11px;color:var(--c-neutral-400);">12 Febbraio 2025 · 7 min di lettura</p>
+          <button class="s-btn s-btn--outline" style="margin-top:16px;">Leggi l'articolo</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-section bg-neutral">
+    <div class="s-container">
+      <div class="s-section-header"><div class="s-label">Tutti gli articoli</div></div>
+      <div class="s-3col">
+        <div class="s-news-card"><div class="s-news-card-img"></div><div class="s-news-card-body"><div class="s-news-card-cat">Coaching</div><div class="s-news-card-title">La differenza tra sapere cosa fare e riuscire a farlo davvero</div><div class="s-news-card-date">5 Febbraio 2025</div></div></div>
+        <div class="s-news-card"><div class="s-news-card-img"></div><div class="s-news-card-body"><div class="s-news-card-cat">Yoga</div><div class="s-news-card-title">Ashtanga, Hatha, Yin: quale stile fa per te?</div><div class="s-news-card-date">28 Gennaio 2025</div></div></div>
+        <div class="s-news-card"><div class="s-news-card-img"></div><div class="s-news-card-body"><div class="s-news-card-cat">Benessere</div><div class="s-news-card-title">Burnout: riconoscerlo prima che diventi un problema</div><div class="s-news-card-date">20 Gennaio 2025</div></div></div>
+        <div class="s-news-card"><div class="s-news-card-img"></div><div class="s-news-card-body"><div class="s-news-card-cat">Mindfulness</div><div class="s-news-card-title">Meditazione: come iniziare senza perdersi</div><div class="s-news-card-date">14 Gennaio 2025</div></div></div>
+        <div class="s-news-card"><div class="s-news-card-img"></div><div class="s-news-card-body"><div class="s-news-card-cat">Coaching</div><div class="s-news-card-title">Quando smetti di aspettarti che cambino gli altri</div><div class="s-news-card-date">7 Gennaio 2025</div></div></div>
+        <div class="s-news-card"><div class="s-news-card-img"></div><div class="s-news-card-body"><div class="s-news-card-cat">Yoga</div><div class="s-news-card-title">Yoga Nidra: la pratica del sonno yogico</div><div class="s-news-card-date">2 Gennaio 2025</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-section bg-terracotta">
+    <div class="s-container">
+      <div class="s-2col">
+        <div>
+          <div class="s-label s-label--light">Podcast</div>
+          <div class="s-h2 s-h2--light">Ascolta il tuo centro.</div>
+          <p class="s-p s-p--light">Conversazioni autentiche su yoga, benessere e cambiamento.</p>
+          <div class="s-btns"><button class="s-btn s-btn--light-ghost">Spotify</button><button class="s-btn s-btn--light-ghost">Apple Podcasts</button></div>
+          <button class="s-btn s-btn--light" style="margin-top:12px;">Vai al Podcast</button>
+        </div>
+        <div>
+          <div class="s-pod-row" style="background:rgba(255,255,255,0.08);padding:16px;margin-bottom:12px;border-bottom:none;"><div class="s-pod-play" style="background:rgba(255,255,255,0.2);color:#fff;">▷</div><div><div class="s-h3 s-h3--light" style="font-size:13px;">Ep. 12 — Quando il corpo parla</div><div class="s-p s-p--light" style="margin:0;font-size:11px;">Ascoltare i segnali del corpo prima che diventino sintomi.</div></div><div class="s-pod-dur" style="color:rgba(255,255,255,0.5);">24 min</div></div>
+          <div class="s-pod-row" style="background:rgba(255,255,255,0.08);padding:16px;border-bottom:none;"><div class="s-pod-play" style="background:rgba(255,255,255,0.2);color:#fff;">▷</div><div><div class="s-h3 s-h3--light" style="font-size:13px;">Ep. 11 — Il coraggio di fermarsi</div><div class="s-p s-p--light" style="margin:0;font-size:11px;">Cosa significa davvero scegliere il proprio ritmo.</div></div><div class="s-pod-dur" style="color:rgba(255,255,255,0.5);">19 min</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="s-footer"><div><div class="s-footer-logo">Nicoletta Ingusci</div></div><div><div class="s-footer-col__title">Percorsi</div><a class="s-footer-link">Yoga</a><a class="s-footer-link">Coaching</a></div><div><div class="s-footer-col__title">Info</div><a class="s-footer-link">Chi sono</a><a class="s-footer-link">Podcast</a></div><div><div class="s-footer-col__title">Contatti</div><a class="s-footer-link">Scrivimi</a></div><div class="s-footer-copy"><span>© 2025 Nicoletta Ingusci</span><span>Privacy · Cookie</span></div></footer>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════  PODCAST  ══════════════════════════════════════ -->
+<div id="pf-podcast" class="page-frame">
+<div class="site-shell">
+  <div class="s-infobar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#">Scopri le date</a></span><span class="s-infobar__x">✕</span></div>
+  <header class="s-header"><div class="s-logo">Nicoletta Ingusci</div><nav class="s-nav"><a href="#">Chi sono</a><a href="#">Yoga</a><a href="#">Coaching</a><a href="#">Benessere aziendale</a><a href="#">Eventi</a><a href="#">Risorse</a><a href="#">Contatti</a></nav><button class="s-btn s-btn--primary">Prenota una call</button></header>
+
+  <div style="background:#1a2a1b;min-height:400px;display:flex;align-items:flex-end;position:relative;padding:0;">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.75) 100%);"></div>
+    <div style="position:relative;z-index:1;padding:48px;">
+      <div class="s-label s-label--light">Podcast</div>
+      <div class="s-h1 s-h1--light">Ascolta il tuo centro.</div>
+      <p class="s-p s-p--light" style="max-width:480px;">Conversazioni autentiche su yoga, benessere e cambiamento. Ogni episodio è uno spazio per fermarsi e ascoltare.</p>
+      <div class="s-btns"><button class="s-btn s-btn--light-ghost">Spotify</button><button class="s-btn s-btn--light-ghost">Apple Podcasts</button><button class="s-btn s-btn--light-ghost">Google Podcasts</button></div>
+    </div>
   </div>
-  <div class="wf-section">
-    <div class="section-tag">VALORI E METODO — 2 COL</div>
-    <div class="section-inner"><div class="wf-2col"><div><div class="wf-label">Valori e metodo</div><div class="wf-h2" style="margin-bottom:.6rem;"></div><div style="display:flex;flex-direction:column;gap:.4rem;">
-      <div class="wf-row"><div style="width:16px;height:16px;border-radius:50%;background:var(--block);flex-shrink:0;"></div><div><div class="wf-text" style="width:120px;margin-bottom:.15rem;"></div><div class="wf-text wf-text-w80" style="height:6px;"></div></div></div>
-      <div class="wf-row"><div style="width:16px;height:16px;border-radius:50%;background:var(--block);flex-shrink:0;"></div><div><div class="wf-text" style="width:120px;margin-bottom:.15rem;"></div><div class="wf-text wf-text-w80" style="height:6px;"></div></div></div>
-      <div class="wf-row"><div style="width:16px;height:16px;border-radius:50%;background:var(--block);flex-shrink:0;"></div><div><div class="wf-text" style="width:120px;margin-bottom:.15rem;"></div><div class="wf-text wf-text-w80" style="height:6px;"></div></div></div>
-    </div></div><div><div class="wf-card" style="margin-bottom:.5rem;padding:1rem;background:#1F3220;"><div class="wf-h2 wf-h2--light" style="width:20px;margin-bottom:.3rem;"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80"></div></div><div class="wf-card" style="border-top:2px solid #5D8A60;"><div style="width:28px;height:28px;border-radius:4px;background:#1F3220;margin-bottom:.4rem;"></div><div class="wf-h3" style="width:60%;margin-bottom:.3rem;"></div><div class="wf-text"></div><div class="wf-text wf-text-w80"></div></div></div></div></div>
-  </div>
-  <div class="wf-section wf-section--cream">
-    <div class="section-tag">CERTIFICAZIONI — LAYOUT ORIZZONTALE</div>
-    <div class="section-inner"><div class="wf-label" style="margin-bottom:.4rem;">Certificazioni</div><div class="wf-h2" style="margin-bottom:1rem;width:70%;"></div><div style="display:flex;align-items:center;gap:1.5rem;"><div style="display:flex;gap:1rem;"><div class="wf-img" style="width:60px;height:60px;"></div><div class="wf-img" style="width:60px;height:60px;"></div></div><div class="wf-divider" style="height:50px;"></div><div style="text-align:center;"><div class="wf-h1" style="width:80px;height:28px;margin:0 auto;"></div><div class="wf-text wf-text-w80" style="margin-top:.3rem;width:90px;"></div></div><div class="wf-divider" style="height:50px;"></div><div style="flex:1;display:flex;flex-direction:column;gap:.25rem;"><div class="wf-text"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60"></div><div class="wf-text"></div></div></div><div class="wf-note">JS: contatore animato al scroll.</div></div>
-  </div>
-  <div class="wf-section wf-section--green">
-    <div class="section-tag">CTA</div>
-    <div class="section-inner" style="text-align:center;padding:1.5rem;"><div class="wf-h2 wf-h2--light" style="width:40%;margin:0 auto .4rem;"></div><div class="wf-text wf-text--light wf-text-w45" style="margin:0 auto .8rem;"></div><div class="wf-btn wf-btn--lg wf-btn--light" style="margin:0 auto;display:block;"></div></div>
-  </div>
-  <div class="wf-footer"><div><div class="wf-logo wf-logo--light"></div></div><div></div><div></div><div></div></div>
+
+  <section class="s-section bg-white">
+    <div class="s-container">
+      <div class="s-section-header"><div class="s-label">Episodi</div><div class="s-h2">Gli ultimi episodi.</div></div>
+      <div class="s-pod-row"><div class="s-pod-play">▷</div><div><div class="s-h3" style="font-size:14px;margin-bottom:2px;">Ep. 12 — Quando il corpo parla</div><p class="s-p" style="margin:0;font-size:12px;">Ascoltare i segnali del corpo prima che diventino sintomi. Cosa ci dice il dolore fisico quando siamo sotto pressione.</p></div><div class="s-pod-dur">24 min</div></div>
+      <div class="s-pod-row"><div class="s-pod-play">▷</div><div><div class="s-h3" style="font-size:14px;margin-bottom:2px;">Ep. 11 — Il coraggio di fermarsi</div><p class="s-p" style="margin:0;font-size:12px;">Cosa significa davvero scegliere il proprio ritmo in un mondo che ti chiede sempre di accelerare.</p></div><div class="s-pod-dur">19 min</div></div>
+      <div class="s-pod-row"><div class="s-pod-play">▷</div><div><div class="s-h3" style="font-size:14px;margin-bottom:2px;">Ep. 10 — Respirare diversamente</div><p class="s-p" style="margin:0;font-size:12px;">Il pranayama spiegato a chi non ha mai praticato yoga. Perché cambiare il respiro cambia tutto il resto.</p></div><div class="s-pod-dur">31 min</div></div>
+      <div class="s-pod-row"><div class="s-pod-play">▷</div><div><div class="s-h3" style="font-size:14px;margin-bottom:2px;">Ep. 09 — Il confine tra motivazione e disciplina</div><p class="s-p" style="margin:0;font-size:12px;">Perché affidarsi solo alla motivazione è una strategia perdente — e cosa funziona davvero.</p></div><div class="s-pod-dur">27 min</div></div>
+      <div class="s-pod-row" style="border-bottom:none;"><div class="s-pod-play">▷</div><div><div class="s-h3" style="font-size:14px;margin-bottom:2px;">Ep. 08 — Yoga e stress: cosa dice la scienza</div><p class="s-p" style="margin:0;font-size:12px;">Neuroscienze, sistema nervoso autonomo e perché la pratica cambia il cervello.</p></div><div class="s-pod-dur">35 min</div></div>
+    </div>
+  </section>
+
+  <section class="s-section--sm bg-darkgreen" style="text-align:center;"><div class="s-container"><div class="s-label s-label--light">Non perdere i nuovi episodi</div><div class="s-h2 s-h2--light" style="max-width:440px;margin:0 auto 28px;">Iscriviti dove ascolti i podcast.</div><div class="s-btns" style="justify-content:center;"><button class="s-btn s-btn--light">Spotify</button><button class="s-btn s-btn--light-ghost">Apple Podcasts</button></div></div></section>
+
+  <footer class="s-footer"><div><div class="s-footer-logo">Nicoletta Ingusci</div></div><div><div class="s-footer-col__title">Percorsi</div><a class="s-footer-link">Yoga</a><a class="s-footer-link">Coaching</a></div><div><div class="s-footer-col__title">Info</div><a class="s-footer-link">Chi sono</a><a class="s-footer-link">Risorse</a></div><div><div class="s-footer-col__title">Contatti</div><a class="s-footer-link">Scrivimi</a></div><div class="s-footer-copy"><span>© 2025 Nicoletta Ingusci</span><span>Privacy · Cookie</span></div></footer>
+</div>
 </div>
 
-<!-- ── YOGA ── -->
-<div id="page-yoga" class="page-frame">
-  <div class="page-title-bar"><h2>Yoga</h2><span>yoga.html</span></div>
-  <div class="wf-infobar"><div class="wf-infobar-text"></div><div class="wf-infobar-x"></div></div>
-  <div class="wf-header"><div class="wf-logo"></div><div class="wf-nav"><div class="wf-nav-item"></div><div class="wf-nav-item active-pg"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div></div><div class="wf-btn wf-btn--sm"></div></div>
-  <div class="wf-section wf-section--neutral"><div class="section-tag">PAGE HERO — 2 CTA</div><div class="wf-hero"><div class="wf-label" style="margin-bottom:.4rem;">Percorso</div><div class="wf-h1" style="width:60%;"></div><div class="wf-text wf-text-w80" style="margin-top:.4rem;margin-bottom:.6rem;"></div><div class="wf-btn wf-btn--md"></div><div class="wf-btn wf-btn--md wf-btn--ghost"></div></div></div>
-  <div class="wf-section"><div class="section-tag">IL PERCORSO — 2 COL</div><div class="section-inner"><div class="wf-2col" style="align-items:center;"><div><div class="wf-label">Il percorso</div><div class="wf-h2" style="margin-bottom:.4rem;"></div><div class="wf-text"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60"></div><div style="margin-top:.5rem;display:flex;gap:.3rem;flex-wrap:wrap;"><div class="wf-btn wf-btn--sm" style="height:16px;background:var(--block-green);"></div><div class="wf-btn wf-btn--sm" style="height:16px;background:var(--block-terracotta);"></div></div></div><div class="wf-img wf-img--geom" style="height:160px;"></div></div></div></div>
-  <div class="wf-section wf-section--green"><div class="section-tag">A CHI È RIVOLTO — dark + 2 col</div><div class="section-inner"><div class="wf-2col"><div><div class="wf-label wf-label--light">A chi è rivolto</div><div class="wf-h2 wf-h2--light" style="margin-bottom:.4rem;"></div><div style="display:flex;flex-direction:column;gap:.3rem;margin-top:.5rem;"><div class="wf-row"><div class="wf-num wf-num--light" style="font-size:1rem;">01</div><div class="wf-text wf-text--light" style="flex:1;"></div></div><div class="wf-row"><div class="wf-num wf-num--light" style="font-size:1rem;">02</div><div class="wf-text wf-text--light" style="flex:1;"></div></div><div class="wf-row"><div class="wf-num wf-num--light" style="font-size:1rem;">03</div><div class="wf-text wf-text--light" style="flex:1;"></div></div></div></div><div><div class="wf-text wf-text--light wf-text-w60" style="margin-bottom:.5rem;"></div><div class="wf-2col" style="gap:.4rem;"><div class="wf-card wf-card--dark"><div class="wf-card__icon wf-card__icon--light"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80" style="margin-top:.2rem;"></div></div><div class="wf-card wf-card--dark"><div class="wf-card__icon wf-card__icon--light"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80" style="margin-top:.2rem;"></div></div><div class="wf-card wf-card--dark"><div class="wf-card__icon wf-card__icon--light"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80" style="margin-top:.2rem;"></div></div><div class="wf-card wf-card--dark"><div class="wf-card__icon wf-card__icon--light"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80" style="margin-top:.2rem;"></div></div></div></div></div></div></div>
-  <div class="wf-section"><div class="section-tag">METODO E MODALITÀ — 3 steps + 4 card</div><div class="section-inner"><div class="wf-label" style="margin-bottom:.4rem;">Metodo e modalità</div><div class="wf-3col" style="margin-bottom:.8rem;"><div style="border-right:1px solid var(--border);padding-right:.6rem;"><div class="wf-num">01</div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div style="border-right:1px solid var(--border);padding:0 .6rem;"><div class="wf-num">02</div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div style="padding-left:.6rem;"><div class="wf-num">03</div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div></div><div class="wf-4col"><div class="wf-card"><div class="wf-h3" style="width:60%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-card"><div class="wf-h3" style="width:60%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-card"><div class="wf-h3" style="width:60%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-card"><div class="wf-h3" style="width:60%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div></div></div></div>
-  <div class="wf-section wf-section--dark"><div class="section-tag">CTA</div><div class="section-inner" style="text-align:center;padding:1.5rem;"><div class="wf-h2 wf-h2--light" style="width:40%;margin:0 auto .4rem;"></div><div class="wf-btn wf-btn--md wf-btn--light" style="margin:0 auto;display:block;margin-top:.8rem;"></div></div></div>
-  <div class="wf-footer"><div><div class="wf-logo wf-logo--light"></div></div><div></div><div></div><div></div></div>
+<!-- ══════════════════════════════════════  CONTATTI  ══════════════════════════════════════ -->
+<div id="pf-contatti" class="page-frame">
+<div class="site-shell">
+  <div class="s-infobar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#">Scopri le date</a></span><span class="s-infobar__x">✕</span></div>
+  <header class="s-header"><div class="s-logo">Nicoletta Ingusci</div><nav class="s-nav"><a href="#">Chi sono</a><a href="#">Yoga</a><a href="#">Coaching</a><a href="#">Benessere aziendale</a><a href="#">Eventi</a><a href="#">Risorse</a><a href="#">Contatti</a></nav><button class="s-btn s-btn--primary">Prenota una call</button></header>
+
+  <div class="s-page-hero bg-neutral"><div class="s-container"><div class="s-label">Contatti</div><div class="s-h1">Scrivimi.</div><p class="s-p" style="max-width:480px;">Hai domande su un percorso? Vuoi sapere qual è il più adatto a te? Sono qui.</p></div></div>
+
+  <section class="s-section bg-white">
+    <div class="s-container">
+      <div class="s-2col" style="align-items:start;">
+        <div>
+          <div class="s-label">Scrivici</div>
+          <div class="s-h2" style="margin-bottom:28px;">Prenota una call conoscitiva gratuita.</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;"><input class="s-input" placeholder="Nome"/><input class="s-input" placeholder="Cognome"/></div>
+          <input class="s-input" placeholder="Email"/>
+          <input class="s-input" placeholder="Oggetto (es. Percorso Yoga, Coaching individuale...)"/>
+          <textarea class="s-textarea" placeholder="Raccontaci brevemente cosa stai cercando..."></textarea>
+          <button class="s-btn s-btn--primary" style="width:100%;text-align:center;">Invia messaggio</button>
+        </div>
+        <div>
+          <div class="s-label" style="margin-bottom:20px;">Dove trovarmi</div>
+          <div style="display:flex;gap:14px;margin-bottom:16px;align-items:flex-start;">
+            <div style="width:32px;height:32px;background:var(--c-green-100);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">📍</div>
+            <div><div class="s-h3" style="font-size:13px;margin-bottom:2px;">Studio</div><p class="s-p" style="margin:0;">Milano, Via [da completare] · Sessioni anche online</p></div>
+          </div>
+          <div style="display:flex;gap:14px;margin-bottom:24px;align-items:flex-start;">
+            <div style="width:32px;height:32px;background:var(--c-green-100);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">@</div>
+            <div><div class="s-h3" style="font-size:13px;margin-bottom:2px;">Email</div><p class="s-p" style="margin:0;">info@nicolettaingusci.it</p></div>
+          </div>
+          <div class="s-map"><span class="s-map-label">Google Maps embed</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s-section bg-neutral">
+    <div class="s-container">
+      <div style="max-width:640px;margin:0 auto;">
+        <div class="s-label" style="text-align:center;">FAQ</div>
+        <div class="s-h2" style="text-align:center;margin-bottom:36px;">Domande frequenti.</div>
+        <div class="s-faq-item"><div class="s-faq-q">Come prenoto la prima sessione esplorativa gratuita?</div><div class="s-faq-icon">+</div></div>
+        <div class="s-faq-item"><div class="s-faq-q">Le sessioni si svolgono solo a Milano?</div><div class="s-faq-icon">+</div></div>
+        <div class="s-faq-item"><div class="s-faq-q">In quanto tempo ricevo risposta?</div><div class="s-faq-icon">+</div></div>
+        <div class="s-faq-item" style="border-bottom:1px solid #eee;"><div class="s-faq-q">Posso combinare yoga e coaching nello stesso percorso?</div><div class="s-faq-icon">+</div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="s-footer"><div><div class="s-footer-logo">Nicoletta Ingusci</div></div><div><div class="s-footer-col__title">Percorsi</div><a class="s-footer-link">Yoga</a><a class="s-footer-link">Coaching</a><a class="s-footer-link">Aziendale</a></div><div><div class="s-footer-col__title">Info</div><a class="s-footer-link">Chi sono</a><a class="s-footer-link">Eventi</a><a class="s-footer-link">Podcast</a></div><div><div class="s-footer-col__title">Legale</div><a class="s-footer-link">Privacy Policy</a><a class="s-footer-link">Cookie Policy</a></div><div class="s-footer-copy"><span>© 2025 Nicoletta Ingusci — P.IVA 00000000000</span><span>Privacy · Cookie</span></div></footer>
+</div>
 </div>
 
-<!-- ── COACHING ── -->
-<div id="page-coaching" class="page-frame">
-  <div class="page-title-bar"><h2>Coaching</h2><span>coaching.html</span></div>
-  <div class="wf-infobar"><div class="wf-infobar-text"></div><div class="wf-infobar-x"></div></div>
-  <div class="wf-header"><div class="wf-logo"></div><div class="wf-nav"><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item active-pg"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div></div><div class="wf-btn wf-btn--sm"></div></div>
-  <div class="wf-section wf-section--cream"><div class="section-tag">PAGE HERO — cream</div><div class="wf-hero"><div class="wf-label" style="margin-bottom:.4rem;">Percorso</div><div class="wf-h1" style="width:65%;"></div><div class="wf-btn wf-btn--md" style="margin-top:.6rem;"></div><div class="wf-btn wf-btn--md wf-btn--ghost"></div></div></div>
-  <div class="wf-section"><div class="section-tag">IL PERCORSO — 2 COL</div><div class="section-inner"><div class="wf-2col"><div><div class="wf-label">Il percorso</div><div class="wf-h2" style="margin-bottom:.4rem;"></div><div class="wf-text"></div><div class="wf-text wf-text-w80"></div><div class="wf-btn wf-btn--sm" style="margin-top:.5rem;height:18px;background:var(--block-terracotta);"></div></div><div class="wf-img wf-img--geom" style="height:150px;"></div></div></div></div>
-  <div class="wf-section wf-section--green"><div class="section-tag">A CHI È RIVOLTO — dark</div><div class="section-inner" style="height:120px;position:relative;"><div class="wf-label wf-label--light" style="margin-bottom:.3rem;">A chi è rivolto</div><div class="wf-h2 wf-h2--light" style="width:70%;margin-bottom:.5rem;"></div><div class="wf-2col"><div style="display:flex;flex-direction:column;gap:.25rem;"><div class="wf-row"><div class="wf-num wf-num--light" style="font-size:1rem;">01</div><div class="wf-text wf-text--light" style="flex:1;"></div></div><div class="wf-row"><div class="wf-num wf-num--light" style="font-size:1rem;">02</div><div class="wf-text wf-text--light" style="flex:1;"></div></div></div><div class="wf-2col" style="gap:.3rem;"><div class="wf-card wf-card--dark"><div class="wf-text wf-text--light"></div></div><div class="wf-card wf-card--dark"><div class="wf-text wf-text--light"></div></div></div></div></div></div>
-  <div class="wf-section"><div class="section-tag">COME FUNZIONA — 3 steps</div><div class="section-inner"><div class="wf-3col"><div style="border-right:1px solid var(--border);padding-right:.6rem;"><div class="wf-num">01</div><div class="wf-h3" style="width:80%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div style="border-right:1px solid var(--border);padding:0 .6rem;"><div class="wf-num">02</div><div class="wf-h3" style="width:80%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div style="padding-left:.6rem;"><div class="wf-num">03</div><div class="wf-h3" style="width:80%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div></div></div></div>
-  <div class="wf-section wf-section--cream"><div class="section-tag">COSA CAMBIA — 6 card benefici</div><div class="section-inner"><div class="wf-label" style="margin-bottom:.5rem;text-align:center;">Cosa cambia</div><div class="wf-3col" style="gap:.5rem;"><div class="wf-card wf-card--green"><div class="wf-card__icon"></div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-card wf-card--green"><div class="wf-card__icon"></div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-card wf-card--green"><div class="wf-card__icon"></div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-card wf-card--green"><div class="wf-card__icon"></div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-card wf-card--green"><div class="wf-card__icon"></div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-card wf-card--green"><div class="wf-card__icon"></div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div></div></div></div>
-  <div class="wf-section"><div class="section-tag">FAQ — 2 col</div><div class="section-inner"><div class="wf-2col"><div><div class="wf-label">FAQ</div><div class="wf-h2" style="margin-bottom:.3rem;"></div><div class="wf-text wf-text-w60"></div></div><div><div class="wf-faq-item"><div class="wf-text" style="flex:1;"></div><div class="wf-faq-plus"></div></div><div class="wf-faq-item"><div class="wf-text" style="flex:1;"></div><div class="wf-faq-plus"></div></div><div class="wf-faq-item"><div class="wf-text" style="flex:1;"></div><div class="wf-faq-plus"></div></div><div class="wf-faq-item"><div class="wf-text" style="flex:1;"></div><div class="wf-faq-plus"></div></div></div></div><div class="wf-note">JS: accordion expand/collapse.</div></div></div>
-  <div class="wf-section wf-section--terracotta"><div class="section-tag">CTA — terracotta</div><div class="section-inner" style="text-align:center;padding:1.5rem;"><div class="wf-h2 wf-h2--light" style="width:45%;margin:0 auto .4rem;"></div><div class="wf-btn wf-btn--md wf-btn--light" style="margin:0 auto;display:block;margin-top:.8rem;"></div></div></div>
-  <div class="wf-footer"><div><div class="wf-logo wf-logo--light"></div></div><div></div><div></div><div></div></div>
-</div>
-
-<!-- ── AZIENDALE ── -->
-<div id="page-aziendale" class="page-frame">
-  <div class="page-title-bar"><h2>Benessere Aziendale</h2><span>benessere-aziendale.html</span></div>
-  <div class="wf-infobar"><div class="wf-infobar-text"></div><div class="wf-infobar-x"></div></div>
-  <div class="wf-header wf-header--dark"><div class="wf-logo wf-logo--light"></div><div class="wf-nav"><div class="wf-nav-item wf-nav-item--light"></div><div class="wf-nav-item wf-nav-item--light"></div><div class="wf-nav-item wf-nav-item--light"></div><div class="wf-nav-item wf-nav-item--light active-pg" style="background:rgba(255,255,255,0.5);"></div><div class="wf-nav-item wf-nav-item--light"></div><div class="wf-nav-item wf-nav-item--light"></div></div><div class="wf-btn wf-btn--sm wf-btn--light-ghost"></div></div>
-  <div class="wf-section wf-section--dark" style="min-height:180px;"><div class="section-tag">HERO DARK — immagine sfondo</div><div class="wf-hero--dark"><div class="wf-label wf-label--light" style="margin-bottom:.4rem;">Per le organizzazioni</div><div class="wf-h1 wf-h1--light" style="width:80%;height:24px;"></div><div class="wf-h1 wf-h1--light" style="width:55%;height:24px;margin-top:.2rem;"></div><div style="margin-top:.8rem;"><div class="wf-btn wf-btn--md wf-btn--light"></div><div class="wf-btn wf-btn--md wf-btn--light-ghost"></div></div><div class="wf-note">Foto sfondo destra con opacity/blend. Forme geometriche SVG decorative.</div></div></div>
-  <div class="wf-section wf-section--medium"><div class="section-tag">IL PROBLEMA — 2 col</div><div class="section-inner"><div class="wf-2col"><div><div class="wf-label wf-label--light">Il problema</div><div class="wf-h2 wf-h2--light" style="margin-bottom:.4rem;"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80"></div></div><div><div class="wf-text wf-text--light" style="margin-bottom:.5rem;width:60%;"></div><div style="display:flex;flex-direction:column;gap:.3rem;"><div class="wf-row"><div class="wf-num wf-num--light" style="font-size:1rem;">01</div><div class="wf-text wf-text--light" style="flex:1;"></div></div><div class="wf-row"><div class="wf-num wf-num--light" style="font-size:1rem;">02</div><div class="wf-text wf-text--light" style="flex:1;"></div></div><div class="wf-row"><div class="wf-num wf-num--light" style="font-size:1rem;">03</div><div class="wf-text wf-text--light" style="flex:1;"></div></div></div></div></div></div></div>
-  <div class="wf-section wf-section--accent"><div class="section-tag">COME INIZIARE — vertical process list</div><div class="section-inner"><div class="wf-label wf-label--light" style="margin-bottom:.4rem;text-align:center;">Come iniziare</div><div class="wf-h2 wf-h2--light" style="width:50%;margin:0 auto .8rem;"></div><div class="wf-process"><div class="wf-process-item"><div class="wf-process-dot"></div><div><div class="wf-h3 wf-h3--light" style="width:80%;margin-bottom:.2rem;"></div><div class="wf-text wf-text--light wf-text-w80"></div></div></div><div class="wf-process-item"><div class="wf-process-dot"></div><div><div class="wf-h3 wf-h3--light" style="width:80%;margin-bottom:.2rem;"></div><div class="wf-text wf-text--light wf-text-w80"></div></div></div><div class="wf-process-item"><div class="wf-process-dot"></div><div><div class="wf-h3 wf-h3--light" style="width:80%;margin-bottom:.2rem;"></div><div class="wf-text wf-text--light wf-text-w80"></div></div></div></div><div style="text-align:center;margin-top:.8rem;"><div class="wf-btn wf-btn--lg wf-btn--light" style="display:inline-block;"></div></div></div></div>
-  <div class="wf-section wf-section--dark"><div class="section-tag">I RISULTATI — 6 card</div><div class="section-inner"><div class="wf-label wf-label--light" style="margin-bottom:.5rem;text-align:center;">I risultati</div><div class="wf-3col" style="gap:.5rem;"><div class="wf-card wf-card--dark"><div class="wf-card__icon wf-card__icon--light"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80" style="margin-top:.2rem;"></div></div><div class="wf-card wf-card--dark"><div class="wf-card__icon wf-card__icon--light"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80" style="margin-top:.2rem;"></div></div><div class="wf-card wf-card--dark"><div class="wf-card__icon wf-card__icon--light"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80" style="margin-top:.2rem;"></div></div><div class="wf-card wf-card--dark"><div class="wf-card__icon wf-card__icon--light"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80" style="margin-top:.2rem;"></div></div><div class="wf-card wf-card--dark"><div class="wf-card__icon wf-card__icon--light"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80" style="margin-top:.2rem;"></div></div><div class="wf-card wf-card--dark"><div class="wf-card__icon wf-card__icon--light"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80" style="margin-top:.2rem;"></div></div></div></div></div>
-  <div class="wf-section wf-section--neutral"><div class="section-tag">TESTIMONIANZE — 3 card</div><div class="section-inner"><div class="wf-3col"><div class="wf-card"><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60"></div></div><div class="wf-card"><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60"></div></div><div class="wf-card"><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60"></div></div></div></div></div>
-  <div class="wf-section wf-section--dark"><div class="section-tag">CTA FORM — 2 col: info + form</div><div class="section-inner"><div class="wf-2col"><div><div class="wf-label wf-label--light">Inizia da qui</div><div class="wf-h2 wf-h2--light" style="margin-bottom:.4rem;"></div><div class="wf-text wf-text--light wf-text-w80"></div></div><div><div style="background:rgba(255,255,255,0.06);padding:.6rem;border-radius:3px;"><div style="display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin-bottom:.4rem;"><div style="height:28px;background:rgba(255,255,255,0.1);border-radius:2px;"></div><div style="height:28px;background:rgba(255,255,255,0.1);border-radius:2px;"></div></div><div style="height:28px;background:rgba(255,255,255,0.1);border-radius:2px;margin-bottom:.4rem;"></div><div style="height:60px;background:rgba(255,255,255,0.1);border-radius:2px;margin-bottom:.4rem;"></div><div class="wf-btn wf-btn--lg wf-btn--light" style="width:100%;display:block;"></div></div><div class="wf-note">Form: statico/HTML — collegare a WPForms o EmailJS su WP.</div></div></div></div></div>
-  <div class="wf-footer"><div><div class="wf-logo wf-logo--light"></div></div><div></div><div></div><div></div></div>
-</div>
-
-<!-- ── EVENTI ── -->
-<div id="page-eventi" class="page-frame">
-  <div class="page-title-bar"><h2>Eventi</h2><span>eventi.html</span></div>
-  <div class="wf-infobar"><div class="wf-infobar-text"></div><div class="wf-infobar-x"></div></div>
-  <div class="wf-header"><div class="wf-logo"></div><div class="wf-nav"><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item active-pg"></div><div class="wf-nav-item"></div></div><div class="wf-btn wf-btn--sm"></div></div>
-  <div class="wf-section wf-section--neutral"><div class="section-tag">PAGE HERO</div><div class="wf-hero"><div class="wf-label" style="margin-bottom:.4rem;">Calendario</div><div class="wf-h1" style="width:70%;"></div></div></div>
-  <div class="wf-section"><div class="section-tag">EVENTO IN EVIDENZA — 2 col</div><div class="section-inner"><div class="wf-2col"><div class="wf-img" style="height:160px;position:relative;"><div style="position:absolute;top:.5rem;left:.5rem;background:var(--block-dark);padding:.2rem .5rem;border-radius:2px;font-size:.6rem;font-family:var(--mono);color:#fff;">Retreat</div></div><div><div style="display:flex;gap:.6rem;margin-bottom:.4rem;"><div class="wf-text" style="width:60px;"></div><div class="wf-text" style="width:60px;"></div><div class="wf-text" style="width:60px;"></div></div><div class="wf-h2" style="margin-bottom:.4rem;"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60"></div><div class="wf-btn wf-btn--md" style="margin-top:.6rem;"></div><div class="wf-btn wf-btn--md wf-btn--ghost"></div></div></div></div></div>
-  <div class="wf-section wf-section--cream"><div class="section-tag">LISTA EVENTI — 3 card orizzontali</div><div class="section-inner"><div style="display:flex;flex-direction:column;gap:.5rem;"><div style="display:flex;gap:.8rem;align-items:center;border:1px solid var(--border);padding:.5rem;border-radius:2px;"><div style="width:36px;text-align:center;flex-shrink:0;"><div class="wf-h3" style="width:100%;margin-bottom:.15rem;"></div><div class="wf-text wf-text-w80"></div></div><div style="flex:1;"><div class="wf-text wf-text-w60" style="margin-bottom:.2rem;"></div><div class="wf-h3" style="width:70%;margin-bottom:.2rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-btn wf-btn--sm wf-btn--ghost"></div></div><div style="display:flex;gap:.8rem;align-items:center;border:1px solid var(--border);padding:.5rem;border-radius:2px;"><div style="width:36px;text-align:center;flex-shrink:0;"><div class="wf-h3" style="width:100%;margin-bottom:.15rem;"></div><div class="wf-text wf-text-w80"></div></div><div style="flex:1;"><div class="wf-text wf-text-w60" style="margin-bottom:.2rem;"></div><div class="wf-h3" style="width:70%;margin-bottom:.2rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-btn wf-btn--sm wf-btn--ghost"></div></div><div style="display:flex;gap:.8rem;align-items:center;border:1px solid var(--border);padding:.5rem;border-radius:2px;"><div style="width:36px;text-align:center;flex-shrink:0;"><div class="wf-h3" style="width:100%;margin-bottom:.15rem;"></div><div class="wf-text wf-text-w80"></div></div><div style="flex:1;"><div class="wf-text wf-text-w60" style="margin-bottom:.2rem;"></div><div class="wf-h3" style="width:70%;margin-bottom:.2rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-btn wf-btn--sm wf-btn--ghost"></div></div></div><div class="wf-note">CPT "Eventi" su WP. The Events Calendar plugin consigliato.</div></div></div>
-  <div class="wf-section wf-section--green"><div class="section-tag">CTA</div><div class="section-inner" style="text-align:center;padding:1.5rem;"><div class="wf-h2 wf-h2--light" style="width:50%;margin:0 auto .4rem;"></div><div class="wf-btn wf-btn--md wf-btn--light" style="margin:0 auto;display:block;margin-top:.8rem;"></div></div></div>
-  <div class="wf-footer"><div><div class="wf-logo wf-logo--light"></div></div><div></div><div></div><div></div></div>
-</div>
-
-<!-- ── RISORSE ── -->
-<div id="page-risorse" class="page-frame">
-  <div class="page-title-bar"><h2>Risorse / News</h2><span>news.html</span></div>
-  <div class="wf-infobar"><div class="wf-infobar-text"></div><div class="wf-infobar-x"></div></div>
-  <div class="wf-header"><div class="wf-logo"></div><div class="wf-nav"><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item active-pg"></div></div><div class="wf-btn wf-btn--sm"></div></div>
-  <div class="wf-section wf-section--neutral"><div class="section-tag">PAGE HERO</div><div class="wf-hero"><div class="wf-label" style="margin-bottom:.4rem;">Risorse</div><div class="wf-h1" style="width:75%;"></div></div></div>
-  <div class="wf-section"><div class="section-tag">ARTICOLO IN EVIDENZA — 2 col</div><div class="section-inner"><div class="wf-2col"><div class="wf-img" style="height:140px;"></div><div><div class="wf-btn wf-btn--sm" style="height:18px;background:var(--block-green);margin-bottom:.4rem;"></div><div class="wf-h2" style="margin-bottom:.4rem;"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60"></div><div class="wf-btn wf-btn--md" style="margin-top:.6rem;"></div></div></div></div></div>
-  <div class="wf-section wf-section--cream"><div class="section-tag">GRIGLIA ARTICOLI — 3×2 card</div><div class="section-inner"><div class="wf-label" style="margin-bottom:.5rem;">Tutti gli articoli</div><div class="wf-3col"><div class="wf-card"><div class="wf-img" style="height:70px;margin-bottom:.4rem;"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60" style="margin-top:.2rem;"></div></div><div class="wf-card"><div class="wf-img" style="height:70px;margin-bottom:.4rem;"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60" style="margin-top:.2rem;"></div></div><div class="wf-card"><div class="wf-img" style="height:70px;margin-bottom:.4rem;"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60" style="margin-top:.2rem;"></div></div><div class="wf-card"><div class="wf-img" style="height:70px;margin-bottom:.4rem;"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60" style="margin-top:.2rem;"></div></div><div class="wf-card"><div class="wf-img" style="height:70px;margin-bottom:.4rem;"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60" style="margin-top:.2rem;"></div></div><div class="wf-card"><div class="wf-img" style="height:70px;margin-bottom:.4rem;"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60" style="margin-top:.2rem;"></div></div></div><div class="wf-note">CPT "Articoli" su WP. La griglia viene popolata automaticamente.</div></div></div>
-  <div class="wf-section wf-section--terracotta"><div class="section-tag">PODCAST TEASER — 2 col, terracotta</div><div class="section-inner"><div class="wf-2col"><div><div class="wf-label wf-label--light" style="margin-bottom:.3rem;">Podcast</div><div class="wf-h2 wf-h2--light" style="margin-bottom:.4rem;"></div><div class="wf-text wf-text--light wf-text-w80"></div><div style="margin-top:.5rem;display:flex;gap:.4rem;"><div class="wf-btn wf-btn--sm wf-btn--light-ghost"></div><div class="wf-btn wf-btn--sm wf-btn--light-ghost"></div></div><div class="wf-btn wf-btn--md wf-btn--light" style="margin-top:.6rem;"></div></div><div><div class="wf-card wf-card--dark"><div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem;"><div style="width:32px;height:32px;border-radius:50%;background:rgba(230,191,145,0.6);flex-shrink:0;"></div><div><div class="wf-text wf-text--light wf-text-w80" style="margin-bottom:.15rem;"></div><div class="wf-text wf-text--light wf-text-w60"></div></div></div><div class="wf-text wf-text--light"></div></div></div></div></div></div>
-  <div class="wf-section wf-section--dark"><div class="section-tag">CTA</div><div class="section-inner" style="text-align:center;padding:1.5rem;"><div class="wf-h2 wf-h2--light" style="width:45%;margin:0 auto .4rem;"></div><div class="wf-btn wf-btn--md wf-btn--light" style="margin:0 auto;display:block;margin-top:.8rem;"></div></div></div>
-  <div class="wf-footer"><div><div class="wf-logo wf-logo--light"></div></div><div></div><div></div><div></div></div>
-</div>
-
-<!-- ── PODCAST ── -->
-<div id="page-podcast" class="page-frame">
-  <div class="page-title-bar"><h2>Podcast</h2><span>podcast.html</span></div>
-  <div class="wf-infobar"><div class="wf-infobar-text"></div><div class="wf-infobar-x"></div></div>
-  <div class="wf-header"><div class="wf-logo"></div><div class="wf-nav"><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div></div><div class="wf-btn wf-btn--sm"></div></div>
-  <div class="wf-section wf-section--dark" style="min-height:160px;"><div class="section-tag">HERO — dark, photo BG</div><div class="wf-hero--dark"><div class="wf-label wf-label--light" style="margin-bottom:.4rem;">Podcast</div><div class="wf-h1 wf-h1--light" style="width:65%;"></div><div class="wf-text wf-text--light wf-text-w80" style="margin-top:.4rem;"></div><div style="margin-top:.6rem;display:flex;gap:.4rem;"><div class="wf-btn wf-btn--sm wf-btn--light-ghost"></div><div class="wf-btn wf-btn--sm wf-btn--light-ghost"></div><div class="wf-btn wf-btn--sm wf-btn--light-ghost"></div></div></div></div>
-  <div class="wf-section"><div class="section-tag">EPISODI — lista con player</div><div class="section-inner"><div style="display:flex;flex-direction:column;gap:.5rem;"><div style="display:flex;gap:.8rem;align-items:center;border:1px solid var(--border);padding:.6rem;border-radius:2px;"><div style="width:40px;height:40px;border-radius:50%;background:var(--block-accent);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1rem;">▷</div><div style="flex:1;"><div class="wf-h3" style="width:75%;margin-bottom:.2rem;"></div><div class="wf-text wf-text-w60"></div></div><div class="wf-text" style="width:40px;font-size:.6rem;font-family:var(--mono);color:var(--muted);text-align:right;background:none;height:auto;">22 min</div></div><div style="display:flex;gap:.8rem;align-items:center;border:1px solid var(--border);padding:.6rem;border-radius:2px;"><div style="width:40px;height:40px;border-radius:50%;background:var(--block-accent);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1rem;">▷</div><div style="flex:1;"><div class="wf-h3" style="width:75%;margin-bottom:.2rem;"></div><div class="wf-text wf-text-w60"></div></div><div class="wf-text" style="width:40px;font-size:.6rem;font-family:var(--mono);color:var(--muted);text-align:right;background:none;height:auto;">18 min</div></div><div style="display:flex;gap:.8rem;align-items:center;border:1px solid var(--border);padding:.6rem;border-radius:2px;"><div style="width:40px;height:40px;border-radius:50%;background:var(--block-accent);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1rem;">▷</div><div style="flex:1;"><div class="wf-h3" style="width:75%;margin-bottom:.2rem;"></div><div class="wf-text wf-text-w60"></div></div><div class="wf-text" style="width:40px;font-size:.6rem;font-family:var(--mono);color:var(--muted);text-align:right;background:none;height:auto;">31 min</div></div></div><div class="wf-note">Plugin consigliato: Seriously Simple Podcasting o embed Spotify/Anchor.</div></div></div>
-  <div class="wf-section wf-section--green"><div class="section-tag">CTA</div><div class="section-inner" style="text-align:center;padding:1.5rem;"><div class="wf-h2 wf-h2--light" style="width:45%;margin:0 auto .4rem;"></div><div class="wf-btn wf-btn--md wf-btn--light" style="margin:0 auto;display:block;margin-top:.8rem;"></div></div></div>
-  <div class="wf-footer"><div><div class="wf-logo wf-logo--light"></div></div><div></div><div></div><div></div></div>
-</div>
-
-<!-- ── CONTATTI ── -->
-<div id="page-contatti" class="page-frame">
-  <div class="page-title-bar"><h2>Contatti</h2><span>contatti.html</span></div>
-  <div class="wf-infobar"><div class="wf-infobar-text"></div><div class="wf-infobar-x"></div></div>
-  <div class="wf-header"><div class="wf-logo"></div><div class="wf-nav"><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item active-pg"></div></div><div class="wf-btn wf-btn--sm"></div></div>
-  <div class="wf-section wf-section--neutral"><div class="section-tag">PAGE HERO</div><div class="wf-hero"><div class="wf-label" style="margin-bottom:.4rem;">Contatti</div><div class="wf-h1" style="width:60%;"></div></div></div>
-  <div class="wf-section"><div class="section-tag">FORM + INFO — 2 col</div><div class="section-inner"><div class="wf-2col"><div><div class="wf-label">Scrivici</div><div class="wf-h2" style="margin-bottom:.5rem;"></div><div style="display:flex;flex-direction:column;gap:.5rem;"><div style="height:34px;background:var(--block);border-radius:2px;"></div><div style="height:34px;background:var(--block);border-radius:2px;"></div><div style="height:34px;background:var(--block);border-radius:2px;"></div><div style="height:80px;background:var(--block);border-radius:2px;"></div><div class="wf-btn wf-btn--lg" style="width:100%;display:block;"></div></div><div class="wf-note">Form: WPForms (Elementor widget) o Contact Form 7.</div></div><div><div class="wf-label" style="margin-bottom:.5rem;">Informazioni</div><div style="display:flex;flex-direction:column;gap:.6rem;"><div class="wf-row"><div style="width:20px;height:20px;border-radius:50%;background:var(--block);flex-shrink:0;"></div><div><div class="wf-text" style="width:80px;margin-bottom:.15rem;"></div><div class="wf-text wf-text-w60"></div></div></div><div class="wf-row"><div style="width:20px;height:20px;border-radius:50%;background:var(--block);flex-shrink:0;"></div><div><div class="wf-text" style="width:80px;margin-bottom:.15rem;"></div><div class="wf-text wf-text-w60"></div></div></div></div><div style="height:120px;background:var(--block);border-radius:3px;margin-top:1rem;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-family:var(--mono);color:var(--muted);">Google Maps embed</div><div class="wf-note">Google Maps: Elementor widget o iframe.</div></div></div></div></div>
-  <div class="wf-section wf-section--neutral"><div class="section-tag">FAQ</div><div class="section-inner"><div class="wf-faq-item"><div class="wf-text" style="flex:1;"></div><div class="wf-faq-plus"></div></div><div class="wf-faq-item"><div class="wf-text" style="flex:1;"></div><div class="wf-faq-plus"></div></div><div class="wf-faq-item"><div class="wf-text" style="flex:1;"></div><div class="wf-faq-plus"></div></div></div></div>
-  <div class="wf-footer"><div><div class="wf-logo wf-logo--light"></div></div><div></div><div></div><div></div></div>
-</div>
-
-</div><!-- end pages -->
-</div><!-- end canvas -->
+</div><!-- viewport-wrap -->
 
 <script>
-const pageInfo = {
-  home: { title: 'Homepage', file: 'index.html', desc: 'Slider hero 3 slide, strip certificazioni animata, intro 2-col con foto geometrica, 3 percorsi, testimonianze, CTA newsletter.' },
-  'chi-sono': { title: 'Chi sono', file: 'chi-sono.html', desc: 'Page hero light, storia 2-col con foto geometrica clip-path, 3 percorsi, valori+formazione, certificazioni orizzontali compatte, CTA.' },
-  yoga: { title: 'Yoga', file: 'yoga.html', desc: 'Page hero + 2 CTA diverse, intro 2-col foto geometrica, target section dark green, 3 metodo-steps + 4 modalità card, CTA.' },
-  coaching: { title: 'Coaching', file: 'coaching.html', desc: 'Page hero cream, intro 2-col, target section dark, 3 steps, 6 benefici card, FAQ accordion, CTA terracotta.' },
-  aziendale: { title: 'Benessere Aziendale', file: 'benessere-aziendale.html', desc: 'Hero dark con immagine sfondo, problema 2-col, come iniziare vertical list, 6 risultati dark, testimonianze, CTA form inline.' },
-  eventi: { title: 'Eventi', file: 'eventi.html', desc: 'Page hero, evento in evidenza 2-col, lista 3 eventi orizzontali, CTA. Richiede CPT "Evento" su WP.' },
-  risorse: { title: 'Risorse / News', file: 'news.html', desc: 'Page hero, articolo in evidenza 2-col, griglia 6 articoli, podcast teaser terracotta 2-col, CTA. CPT "Articolo" su WP.' },
-  podcast: { title: 'Podcast', file: 'podcast.html', desc: 'Hero dark, lista episodi con player, CTA. Plugin: Seriously Simple Podcasting o embed esterno.' },
-  contatti: { title: 'Contatti', file: 'contatti.html', desc: 'Page hero, form + info 2-col con Google Maps embed, FAQ accordion.' }
-};
-
-function showPage(id) {
-  document.querySelectorAll('.page-frame').forEach(f => f.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('page-' + id).classList.add('active');
-  event.target.classList.add('active');
-  const p = pageInfo[id];
-  document.getElementById('info-body').innerHTML = '<b>' + p.title + '</b><br><span style="color:#aaa;font-size:.68rem;font-family:monospace">' + p.file + '</span><br><br>' + p.desc;
+function show(id, tab) {
+  document.querySelectorAll('.page-frame').forEach(function(f){ f.classList.remove('active'); });
+  document.querySelectorAll('.chrome__tab').forEach(function(t){ t.classList.remove('active'); });
+  document.getElementById('pf-' + id).classList.add('active');
+  tab.classList.add('active');
+  window.scrollTo(0, 0);
 }
 </script>
+</body>
+</html>
