@@ -1,0 +1,765 @@
+
+<title>Note sviluppatore — WordPress/Elementor · Nicoletta Ingusci</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #F7F6F3;
+    --surface: #FFFFFF;
+    --border: #E2E0DA;
+    --text: #1E1E1C;
+    --muted: #888880;
+    --accent: #2D5A30;
+    --accent-light: #E8F0E9;
+    --accent-dark: #1A3A1C;
+    --peach: #9F644A;
+    --peach-light: #F5EDE8;
+    --yellow-light: #FFF9E6;
+    --yellow-border: #E8C84A;
+    --red-light: #FFF0EE;
+    --red: #C0392B;
+    --green-light: #EAF4EA;
+    --green: #2D8A35;
+    --font: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --mono: 'Courier New', monospace;
+    --radius: 6px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #161614;
+      --surface: #1E1E1C;
+      --border: #2E2E2A;
+      --text: #F0EEEA;
+      --muted: #888880;
+      --accent: #5A9960;
+      --accent-light: #1A2E1C;
+      --accent-dark: #7BC882;
+      --peach: #C87E60;
+      --peach-light: #2A1E18;
+      --yellow-light: #201E10;
+      --yellow-border: #B09020;
+      --red-light: #20100E;
+      --red: #E05050;
+      --green-light: #102010;
+      --green: #60B868;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161614; --surface: #1E1E1C; --border: #2E2E2A; --text: #F0EEEA;
+    --muted: #888880; --accent: #5A9960; --accent-light: #1A2E1C;
+    --accent-dark: #7BC882; --peach: #C87E60; --peach-light: #2A1E18;
+    --yellow-light: #201E10; --yellow-border: #B09020;
+    --red-light: #20100E; --red: #E05050; --green-light: #102010; --green: #60B868;
+  }
+  :root[data-theme="light"] {
+    --bg: #F7F6F3; --surface: #FFFFFF; --border: #E2E0DA; --text: #1E1E1C;
+    --muted: #888880; --accent: #2D5A30; --accent-light: #E8F0E9;
+    --accent-dark: #1A3A1C; --peach: #9F644A; --peach-light: #F5EDE8;
+    --yellow-light: #FFF9E6; --yellow-border: #E8C84A;
+    --red-light: #FFF0EE; --red: #C0392B; --green-light: #EAF4EA; --green: #2D8A35;
+  }
+
+  body {
+    font-family: var(--font); background: var(--bg); color: var(--text);
+    font-size: 0.88rem; line-height: 1.6;
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    background: var(--accent-dark, #1A3A1C); color: #fff;
+    padding: 0.85rem 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .topbar__left { display: flex; align-items: center; gap: 1rem; }
+  .topbar__badge {
+    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+    font-family: var(--mono); padding: 0.2rem 0.6rem;
+    background: rgba(255,255,255,0.12); border-radius: 3px;
+  }
+  .topbar__title { font-size: 0.8rem; font-weight: 600; letter-spacing: -0.01em; }
+  .topbar__date { font-size: 0.7rem; color: rgba(255,255,255,0.5); font-family: var(--mono); }
+
+  /* ── LAYOUT ── */
+  .layout { display: grid; grid-template-columns: 220px 1fr; min-height: calc(100vh - 50px); }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    background: var(--surface); border-right: 1px solid var(--border);
+    padding: 1.5rem 0;
+    position: sticky; top: 50px; height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+  .sidebar__section { margin-bottom: 1.5rem; }
+  .sidebar__label {
+    font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted); font-family: var(--mono);
+    padding: 0 1.2rem; margin-bottom: 0.3rem; display: block;
+  }
+  .sidebar__link {
+    display: block; padding: 0.4rem 1.2rem;
+    color: var(--muted); text-decoration: none; font-size: 0.8rem;
+    border-left: 2px solid transparent; transition: all 0.1s;
+  }
+  .sidebar__link:hover { color: var(--text); border-left-color: var(--border); }
+  .sidebar__link.active { color: var(--accent); border-left-color: var(--accent); font-weight: 600; }
+
+  /* ── CONTENT ── */
+  .content { padding: 2rem 2.5rem; max-width: 900px; }
+
+  /* ── SECTIONS ── */
+  .doc-section { margin-bottom: 3rem; }
+  .doc-section__title {
+    font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em;
+    margin-bottom: 1rem; padding-bottom: 0.6rem;
+    border-bottom: 1.5px solid var(--border);
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .doc-section__title .icon {
+    width: 24px; height: 24px; border-radius: 5px;
+    background: var(--accent-light); color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem; flex-shrink: 0;
+  }
+
+  /* ── PLUGIN TABLE ── */
+  .plugin-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .plugin-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 0.9rem 1rem;
+    display: grid; grid-template-rows: auto 1fr auto; gap: 0.3rem;
+  }
+  .plugin-card__header { display: flex; align-items: flex-start; gap: 0.6rem; }
+  .plugin-card__icon {
+    width: 28px; height: 28px; border-radius: 6px;
+    background: var(--accent-light); display: flex; align-items: center;
+    justify-content: center; font-size: 1rem; flex-shrink: 0;
+  }
+  .plugin-card__name { font-weight: 600; font-size: 0.82rem; line-height: 1.3; }
+  .plugin-card__type {
+    font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+    font-family: var(--mono); color: var(--muted);
+  }
+  .plugin-card__desc { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+  .plugin-card__footer { display: flex; align-items: center; justify-content: space-between; margin-top: 0.3rem; }
+  .badge {
+    font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+    font-family: var(--mono); padding: 0.15rem 0.5rem; border-radius: 3px;
+  }
+  .badge--required { background: var(--red-light); color: var(--red); }
+  .badge--recommended { background: var(--accent-light); color: var(--accent); }
+  .badge--optional { background: var(--border); color: var(--muted); }
+  .badge--paid { background: var(--yellow-light); color: #8A6A00; border: 1px solid var(--yellow-border); }
+  .badge--free { background: var(--green-light); color: var(--green); }
+
+  /* ── EFFORT TABLE ── */
+  .effort-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  .effort-table th {
+    background: var(--surface); border: 1px solid var(--border);
+    padding: 0.5rem 0.8rem; text-align: left; font-weight: 600;
+    font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--muted); white-space: nowrap;
+  }
+  .effort-table td {
+    border: 1px solid var(--border); padding: 0.55rem 0.8rem;
+    vertical-align: top;
+  }
+  .effort-table tr:nth-child(even) td { background: var(--bg); }
+  .effort-table td:first-child { font-weight: 600; }
+  .effort-table td code {
+    font-family: var(--mono); font-size: 0.75rem; color: var(--muted);
+    background: var(--bg); padding: 0.05rem 0.3rem; border-radius: 2px;
+  }
+  .effort-bar {
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .effort-bar__track {
+    flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden;
+  }
+  .effort-bar__fill { height: 100%; border-radius: 3px; background: var(--accent); }
+  .effort-bar__fill--high { background: var(--peach); }
+  .effort-bar__fill--medium { background: #D4A030; }
+  .effort-bar__fill--low { background: var(--green); }
+  .effort-num { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+  .total-row td { background: var(--accent-light) !important; font-weight: 700; color: var(--accent); }
+
+  /* ── NOTES ── */
+  .note {
+    background: var(--yellow-light); border-left: 3px solid var(--yellow-border);
+    padding: 0.6rem 0.9rem; border-radius: 0 4px 4px 0;
+    font-size: 0.8rem; margin-bottom: 0.75rem; line-height: 1.5;
+  }
+  .note--info {
+    background: var(--accent-light); border-left-color: var(--accent);
+  }
+  .note--warn {
+    background: var(--red-light); border-left-color: var(--red);
+  }
+  .note b { font-weight: 700; }
+  .note code { font-family: var(--mono); font-size: 0.75rem; background: rgba(0,0,0,0.06); padding: 0 0.25rem; border-radius: 2px; }
+
+  /* ── PAGE NOTES ── */
+  .page-note {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); margin-bottom: 1rem;
+    overflow: hidden;
+  }
+  .page-note__header {
+    padding: 0.65rem 1rem;
+    background: var(--bg); border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    cursor: pointer; user-select: none;
+  }
+  .page-note__title { font-weight: 600; font-size: 0.85rem; display: flex; align-items: center; gap: 0.6rem; }
+  .page-note__file { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); }
+  .page-note__tags { display: flex; gap: 0.4rem; align-items: center; }
+  .page-note__body { padding: 1rem; display: none; }
+  .page-note.open .page-note__body { display: block; }
+  .page-note__body ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+  .page-note__body ul li {
+    padding-left: 1rem; position: relative; font-size: 0.82rem; line-height: 1.5;
+  }
+  .page-note__body ul li::before {
+    content: '→'; position: absolute; left: 0; color: var(--accent);
+    font-size: 0.75rem; top: 2px;
+  }
+  .page-note__body ul li code { font-family: var(--mono); font-size: 0.74rem; background: var(--bg); padding: 0 0.25rem; border-radius: 2px; color: var(--peach); }
+
+  /* ── TECH TABLE ── */
+  .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .tech-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 0.85rem 1rem;
+  }
+  .tech-card__label {
+    font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em;
+    font-family: var(--mono); color: var(--muted); margin-bottom: 0.4rem;
+  }
+  .tech-card__title { font-weight: 700; font-size: 0.85rem; margin-bottom: 0.4rem; }
+  .tech-card__body { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+  .tech-card__body code { font-family: var(--mono); font-size: 0.73rem; color: var(--text); background: var(--bg); padding: 0 0.25rem; border-radius: 2px; }
+
+  h3 { font-size: 0.88rem; font-weight: 700; margin: 1rem 0 0.5rem; }
+  p { margin-bottom: 0.5rem; color: var(--muted); font-size: 0.82rem; }
+
+  .summary-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .summary-stat {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1rem;
+    text-align: center;
+  }
+  .summary-stat__num {
+    font-size: 1.8rem; font-weight: 800; font-family: var(--mono);
+    color: var(--accent); letter-spacing: -0.03em; line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .summary-stat__label { font-size: 0.68rem; color: var(--muted); margin-top: 0.3rem; }
+
+  .chevron { font-size: 0.7rem; transition: transform 0.15s; color: var(--muted); }
+  .open .chevron { transform: rotate(90deg); }
+</style>
+
+<div class="topbar">
+  <div class="topbar__left">
+    <div class="topbar__badge">Dev Notes</div>
+    <div class="topbar__title">WordPress / Elementor — Nicoletta Ingusci</div>
+  </div>
+  <div class="topbar__date">Aggiornato: Luglio 2026</div>
+</div>
+
+<div class="layout">
+
+<!-- ── SIDEBAR ── -->
+<aside class="sidebar">
+  <div class="sidebar__section">
+    <span class="sidebar__label">Panoramica</span>
+    <a class="sidebar__link active" href="#sommario">Sommario</a>
+    <a class="sidebar__link" href="#stack">Stack consigliato</a>
+  </div>
+  <div class="sidebar__section">
+    <span class="sidebar__label">Plugin</span>
+    <a class="sidebar__link" href="#plugin-core">Core / Essenziali</a>
+    <a class="sidebar__link" href="#plugin-content">Contenuti</a>
+    <a class="sidebar__link" href="#plugin-perf">Performance & SEO</a>
+    <a class="sidebar__link" href="#plugin-form">Form & Email</a>
+  </div>
+  <div class="sidebar__section">
+    <span class="sidebar__label">Pagine</span>
+    <a class="sidebar__link" href="#effort">Stima effort</a>
+    <a class="sidebar__link" href="#pages">Note per pagina</a>
+  </div>
+  <div class="sidebar__section">
+    <span class="sidebar__label">Tecnico</span>
+    <a class="sidebar__link" href="#custom-code">Codice custom</a>
+    <a class="sidebar__link" href="#checklist">Checklist deploy</a>
+  </div>
+</aside>
+
+<!-- ── CONTENT ── -->
+<main class="content">
+
+<!-- SOMMARIO -->
+<div id="sommario" class="doc-section">
+  <div class="doc-section__title">
+    <div class="icon">📋</div>
+    Sommario progetto
+  </div>
+  <div class="summary-grid">
+    <div class="summary-stat"><div class="summary-stat__num">9</div><div class="summary-stat__label">Pagine totali</div></div>
+    <div class="summary-stat"><div class="summary-stat__num">35–50</div><div class="summary-stat__label">Ore stimate</div></div>
+    <div class="summary-stat"><div class="summary-stat__num">12+</div><div class="summary-stat__label">Plugin</div></div>
+    <div class="summary-stat"><div class="summary-stat__num">3</div><div class="summary-stat__label">Custom Post Types</div></div>
+  </div>
+  <div class="note note--info">
+    <b>Progetto:</b> Sito vetrina professionale con blog, podcast, eventi e form di contatto. Nessun e-commerce nella versione attuale. Il sito HTML/CSS/JS statico di riferimento è già completo — il lavoro di sviluppo consiste nel riprodurre fedelmente il design in Elementor, configurare i CPT, e collegare i form.
+  </div>
+  <div class="note">
+    <b>Tema base consigliato:</b> <code>Hello Elementor</code> (tema ufficiale di Elementor, leggero e privo di stili predefiniti). Alternativa: <code>Astra</code> con kit blank.
+  </div>
+</div>
+
+<!-- STACK -->
+<div id="stack" class="doc-section">
+  <div class="doc-section__title"><div class="icon">⚙️</div>Stack tecnologico</div>
+  <div class="tech-grid">
+    <div class="tech-card"><div class="tech-card__label">Page Builder</div><div class="tech-card__title">Elementor Pro</div><div class="tech-card__body">Indispensabile per replicare il layout preciso del prototipo. Richiede Pro per Theme Builder (header/footer custom), popup, e widget Loop Grid per i CPT.</div></div>
+    <div class="tech-card"><div class="tech-card__label">Tema</div><div class="tech-card__title">Hello Elementor</div><div class="tech-card__body">Tema ufficiale Elementor. Zero stili predefiniti, massima compatibilità. Non modificare il tema — tutto il design va in Elementor.</div></div>
+    <div class="tech-card"><div class="tech-card__label">CSS / Token</div><div class="tech-card__title">Global CSS in Elementor</div><div class="tech-card__body">I custom properties CSS del sito (<code>--c-green-700</code>, <code>--c-peach</code>, ecc.) vanno trascritti come Global Colors e Global Fonts in Elementor → Global Settings.</div></div>
+    <div class="tech-card"><div class="tech-card__label">Animazioni</div><div class="tech-card__title">Elementor Scroll Effects + JS custom</div><div class="tech-card__body">Le animazioni <code>.reveal</code> / <code>.visible</code> (IntersectionObserver) vanno ricreate con Elementor Scroll Effects oppure mantenendo il file <code>js/main.js</code> come script custom.</div></div>
+    <div class="tech-card"><div class="tech-card__label">Hosting</div><div class="tech-card__title">Server PHP 8.1+ / LiteSpeed</div><div class="tech-card__body">Preferibilmente hosting con LiteSpeed (LiteSpeed Cache gratuito) o Nginx. PHP 8.1+, MySQL 8.0+, SSL attivo. WP Rocket funziona su qualsiasi stack.</div></div>
+    <div class="tech-card"><div class="tech-card__label">Deploy SEO</div><div class="tech-card__title">Yoast SEO</div><div class="tech-card__body">I meta tag OG, canonical, Twitter Card e JSON-LD già implementati nel prototipo HTML vanno riconfiggurare in Yoast. Verificare che i valori combacino prima del go-live.</div></div>
+  </div>
+</div>
+
+<!-- PLUGIN CORE -->
+<div id="plugin-core" class="doc-section">
+  <div class="doc-section__title"><div class="icon">🔌</div>Plugin — Core / Essenziali</div>
+  <div class="plugin-grid">
+    <div class="plugin-card">
+      <div class="plugin-card__header"><div class="plugin-card__icon">🏗</div><div><div class="plugin-card__name">Elementor Pro</div><div class="plugin-card__type">Page Builder</div></div></div>
+      <div class="plugin-card__desc">Theme Builder per header/footer, widget Loop Grid per News/Podcast, Popup Builder, Sticky Header. Indispensabile.</div>
+      <div class="plugin-card__footer"><span class="badge badge--required">Obbligatorio</span><span class="badge badge--paid">A pagamento</span></div>
+    </div>
+    <div class="plugin-card">
+      <div class="plugin-card__header"><div class="plugin-card__icon">🎨</div><div><div class="plugin-card__name">Hello Elementor</div><div class="plugin-card__type">Tema</div></div></div>
+      <div class="plugin-card__desc">Tema ufficiale Elementor, zero overhead. Installare e NON modificare — tutto il design va in Elementor.</div>
+      <div class="plugin-card__footer"><span class="badge badge--required">Obbligatorio</span><span class="badge badge--free">Gratuito</span></div>
+    </div>
+    <div class="plugin-card">
+      <div class="plugin-card__header"><div class="plugin-card__icon">🔐</div><div><div class="plugin-card__name">Really Simple SSL</div><div class="plugin-card__type">Sicurezza</div></div></div>
+      <div class="plugin-card__desc">Gestione automatica SSL e header di sicurezza. Configurare dopo l'attivazione del certificato.</div>
+      <div class="plugin-card__footer"><span class="badge badge--required">Obbligatorio</span><span class="badge badge--free">Gratuito</span></div>
+    </div>
+    <div class="plugin-card">
+      <div class="plugin-card__header"><div class="plugin-card__icon">🛡</div><div><div class="plugin-card__name">Wordfence Security</div><div class="plugin-card__type">Sicurezza</div></div></div>
+      <div class="plugin-card__desc">Firewall e scansione malware. Attivare subito dopo l'installazione di WordPress.</div>
+      <div class="plugin-card__footer"><span class="badge badge--recommended">Consigliato</span><span class="badge badge--free">Gratuito</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PLUGIN CONTENT -->
+<div id="plugin-content" class="doc-section">
+  <div class="doc-section__title"><div class="icon">📝</div>Plugin — Contenuti (CPT)</div>
+  <div class="note">Il sito ha 3 tipologie di contenuto custom: <b>Articoli</b> (news/risorse), <b>Episodi podcast</b>, <b>Eventi</b>. Ciascuno richiede un Custom Post Type dedicato.</div>
+  <div class="plugin-grid">
+    <div class="plugin-card">
+      <div class="plugin-card__header"><div class="plugin-card__icon">📦</div><div><div class="plugin-card__name">Custom Post Type UI</div><div class="plugin-card__type">CPT Manager</div></div></div>
+      <div class="plugin-card__desc">Crea i CPT Articoli, Podcast, Eventi senza codice. Alternativa: registrare i CPT via <code>functions.php</code> del child theme.</div>
+      <div class="plugin-card__footer"><span class="badge badge--recommended">Consigliato</span><span class="badge badge--free">Gratuito</span></div>
+    </div>
+    <div class="plugin-card">
+      <div class="plugin-card__header"><div class="plugin-card__icon">🗂</div><div><div class="plugin-card__name">Advanced Custom Fields (ACF)</div><div class="plugin-card__type">Custom Fields</div></div></div>
+      <div class="plugin-card__desc">Aggiunge campi custom ai CPT: durata episodio, URL audio podcast, data evento, prezzo, link iscrizione. ACF Free sufficiente.</div>
+      <div class="plugin-card__footer"><span class="badge badge--recommended">Consigliato</span><span class="badge badge--free">Gratuito</span></div>
+    </div>
+    <div class="plugin-card">
+      <div class="plugin-card__header"><div class="plugin-card__icon">🎙</div><div><div class="plugin-card__name">Seriously Simple Podcasting</div><div class="plugin-card__type">Podcast</div></div></div>
+      <div class="plugin-card__desc">Gestisce il feed RSS del podcast, player audio, capitoli. Compatibile con Spotify, Apple Podcasts. Alternativa: embed diretto da Spotify/Anchor.</div>
+      <div class="plugin-card__footer"><span class="badge badge--optional">Opzionale</span><span class="badge badge--free">Gratuito</span></div>
+    </div>
+    <div class="plugin-card">
+      <div class="plugin-card__header"><div class="plugin-card__icon">📅</div><div><div class="plugin-card__name">The Events Calendar</div><div class="plugin-card__type">Eventi</div></div></div>
+      <div class="plugin-card__desc">Gestione completa eventi con calendario, location, link iscrizione. Alternativa leggera: CPT custom + ACF senza plugin dedicato.</div>
+      <div class="plugin-card__footer"><span class="badge badge--optional">Opzionale</span><span class="badge badge--free">Gratuito</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PLUGIN PERFORMANCE -->
+<div id="plugin-perf" class="doc-section">
+  <div class="doc-section__title"><div class="icon">⚡</div>Plugin — Performance & SEO</div>
+  <div class="plugin-grid">
+    <div class="plugin-card">
+      <div class="plugin-card__header"><div class="plugin-card__icon">🔍</div><div><div class="plugin-card__name">Yoast SEO</div><div class="plugin-card__type">SEO</div></div></div>
+      <div class="plugin-card__desc">Gestione meta title, description, OG tags, canonical, sitemap XML automatica, JSON-LD (Person, WebSite, Article). La sitemap.xml del prototipo può essere sostituita da Yoast.</div>
+      <div class="plugin-card__footer"><span class="badge badge--required">Obbligatorio</span><span class="badge badge--free">Gratuito (base)</span></div>
+    </div>
+    <div class="plugin-card">
+      <div class="plugin-card__header"><div class="plugin-card__icon">🚀</div><div><div class="plugin-card__name">WP Rocket</div><div class="plugin-card__type">Cache & Performance</div></div></div>
+      <div class="plugin-card__desc">Caching pagine, minify CSS/JS, lazy load immagini, preload, CDN. Migliore opzione pagata. Alternativa gratuita: LiteSpeed Cache (se su server LiteSpeed).</div>
+      <div class="plugin-card__footer"><span class="badge badge--recommended">Consigliato</span><span class="badge badge--paid">A pagamento</span></div>
+    </div>
+    <div class="plugin-card">
+      <div class="plugin-card__header"><div class="plugin-card__icon">🖼</div><div><div class="plugin-card__name">Smush / ShortPixel</div><div class="plugin-card__type">Ottimizzazione immagini</div></div></div>
+      <div class="plugin-card__desc">Compressione automatica immagini caricate. Il sito usa già <code>.webp</code> — verificare che la conversione WEBP sia attiva anche per upload futuri.</div>
+      <div class="plugin-card__footer"><span class="badge badge--recommended">Consigliato</span><span class="badge badge--free">Gratuito (base)</span></div>
+    </div>
+    <div class="plugin-card">
+      <div class="plugin-card__header"><div class="plugin-card__icon">🌐</div><div><div class="plugin-card__name">WPML o Polylang</div><div class="plugin-card__type">Multilingua</div></div></div>
+      <div class="plugin-card__desc">Solo se richiesta versione EN in futuro. Non installare ora — l'aggiunta a posteriori richiede riconfigurazione dei contenuti.</div>
+      <div class="plugin-card__footer"><span class="badge badge--optional">Futuro</span><span class="badge badge--paid">A pagamento</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PLUGIN FORM -->
+<div id="plugin-form" class="doc-section">
+  <div class="doc-section__title"><div class="icon">📬</div>Plugin — Form & Email</div>
+  <div class="plugin-grid">
+    <div class="plugin-card">
+      <div class="plugin-card__header"><div class="plugin-card__icon">📋</div><div><div class="plugin-card__name">WPForms Lite</div><div class="plugin-card__type">Form Builder</div></div></div>
+      <div class="plugin-card__desc">Widget nativo Elementor, drag-and-drop, notifiche email, spam protection CAPTCHA. Sufficiente la versione Lite per form di contatto base.</div>
+      <div class="plugin-card__footer"><span class="badge badge--recommended">Consigliato</span><span class="badge badge--free">Gratuito (base)</span></div>
+    </div>
+    <div class="plugin-card">
+      <div class="plugin-card__header"><div class="plugin-card__icon">✉️</div><div><div class="plugin-card__name">WP Mail SMTP</div><div class="plugin-card__type">Email deliverability</div></div></div>
+      <div class="plugin-card__desc">Collega WordPress a un provider SMTP reale (Gmail, Brevo, Mailgun). Senza questo, le email dei form rischiano di finire in spam.</div>
+      <div class="plugin-card__footer"><span class="badge badge--required">Obbligatorio</span><span class="badge badge--free">Gratuito (base)</span></div>
+    </div>
+    <div class="plugin-card">
+      <div class="plugin-card__header"><div class="plugin-card__icon">📧</div><div><div class="plugin-card__name">Brevo (ex Sendinblue)</div><div class="plugin-card__type">Email marketing</div></div></div>
+      <div class="plugin-card__desc">Per la gestione della newsletter (form iscrizione in homepage). Plugin WordPress disponibile. Alternativa: Mailchimp, MailerLite.</div>
+      <div class="plugin-card__footer"><span class="badge badge--optional">Se newsletter attiva</span><span class="badge badge--free">Gratuito (base)</span></div>
+    </div>
+    <div class="plugin-card">
+      <div class="plugin-card__header"><div class="plugin-card__icon">🤖</div><div><div class="plugin-card__name">Google reCAPTCHA v3</div><div class="plugin-card__type">Anti-spam</div></div></div>
+      <div class="plugin-card__desc">Protezione spam invisibile per i form. Configurabile direttamente in WPForms o CF7 senza plugin aggiuntivo.</div>
+      <div class="plugin-card__footer"><span class="badge badge--recommended">Consigliato</span><span class="badge badge--free">Gratuito</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- EFFORT TABLE -->
+<div id="effort" class="doc-section">
+  <div class="doc-section__title"><div class="icon">⏱</div>Stima effort per pagina</div>
+  <div class="note">
+    <b>Metodologia:</b> Le stime includono la costruzione del layout in Elementor, la migrazione del CSS custom, la configurazione dei blocchi e i test responsive. Non includono la scrittura dei contenuti testuali, la produzione fotografica, o il setup dell'hosting.
+  </div>
+  <div style="overflow-x:auto;">
+    <table class="effort-table">
+      <thead>
+        <tr>
+          <th>Pagina</th>
+          <th>File</th>
+          <th>Ore stimate</th>
+          <th>Complessità</th>
+          <th>Note principali</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Setup progetto</td>
+          <td><code>—</code></td>
+          <td><div class="effort-bar"><div class="effort-bar__track"><div class="effort-bar__fill effort-bar__fill--low" style="width:20%"></div></div><span class="effort-num">2–3h</span></div></td>
+          <td><span class="badge badge--free">Bassa</span></td>
+          <td>Installazione WP, plugin, Hello Elementor, global colors, global fonts, header/footer template</td>
+        </tr>
+        <tr>
+          <td>Homepage</td>
+          <td><code>index.html</code></td>
+          <td><div class="effort-bar"><div class="effort-bar__track"><div class="effort-bar__fill effort-bar__fill--high" style="width:75%"></div></div><span class="effort-num">6–8h</span></div></td>
+          <td><span class="badge badge--required">Alta</span></td>
+          <td>Hero slider JS, contatore animato, foto clip-path geometrica, 3 percorsi grid, testimonianze, newsletter form</td>
+        </tr>
+        <tr>
+          <td>Chi sono</td>
+          <td><code>chi-sono.html</code></td>
+          <td><div class="effort-bar"><div class="effort-bar__track"><div class="effort-bar__fill effort-bar__fill--medium" style="width:50%"></div></div><span class="effort-num">4–5h</span></div></td>
+          <td><span class="badge badge--recommended">Media</span></td>
+          <td>Foto clip-path, certificazioni layout orizzontale custom, contatore animato, 3 percorsi card</td>
+        </tr>
+        <tr>
+          <td>Yoga</td>
+          <td><code>yoga.html</code></td>
+          <td><div class="effort-bar"><div class="effort-bar__track"><div class="effort-bar__fill effort-bar__fill--medium" style="width:40%"></div></div><span class="effort-num">3–4h</span></div></td>
+          <td><span class="badge badge--recommended">Media</span></td>
+          <td>Target section dark green, foto clip-path, 3 steps + 4 modalità card, reveal animations</td>
+        </tr>
+        <tr>
+          <td>Coaching</td>
+          <td><code>coaching.html</code></td>
+          <td><div class="effort-bar"><div class="effort-bar__track"><div class="effort-bar__fill effort-bar__fill--medium" style="width:45%"></div></div><span class="effort-num">4–5h</span></div></td>
+          <td><span class="badge badge--recommended">Media</span></td>
+          <td>Identico a Yoga + FAQ accordion JS (6 domande), 6 benefici card, CTA terracotta</td>
+        </tr>
+        <tr>
+          <td>Benessere Aziendale</td>
+          <td><code>benessere-aziendale.html</code></td>
+          <td><div class="effort-bar"><div class="effort-bar__track"><div class="effort-bar__fill effort-bar__fill--high" style="width:70%"></div></div><span class="effort-num">5–7h</span></div></td>
+          <td><span class="badge badge--required">Alta</span></td>
+          <td>Hero dark con immagine sfondo, gradiente accent "Come iniziare", 6 risultati card dark, form inline 2-col, testimonianze</td>
+        </tr>
+        <tr>
+          <td>Eventi</td>
+          <td><code>eventi.html</code></td>
+          <td><div class="effort-bar"><div class="effort-bar__track"><div class="effort-bar__fill effort-bar__fill--medium" style="width:45%"></div></div><span class="effort-num">4–5h</span></div></td>
+          <td><span class="badge badge--recommended">Media</span></td>
+          <td>CPT "Evento" + ACF campi (data, luogo, prezzo, link iscrizione), Loop Grid Elementor, evento in evidenza manuale</td>
+        </tr>
+        <tr>
+          <td>Risorse / News</td>
+          <td><code>news.html</code></td>
+          <td><div class="effort-bar"><div class="effort-bar__track"><div class="effort-bar__fill effort-bar__fill--medium" style="width:40%"></div></div><span class="effort-num">3–4h</span></div></td>
+          <td><span class="badge badge--recommended">Media</span></td>
+          <td>CPT "Articolo" o WP standard Posts, Loop Grid, articolo in evidenza, podcast teaser sezione</td>
+        </tr>
+        <tr>
+          <td>Podcast</td>
+          <td><code>podcast.html</code></td>
+          <td><div class="effort-bar"><div class="effort-bar__track"><div class="effort-bar__fill effort-bar__fill--low" style="width:30%"></div></div><span class="effort-num">2–4h</span></div></td>
+          <td><span class="badge badge--free">Bassa–Media</span></td>
+          <td>CPT "Episodio" + ACF (audio URL, durata) o Seriously Simple Podcasting. Player audio embed o custom.</td>
+        </tr>
+        <tr>
+          <td>Contatti</td>
+          <td><code>contatti.html</code></td>
+          <td><div class="effort-bar"><div class="effort-bar__track"><div class="effort-bar__fill effort-bar__fill--medium" style="width:35%"></div></div><span class="effort-num">3–4h</span></div></td>
+          <td><span class="badge badge--free">Bassa–Media</span></td>
+          <td>WPForms form 2-col, Google Maps embed, FAQ accordion, WP Mail SMTP configurazione</td>
+        </tr>
+        <tr>
+          <td>Test & ottimizzazione</td>
+          <td><code>—</code></td>
+          <td><div class="effort-bar"><div class="effort-bar__track"><div class="effort-bar__fill effort-bar__fill--medium" style="width:40%"></div></div><span class="effort-num">3–5h</span></div></td>
+          <td><span class="badge badge--optional">QA</span></td>
+          <td>Test responsive mobile/tablet, Lighthouse performance, Yoast SEO check, form test, cross-browser</td>
+        </tr>
+        <tr class="total-row">
+          <td>TOTALE</td>
+          <td>—</td>
+          <td colspan="3"><b>39–54 ore</b> (stima conservativa, esclude contenuti e foto)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- PAGE NOTES -->
+<div id="pages" class="doc-section">
+  <div class="doc-section__title"><div class="icon">📄</div>Note tecniche per pagina</div>
+
+  <div class="page-note open">
+    <div class="page-note__header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="page-note__title"><span>🏠</span> Homepage<span class="page-note__file">index.html</span></div>
+      <div class="page-note__tags"><span class="badge badge--required">Alta priorità</span><span class="chevron">›</span></div>
+    </div>
+    <div class="page-note__body">
+      <ul>
+        <li><b>Hero slider:</b> Elementor non ha uno slider built-in in Pro. Usare il widget <b>Slides</b> di Elementor Pro oppure installare <code>Swiper JS</code> via script custom. Il JS autoplay è già implementato nel prototipo — può essere riutilizzato come Custom JS in Elementor.</li>
+        <li><b>Contatore "+3.000":</b> Elementor Pro ha il widget <b>Counter</b> con animazione al scroll. Configurare valore, durata e suffisso "h di insegnamento".</li>
+        <li><b>Foto geometrica clip-path:</b> <code>clip-path: polygon(0 0, 86% 0, 100% 14%, 100% 100%, 14% 100%, 0 86%)</code> — applicare come CSS custom sul widget Image in Elementor (Custom CSS nel pannello Advanced).</li>
+        <li><b>Strip certificazioni:</b> Layout flex con divisori verticali. Creare con widget Inner Section o Flexbox Container in Elementor. I badge (immagini .webp) vanno caricati in Media Library.</li>
+        <li><b>Newsletter form:</b> Widget WPForms + Brevo/Mailchimp integration. Creare il form in WPForms, collegare all'account newsletter.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-note">
+    <div class="page-note__header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="page-note__title"><span>👤</span> Chi sono<span class="page-note__file">chi-sono.html</span></div>
+      <div class="page-note__tags"><span class="badge badge--recommended">Media</span><span class="chevron">›</span></div>
+    </div>
+    <div class="page-note__body">
+      <ul>
+        <li><b>Certificazioni layout orizzontale:</b> Layout a 5 colonne (<code>auto 1px auto 1px 1fr</code>) con CSS Grid custom. Richede Custom CSS sul Container o un widget HTML per il blocco cert-compact. Non riproducibile nativamente con widget Elementor standard.</li>
+        <li><b>Icona formazione (graduation cap):</b> SVG inline nel box — caricare come SVG Custom Icon set in Elementor o usare widget Icon con libreria custom (Lucide/Iconify).</li>
+        <li><b>Tags (E-RYT, YACEP, ICF):</b> Widget Text con styled span. Alternativa: widget Button senza link, stile pill.</li>
+        <li><b>Sezione percorsi:</b> 3 card con immagine, categoria, titolo, testo, link. Usare Loop Grid Elementor con CPT custom o con Posts standard. Layout replica già esistente nelle pagine servizio.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-note">
+    <div class="page-note__header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="page-note__title"><span>🧘</span> Yoga + Coaching (simili)<span class="page-note__file">yoga.html / coaching.html</span></div>
+      <div class="page-note__tags"><span class="badge badge--recommended">Media</span><span class="chevron">›</span></div>
+    </div>
+    <div class="page-note__body">
+      <ul>
+        <li><b>Target section (dark green):</b> Background <code>var(--c-green-700)</code> = <code>#1F3220</code>. Impostare come sezione con colore sfondo custom. Il testo usa opacità ridotta — impostare color con alpha in Elementor o CSS custom.</li>
+        <li><b>Steps numerati (01, 02, 03):</b> Widget personalizzato o Inner Section con 3 colonne, separatori verticali, numerazione con widget Heading. CSS per il numero grande (<code>font-size: clamp(2.8rem, 4vw, 3.8rem)</code>) via Custom CSS.</li>
+        <li><b>FAQ accordion (solo Coaching):</b> Widget Accordion di Elementor Pro, configurare domande e risposte. Testare animazione open/close. Il JS custom del prototipo non è necessario con Elementor Accordion.</li>
+        <li><b>CTA terracotta (Coaching):</b> Background <code>#9F644A</code> — impostare come sezione con colore custom.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-note">
+    <div class="page-note__header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="page-note__title"><span>🏢</span> Benessere Aziendale<span class="page-note__file">benessere-aziendale.html</span></div>
+      <div class="page-note__tags"><span class="badge badge--required">Alta priorità</span><span class="chevron">›</span></div>
+    </div>
+    <div class="page-note__body">
+      <ul>
+        <li><b>Hero dark con foto sfondo:</b> Sezione con background image + overlay scuro (<code>rgba(0,0,0,0.55)</code>). La navbar diventa trasparente su questa pagina — configurare in Elementor Theme Builder con condizione di pagina.</li>
+        <li><b>Gradiente "Come iniziare":</b> <code>linear-gradient(135deg, #4a5a4b, #9F644A)</code> — impostare come sfondo CSS custom sulla sezione (<code>background: linear-gradient(135deg,...);</code> in Custom CSS sezione).</li>
+        <li><b>Form inline nella CTA:</b> WPForms widget inserito direttamente nella colonna destra della sezione CTA. Layout 2-col: testo sx + form dx. Stile del form va allineato alla dark section — usare il tema del form "Transparent" o CSS custom per rimuovere sfondi bianchi.</li>
+        <li><b>Navigazione dark:</b> Header con logo bianco e menu chiaro — usare Elementor Theme Builder con condizione <code>questa pagina</code> per applicare header alternativo dark, oppure usare sticky header con cambio colore al scroll.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-note">
+    <div class="page-note__header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="page-note__title"><span>📅</span> Eventi<span class="page-note__file">eventi.html</span></div>
+      <div class="page-note__tags"><span class="badge badge--recommended">Media</span><span class="chevron">›</span></div>
+    </div>
+    <div class="page-note__body">
+      <ul>
+        <li><b>CPT "Evento":</b> Registrare con Custom Post Type UI. Campi ACF: <code>data_evento</code> (Date Picker), <code>luogo</code> (Text), <code>tipo</code> (Select: Retreat / Workshop / Lezione), <code>prezzo</code> (Number), <code>link_iscrizione</code> (URL), <code>sold_out</code> (True/False).</li>
+        <li><b>Evento in evidenza:</b> Post singolo selezionato manualmente — usare un campo ACF booleano <code>in_evidenza</code> e filtrare la query Loop Grid per questo campo. Alternativa: usare "Evento in evidenza" come pagina statica Elementor.</li>
+        <li><b>Lista eventi:</b> Loop Grid Elementor con template card custom (data + tipo + titolo + luogo + CTA). Ordinare per <code>data_evento</code> ASC. Filtrare gli eventi passati con query personalizzata (<code>meta_query</code> su data).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-note">
+    <div class="page-note__header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="page-note__title"><span>🎙</span> Podcast<span class="page-note__file">podcast.html</span></div>
+      <div class="page-note__tags"><span class="badge badge--free">Bassa</span><span class="chevron">›</span></div>
+    </div>
+    <div class="page-note__body">
+      <ul>
+        <li><b>Opzione A (semplice):</b> Embed diretto da Spotify o Anchor — usare widget HTML in Elementor con il codice embed della piattaforma. Nessun plugin necessario.</li>
+        <li><b>Opzione B (completo):</b> Plugin Seriously Simple Podcasting — gestisce feed RSS, lista episodi, player integrato. Compatibile con Apple Podcasts, Spotify, Google Podcasts. Richiede configurazione RSS.</li>
+        <li><b>CPT manuale:</b> Se si vuole lista episodi personalizzata senza plugin podcast, creare CPT "Episodio" con ACF: <code>audio_url</code>, <code>durata</code>, <code>numero_episodio</code>, <code>stagione</code>. Loop Grid con template custom.</li>
+        <li><b>Link piattaforme:</b> 3 bottoni (Spotify, Apple Podcasts, Google Podcasts) — widget Button Elementor con link URL esterno e icona SVG custom.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- CUSTOM CODE -->
+<div id="custom-code" class="doc-section">
+  <div class="doc-section__title"><div class="icon">💻</div>Codice custom necessario</div>
+  <div class="note note--warn">
+    <b>Attenzione:</b> Questi elementi del design HTML statico <b>non sono riproducibili nativamente</b> con widget Elementor standard e richiedono Custom CSS / Custom JS.
+  </div>
+  <div class="tech-grid">
+    <div class="tech-card">
+      <div class="tech-card__label">Custom CSS globale</div>
+      <div class="tech-card__title">CSS Variables (Design Tokens)</div>
+      <div class="tech-card__body">I custom properties <code>--c-green-700</code>, <code>--c-peach</code>, <code>--space-2xl</code> ecc. vanno aggiunti come Custom CSS in Elementor → Site Settings → Custom CSS (o nel child theme <code>style.css</code>). Senza questi token, tutti i CSS custom delle sezioni falliscono.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-card__label">JS — Animazioni scroll</div>
+      <div class="tech-card__title">IntersectionObserver (.reveal)</div>
+      <div class="tech-card__body">Il file <code>js/main.js</code> del prototipo contiene l'observer per le classi <code>.reveal</code> → <code>.visible</code>. Va incollato in Elementor → Site Settings → Custom Code (prima del tag <code>&lt;/body&gt;</code>). Alternativa: usare Elementor Scroll Effects su ogni widget (meno efficiente).</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-card__label">CSS — Forma geometrica</div>
+      <div class="tech-card__title">clip-path ottagono sulle foto</div>
+      <div class="tech-card__body">Su ogni widget Image dove va la forma: Advanced → Custom CSS → <code>selector .elementor-widget-image img &#123; clip-path: polygon(0 0, 86% 0, 100% 14%, 100% 100%, 14% 100%, 0 86%); &#125;</code>. Applicare su ogni immagine nelle pagine Yoga, Coaching, Chi sono, Home.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-card__label">JS — Info bar</div>
+      <div class="tech-card__title">Banner dismissibile in cima</div>
+      <div class="tech-card__body">Il banner "Nuovo retreat in programma" con bottone ✕ può essere ricreato con Elementor Popup (tipo Notification Bar) oppure mantenendo il blocco HTML custom con il JS di chiusura dal prototipo, incollato in un widget HTML.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-card__label">CSS — Numerazione grande</div>
+      <div class="tech-card__title">Numeri steps (01, 02, 03)</div>
+      <div class="tech-card__body">La tipografia grande per i numeri (<code>clamp(2.8rem, 4vw, 3.8rem)</code> in verde) richiede Custom CSS sul widget Heading: <code>selector h2 &#123; font-size: clamp(2.8rem,4vw,3.8rem); color: var(--c-green-700); &#125;</code></div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-card__label">CSS — Certificazioni</div>
+      <div class="tech-card__title">Layout orizzontale compatto</div>
+      <div class="tech-card__body">La sezione certificazioni con 5 colonne (badge | sep | numero | sep | lista) richiede un Container Elementor con CSS Grid custom: <code>display:grid; grid-template-columns: auto 1px auto 1px 1fr; gap: 0 3.5rem;</code> via Custom CSS sul Container.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKLIST -->
+<div id="checklist" class="doc-section">
+  <div class="doc-section__title"><div class="icon">✅</div>Checklist pre-deploy</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+    <div>
+      <h3>SEO & Meta</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem;">
+        <li style="font-size:.8rem;padding-left:1.2rem;position:relative;">
+          <span style="position:absolute;left:0;color:var(--muted);">□</span>
+          Yoast configurato per ogni pagina (title, description, OG image)
+        </li>
+        <li style="font-size:.8rem;padding-left:1.2rem;position:relative;">
+          <span style="position:absolute;left:0;color:var(--muted);">□</span>
+          Sitemap XML generata e verificata in Google Search Console
+        </li>
+        <li style="font-size:.8rem;padding-left:1.2rem;position:relative;">
+          <span style="position:absolute;left:0;color:var(--muted);">□</span>
+          robots.txt configurato (Yoast lo genera automaticamente)
+        </li>
+        <li style="font-size:.8rem;padding-left:1.2rem;position:relative;">
+          <span style="position:absolute;left:0;color:var(--muted);">□</span>
+          JSON-LD Person schema verificato con Google Rich Results Test
+        </li>
+        <li style="font-size:.8rem;padding-left:1.2rem;position:relative;">
+          <span style="position:absolute;left:0;color:var(--muted);">□</span>
+          Canonical URL corretti per ogni pagina
+        </li>
+      </ul>
+      <h3>Performance</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:.4rem;">
+        <li style="font-size:.8rem;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--muted);">□</span>Lighthouse score &gt; 85 su mobile</li>
+        <li style="font-size:.8rem;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--muted);">□</span>Tutte le immagini in formato .webp con dimensioni ottimizzate</li>
+        <li style="font-size:.8rem;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--muted);">□</span>WP Rocket / LiteSpeed Cache attivo</li>
+        <li style="font-size:.8rem;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--muted);">□</span>Lazy load immagini attivo</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Funzionalità</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem;">
+        <li style="font-size:.8rem;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--muted);">□</span>Form di contatto testati — email ricevuta</li>
+        <li style="font-size:.8rem;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--muted);">□</span>WP Mail SMTP configurato e testato</li>
+        <li style="font-size:.8rem;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--muted);">□</span>SSL attivo, redirect HTTP → HTTPS</li>
+        <li style="font-size:.8rem;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--muted);">□</span>Mobile responsive testato su iPhone e Android</li>
+        <li style="font-size:.8rem;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--muted);">□</span>Menu hamburger mobile funzionante</li>
+      </ul>
+      <h3>Contenuti</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:.4rem;">
+        <li style="font-size:.8rem;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--muted);">□</span>Testi definitivi sostituiti ai placeholder</li>
+        <li style="font-size:.8rem;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--muted);">□</span>Immagini reali caricate (lafondatrice.webp, yoga.webp, ecc.)</li>
+        <li style="font-size:.8rem;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--muted);">□</span>Logo in formato .webp + SVG nelle due varianti (bianco/nero)</li>
+        <li style="font-size:.8rem;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--muted);">□</span>Privacy Policy e Cookie Policy pagine create</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</main>
+</div>
+
+<script>
+// Active sidebar links
+const links = document.querySelectorAll('.sidebar__link');
+const sections = document.querySelectorAll('.doc-section');
+function setActive() {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 80) current = '#' + s.id;
+  });
+  links.forEach(l => {
+    l.classList.toggle('active', l.getAttribute('href') === current);
+  });
+}
+window.addEventListener('scroll', setActive, { passive: true });
+setActive();
+</script>

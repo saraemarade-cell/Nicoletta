@@ -1,0 +1,581 @@
+
+<title>Wireframe — Nicoletta Ingusci</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F2F2F0;
+    --surface: #FFFFFF;
+    --block: #E6E6E2;
+    --block-dark: #B8B8B2;
+    --block-accent: #D0DDE8;
+    --block-green: #C8D8C9;
+    --block-terracotta: #E8D4CC;
+    --border: #CCCCC6;
+    --text: #2A2A28;
+    --muted: #888884;
+    --label: #555552;
+    --tag-bg: #2A2A28;
+    --tag-text: #F2F2F0;
+    --tab-active: #2A2A28;
+    --tab-inactive: #999994;
+    --hatch: repeating-linear-gradient(
+      -45deg, transparent, transparent 4px,
+      rgba(0,0,0,0.08) 4px, rgba(0,0,0,0.08) 5px
+    );
+    --font: -apple-system, 'Segoe UI', system-ui, sans-serif;
+    --mono: 'Courier New', monospace;
+  }
+
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--text);
+    padding: 0.75rem 1.5rem;
+    display: flex; align-items: center; gap: 1.5rem;
+  }
+  .topbar__title {
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); white-space: nowrap;
+  }
+  .topbar__pages {
+    display: flex; gap: 0.25rem; flex-wrap: wrap;
+  }
+  .tab {
+    padding: 0.35rem 0.85rem;
+    font-size: 0.72rem; font-family: var(--mono);
+    background: none; border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.5); cursor: pointer;
+    border-radius: 3px; transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .tab:hover { border-color: rgba(255,255,255,0.4); color: rgba(255,255,255,0.8); }
+  .tab.active { background: #fff; color: #2A2A28; border-color: #fff; }
+
+  /* ── CANVAS ── */
+  .canvas {
+    padding: 2rem 1.5rem;
+    display: flex; gap: 2rem;
+    align-items: flex-start;
+  }
+
+  /* ── PAGE FRAME ── */
+  .page-frame {
+    flex: 1; min-width: 0;
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    max-width: 840px;
+  }
+  .page-frame.active { display: flex; }
+
+  .page-title-bar {
+    display: flex; align-items: baseline; gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .page-title-bar h2 {
+    font-size: 1rem; font-weight: 700; letter-spacing: -0.01em;
+  }
+  .page-title-bar span {
+    font-size: 0.7rem; font-family: var(--mono); color: var(--muted);
+  }
+
+  /* ── SECTION BLOCKS ── */
+  .wf-section {
+    border: 1.5px solid var(--border);
+    border-top: none;
+    background: var(--surface);
+    position: relative;
+    overflow: hidden;
+  }
+  .wf-section:first-child { border-top: 1.5px solid var(--border); }
+
+  .wf-section--neutral { background: #F7F7F5; }
+  .wf-section--cream   { background: #FAF8F4; }
+  .wf-section--dark    { background: #2D3D2E; }
+  .wf-section--medium  { background: #3D4D3E; }
+  .wf-section--accent  { background: linear-gradient(135deg,#4a5a4b,#9F644A); }
+  .wf-section--green   { background: #1F3220; }
+  .wf-section--terracotta { background: #9F644A; }
+  .wf-section--peach-dark { background: #8A4835; }
+
+  .section-tag {
+    position: absolute; top: 0.6rem; right: 0.6rem;
+    font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+    font-family: var(--mono); padding: 0.2rem 0.5rem;
+    background: var(--tag-bg); color: var(--tag-text); border-radius: 2px;
+    opacity: 0.7;
+  }
+  .wf-section--dark .section-tag,
+  .wf-section--medium .section-tag,
+  .wf-section--accent .section-tag,
+  .wf-section--green .section-tag,
+  .wf-section--terracotta .section-tag {
+    background: rgba(255,255,255,0.2); color: #fff;
+  }
+
+  .section-inner { padding: 1rem 1.2rem; }
+
+  /* blocks inside sections */
+  .wf-label {
+    font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase;
+    font-family: var(--mono); color: var(--muted); margin-bottom: 0.3rem;
+  }
+  .wf-label--light { color: rgba(255,255,255,0.5); }
+  .wf-h1   { height: 20px; background: var(--block); border-radius: 2px; margin-bottom:0.4rem; width: 75%; }
+  .wf-h2   { height: 14px; background: var(--block); border-radius: 2px; margin-bottom:0.3rem; }
+  .wf-h3   { height: 11px; background: var(--block); border-radius: 2px; margin-bottom:0.25rem; }
+  .wf-text { height: 8px;  background: var(--block); border-radius: 2px; margin-bottom:0.2rem; }
+  .wf-text-w80 { width:80%; }
+  .wf-text-w60 { width:60%; }
+  .wf-text-w45 { width:45%; }
+  .wf-h1--light, .wf-h2--light, .wf-h3--light, .wf-text--light {
+    background: rgba(255,255,255,0.22);
+  }
+
+  .wf-btn {
+    display: inline-block; height: 26px; border-radius: 3px;
+    background: var(--block-accent); margin-right: 0.4rem; margin-top: 0.4rem;
+    vertical-align: top;
+  }
+  .wf-btn--sm  { width: 90px; }
+  .wf-btn--md  { width: 140px; }
+  .wf-btn--lg  { width: 180px; }
+  .wf-btn--ghost { background: none; border: 1.5px solid var(--border); }
+  .wf-btn--light { background: rgba(255,255,255,0.3); }
+  .wf-btn--light-ghost { background: none; border: 1.5px solid rgba(255,255,255,0.3); }
+
+  .wf-img {
+    background: var(--hatch); background-color: var(--block);
+    border-radius: 2px; overflow: hidden;
+    position: relative; flex-shrink: 0;
+  }
+  .wf-img::after {
+    content: '📷'; font-size: 1.2rem;
+    position: absolute; top:50%; left:50%;
+    transform: translate(-50%,-50%);
+    opacity: 0.3;
+  }
+  .wf-img--geom { clip-path: polygon(0 0,86% 0,100% 14%,100% 100%,14% 100%,0 86%); }
+
+  /* grid helpers */
+  .wf-2col { display: grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .wf-2col--4060 { grid-template-columns:4fr 6fr; }
+  .wf-3col { display: grid; grid-template-columns:1fr 1fr 1fr; gap:0.6rem; }
+  .wf-4col { display: grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:0.5rem; }
+
+  .wf-card {
+    background: var(--block); border-radius: 3px; padding: 0.7rem;
+    border-top: 2px solid var(--block-dark);
+  }
+  .wf-card--dark { background: rgba(255,255,255,0.08); border-top-color: rgba(230,191,145,0.6); }
+  .wf-card--green { border-top: 2px solid #5D8A60; background: rgba(255,255,255,0.06); }
+  .wf-card__icon { width:24px; height:24px; border-radius:50%; background:var(--block-dark); margin-bottom:0.4rem; }
+  .wf-card__icon--light { background: rgba(255,255,255,0.2); }
+
+  .wf-num {
+    font-size: 2.5rem; font-family: var(--mono); color: var(--block-dark);
+    line-height: 1; margin-bottom:0.2rem;
+  }
+  .wf-num--light { color: rgba(255,255,255,0.15); }
+
+  .wf-divider { width:1px; background: var(--border); align-self: stretch; }
+  .wf-divider--light { background: rgba(255,255,255,0.15); }
+
+  .wf-row { display:flex; align-items:center; gap:0.6rem; margin-bottom:0.3rem; }
+
+  /* ── INFO PANEL ── */
+  .info-panel {
+    width: 240px; flex-shrink: 0;
+    position: sticky; top: 70px;
+    display: flex; flex-direction: column; gap: 0.5rem;
+  }
+  .info-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 4px; padding: 0.9rem;
+  }
+  .info-card__title {
+    font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.14em;
+    font-family: var(--mono); color: var(--muted); margin-bottom: 0.5rem;
+  }
+  .info-card__body { font-size: 0.78rem; line-height: 1.5; color: var(--label); }
+  .info-card__body b { color: var(--text); }
+
+  .legend { display:flex; flex-direction:column; gap:0.4rem; }
+  .legend-item { display:flex; align-items:center; gap:0.5rem; font-size:0.72rem; color:var(--label); }
+  .legend-dot { width:10px; height:10px; border-radius:2px; flex-shrink:0; }
+
+  /* ── HEADER BLOCK ── */
+  .wf-header {
+    background: #fff; border-bottom: 1.5px solid var(--border);
+    padding: 0.6rem 1.2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem;
+  }
+  .wf-header--dark { background: rgba(0,0,0,0.4); border-bottom-color: rgba(255,255,255,0.1); }
+  .wf-logo { width: 80px; height: 18px; background: var(--block); border-radius: 2px; }
+  .wf-logo--light { background: rgba(255,255,255,0.3); }
+  .wf-nav { display:flex; gap:0.5rem; }
+  .wf-nav-item { width:44px; height:8px; background:var(--block); border-radius:1px; }
+  .wf-nav-item--light { background: rgba(255,255,255,0.2); }
+
+  /* hero */
+  .wf-hero { padding: 2rem 1.2rem 1.5rem; }
+  .wf-hero--dark { padding: 3rem 1.2rem 2rem; }
+
+  /* infobar */
+  .wf-infobar {
+    background: #2A2A28; padding: 0.35rem 1.2rem;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .wf-infobar-text { height:6px; width:60%; background:rgba(255,255,255,0.2); border-radius:1px; }
+  .wf-infobar-x { width:10px; height:10px; background:rgba(255,255,255,0.15); border-radius:50%; }
+
+  /* process list */
+  .wf-process { display:flex; flex-direction:column; gap:0.7rem; position:relative; padding-left:1.2rem; }
+  .wf-process::before { content:''; position:absolute; left:0.35rem; top:0.5rem; bottom:0.5rem; width:1.5px; background:rgba(255,255,255,0.15); }
+  .wf-process-item { display:flex; align-items:flex-start; gap:0.6rem; }
+  .wf-process-dot { width:10px; height:10px; border-radius:50%; background:rgba(230,191,145,0.6); flex-shrink:0; margin-top:2px; }
+
+  /* footer */
+  .wf-footer {
+    background: #1A1A18; padding: 1rem 1.2rem;
+    display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:1rem;
+  }
+
+  /* faq */
+  .wf-faq-item {
+    border-top: 1px solid var(--border); padding: 0.5rem 0;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .wf-faq-plus { width:14px; height:14px; background:var(--block); border-radius:50%; flex-shrink:0; }
+
+  /* annotation */
+  .wf-note {
+    font-size: 0.62rem; color: #888; font-family: var(--mono);
+    background: #FFFDE8; border-left: 2px solid #F0C040;
+    padding: 0.25rem 0.5rem; margin-top: 0.3rem;
+  }
+
+  /* nav-item active */
+  .wf-nav-item.active-pg { background: #2A2A28; border-radius: 2px; }
+</style>
+
+<div class="topbar">
+  <div class="topbar__title">Wireframe · Nicoletta Ingusci</div>
+  <div class="topbar__pages">
+    <button class="tab active" onclick="showPage('home')">Home</button>
+    <button class="tab" onclick="showPage('chi-sono')">Chi sono</button>
+    <button class="tab" onclick="showPage('yoga')">Yoga</button>
+    <button class="tab" onclick="showPage('coaching')">Coaching</button>
+    <button class="tab" onclick="showPage('aziendale')">Aziendale</button>
+    <button class="tab" onclick="showPage('eventi')">Eventi</button>
+    <button class="tab" onclick="showPage('risorse')">Risorse</button>
+    <button class="tab" onclick="showPage('podcast')">Podcast</button>
+    <button class="tab" onclick="showPage('contatti')">Contatti</button>
+  </div>
+</div>
+
+<div class="canvas">
+
+<!-- ════════ INFO PANEL ════════ -->
+<div class="info-panel">
+  <div class="info-card">
+    <div class="info-card__title">Legenda</div>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#E6E6E2;border:1px solid #ccc"></div> Blocco contenuto</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#C8DCF0"></div> CTA / Button</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#C8D8C9"></div> Sezione verde</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#E8D4CC"></div> Sezione terracotta</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#2D3D2E"></div> Sezione dark</div>
+      <div class="legend-item"><div class="legend-dot" style="background:repeating-linear-gradient(-45deg,#ddd,#ddd 3px,#f5f5f5 3px,#f5f5f5 6px)"></div> Immagine / Media</div>
+    </div>
+  </div>
+  <div class="info-card" id="info-section">
+    <div class="info-card__title">Pagina selezionata</div>
+    <div class="info-card__body" id="info-body">
+      <b>Homepage</b><br>index.html<br><br>
+      Slider hero 3 slide, sezione introduzione 2-col, 3 percorsi, testimonianze, newsletter CTA.
+    </div>
+  </div>
+  <div class="info-card">
+    <div class="info-card__title">Componenti riutilizzati</div>
+    <div class="info-card__body">
+      Info bar · Navbar · Footer · Page hero · Target section (dark green) · Metodo steps · Benefici grid · CTA block · Testimonianze grid
+    </div>
+  </div>
+</div>
+
+<!-- ════════ PAGES ════════ -->
+<div style="flex:1;min-width:0;">
+
+<!-- ── HOME ── -->
+<div id="page-home" class="page-frame active">
+  <div class="page-title-bar"><h2>Homepage</h2><span>index.html</span></div>
+
+  <div class="wf-infobar"><div class="wf-infobar-text"></div><div class="wf-infobar-x"></div></div>
+  <div class="wf-header">
+    <div class="wf-logo"></div>
+    <div class="wf-nav"><div class="wf-nav-item active-pg"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div></div>
+    <div class="wf-btn wf-btn--sm"></div>
+  </div>
+
+  <div class="wf-section wf-section--dark" style="min-height:220px;position:relative;">
+    <div class="section-tag">HERO — SLIDER 3 SLIDE</div>
+    <div class="wf-hero--dark">
+      <div class="wf-2col">
+        <div>
+          <div class="wf-label wf-label--light" style="margin-bottom:.5rem;">slide indicator ○ ● ○</div>
+          <div class="wf-h1 wf-h1--light" style="width:90%;height:28px;"></div>
+          <div class="wf-h1 wf-h1--light" style="width:65%;height:28px;margin-top:.3rem;"></div>
+          <div style="margin-top:0.8rem;"><div class="wf-btn wf-btn--md wf-btn--light"></div><div class="wf-btn wf-btn--md wf-btn--light-ghost"></div></div>
+        </div>
+        <div class="wf-img wf-img--geom" style="height:140px;"></div>
+      </div>
+    </div>
+    <div class="wf-note">JS: autoplay slider, scroll reveal. Foto con clip-path geometrica.</div>
+  </div>
+
+  <div class="wf-section wf-section--neutral">
+    <div class="section-tag">CERTIFICAZIONI STRIP</div>
+    <div class="section-inner">
+      <div style="display:flex;gap:1.5rem;align-items:center;justify-content:center;padding:0.3rem 0;">
+        <div class="wf-img" style="width:50px;height:50px;"></div>
+        <div class="wf-img" style="width:50px;height:50px;"></div>
+        <div class="wf-divider" style="height:30px;"></div>
+        <div><div class="wf-h2" style="width:80px;height:22px;"></div><div class="wf-text wf-text-w80" style="margin-top:.3rem;width:100px;"></div></div>
+        <div class="wf-divider" style="height:30px;"></div>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+          <div class="wf-btn wf-btn--sm" style="height:18px;"></div>
+          <div class="wf-btn wf-btn--sm" style="height:18px;"></div>
+          <div class="wf-btn wf-btn--sm" style="height:18px;"></div>
+        </div>
+      </div>
+      <div class="wf-note">JS: contatore animato +3.000 al scroll.</div>
+    </div>
+  </div>
+
+  <div class="wf-section">
+    <div class="section-tag">INTRO — 2 COLONNE</div>
+    <div class="section-inner">
+      <div class="wf-2col wf-2col--4060" style="align-items:center;gap:1.5rem;">
+        <div class="wf-img wf-img--geom" style="height:200px;"></div>
+        <div>
+          <div class="wf-label">La fondatrice</div>
+          <div class="wf-h2" style="width:85%;margin-bottom:.4rem;"></div>
+          <div class="wf-text wf-text-w80"></div><div class="wf-text"></div><div class="wf-text wf-text-w60"></div>
+          <div style="margin-top:.6rem;display:flex;gap:.4rem;flex-wrap:wrap;">
+            <div class="wf-btn wf-btn--sm" style="height:18px;background:var(--block-green);"></div>
+            <div class="wf-btn wf-btn--sm" style="height:18px;background:var(--block-terracotta);"></div>
+          </div>
+          <div class="wf-btn wf-btn--md" style="margin-top:.6rem;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wf-section wf-section--neutral">
+    <div class="section-tag">I PERCORSI — 3 CARD</div>
+    <div class="section-inner">
+      <div class="wf-label" style="margin-bottom:.5rem;">I percorsi</div>
+      <div class="wf-h2" style="width:55%;margin-bottom:1rem;"></div>
+      <div class="wf-3col">
+        <div class="wf-card"><div class="wf-img" style="height:80px;margin-bottom:.5rem;"></div><div class="wf-label">Yoga</div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60"></div></div>
+        <div class="wf-card"><div class="wf-img" style="height:80px;margin-bottom:.5rem;"></div><div class="wf-label">Coaching</div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60"></div></div>
+        <div class="wf-card"><div class="wf-img" style="height:80px;margin-bottom:.5rem;"></div><div class="wf-label">Aziendale</div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wf-section wf-section--dark">
+    <div class="section-tag">TESTIMONIANZE — 3 CARD</div>
+    <div class="section-inner">
+      <div class="wf-label wf-label--light" style="margin-bottom:.5rem;">Testimonianze</div>
+      <div class="wf-h2 wf-h2--light" style="width:50%;margin-bottom:1rem;"></div>
+      <div class="wf-3col">
+        <div class="wf-card wf-card--dark"><div class="wf-h2 wf-h2--light" style="width:20px;height:20px;margin-bottom:.4rem;"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80"></div><div class="wf-text wf-text--light wf-text-w60"></div></div>
+        <div class="wf-card wf-card--dark"><div class="wf-h2 wf-h2--light" style="width:20px;height:20px;margin-bottom:.4rem;"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80"></div><div class="wf-text wf-text--light wf-text-w60"></div></div>
+        <div class="wf-card wf-card--dark"><div class="wf-h2 wf-h2--light" style="width:20px;height:20px;margin-bottom:.4rem;"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80"></div><div class="wf-text wf-text--light wf-text-w60"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wf-section wf-section--green">
+    <div class="section-tag">CTA NEWSLETTER</div>
+    <div class="section-inner" style="text-align:center;padding:1.5rem;">
+      <div class="wf-h2 wf-h2--light" style="width:50%;margin:0 auto .4rem;"></div>
+      <div class="wf-text wf-text--light wf-text-w60" style="margin:0 auto .8rem;"></div>
+      <div class="wf-btn wf-btn--md wf-btn--light" style="margin:0 auto;display:block;"></div>
+    </div>
+  </div>
+
+  <div class="wf-footer">
+    <div><div class="wf-logo wf-logo--light" style="margin-bottom:.5rem;"></div><div class="wf-text" style="background:rgba(255,255,255,0.15);width:90%;margin-bottom:.3rem;"></div><div class="wf-text" style="background:rgba(255,255,255,0.15);width:70%;"></div></div>
+    <div><div class="wf-text" style="background:rgba(255,255,255,0.15);width:60%;margin-bottom:.4rem;height:10px;"></div><div class="wf-text" style="background:rgba(255,255,255,0.1);margin-bottom:.2rem;"></div><div class="wf-text" style="background:rgba(255,255,255,0.1);margin-bottom:.2rem;width:80%;"></div><div class="wf-text" style="background:rgba(255,255,255,0.1);width:70%;"></div></div>
+    <div><div class="wf-text" style="background:rgba(255,255,255,0.15);width:60%;margin-bottom:.4rem;height:10px;"></div><div class="wf-text" style="background:rgba(255,255,255,0.1);margin-bottom:.2rem;"></div><div class="wf-text" style="background:rgba(255,255,255,0.1);width:80%;"></div></div>
+    <div><div class="wf-text" style="background:rgba(255,255,255,0.15);width:60%;margin-bottom:.4rem;height:10px;"></div><div class="wf-text" style="background:rgba(255,255,255,0.1);margin-bottom:.2rem;width:90%;"></div><div class="wf-text" style="background:rgba(255,255,255,0.1);width:70%;"></div></div>
+  </div>
+</div>
+
+<!-- ── CHI SONO ── -->
+<div id="page-chi-sono" class="page-frame">
+  <div class="page-title-bar"><h2>Chi sono</h2><span>chi-sono.html</span></div>
+
+  <div class="wf-infobar"><div class="wf-infobar-text"></div><div class="wf-infobar-x"></div></div>
+  <div class="wf-header">
+    <div class="wf-logo"></div>
+    <div class="wf-nav"><div class="wf-nav-item active-pg"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div></div>
+    <div class="wf-btn wf-btn--sm"></div>
+  </div>
+  <div class="wf-section wf-section--neutral">
+    <div class="section-tag">PAGE HERO — LIGHT</div>
+    <div class="wf-hero"><div class="wf-label" style="margin-bottom:.4rem;">Nicoletta Ingusci</div><div class="wf-h1" style="width:80%;"></div></div>
+  </div>
+  <div class="wf-section" style="padding-bottom:0.5rem;">
+    <div class="section-tag">LA STORIA — 2 COL</div>
+    <div class="section-inner"><div class="wf-2col" style="align-items:center;"><div class="wf-img wf-img--geom" style="height:180px;"></div><div><div class="wf-label">La storia</div><div class="wf-h2" style="margin-bottom:.4rem;"></div><div class="wf-text"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60"></div><div style="margin-top:.5rem;display:flex;gap:.4rem;"><div class="wf-btn wf-btn--sm" style="height:16px;background:var(--block-green);"></div><div class="wf-btn wf-btn--sm" style="height:16px;background:var(--block-terracotta);"></div></div></div></div></div>
+  </div>
+  <div class="wf-section wf-section--neutral">
+    <div class="section-tag">I PERCORSI — 3 CARD</div>
+    <div class="section-inner"><div class="wf-label" style="margin-bottom:.5rem;text-align:center;">I percorsi</div><div class="wf-3col"><div class="wf-card"><div class="wf-img" style="height:60px;margin-bottom:.4rem;"></div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-card"><div class="wf-img" style="height:60px;margin-bottom:.4rem;"></div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-card"><div class="wf-img" style="height:60px;margin-bottom:.4rem;"></div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div></div></div>
+  </div>
+  <div class="wf-section">
+    <div class="section-tag">VALORI E METODO — 2 COL</div>
+    <div class="section-inner"><div class="wf-2col"><div><div class="wf-label">Valori e metodo</div><div class="wf-h2" style="margin-bottom:.6rem;"></div><div style="display:flex;flex-direction:column;gap:.4rem;">
+      <div class="wf-row"><div style="width:16px;height:16px;border-radius:50%;background:var(--block);flex-shrink:0;"></div><div><div class="wf-text" style="width:120px;margin-bottom:.15rem;"></div><div class="wf-text wf-text-w80" style="height:6px;"></div></div></div>
+      <div class="wf-row"><div style="width:16px;height:16px;border-radius:50%;background:var(--block);flex-shrink:0;"></div><div><div class="wf-text" style="width:120px;margin-bottom:.15rem;"></div><div class="wf-text wf-text-w80" style="height:6px;"></div></div></div>
+      <div class="wf-row"><div style="width:16px;height:16px;border-radius:50%;background:var(--block);flex-shrink:0;"></div><div><div class="wf-text" style="width:120px;margin-bottom:.15rem;"></div><div class="wf-text wf-text-w80" style="height:6px;"></div></div></div>
+    </div></div><div><div class="wf-card" style="margin-bottom:.5rem;padding:1rem;background:#1F3220;"><div class="wf-h2 wf-h2--light" style="width:20px;margin-bottom:.3rem;"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80"></div></div><div class="wf-card" style="border-top:2px solid #5D8A60;"><div style="width:28px;height:28px;border-radius:4px;background:#1F3220;margin-bottom:.4rem;"></div><div class="wf-h3" style="width:60%;margin-bottom:.3rem;"></div><div class="wf-text"></div><div class="wf-text wf-text-w80"></div></div></div></div></div>
+  </div>
+  <div class="wf-section wf-section--cream">
+    <div class="section-tag">CERTIFICAZIONI — LAYOUT ORIZZONTALE</div>
+    <div class="section-inner"><div class="wf-label" style="margin-bottom:.4rem;">Certificazioni</div><div class="wf-h2" style="margin-bottom:1rem;width:70%;"></div><div style="display:flex;align-items:center;gap:1.5rem;"><div style="display:flex;gap:1rem;"><div class="wf-img" style="width:60px;height:60px;"></div><div class="wf-img" style="width:60px;height:60px;"></div></div><div class="wf-divider" style="height:50px;"></div><div style="text-align:center;"><div class="wf-h1" style="width:80px;height:28px;margin:0 auto;"></div><div class="wf-text wf-text-w80" style="margin-top:.3rem;width:90px;"></div></div><div class="wf-divider" style="height:50px;"></div><div style="flex:1;display:flex;flex-direction:column;gap:.25rem;"><div class="wf-text"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60"></div><div class="wf-text"></div></div></div><div class="wf-note">JS: contatore animato al scroll.</div></div>
+  </div>
+  <div class="wf-section wf-section--green">
+    <div class="section-tag">CTA</div>
+    <div class="section-inner" style="text-align:center;padding:1.5rem;"><div class="wf-h2 wf-h2--light" style="width:40%;margin:0 auto .4rem;"></div><div class="wf-text wf-text--light wf-text-w45" style="margin:0 auto .8rem;"></div><div class="wf-btn wf-btn--lg wf-btn--light" style="margin:0 auto;display:block;"></div></div>
+  </div>
+  <div class="wf-footer"><div><div class="wf-logo wf-logo--light"></div></div><div></div><div></div><div></div></div>
+</div>
+
+<!-- ── YOGA ── -->
+<div id="page-yoga" class="page-frame">
+  <div class="page-title-bar"><h2>Yoga</h2><span>yoga.html</span></div>
+  <div class="wf-infobar"><div class="wf-infobar-text"></div><div class="wf-infobar-x"></div></div>
+  <div class="wf-header"><div class="wf-logo"></div><div class="wf-nav"><div class="wf-nav-item"></div><div class="wf-nav-item active-pg"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div></div><div class="wf-btn wf-btn--sm"></div></div>
+  <div class="wf-section wf-section--neutral"><div class="section-tag">PAGE HERO — 2 CTA</div><div class="wf-hero"><div class="wf-label" style="margin-bottom:.4rem;">Percorso</div><div class="wf-h1" style="width:60%;"></div><div class="wf-text wf-text-w80" style="margin-top:.4rem;margin-bottom:.6rem;"></div><div class="wf-btn wf-btn--md"></div><div class="wf-btn wf-btn--md wf-btn--ghost"></div></div></div>
+  <div class="wf-section"><div class="section-tag">IL PERCORSO — 2 COL</div><div class="section-inner"><div class="wf-2col" style="align-items:center;"><div><div class="wf-label">Il percorso</div><div class="wf-h2" style="margin-bottom:.4rem;"></div><div class="wf-text"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60"></div><div style="margin-top:.5rem;display:flex;gap:.3rem;flex-wrap:wrap;"><div class="wf-btn wf-btn--sm" style="height:16px;background:var(--block-green);"></div><div class="wf-btn wf-btn--sm" style="height:16px;background:var(--block-terracotta);"></div></div></div><div class="wf-img wf-img--geom" style="height:160px;"></div></div></div></div>
+  <div class="wf-section wf-section--green"><div class="section-tag">A CHI È RIVOLTO — dark + 2 col</div><div class="section-inner"><div class="wf-2col"><div><div class="wf-label wf-label--light">A chi è rivolto</div><div class="wf-h2 wf-h2--light" style="margin-bottom:.4rem;"></div><div style="display:flex;flex-direction:column;gap:.3rem;margin-top:.5rem;"><div class="wf-row"><div class="wf-num wf-num--light" style="font-size:1rem;">01</div><div class="wf-text wf-text--light" style="flex:1;"></div></div><div class="wf-row"><div class="wf-num wf-num--light" style="font-size:1rem;">02</div><div class="wf-text wf-text--light" style="flex:1;"></div></div><div class="wf-row"><div class="wf-num wf-num--light" style="font-size:1rem;">03</div><div class="wf-text wf-text--light" style="flex:1;"></div></div></div></div><div><div class="wf-text wf-text--light wf-text-w60" style="margin-bottom:.5rem;"></div><div class="wf-2col" style="gap:.4rem;"><div class="wf-card wf-card--dark"><div class="wf-card__icon wf-card__icon--light"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80" style="margin-top:.2rem;"></div></div><div class="wf-card wf-card--dark"><div class="wf-card__icon wf-card__icon--light"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80" style="margin-top:.2rem;"></div></div><div class="wf-card wf-card--dark"><div class="wf-card__icon wf-card__icon--light"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80" style="margin-top:.2rem;"></div></div><div class="wf-card wf-card--dark"><div class="wf-card__icon wf-card__icon--light"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80" style="margin-top:.2rem;"></div></div></div></div></div></div></div>
+  <div class="wf-section"><div class="section-tag">METODO E MODALITÀ — 3 steps + 4 card</div><div class="section-inner"><div class="wf-label" style="margin-bottom:.4rem;">Metodo e modalità</div><div class="wf-3col" style="margin-bottom:.8rem;"><div style="border-right:1px solid var(--border);padding-right:.6rem;"><div class="wf-num">01</div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div style="border-right:1px solid var(--border);padding:0 .6rem;"><div class="wf-num">02</div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div style="padding-left:.6rem;"><div class="wf-num">03</div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div></div><div class="wf-4col"><div class="wf-card"><div class="wf-h3" style="width:60%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-card"><div class="wf-h3" style="width:60%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-card"><div class="wf-h3" style="width:60%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-card"><div class="wf-h3" style="width:60%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div></div></div></div>
+  <div class="wf-section wf-section--dark"><div class="section-tag">CTA</div><div class="section-inner" style="text-align:center;padding:1.5rem;"><div class="wf-h2 wf-h2--light" style="width:40%;margin:0 auto .4rem;"></div><div class="wf-btn wf-btn--md wf-btn--light" style="margin:0 auto;display:block;margin-top:.8rem;"></div></div></div>
+  <div class="wf-footer"><div><div class="wf-logo wf-logo--light"></div></div><div></div><div></div><div></div></div>
+</div>
+
+<!-- ── COACHING ── -->
+<div id="page-coaching" class="page-frame">
+  <div class="page-title-bar"><h2>Coaching</h2><span>coaching.html</span></div>
+  <div class="wf-infobar"><div class="wf-infobar-text"></div><div class="wf-infobar-x"></div></div>
+  <div class="wf-header"><div class="wf-logo"></div><div class="wf-nav"><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item active-pg"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div></div><div class="wf-btn wf-btn--sm"></div></div>
+  <div class="wf-section wf-section--cream"><div class="section-tag">PAGE HERO — cream</div><div class="wf-hero"><div class="wf-label" style="margin-bottom:.4rem;">Percorso</div><div class="wf-h1" style="width:65%;"></div><div class="wf-btn wf-btn--md" style="margin-top:.6rem;"></div><div class="wf-btn wf-btn--md wf-btn--ghost"></div></div></div>
+  <div class="wf-section"><div class="section-tag">IL PERCORSO — 2 COL</div><div class="section-inner"><div class="wf-2col"><div><div class="wf-label">Il percorso</div><div class="wf-h2" style="margin-bottom:.4rem;"></div><div class="wf-text"></div><div class="wf-text wf-text-w80"></div><div class="wf-btn wf-btn--sm" style="margin-top:.5rem;height:18px;background:var(--block-terracotta);"></div></div><div class="wf-img wf-img--geom" style="height:150px;"></div></div></div></div>
+  <div class="wf-section wf-section--green"><div class="section-tag">A CHI È RIVOLTO — dark</div><div class="section-inner" style="height:120px;position:relative;"><div class="wf-label wf-label--light" style="margin-bottom:.3rem;">A chi è rivolto</div><div class="wf-h2 wf-h2--light" style="width:70%;margin-bottom:.5rem;"></div><div class="wf-2col"><div style="display:flex;flex-direction:column;gap:.25rem;"><div class="wf-row"><div class="wf-num wf-num--light" style="font-size:1rem;">01</div><div class="wf-text wf-text--light" style="flex:1;"></div></div><div class="wf-row"><div class="wf-num wf-num--light" style="font-size:1rem;">02</div><div class="wf-text wf-text--light" style="flex:1;"></div></div></div><div class="wf-2col" style="gap:.3rem;"><div class="wf-card wf-card--dark"><div class="wf-text wf-text--light"></div></div><div class="wf-card wf-card--dark"><div class="wf-text wf-text--light"></div></div></div></div></div></div>
+  <div class="wf-section"><div class="section-tag">COME FUNZIONA — 3 steps</div><div class="section-inner"><div class="wf-3col"><div style="border-right:1px solid var(--border);padding-right:.6rem;"><div class="wf-num">01</div><div class="wf-h3" style="width:80%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div style="border-right:1px solid var(--border);padding:0 .6rem;"><div class="wf-num">02</div><div class="wf-h3" style="width:80%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div style="padding-left:.6rem;"><div class="wf-num">03</div><div class="wf-h3" style="width:80%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div></div></div></div>
+  <div class="wf-section wf-section--cream"><div class="section-tag">COSA CAMBIA — 6 card benefici</div><div class="section-inner"><div class="wf-label" style="margin-bottom:.5rem;text-align:center;">Cosa cambia</div><div class="wf-3col" style="gap:.5rem;"><div class="wf-card wf-card--green"><div class="wf-card__icon"></div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-card wf-card--green"><div class="wf-card__icon"></div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-card wf-card--green"><div class="wf-card__icon"></div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-card wf-card--green"><div class="wf-card__icon"></div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-card wf-card--green"><div class="wf-card__icon"></div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-card wf-card--green"><div class="wf-card__icon"></div><div class="wf-h3" style="width:70%;margin-bottom:.3rem;"></div><div class="wf-text wf-text-w80"></div></div></div></div></div>
+  <div class="wf-section"><div class="section-tag">FAQ — 2 col</div><div class="section-inner"><div class="wf-2col"><div><div class="wf-label">FAQ</div><div class="wf-h2" style="margin-bottom:.3rem;"></div><div class="wf-text wf-text-w60"></div></div><div><div class="wf-faq-item"><div class="wf-text" style="flex:1;"></div><div class="wf-faq-plus"></div></div><div class="wf-faq-item"><div class="wf-text" style="flex:1;"></div><div class="wf-faq-plus"></div></div><div class="wf-faq-item"><div class="wf-text" style="flex:1;"></div><div class="wf-faq-plus"></div></div><div class="wf-faq-item"><div class="wf-text" style="flex:1;"></div><div class="wf-faq-plus"></div></div></div></div><div class="wf-note">JS: accordion expand/collapse.</div></div></div>
+  <div class="wf-section wf-section--terracotta"><div class="section-tag">CTA — terracotta</div><div class="section-inner" style="text-align:center;padding:1.5rem;"><div class="wf-h2 wf-h2--light" style="width:45%;margin:0 auto .4rem;"></div><div class="wf-btn wf-btn--md wf-btn--light" style="margin:0 auto;display:block;margin-top:.8rem;"></div></div></div>
+  <div class="wf-footer"><div><div class="wf-logo wf-logo--light"></div></div><div></div><div></div><div></div></div>
+</div>
+
+<!-- ── AZIENDALE ── -->
+<div id="page-aziendale" class="page-frame">
+  <div class="page-title-bar"><h2>Benessere Aziendale</h2><span>benessere-aziendale.html</span></div>
+  <div class="wf-infobar"><div class="wf-infobar-text"></div><div class="wf-infobar-x"></div></div>
+  <div class="wf-header wf-header--dark"><div class="wf-logo wf-logo--light"></div><div class="wf-nav"><div class="wf-nav-item wf-nav-item--light"></div><div class="wf-nav-item wf-nav-item--light"></div><div class="wf-nav-item wf-nav-item--light"></div><div class="wf-nav-item wf-nav-item--light active-pg" style="background:rgba(255,255,255,0.5);"></div><div class="wf-nav-item wf-nav-item--light"></div><div class="wf-nav-item wf-nav-item--light"></div></div><div class="wf-btn wf-btn--sm wf-btn--light-ghost"></div></div>
+  <div class="wf-section wf-section--dark" style="min-height:180px;"><div class="section-tag">HERO DARK — immagine sfondo</div><div class="wf-hero--dark"><div class="wf-label wf-label--light" style="margin-bottom:.4rem;">Per le organizzazioni</div><div class="wf-h1 wf-h1--light" style="width:80%;height:24px;"></div><div class="wf-h1 wf-h1--light" style="width:55%;height:24px;margin-top:.2rem;"></div><div style="margin-top:.8rem;"><div class="wf-btn wf-btn--md wf-btn--light"></div><div class="wf-btn wf-btn--md wf-btn--light-ghost"></div></div><div class="wf-note">Foto sfondo destra con opacity/blend. Forme geometriche SVG decorative.</div></div></div>
+  <div class="wf-section wf-section--medium"><div class="section-tag">IL PROBLEMA — 2 col</div><div class="section-inner"><div class="wf-2col"><div><div class="wf-label wf-label--light">Il problema</div><div class="wf-h2 wf-h2--light" style="margin-bottom:.4rem;"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80"></div></div><div><div class="wf-text wf-text--light" style="margin-bottom:.5rem;width:60%;"></div><div style="display:flex;flex-direction:column;gap:.3rem;"><div class="wf-row"><div class="wf-num wf-num--light" style="font-size:1rem;">01</div><div class="wf-text wf-text--light" style="flex:1;"></div></div><div class="wf-row"><div class="wf-num wf-num--light" style="font-size:1rem;">02</div><div class="wf-text wf-text--light" style="flex:1;"></div></div><div class="wf-row"><div class="wf-num wf-num--light" style="font-size:1rem;">03</div><div class="wf-text wf-text--light" style="flex:1;"></div></div></div></div></div></div></div>
+  <div class="wf-section wf-section--accent"><div class="section-tag">COME INIZIARE — vertical process list</div><div class="section-inner"><div class="wf-label wf-label--light" style="margin-bottom:.4rem;text-align:center;">Come iniziare</div><div class="wf-h2 wf-h2--light" style="width:50%;margin:0 auto .8rem;"></div><div class="wf-process"><div class="wf-process-item"><div class="wf-process-dot"></div><div><div class="wf-h3 wf-h3--light" style="width:80%;margin-bottom:.2rem;"></div><div class="wf-text wf-text--light wf-text-w80"></div></div></div><div class="wf-process-item"><div class="wf-process-dot"></div><div><div class="wf-h3 wf-h3--light" style="width:80%;margin-bottom:.2rem;"></div><div class="wf-text wf-text--light wf-text-w80"></div></div></div><div class="wf-process-item"><div class="wf-process-dot"></div><div><div class="wf-h3 wf-h3--light" style="width:80%;margin-bottom:.2rem;"></div><div class="wf-text wf-text--light wf-text-w80"></div></div></div></div><div style="text-align:center;margin-top:.8rem;"><div class="wf-btn wf-btn--lg wf-btn--light" style="display:inline-block;"></div></div></div></div>
+  <div class="wf-section wf-section--dark"><div class="section-tag">I RISULTATI — 6 card</div><div class="section-inner"><div class="wf-label wf-label--light" style="margin-bottom:.5rem;text-align:center;">I risultati</div><div class="wf-3col" style="gap:.5rem;"><div class="wf-card wf-card--dark"><div class="wf-card__icon wf-card__icon--light"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80" style="margin-top:.2rem;"></div></div><div class="wf-card wf-card--dark"><div class="wf-card__icon wf-card__icon--light"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80" style="margin-top:.2rem;"></div></div><div class="wf-card wf-card--dark"><div class="wf-card__icon wf-card__icon--light"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80" style="margin-top:.2rem;"></div></div><div class="wf-card wf-card--dark"><div class="wf-card__icon wf-card__icon--light"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80" style="margin-top:.2rem;"></div></div><div class="wf-card wf-card--dark"><div class="wf-card__icon wf-card__icon--light"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80" style="margin-top:.2rem;"></div></div><div class="wf-card wf-card--dark"><div class="wf-card__icon wf-card__icon--light"></div><div class="wf-text wf-text--light"></div><div class="wf-text wf-text--light wf-text-w80" style="margin-top:.2rem;"></div></div></div></div></div>
+  <div class="wf-section wf-section--neutral"><div class="section-tag">TESTIMONIANZE — 3 card</div><div class="section-inner"><div class="wf-3col"><div class="wf-card"><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60"></div></div><div class="wf-card"><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60"></div></div><div class="wf-card"><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60"></div></div></div></div></div>
+  <div class="wf-section wf-section--dark"><div class="section-tag">CTA FORM — 2 col: info + form</div><div class="section-inner"><div class="wf-2col"><div><div class="wf-label wf-label--light">Inizia da qui</div><div class="wf-h2 wf-h2--light" style="margin-bottom:.4rem;"></div><div class="wf-text wf-text--light wf-text-w80"></div></div><div><div style="background:rgba(255,255,255,0.06);padding:.6rem;border-radius:3px;"><div style="display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin-bottom:.4rem;"><div style="height:28px;background:rgba(255,255,255,0.1);border-radius:2px;"></div><div style="height:28px;background:rgba(255,255,255,0.1);border-radius:2px;"></div></div><div style="height:28px;background:rgba(255,255,255,0.1);border-radius:2px;margin-bottom:.4rem;"></div><div style="height:60px;background:rgba(255,255,255,0.1);border-radius:2px;margin-bottom:.4rem;"></div><div class="wf-btn wf-btn--lg wf-btn--light" style="width:100%;display:block;"></div></div><div class="wf-note">Form: statico/HTML — collegare a WPForms o EmailJS su WP.</div></div></div></div></div>
+  <div class="wf-footer"><div><div class="wf-logo wf-logo--light"></div></div><div></div><div></div><div></div></div>
+</div>
+
+<!-- ── EVENTI ── -->
+<div id="page-eventi" class="page-frame">
+  <div class="page-title-bar"><h2>Eventi</h2><span>eventi.html</span></div>
+  <div class="wf-infobar"><div class="wf-infobar-text"></div><div class="wf-infobar-x"></div></div>
+  <div class="wf-header"><div class="wf-logo"></div><div class="wf-nav"><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item active-pg"></div><div class="wf-nav-item"></div></div><div class="wf-btn wf-btn--sm"></div></div>
+  <div class="wf-section wf-section--neutral"><div class="section-tag">PAGE HERO</div><div class="wf-hero"><div class="wf-label" style="margin-bottom:.4rem;">Calendario</div><div class="wf-h1" style="width:70%;"></div></div></div>
+  <div class="wf-section"><div class="section-tag">EVENTO IN EVIDENZA — 2 col</div><div class="section-inner"><div class="wf-2col"><div class="wf-img" style="height:160px;position:relative;"><div style="position:absolute;top:.5rem;left:.5rem;background:var(--block-dark);padding:.2rem .5rem;border-radius:2px;font-size:.6rem;font-family:var(--mono);color:#fff;">Retreat</div></div><div><div style="display:flex;gap:.6rem;margin-bottom:.4rem;"><div class="wf-text" style="width:60px;"></div><div class="wf-text" style="width:60px;"></div><div class="wf-text" style="width:60px;"></div></div><div class="wf-h2" style="margin-bottom:.4rem;"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60"></div><div class="wf-btn wf-btn--md" style="margin-top:.6rem;"></div><div class="wf-btn wf-btn--md wf-btn--ghost"></div></div></div></div></div>
+  <div class="wf-section wf-section--cream"><div class="section-tag">LISTA EVENTI — 3 card orizzontali</div><div class="section-inner"><div style="display:flex;flex-direction:column;gap:.5rem;"><div style="display:flex;gap:.8rem;align-items:center;border:1px solid var(--border);padding:.5rem;border-radius:2px;"><div style="width:36px;text-align:center;flex-shrink:0;"><div class="wf-h3" style="width:100%;margin-bottom:.15rem;"></div><div class="wf-text wf-text-w80"></div></div><div style="flex:1;"><div class="wf-text wf-text-w60" style="margin-bottom:.2rem;"></div><div class="wf-h3" style="width:70%;margin-bottom:.2rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-btn wf-btn--sm wf-btn--ghost"></div></div><div style="display:flex;gap:.8rem;align-items:center;border:1px solid var(--border);padding:.5rem;border-radius:2px;"><div style="width:36px;text-align:center;flex-shrink:0;"><div class="wf-h3" style="width:100%;margin-bottom:.15rem;"></div><div class="wf-text wf-text-w80"></div></div><div style="flex:1;"><div class="wf-text wf-text-w60" style="margin-bottom:.2rem;"></div><div class="wf-h3" style="width:70%;margin-bottom:.2rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-btn wf-btn--sm wf-btn--ghost"></div></div><div style="display:flex;gap:.8rem;align-items:center;border:1px solid var(--border);padding:.5rem;border-radius:2px;"><div style="width:36px;text-align:center;flex-shrink:0;"><div class="wf-h3" style="width:100%;margin-bottom:.15rem;"></div><div class="wf-text wf-text-w80"></div></div><div style="flex:1;"><div class="wf-text wf-text-w60" style="margin-bottom:.2rem;"></div><div class="wf-h3" style="width:70%;margin-bottom:.2rem;"></div><div class="wf-text wf-text-w80"></div></div><div class="wf-btn wf-btn--sm wf-btn--ghost"></div></div></div><div class="wf-note">CPT "Eventi" su WP. The Events Calendar plugin consigliato.</div></div></div>
+  <div class="wf-section wf-section--green"><div class="section-tag">CTA</div><div class="section-inner" style="text-align:center;padding:1.5rem;"><div class="wf-h2 wf-h2--light" style="width:50%;margin:0 auto .4rem;"></div><div class="wf-btn wf-btn--md wf-btn--light" style="margin:0 auto;display:block;margin-top:.8rem;"></div></div></div>
+  <div class="wf-footer"><div><div class="wf-logo wf-logo--light"></div></div><div></div><div></div><div></div></div>
+</div>
+
+<!-- ── RISORSE ── -->
+<div id="page-risorse" class="page-frame">
+  <div class="page-title-bar"><h2>Risorse / News</h2><span>news.html</span></div>
+  <div class="wf-infobar"><div class="wf-infobar-text"></div><div class="wf-infobar-x"></div></div>
+  <div class="wf-header"><div class="wf-logo"></div><div class="wf-nav"><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item active-pg"></div></div><div class="wf-btn wf-btn--sm"></div></div>
+  <div class="wf-section wf-section--neutral"><div class="section-tag">PAGE HERO</div><div class="wf-hero"><div class="wf-label" style="margin-bottom:.4rem;">Risorse</div><div class="wf-h1" style="width:75%;"></div></div></div>
+  <div class="wf-section"><div class="section-tag">ARTICOLO IN EVIDENZA — 2 col</div><div class="section-inner"><div class="wf-2col"><div class="wf-img" style="height:140px;"></div><div><div class="wf-btn wf-btn--sm" style="height:18px;background:var(--block-green);margin-bottom:.4rem;"></div><div class="wf-h2" style="margin-bottom:.4rem;"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60"></div><div class="wf-btn wf-btn--md" style="margin-top:.6rem;"></div></div></div></div></div>
+  <div class="wf-section wf-section--cream"><div class="section-tag">GRIGLIA ARTICOLI — 3×2 card</div><div class="section-inner"><div class="wf-label" style="margin-bottom:.5rem;">Tutti gli articoli</div><div class="wf-3col"><div class="wf-card"><div class="wf-img" style="height:70px;margin-bottom:.4rem;"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60" style="margin-top:.2rem;"></div></div><div class="wf-card"><div class="wf-img" style="height:70px;margin-bottom:.4rem;"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60" style="margin-top:.2rem;"></div></div><div class="wf-card"><div class="wf-img" style="height:70px;margin-bottom:.4rem;"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60" style="margin-top:.2rem;"></div></div><div class="wf-card"><div class="wf-img" style="height:70px;margin-bottom:.4rem;"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60" style="margin-top:.2rem;"></div></div><div class="wf-card"><div class="wf-img" style="height:70px;margin-bottom:.4rem;"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60" style="margin-top:.2rem;"></div></div><div class="wf-card"><div class="wf-img" style="height:70px;margin-bottom:.4rem;"></div><div class="wf-text wf-text-w80"></div><div class="wf-text wf-text-w60" style="margin-top:.2rem;"></div></div></div><div class="wf-note">CPT "Articoli" su WP. La griglia viene popolata automaticamente.</div></div></div>
+  <div class="wf-section wf-section--terracotta"><div class="section-tag">PODCAST TEASER — 2 col, terracotta</div><div class="section-inner"><div class="wf-2col"><div><div class="wf-label wf-label--light" style="margin-bottom:.3rem;">Podcast</div><div class="wf-h2 wf-h2--light" style="margin-bottom:.4rem;"></div><div class="wf-text wf-text--light wf-text-w80"></div><div style="margin-top:.5rem;display:flex;gap:.4rem;"><div class="wf-btn wf-btn--sm wf-btn--light-ghost"></div><div class="wf-btn wf-btn--sm wf-btn--light-ghost"></div></div><div class="wf-btn wf-btn--md wf-btn--light" style="margin-top:.6rem;"></div></div><div><div class="wf-card wf-card--dark"><div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem;"><div style="width:32px;height:32px;border-radius:50%;background:rgba(230,191,145,0.6);flex-shrink:0;"></div><div><div class="wf-text wf-text--light wf-text-w80" style="margin-bottom:.15rem;"></div><div class="wf-text wf-text--light wf-text-w60"></div></div></div><div class="wf-text wf-text--light"></div></div></div></div></div></div>
+  <div class="wf-section wf-section--dark"><div class="section-tag">CTA</div><div class="section-inner" style="text-align:center;padding:1.5rem;"><div class="wf-h2 wf-h2--light" style="width:45%;margin:0 auto .4rem;"></div><div class="wf-btn wf-btn--md wf-btn--light" style="margin:0 auto;display:block;margin-top:.8rem;"></div></div></div>
+  <div class="wf-footer"><div><div class="wf-logo wf-logo--light"></div></div><div></div><div></div><div></div></div>
+</div>
+
+<!-- ── PODCAST ── -->
+<div id="page-podcast" class="page-frame">
+  <div class="page-title-bar"><h2>Podcast</h2><span>podcast.html</span></div>
+  <div class="wf-infobar"><div class="wf-infobar-text"></div><div class="wf-infobar-x"></div></div>
+  <div class="wf-header"><div class="wf-logo"></div><div class="wf-nav"><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div></div><div class="wf-btn wf-btn--sm"></div></div>
+  <div class="wf-section wf-section--dark" style="min-height:160px;"><div class="section-tag">HERO — dark, photo BG</div><div class="wf-hero--dark"><div class="wf-label wf-label--light" style="margin-bottom:.4rem;">Podcast</div><div class="wf-h1 wf-h1--light" style="width:65%;"></div><div class="wf-text wf-text--light wf-text-w80" style="margin-top:.4rem;"></div><div style="margin-top:.6rem;display:flex;gap:.4rem;"><div class="wf-btn wf-btn--sm wf-btn--light-ghost"></div><div class="wf-btn wf-btn--sm wf-btn--light-ghost"></div><div class="wf-btn wf-btn--sm wf-btn--light-ghost"></div></div></div></div>
+  <div class="wf-section"><div class="section-tag">EPISODI — lista con player</div><div class="section-inner"><div style="display:flex;flex-direction:column;gap:.5rem;"><div style="display:flex;gap:.8rem;align-items:center;border:1px solid var(--border);padding:.6rem;border-radius:2px;"><div style="width:40px;height:40px;border-radius:50%;background:var(--block-accent);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1rem;">▷</div><div style="flex:1;"><div class="wf-h3" style="width:75%;margin-bottom:.2rem;"></div><div class="wf-text wf-text-w60"></div></div><div class="wf-text" style="width:40px;font-size:.6rem;font-family:var(--mono);color:var(--muted);text-align:right;background:none;height:auto;">22 min</div></div><div style="display:flex;gap:.8rem;align-items:center;border:1px solid var(--border);padding:.6rem;border-radius:2px;"><div style="width:40px;height:40px;border-radius:50%;background:var(--block-accent);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1rem;">▷</div><div style="flex:1;"><div class="wf-h3" style="width:75%;margin-bottom:.2rem;"></div><div class="wf-text wf-text-w60"></div></div><div class="wf-text" style="width:40px;font-size:.6rem;font-family:var(--mono);color:var(--muted);text-align:right;background:none;height:auto;">18 min</div></div><div style="display:flex;gap:.8rem;align-items:center;border:1px solid var(--border);padding:.6rem;border-radius:2px;"><div style="width:40px;height:40px;border-radius:50%;background:var(--block-accent);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1rem;">▷</div><div style="flex:1;"><div class="wf-h3" style="width:75%;margin-bottom:.2rem;"></div><div class="wf-text wf-text-w60"></div></div><div class="wf-text" style="width:40px;font-size:.6rem;font-family:var(--mono);color:var(--muted);text-align:right;background:none;height:auto;">31 min</div></div></div><div class="wf-note">Plugin consigliato: Seriously Simple Podcasting o embed Spotify/Anchor.</div></div></div>
+  <div class="wf-section wf-section--green"><div class="section-tag">CTA</div><div class="section-inner" style="text-align:center;padding:1.5rem;"><div class="wf-h2 wf-h2--light" style="width:45%;margin:0 auto .4rem;"></div><div class="wf-btn wf-btn--md wf-btn--light" style="margin:0 auto;display:block;margin-top:.8rem;"></div></div></div>
+  <div class="wf-footer"><div><div class="wf-logo wf-logo--light"></div></div><div></div><div></div><div></div></div>
+</div>
+
+<!-- ── CONTATTI ── -->
+<div id="page-contatti" class="page-frame">
+  <div class="page-title-bar"><h2>Contatti</h2><span>contatti.html</span></div>
+  <div class="wf-infobar"><div class="wf-infobar-text"></div><div class="wf-infobar-x"></div></div>
+  <div class="wf-header"><div class="wf-logo"></div><div class="wf-nav"><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item"></div><div class="wf-nav-item active-pg"></div></div><div class="wf-btn wf-btn--sm"></div></div>
+  <div class="wf-section wf-section--neutral"><div class="section-tag">PAGE HERO</div><div class="wf-hero"><div class="wf-label" style="margin-bottom:.4rem;">Contatti</div><div class="wf-h1" style="width:60%;"></div></div></div>
+  <div class="wf-section"><div class="section-tag">FORM + INFO — 2 col</div><div class="section-inner"><div class="wf-2col"><div><div class="wf-label">Scrivici</div><div class="wf-h2" style="margin-bottom:.5rem;"></div><div style="display:flex;flex-direction:column;gap:.5rem;"><div style="height:34px;background:var(--block);border-radius:2px;"></div><div style="height:34px;background:var(--block);border-radius:2px;"></div><div style="height:34px;background:var(--block);border-radius:2px;"></div><div style="height:80px;background:var(--block);border-radius:2px;"></div><div class="wf-btn wf-btn--lg" style="width:100%;display:block;"></div></div><div class="wf-note">Form: WPForms (Elementor widget) o Contact Form 7.</div></div><div><div class="wf-label" style="margin-bottom:.5rem;">Informazioni</div><div style="display:flex;flex-direction:column;gap:.6rem;"><div class="wf-row"><div style="width:20px;height:20px;border-radius:50%;background:var(--block);flex-shrink:0;"></div><div><div class="wf-text" style="width:80px;margin-bottom:.15rem;"></div><div class="wf-text wf-text-w60"></div></div></div><div class="wf-row"><div style="width:20px;height:20px;border-radius:50%;background:var(--block);flex-shrink:0;"></div><div><div class="wf-text" style="width:80px;margin-bottom:.15rem;"></div><div class="wf-text wf-text-w60"></div></div></div></div><div style="height:120px;background:var(--block);border-radius:3px;margin-top:1rem;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-family:var(--mono);color:var(--muted);">Google Maps embed</div><div class="wf-note">Google Maps: Elementor widget o iframe.</div></div></div></div></div>
+  <div class="wf-section wf-section--neutral"><div class="section-tag">FAQ</div><div class="section-inner"><div class="wf-faq-item"><div class="wf-text" style="flex:1;"></div><div class="wf-faq-plus"></div></div><div class="wf-faq-item"><div class="wf-text" style="flex:1;"></div><div class="wf-faq-plus"></div></div><div class="wf-faq-item"><div class="wf-text" style="flex:1;"></div><div class="wf-faq-plus"></div></div></div></div>
+  <div class="wf-footer"><div><div class="wf-logo wf-logo--light"></div></div><div></div><div></div><div></div></div>
+</div>
+
+</div><!-- end pages -->
+</div><!-- end canvas -->
+
+<script>
+const pageInfo = {
+  home: { title: 'Homepage', file: 'index.html', desc: 'Slider hero 3 slide, strip certificazioni animata, intro 2-col con foto geometrica, 3 percorsi, testimonianze, CTA newsletter.' },
+  'chi-sono': { title: 'Chi sono', file: 'chi-sono.html', desc: 'Page hero light, storia 2-col con foto geometrica clip-path, 3 percorsi, valori+formazione, certificazioni orizzontali compatte, CTA.' },
+  yoga: { title: 'Yoga', file: 'yoga.html', desc: 'Page hero + 2 CTA diverse, intro 2-col foto geometrica, target section dark green, 3 metodo-steps + 4 modalità card, CTA.' },
+  coaching: { title: 'Coaching', file: 'coaching.html', desc: 'Page hero cream, intro 2-col, target section dark, 3 steps, 6 benefici card, FAQ accordion, CTA terracotta.' },
+  aziendale: { title: 'Benessere Aziendale', file: 'benessere-aziendale.html', desc: 'Hero dark con immagine sfondo, problema 2-col, come iniziare vertical list, 6 risultati dark, testimonianze, CTA form inline.' },
+  eventi: { title: 'Eventi', file: 'eventi.html', desc: 'Page hero, evento in evidenza 2-col, lista 3 eventi orizzontali, CTA. Richiede CPT "Evento" su WP.' },
+  risorse: { title: 'Risorse / News', file: 'news.html', desc: 'Page hero, articolo in evidenza 2-col, griglia 6 articoli, podcast teaser terracotta 2-col, CTA. CPT "Articolo" su WP.' },
+  podcast: { title: 'Podcast', file: 'podcast.html', desc: 'Hero dark, lista episodi con player, CTA. Plugin: Seriously Simple Podcasting o embed esterno.' },
+  contatti: { title: 'Contatti', file: 'contatti.html', desc: 'Page hero, form + info 2-col con Google Maps embed, FAQ accordion.' }
+};
+
+function showPage(id) {
+  document.querySelectorAll('.page-frame').forEach(f => f.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  event.target.classList.add('active');
+  const p = pageInfo[id];
+  document.getElementById('info-body').innerHTML = '<b>' + p.title + '</b><br><span style="color:#aaa;font-size:.68rem;font-family:monospace">' + p.file + '</span><br><br>' + p.desc;
+}
+</script>
