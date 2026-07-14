@@ -46,44 +46,15 @@
 
   <style>
     /* ══ WIREFRAME SHELL ══ */
-    #wf-tabs {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 99999;
-      background: #111;
-      display: flex;
-      overflow-x: auto;
-      height: 42px;
-      border-bottom: 1px solid #333;
-      scrollbar-width: thin;
-    }
-    .wf-tab {
-      flex-shrink: 0;
-      padding: 0 1.1rem;
-      height: 42px;
-      font-size: 0.75rem;
-      font-family: 'Josefin Sans', sans-serif;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      background: none;
-      border: none;
-      border-bottom: 2px solid transparent;
-      color: rgba(255,255,255,0.45);
-      cursor: pointer;
-      white-space: nowrap;
-      transition: color 0.15s, border-color 0.15s;
-    }
-    .wf-tab:hover { color: rgba(255,255,255,0.8); }
-    .wf-tab.wf-active { color: #fff; border-bottom-color: #fff; }
 
-    /* ══ CONTENUTO (grayscale) ══ */
-    #wf-wrapper { filter: grayscale(1); margin-top: 42px; }
+    /* grayscale wrapper */
+    #wf-wrapper { filter: grayscale(1); }
 
     /* una pagina visibile alla volta */
     .wf-page { display: none; }
     .wf-page.wf-visible { display: block; }
 
-    /* header e infobar: sticky nel flusso, non sulla viewport */
+    /* header e infobar: sticky nel flusso */
     #wf-wrapper .info-bar {
       position: sticky !important;
       top: 0 !important;
@@ -95,6 +66,12 @@
       z-index: 199 !important;
     }
 
+    /* nav sempre scura — tutti i bg diventano grigi in wireframe */
+    #wf-wrapper .site-nav__link,
+    #wf-wrapper .mobile-nav__link { color: var(--c-neutral-900) !important; }
+    #wf-wrapper .site-header__logo--white { display: none !important; }
+    #wf-wrapper .site-header__logo--dark  { display: block !important; }
+
     /* .reveal: tutti visibili */
     #wf-wrapper .reveal {
       opacity: 1 !important;
@@ -104,53 +81,17 @@
 
     /* ══ PLACEHOLDER IMMAGINI ══ */
     .wf-img-ph {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
+      display: block !important;
       background: #b8b8b8 !important;
       border: 1px dashed #777 !important;
       width: 100% !important;
       height: 100% !important;
       min-height: 40px !important;
       box-sizing: border-box !important;
-      font-family: monospace !important;
-      font-size: 0.6rem !important;
-      color: #333 !important;
-      text-align: center !important;
-      padding: 4px !important;
-      word-break: break-all !important;
-    }
-
-    /* placeholder per background-image */
-    .wf-bg-label {
-      position: absolute !important;
-      top: 50% !important; left: 50% !important;
-      transform: translate(-50%, -50%) !important;
-      background: rgba(0,0,0,0.5) !important;
-      color: #fff !important;
-      font-family: monospace !important;
-      font-size: 0.6rem !important;
-      padding: 3px 8px !important;
-      pointer-events: none !important;
-      white-space: nowrap !important;
-      z-index: 10 !important;
     }
   </style>
 </head>
 <body>
-
-<!-- ══ TAB BAR ══ -->
-<div id="wf-tabs">
-  <button class="wf-tab wf-active" data-page="page-home"      data-body="">Home</button>
-  <button class="wf-tab"           data-page="page-chi-sono"  data-body="light-hero">Chi sono</button>
-  <button class="wf-tab"           data-page="page-yoga"      data-body="light-hero">Yoga</button>
-  <button class="wf-tab"           data-page="page-coaching"  data-body="light-hero">Coaching</button>
-  <button class="wf-tab"           data-page="page-aziendale" data-body="">Benessere Az.</button>
-  <button class="wf-tab"           data-page="page-eventi"    data-body="light-hero">Eventi</button>
-  <button class="wf-tab"           data-page="page-news"      data-body="light-hero">News</button>
-  <button class="wf-tab"           data-page="page-podcast"   data-body="light-hero">Podcast</button>
-  <button class="wf-tab"           data-page="page-contatti"  data-body="light-hero">Contatti</button>
-</div>
 
 <!-- ══ WRAPPER GRAYSCALE ══ -->
 <div id="wf-wrapper">
@@ -1881,55 +1822,146 @@
 
 <script>
 (function () {
-  /* 1. TAB SWITCHING */
-  var tabs  = document.querySelectorAll('.wf-tab');
+
   var pages = document.querySelectorAll('.wf-page');
 
-  function showPage(idx) {
-    tabs.forEach(function(t, i)  { t.classList.toggle('wf-active',   i === idx); });
-    pages.forEach(function(p, i) { p.classList.toggle('wf-visible',  i === idx); });
-    document.body.className = tabs[idx].dataset.body || '';
+  var bodyClasses = {
+    'page-home':      '',
+    'page-chi-sono':  'light-hero',
+    'page-yoga':      'light-hero',
+    'page-coaching':  'light-hero',
+    'page-aziendale': '',
+    'page-eventi':    'light-hero',
+    'page-news':      'light-hero',
+    'page-podcast':   'light-hero',
+    'page-contatti':  'light-hero'
+  };
+
+  /* ── MOSTRA PAGINA ─────────────────────── */
+  function showPage(id) {
+    var found = false;
+    pages.forEach(function (p) {
+      var vis = (p.id === id);
+      p.classList.toggle('wf-visible', vis);
+      if (vis) found = true;
+    });
+    if (!found && pages.length > 0) { pages[0].classList.add('wf-visible'); id = pages[0].id; }
+    document.body.className = bodyClasses[id] || '';
     window.scrollTo(0, 0);
   }
 
-  tabs.forEach(function(tab, i) {
-    tab.addEventListener('click', function() { showPage(i); });
+  /* ── HASH ROUTING ──────────────────────── */
+  function routeHash() {
+    var hash = (window.location.hash || '').replace('#', '') || 'page-home';
+    showPage(hash);
+  }
+  routeHash();
+  window.addEventListener('hashchange', routeHash);
+
+  /* ── CLICK DELEGATION ──────────────────── */
+  var hrefMap = {
+    'index.html':               'page-home',
+    'chi-sono.html':            'page-chi-sono',
+    'yoga.html':                'page-yoga',
+    'coaching.html':            'page-coaching',
+    'benessere-aziendale.html': 'page-aziendale',
+    'eventi.html':              'page-eventi',
+    '#evento-featured':         'page-eventi',
+    'news.html':                'page-news',
+    'podcast.html':             'page-podcast',
+    'contatti.html':            'page-contatti'
+  };
+
+  var textMap = {
+    'chi sono':                          'page-chi-sono',
+    'yoga':                              'page-yoga',
+    'coaching':                          'page-coaching',
+    'benessere aziendale':               'page-aziendale',
+    'eventi':                            'page-eventi',
+    'risorse':                           'page-news',
+    'news e risorse':                    'page-news',
+    'podcast':                           'page-podcast',
+    'contatti':                          'page-contatti',
+    'prenota una call':                  'page-contatti',
+    'prenota una consulenza':            'page-contatti',
+    'prenota una consulenza conoscitiva':'page-contatti',
+    'scopri le date':                    'page-eventi',
+    'scopri gli eventi':                 'page-eventi',
+    'scopri il percorso yoga':           'page-yoga',
+    'scopri il percorso coaching':       'page-coaching',
+    'scopri il coaching':                'page-coaching',
+    "scopri l'approccio":                'page-chi-sono',
+    'conosci il mio approccio':          'page-chi-sono',
+    'contatta nicoletta':                'page-contatti',
+    'contattaci':                        'page-contatti',
+    'richiedi informazioni':             'page-contatti',
+    'richiedi una proposta personalizzata':'page-aziendale',
+    'iscriviti ora':                     'page-contatti',
+    'richiedi info':                     'page-contatti',
+    'vai al podcast':                    'page-podcast',
+    'eventi e retreat':                  'page-eventi',
+    'benessere aziendale':               'page-aziendale'
+  };
+
+  document.getElementById('wf-wrapper').addEventListener('click', function (e) {
+    var link = e.target.closest('a');
+    if (!link) return;
+    var href = (link.getAttribute('href') || '').trim();
+    var text = (link.textContent || '').replace(/ /g, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
+    var pageId = hrefMap[href] || textMap[text];
+    if (!pageId && href.startsWith('#page-')) pageId = href.slice(1);
+    if (pageId) { e.preventDefault(); window.location.hash = '#' + pageId; }
   });
 
-  /* 2. SOSTITUISCI <img> CON PLACEHOLDER */
-  document.querySelectorAll('#wf-wrapper img').forEach(function(img) {
-    var src      = img.getAttribute('src') || '';
-    var filename = src.split('/').pop() || 'immagine';
-    var ph       = document.createElement('div');
+  /* ── SOSTITUZIONE <img> → PLACEHOLDER GRIGIO ─ */
+  document.querySelectorAll('#wf-wrapper img').forEach(function (img) {
+    var ph = document.createElement('div');
     ph.className = 'wf-img-ph';
     if (img.className) {
-      img.className.trim().split(/\s+/).forEach(function(c) { if (c) ph.classList.add(c); });
+      img.className.trim().split(/\s+/).forEach(function (c) { if (c) ph.classList.add(c); });
     }
-    if (img.getAttribute('width'))  ph.style.width  = img.getAttribute('width')  + 'px';
-    if (img.getAttribute('height')) ph.style.height = img.getAttribute('height') + 'px';
-    ph.textContent = filename;
+    var w = img.getAttribute('width');
+    var h = img.getAttribute('height');
+    if (w) ph.style.width  = w + 'px';
+    if (h) ph.style.height = h + 'px';
     img.parentNode.replaceChild(ph, img);
   });
 
-  /* 3. RIMUOVI background-image, AGGIUNGI ETICHETTA */
-  document.querySelectorAll('#wf-wrapper [style]').forEach(function(el) {
-    var styleAttr = el.getAttribute('style') || '';
-    if (styleAttr.indexOf('background-image') === -1) return;
-    var m        = styleAttr.match(/url\(['"]?([^'")\s]+)['"]?\)/);
-    var filename = m ? m[1].split('/').pop() : '';
+  /* ── RIMUOVI background-image (senza etichetta) ─ */
+  document.querySelectorAll('#wf-wrapper [style]').forEach(function (el) {
+    if ((el.getAttribute('style') || '').indexOf('background-image') === -1) return;
     el.style.backgroundImage = 'none';
     el.style.backgroundColor = '#aaa';
-    if (filename && !el.querySelector('.wf-bg-label')) {
-      if (window.getComputedStyle(el).position === 'static') el.style.position = 'relative';
-      var lbl = document.createElement('div');
-      lbl.className   = 'wf-bg-label';
-      lbl.textContent = filename;
-      el.appendChild(lbl);
-    }
   });
 
-  /* 4. ANNO NEL FOOTER */
-  document.querySelectorAll('.footer-year').forEach(function(el) { el.textContent = '2025'; });
+  /* ── SLIDER HOME HERO ──────────────────── */
+  var slides = document.querySelectorAll('#page-home .hero-slide');
+  var dots   = document.querySelectorAll('#page-home .hero-dot');
+  var cur = 0, timer;
+
+  function gotoSlide(n) {
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    dots[cur].setAttribute('aria-selected', 'false');
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
+    dots[cur].setAttribute('aria-selected', 'true');
+  }
+  function resetTimer() { clearInterval(timer); timer = setInterval(function () { gotoSlide(cur + 1); }, 5000); }
+
+  if (slides.length > 0) {
+    var prev = document.querySelector('#page-home .hero-prev');
+    var next = document.querySelector('#page-home .hero-next');
+    if (prev) prev.addEventListener('click', function () { gotoSlide(cur - 1); resetTimer(); });
+    if (next) next.addEventListener('click', function () { gotoSlide(cur + 1); resetTimer(); });
+    dots.forEach(function (d, i) { d.addEventListener('click', function () { gotoSlide(i); resetTimer(); }); });
+    resetTimer();
+  }
+
+  /* ── ANNO FOOTER ───────────────────────── */
+  document.querySelectorAll('.footer-year').forEach(function (el) { el.textContent = '2025'; });
+
 })();
 </script>
 
