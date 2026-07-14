@@ -102,6 +102,9 @@
       text-transform: uppercase !important;
     }
 
+    /* ══ STAT NUMBER — forza visibilità (JS non gira nel wireframe) ══ */
+    #wf-wrapper .nicoletta-stat__num { opacity: 1 !important; transform: none !important; }
+
     /* ══ NAV HOVER — contrasto aumentato ══ */
     #wf-wrapper .site-nav__link::before { background: rgba(0,0,0,0.2) !important; }
     #wf-wrapper .site-header.scrolled .site-nav__link::before { background: rgba(0,0,0,0.12) !important; }
@@ -330,7 +333,7 @@
         <h2 class="aziendale-section__title">Benessere aziendale che&nbsp;produce risultati concreti.</h2>
         <p class="aziendale-section__text">Programmi tailor made per&nbsp;team e&nbsp;organizzazioni. Non attività di&nbsp;wellness generiche, ma&nbsp;interventi integrati, credibili e&nbsp;misurabili che&nbsp;rispondono ai&nbsp;bisogni reali delle&nbsp;persone.</p>
         <div class="az-home-ctas">
-          <a href="#" class="btn btn--cream">Scopri i programmi</a>
+          <a href="benessere-aziendale.html" class="btn btn--cream">Scopri i programmi</a>
           <a href="#" class="btn btn--secondary">Prenota una&nbsp;call</a>
         </div>
       </div>
@@ -353,7 +356,7 @@
         <span class="section-label">News e&nbsp;Risorse</span>
         <h2>Contenuti per&nbsp;capire e&nbsp;approfondire.</h2>
       </div>
-      <a href="#" class="btn btn--outline" style="flex-shrink:0;">Esplora tutte le&nbsp;risorse</a>
+      <a href="news.html" class="btn btn--outline" style="flex-shrink:0;">Esplora tutte le&nbsp;risorse</a>
     </div>
     <div class="grid-3 reveal">
       <article class="news-card">
@@ -475,12 +478,10 @@
 
 <section class="cta-block" aria-label="Contatto">
   <div class="container" style="position:relative;z-index:1;">
-    <p class="section-label section-label--light" style="text-align:center;">Inizia da&nbsp;qui</p>
     <h2 class="cta-block__title">Parlaci di&nbsp;te e&nbsp;di quello che&nbsp;cerchi.</h2>
     <p class="cta-block__text">Compila il&nbsp;form o&nbsp;scrivi direttamente. Nicoletta o&nbsp;il suo team risponderanno per&nbsp;capire insieme il&nbsp;percorso più adatto.</p>
     <div class="cta-block__ctas">
-      <a href="#" class="btn btn--cream">Contatta Nicoletta</a>
-      <a href="#" class="btn btn--secondary">Prenota una&nbsp;call</a>
+      <a href="contatti.html" class="btn btn--cream">Contatta Nicoletta</a>
     </div>
   </div>
 </section>
@@ -591,7 +592,7 @@
       <h2>Esplora i percorsi disponibili.</h2>
     </div>
     <div class="percorsi-cards reveal">
-      <a href="#" class="percorso-link-card">
+      <a href="yoga.html" class="percorso-link-card">
         <div class="percorso-link-card__img"><img src="Assets/Foto/yoga.webp" alt="Yoga" loading="lazy"/></div>
         <div class="percorso-link-card__body">
           <span class="percorso-link-card__cat percorso-link-card__cat--green">Yoga</span>
@@ -600,7 +601,7 @@
           <span class="percorso-link-card__arrow">Scopri il&nbsp;percorso <span aria-hidden="true">→</span></span>
         </div>
       </a>
-      <a href="#" class="percorso-link-card">
+      <a href="coaching.html" class="percorso-link-card">
         <div class="percorso-link-card__img"><img src="Assets/Foto/coaching.webp" alt="Coaching" loading="lazy"/></div>
         <div class="percorso-link-card__body">
           <span class="percorso-link-card__cat percorso-link-card__cat--peach">Coaching</span>
@@ -609,7 +610,7 @@
           <span class="percorso-link-card__arrow">Scopri il&nbsp;percorso <span aria-hidden="true">→</span></span>
         </div>
       </a>
-      <a href="#" class="percorso-link-card">
+      <a href="benessere-aziendale.html" class="percorso-link-card">
         <div class="percorso-link-card__img"><img src="Assets/Foto/benessereaziendale.webp" alt="Benessere Aziendale" loading="lazy"/></div>
         <div class="percorso-link-card__body">
           <span class="percorso-link-card__cat percorso-link-card__cat--green">Aziendale</span>
@@ -1190,7 +1191,7 @@
       <h1 style="color:var(--c-white);">Benessere aziendale che&nbsp;produce risultati concreti.</h1>
       <p class="page-hero__desc" style="color:rgba(255,255,255,0.75);">Programmi tailor made per&nbsp;team e&nbsp;organizzazioni. Non attività di&nbsp;wellness generiche, ma&nbsp;interventi integrati, credibili e&nbsp;adattati al&nbsp;contesto specifico di&nbsp;ogni realtà.</p>
       <div class="page-hero__ctas">
-        <a href="#" class="btn btn--cream">Richiedi una&nbsp;proposta personalizzata</a>
+        <a href="contatti.html" class="btn btn--cream">Richiedi una&nbsp;proposta personalizzata</a>
         <a href="#" class="btn btn--secondary">Scopri gli&nbsp;eventi</a>
       </div>
     </div>
@@ -1235,7 +1236,7 @@
       <div class="az-process-item"><span class="az-process-item__num">03</span><div class="az-process-item__body"><p class="az-process-item__step">Terzo passo</p><h3 class="az-process-item__title">Implementazione e&nbsp;follow-up</h3><p class="az-process-item__desc">Avvio del&nbsp;programma con&nbsp;possibilità di&nbsp;adattamenti in corso e&nbsp;momenti di&nbsp;verifica dei&nbsp;risultati.</p></div></div>
     </div>
     <div style="text-align:center;margin-top:3.5rem;" class="reveal">
-      <a href="#" class="btn btn--cream">Richiedi una&nbsp;proposta personalizzata</a>
+      <a href="contatti.html" class="btn btn--cream">Richiedi una&nbsp;proposta personalizzata</a>
     </div>
   </div>
 </section>
@@ -1417,17 +1418,17 @@
       <article class="event-card">
         <div class="event-card__date"><span class="event-card__day">[GG]</span><span class="event-card__month">[Mese]</span></div>
         <div class="event-card__body"><span class="event-card__type">[Tipo — es. Workshop]</span><h3 class="event-card__title">[Nome evento — da&nbsp;aggiornare]</h3><p class="event-card__desc">[Breve descrizione — da&nbsp;aggiornare.]</p><div class="event-card__meta"><span>[Orario — da&nbsp;aggiornare]</span><span>[Luogo — da&nbsp;aggiornare]</span></div></div>
-        <div class="event-card__cta"><a href="#" class="btn btn--ghost btn--sm">Iscriviti</a></div>
+        <div class="event-card__cta"><a href="contatti.html" class="btn btn--ghost btn--sm">Iscriviti</a></div>
       </article>
       <article class="event-card">
         <div class="event-card__date"><span class="event-card__day">[GG]</span><span class="event-card__month">[Mese]</span></div>
         <div class="event-card__body"><span class="event-card__type">[Tipo — es. Lezione speciale]</span><h3 class="event-card__title">[Nome evento — da&nbsp;aggiornare]</h3><p class="event-card__desc">[Breve descrizione — da&nbsp;aggiornare.]</p><div class="event-card__meta"><span>[Orario — da&nbsp;aggiornare]</span><span>[Luogo — da&nbsp;aggiornare]</span></div></div>
-        <div class="event-card__cta"><a href="#" class="btn btn--ghost btn--sm">Iscriviti</a></div>
+        <div class="event-card__cta"><a href="contatti.html" class="btn btn--ghost btn--sm">Iscriviti</a></div>
       </article>
       <article class="event-card">
         <div class="event-card__date"><span class="event-card__day">[GG]</span><span class="event-card__month">[Mese]</span></div>
         <div class="event-card__body"><span class="event-card__type">[Tipo — es. Online]</span><h3 class="event-card__title">[Nome evento — da&nbsp;aggiornare]</h3><p class="event-card__desc">[Breve descrizione — da&nbsp;aggiornare.]</p><div class="event-card__meta"><span>[Orario — da&nbsp;aggiornare]</span><span>Online</span></div></div>
-        <div class="event-card__cta"><a href="#" class="btn btn--ghost btn--sm">Iscriviti</a></div>
+        <div class="event-card__cta"><a href="contatti.html" class="btn btn--ghost btn--sm">Iscriviti</a></div>
       </article>
     </div>
   </div>
