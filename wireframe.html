@@ -105,6 +105,25 @@
     /* ══ STAT NUMBER — forza visibilità (JS non gira nel wireframe) ══ */
     #wf-wrapper .nicoletta-stat__num { opacity: 1 !important; transform: none !important; }
 
+    /* ══ PROPORZIONI PLACEHOLDER IMMAGINI ══ */
+    /* inner-image 2-col: La storia, Yoga/Coaching percorso, News In evidenza */
+    #wf-wrapper .inner-image { min-height: 480px; }
+    /* Home: visual-break citazione "Il benessere non è un arrivo" */
+    #page-home .visual-break__image { min-height: 440px; }
+    /* Chi sono — Certificazioni badges */
+    #page-chi-sono .cert-compact__badges .wf-img-ph {
+      height: 80px !important; width: 120px !important; flex-shrink: 0 !important;
+    }
+    /* Eventi — Prossimo evento: 4/3 */
+    #page-eventi .event-featured__image .wf-img-ph {
+      aspect-ratio: 4 / 3 !important; height: auto !important;
+    }
+
+    /* ══ NAV SU HERO — sfondo scuro per leggibilità link bianchi in grayscale ══ */
+    body.light-hero #wf-wrapper .site-header:not(.scrolled) {
+      background: rgba(0, 0, 0, 0.48) !important;
+    }
+
     /* ══ NAV HOVER — contrasto aumentato ══ */
     #wf-wrapper .site-nav__link::before { background: rgba(0,0,0,0.2) !important; }
     #wf-wrapper .site-header.scrolled .site-nav__link::before { background: rgba(0,0,0,0.12) !important; }
@@ -116,28 +135,31 @@
       min-height: 260px !important;
     }
 
-    /* ══ NOTE SVILUPPATORE — pannello fisso ══ */
+    /* ══ NOTE SVILUPPATORE — dropdown bottom-right ══ */
     #wf-devnotes {
-      position: fixed; right: 0; top: 50%; transform: translateY(-50%);
-      z-index: 9999; display: flex; align-items: center;
+      position: fixed; right: 1.5rem; bottom: 0;
+      z-index: 9999; display: flex; flex-direction: column-reverse; align-items: flex-end;
+    }
+    #wf-devnotes-toggle {
+      writing-mode: horizontal-tb;
+      background: #3b82f6; color: #fff; border: none; cursor: pointer;
+      padding: 0.5rem 1.2rem; font-size: 10px; font-weight: 800;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      border-radius: 6px 6px 0 0; flex-shrink: 0;
+      box-shadow: 0 -3px 10px rgba(0,0,0,0.2); line-height: 1.5;
     }
     #wf-devnotes-panel {
-      width: 275px; background: #111827; color: #d1d5db;
+      width: 310px; background: #111827; color: #d1d5db;
       padding: 1rem 0.9rem;
       font-family: 'Courier New', Courier, monospace; font-size: 11.5px; line-height: 1.65;
-      max-height: 80vh; overflow-y: auto;
-      border-left: 3px solid #3b82f6;
-      box-shadow: -4px 0 20px rgba(0,0,0,0.4);
-      transition: transform 0.22s ease;
+      max-height: 60vh; overflow-y: auto;
+      border: 1.5px solid #3b82f6; border-bottom: none;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.35);
+      transform-origin: bottom center;
+      transition: transform 0.22s ease, opacity 0.2s ease;
     }
-    #wf-devnotes-panel.wf-dn-hidden { transform: translateX(100%); pointer-events: none; }
-    #wf-devnotes-toggle {
-      writing-mode: vertical-rl; text-orientation: mixed;
-      background: #3b82f6; color: #fff; border: none; cursor: pointer;
-      padding: 0.7rem 0.4rem; font-size: 10px; font-weight: 800;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      border-radius: 6px 0 0 6px; flex-shrink: 0;
-      box-shadow: -3px 0 10px rgba(0,0,0,0.25); line-height: 1.3;
+    #wf-devnotes-panel.wf-dn-hidden {
+      transform: scaleY(0); opacity: 0; pointer-events: none;
     }
     #wf-devnotes-panel h4 {
       color: #60a5fa; margin: 0 0 0.4rem; font-size: 12px;
@@ -1715,19 +1737,19 @@
       <p style="max-width:44ch;margin:0.8rem auto 0;color:rgba(255,255,255,0.8);font-size:0.95rem;line-height:1.7;">Nuovi episodi disponibili ogni [frequenza — da&nbsp;aggiornare]. Iscriviti per non perdere nessuna uscita.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1.25rem;margin-top:2.5rem;" class="reveal">
-      <div style="background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.28);padding:1.75rem 1rem 1.5rem;text-align:center;border-radius:6px;">
-        <div style="width:52px;height:52px;background:rgba(255,255,255,0.18);border:1.5px solid rgba(255,255,255,0.45);margin:0 auto 1rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:rgba(255,255,255,0.8);letter-spacing:0.08em;">[icon]</div>
-        <p style="color:#fff;font-weight:700;font-size:0.95rem;margin:0 0 0.9rem;letter-spacing:0.02em;">Spotify</p>
+      <div style="background:rgba(255,255,255,0.92);border:1.5px solid rgba(0,0,0,0.22);padding:1.75rem 1rem 1.5rem;text-align:center;border-radius:6px;">
+        <div style="width:52px;height:52px;background:rgba(0,0,0,0.08);border:1.5px solid rgba(0,0,0,0.22);margin:0 auto 1rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#444;letter-spacing:0.08em;">[icon]</div>
+        <p style="color:#111;font-weight:700;font-size:0.95rem;margin:0 0 0.9rem;letter-spacing:0.02em;">Spotify</p>
         <a href="#" class="btn btn--secondary btn--sm" style="width:100%;justify-content:center;">Ascolta</a>
       </div>
-      <div style="background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.28);padding:1.75rem 1rem 1.5rem;text-align:center;border-radius:6px;">
-        <div style="width:52px;height:52px;background:rgba(255,255,255,0.18);border:1.5px solid rgba(255,255,255,0.45);margin:0 auto 1rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:rgba(255,255,255,0.8);letter-spacing:0.08em;">[icon]</div>
-        <p style="color:#fff;font-weight:700;font-size:0.95rem;margin:0 0 0.9rem;letter-spacing:0.02em;">Apple Podcasts</p>
+      <div style="background:rgba(255,255,255,0.92);border:1.5px solid rgba(0,0,0,0.22);padding:1.75rem 1rem 1.5rem;text-align:center;border-radius:6px;">
+        <div style="width:52px;height:52px;background:rgba(0,0,0,0.08);border:1.5px solid rgba(0,0,0,0.22);margin:0 auto 1rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#444;letter-spacing:0.08em;">[icon]</div>
+        <p style="color:#111;font-weight:700;font-size:0.95rem;margin:0 0 0.9rem;letter-spacing:0.02em;">Apple Podcasts</p>
         <a href="#" class="btn btn--secondary btn--sm" style="width:100%;justify-content:center;">Ascolta</a>
       </div>
-      <div style="background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.28);padding:1.75rem 1rem 1.5rem;text-align:center;border-radius:6px;">
-        <div style="width:52px;height:52px;background:rgba(255,255,255,0.18);border:1.5px solid rgba(255,255,255,0.45);margin:0 auto 1rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:rgba(255,255,255,0.8);letter-spacing:0.08em;">[icon]</div>
-        <p style="color:#fff;font-weight:700;font-size:0.95rem;margin:0 0 0.9rem;letter-spacing:0.02em;">Google Podcasts</p>
+      <div style="background:rgba(255,255,255,0.92);border:1.5px solid rgba(0,0,0,0.22);padding:1.75rem 1rem 1.5rem;text-align:center;border-radius:6px;">
+        <div style="width:52px;height:52px;background:rgba(0,0,0,0.08);border:1.5px solid rgba(0,0,0,0.22);margin:0 auto 1rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#444;letter-spacing:0.08em;">[icon]</div>
+        <p style="color:#111;font-weight:700;font-size:0.95rem;margin:0 0 0.9rem;letter-spacing:0.02em;">Google Podcasts</p>
         <a href="#" class="btn btn--secondary btn--sm" style="width:100%;justify-content:center;">Ascolta</a>
       </div>
     </div>
@@ -1905,7 +1927,7 @@
   var pages = document.querySelectorAll('.wf-page');
 
   var bodyClasses = {
-    'page-home':      '',
+    'page-home':      'light-hero',
     'page-chi-sono':  'light-hero',
     'page-yoga':      'light-hero',
     'page-coaching':  'light-hero',
