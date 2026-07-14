@@ -105,11 +105,30 @@
     /* ══ STAT NUMBER — forza visibilità (JS non gira nel wireframe) ══ */
     #wf-wrapper .nicoletta-stat__num { opacity: 1 !important; transform: none !important; }
 
+    /* ══ BACKGROUND-IMAGE PLACEHOLDER — overlay X diagonale (hero, ecc.) ══ */
+    .wf-bg-ph {
+      position: absolute !important; inset: 0 !important; z-index: 0 !important;
+      background: transparent !important; pointer-events: none !important;
+    }
+    .wf-bg-ph::before {
+      content: '' !important; position: absolute !important; inset: 0;
+      background: linear-gradient(to bottom right,
+        transparent calc(50% - 0.8px), rgba(0,0,0,0.28) calc(50% - 0.8px) calc(50% + 0.8px),
+        transparent calc(50% + 0.8px)) !important;
+    }
+    .wf-bg-ph::after {
+      content: '' !important; position: absolute !important; inset: 0;
+      background: linear-gradient(to bottom left,
+        transparent calc(50% - 0.8px), rgba(0,0,0,0.28) calc(50% - 0.8px) calc(50% + 0.8px),
+        transparent calc(50% + 0.8px)) !important;
+    }
+
     /* ══ PROPORZIONI PLACEHOLDER IMMAGINI ══ */
     /* inner-image 2-col: La storia, Yoga/Coaching percorso, News In evidenza */
-    #wf-wrapper .inner-image { min-height: 480px; }
+    /* height esplicita (non min-height) così height:100% del figlio si risolve */
+    #wf-wrapper .inner-image { height: 480px; }
     /* Home: visual-break citazione "Il benessere non è un arrivo" */
-    #page-home .visual-break__image { min-height: 440px; }
+    #page-home .visual-break__image { height: 440px; }
     /* Chi sono — Certificazioni badges */
     #page-chi-sono .cert-compact__badges .wf-img-ph {
       height: 80px !important; width: 120px !important; flex-shrink: 0 !important;
@@ -128,11 +147,26 @@
     #wf-wrapper .site-nav__link::before { background: rgba(0,0,0,0.2) !important; }
     #wf-wrapper .site-header.scrolled .site-nav__link::before { background: rgba(0,0,0,0.12) !important; }
 
+    /* ══ NAV SCROLLED — scala di grigi per hover/click leggibili su bianco ══ */
+    #wf-wrapper .site-header.scrolled .site-nav__link { color: #1a1a1a !important; }
+    #wf-wrapper .site-header.scrolled .site-nav__link:hover,
+    #wf-wrapper .site-header.scrolled .site-nav__link:focus {
+      color: #000 !important; background: rgba(0,0,0,0.08) !important; border-radius: 4px;
+    }
+
+    /* ══ PODCAST: Dove ascoltare — testo e CTA leggibili in grayscale ══ */
+    #page-podcast .section--green .section-label,
+    #page-podcast .section--green h2 { color: #1a1a1a !important; }
+    #page-podcast .section--green p { color: #333 !important; }
+    #page-podcast .section--green .btn--secondary {
+      color: #222 !important; border-color: rgba(0,0,0,0.4) !important;
+      background: transparent !important;
+    }
+
     /* ══ PODCAST: placeholder geometrico (episodio in evidenza) ══ */
-    #page-podcast .inner-image { min-height: 260px; }
+    #page-podcast .inner-image { height: 260px !important; }
     #page-podcast .inner-image .wf-img-ph {
       clip-path: polygon(14% 0%, 86% 0%, 100% 14%, 100% 86%, 86% 100%, 14% 100%, 0% 86%, 0% 14%) !important;
-      min-height: 260px !important;
     }
 
     /* ══ NOTE SVILUPPATORE — dropdown bottom-right ══ */
@@ -419,7 +453,7 @@
         <span class="section-label">Prossimi appuntamenti</span>
         <h2>Il prossimo evento.</h2>
       </div>
-      <a href="#" class="btn btn--outline" style="flex-shrink:0;">Vedi tutti gli&nbsp;eventi</a>
+      <a href="eventi.html" class="btn btn--outline" style="flex-shrink:0;">Vedi tutti gli&nbsp;eventi</a>
     </div>
     <div class="reveal">
       <article class="evento-card">
@@ -2051,11 +2085,16 @@
     img.parentNode.replaceChild(ph, img);
   });
 
-  /* ── RIMUOVI background-image (senza etichetta) ─ */
+  /* ── RIMUOVI background-image → overlay X per visibilità wireframe ── */
   document.querySelectorAll('#wf-wrapper [style]').forEach(function (el) {
     if ((el.getAttribute('style') || '').indexOf('background-image') === -1) return;
     el.style.backgroundImage = 'none';
-    el.style.backgroundColor = '#aaa';
+    el.style.backgroundColor = '#b4b4b4';
+    var cs = window.getComputedStyle(el);
+    if (cs.position === 'static') el.style.position = 'relative';
+    var xDiv = document.createElement('div');
+    xDiv.className = 'wf-bg-ph';
+    el.insertBefore(xDiv, el.firstChild);
   });
 
   /* ── SLIDER HOME HERO ──────────────────── */
