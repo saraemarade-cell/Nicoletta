@@ -156,7 +156,7 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.3rem); }
 .site-header.with-infobar { top: 36px; }
 .site-header.scrolled {
   background: var(--c-neutral-050);
-  padding: 0.8rem 1rem;
+  padding: 0.8rem 30px;
   border-bottom-color: rgba(0,0,0,0.06);
 }
 /* Logo switching */
