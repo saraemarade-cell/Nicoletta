@@ -2052,6 +2052,21 @@
 <script>
 (function () {
 
+  /* Info bar close */
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.info-bar__close');
+    if (!btn) return;
+    var bar = btn.closest('.info-bar');
+    if (bar) {
+      bar.classList.add('hidden');
+      var header = bar.nextElementSibling;
+      if (header && header.classList.contains('site-header')) {
+        header.classList.remove('with-infobar');
+        header.style.top = '0';
+      }
+    }
+  });
+
   var pages = document.querySelectorAll('.wf-page');
 
   var bodyClasses = {
