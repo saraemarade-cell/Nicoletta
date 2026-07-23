@@ -391,7 +391,7 @@ body.light-hero .site-header:not(.scrolled) .hamburger span          { backgroun
 .section--white  { background: var(--c-white); }
 .section--neutral { background: var(--c-neutral-050); }
 
-.section__header { margin-bottom: 3rem; }
+.section__header { margin-bottom: 3.5rem; }
 .section__header--centered { text-align: center; }
 .section__header--flex { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
 .section__title { margin-bottom: 0; }

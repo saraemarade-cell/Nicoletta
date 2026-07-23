@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+
+    /* ancore in-page (#home-v2-form, ecc.) — lascia fare al browser */
+    if (href.startsWith("#") && !href.startsWith("#page-")) return;
+    var text﻿<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8"/>
@@ -85,9 +88,45 @@
     #wf-wrapper .site-header.with-infobar {
       top: 36px !important;
     }
-    /* Modal corsi yoga — checkbox CSS hack */
-    #yoga-modal-toggle { display:none; }
-    #yoga-modal-toggle:checked ~ #yoga-booking-modal {
+    /* ── Homepage switcher pill ── */
+    #wf-home-switcher {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 8888;
+      display: none; /* shown only on home pages via JS */
+      background: rgba(15,15,15,0.85);
+      backdrop-filter: blur(8px);
+      border-radius: 100px;
+      padding: 5px 6px;
+      gap: 4px;
+      align-items: center;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+    }
+    #wf-home-switcher button {
+      border: none;
+      cursor: pointer;
+      border-radius: 100px;
+      padding: 7px 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      font-family: inherit;
+      transition: background 0.2s, color 0.2s;
+      background: transparent;
+      color: rgba(255,255,255,0.55);
+    }
+    #wf-home-switcher button.active {
+      background: #fff;
+      color: #111;
+    }
+
+    /* Modal checkbox CSS hack — yoga / coaching / aziendale */
+    #yoga-modal-toggle, #coaching-modal-toggle, #aziendale-modal-toggle { display:none; }
+    #yoga-modal-toggle:checked ~ #yoga-booking-modal,
+    #coaching-modal-toggle:checked ~ #coaching-booking-modal,
+    #aziendale-modal-toggle:checked ~ #aziendale-booking-modal {
       display: flex !important;
       position: fixed !important;
       top: 0 !important; left: 0 !important;
@@ -177,7 +216,8 @@
     /* height esplicita (non min-height) così height:100% del figlio si risolve */
     #wf-wrapper .inner-image { height: 480px; }
     /* Home: visual-break citazione "Il benessere non è un arrivo" */
-    #page-home .visual-break__image { height: 440px; }
+    #page-home .visual-break__image,
+    #page-home-v2 .visual-break__image { height: 440px; }
     /* Chi sono — Certificazioni badges */
     #page-chi-sono .cert-compact__badges .wf-img-ph {
       height: 80px !important; width: 120px !important; flex-shrink: 0 !important;
@@ -275,6 +315,12 @@
 <body>
 
 <!-- ══ WRAPPER GRAYSCALE ══ -->
+<!-- ── Homepage version switcher ── -->
+<div id="wf-home-switcher" role="group" aria-label="Versione homepage">
+  <button id="wf-sw-v1" class="active" onclick="window.location.hash='page-home'">Homepage v1</button>
+  <button id="wf-sw-v2" onclick="window.location.hash='page-home-v2'">Homepage v2</button>
+</div>
+
 <div id="wf-wrapper">
 
 <!-- ═══════════════════════════════════
@@ -657,6 +703,277 @@
 
 </div><!-- /page-home -->
 
+<div class="wf-page" id="page-home-v2">
+
+<header class="site-header">
+  <div class="header-inner" style="justify-content:center;">
+    <a href="#" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
+      <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
+      <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"    alt="Nicoletta Ingusci" width="160" height="40"/>
+    </a>
+  </div>
+</header>
+
+<main>
+
+<section class="home-hero" aria-label="Presentazione">
+  <div class="hero-slides">
+    <div class="hero-slide active" style="background-image: url('Assets/Foto/homehero.webp');" role="group" aria-label="Slide 1 di 3">
+      <div class="hero-slide__inner">
+        <span class="hero-slide__label">Yoga &middot; Coaching &middot; Benessere</span>
+        <h1 class="hero-slide__title">Il benessere non&nbsp;<span style="white-space:nowrap">è un&nbsp;traguardo.</span><br>È una&nbsp;pratica.</h1>
+        <p class="hero-slide__desc">Un approccio integrato che&nbsp;mette in dialogo corpo, mente e&nbsp;conoscenze scientifiche per&nbsp;costruire equilibrio, consapevolezza e&nbsp;cambiamenti sostenibili.</p>
+        <div class="hero-slide__ctas" style="justify-content:center;"><a href="#home-v2-form" class="btn btn--secondary" onclick="document.getElementById('home-v2-form').scrollIntoView({behavior:'smooth'});return false;">Contatta Nicoletta</a></div>
+      </div>
+    </div>
+    <div class="hero-slide" style="background-image: url('Assets/Foto/yoga.webp');" role="group" aria-label="Slide 2 di 3">
+      <div class="hero-slide__inner">
+        <span class="hero-slide__label">Percorso Yoga</span>
+        <h1 class="hero-slide__title">Movimento,<br>respiro e&nbsp;consapevolezza.</h1>
+        <p class="hero-slide__desc">Percorsi individuali e&nbsp;di gruppo che&nbsp;integrano pratica, anatomia e&nbsp;conoscenze scientifiche. In presenza e&nbsp;a distanza.</p>
+        <div class="hero-slide__ctas" style="justify-content:center;"><a href="#home-v2-form" class="btn btn--secondary" onclick="document.getElementById('home-v2-form').scrollIntoView({behavior:'smooth'});return false;">Prenota una&nbsp;call</a></div>
+      </div>
+    </div>
+    <div class="hero-slide" style="background-image: url('Assets/Foto/coaching.webp');" role="group" aria-label="Slide 3 di 3">
+      <div class="hero-slide__inner">
+        <span class="hero-slide__label">Percorso Coaching</span>
+        <h1 class="hero-slide__title">Chiarezza,<br>direzione e&nbsp;cambiamento reale.</h1>
+        <p class="hero-slide__desc">Non soluzioni rapide, ma&nbsp;un&nbsp;metodo strutturato per&nbsp;fare chiarezza su&nbsp;sé stessi e&nbsp;costruire cambiamenti che&nbsp;durano.</p>
+        <div class="hero-slide__ctas" style="justify-content:center;"><a href="#home-v2-form" class="btn btn--secondary" onclick="document.getElementById('home-v2-form').scrollIntoView({behavior:'smooth'});return false;">Prenota una&nbsp;call</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-controls" aria-label="Navigazione slider">
+    <div class="hero-dots" role="tablist" aria-label="Seleziona slide">
+      <button class="hero-dot active" role="tab" aria-selected="true"  aria-label="Slide 1"></button>
+      <button class="hero-dot"        role="tab" aria-selected="false" aria-label="Slide 2"></button>
+      <button class="hero-dot"        role="tab" aria-selected="false" aria-label="Slide 3"></button>
+    </div>
+  </div>
+</section>
+
+<section class="section section--neutral section--lg" aria-label="Chi è Nicoletta Ingusci">
+  <div class="container">
+    <div class="nicoletta-preview__inner">
+      <div class="nicoletta-preview__image reveal">
+        <div class="nicoletta-preview__img-container">
+          <img src="Assets/Foto/lafondatrice.webp" alt="Nicoletta Ingusci" loading="lazy"/>
+        </div>
+      </div>
+      <div class="nicoletta-preview__text reveal">
+        <span class="section-label">Chi sono</span>
+        <h2 style="margin-bottom:1.2rem;">Un metodo fondato su&nbsp;studio, ascolto e&nbsp;pratica concreta.</h2>
+        <p class="nicoletta-preview__intro">Nicoletta Ingusci lavora con&nbsp;persone e&nbsp;organizzazioni per&nbsp;costruire percorsi di&nbsp;benessere reali, personalizzati e&nbsp;sostenibili, integrando yoga, coaching e&nbsp;conoscenze scientifiche.</p>
+        <div class="nicoletta-preview__method">Non si tratta di&nbsp;proporre soluzioni rapide. Si tratta di&nbsp;costruire insieme un&nbsp;percorso che&nbsp;risponda a esigenze reali e&nbsp;produca cambiamenti duraturi.</div>
+        <div class="nicoletta-stats-row">
+          <div class="nicoletta-stat">
+            <span class="nicoletta-stat__num">3000+</span>
+            <span class="nicoletta-stat__label">Ore di&nbsp;insegnamento</span>
+          </div>
+          <div class="nicoletta-stat">
+            <span class="nicoletta-stat__num">17+</span>
+            <span class="nicoletta-stat__label">Anni di&nbsp;pratica</span>
+          </div>
+          <div class="nicoletta-stat">
+            <span class="nicoletta-stat__num nicoletta-stat__num--sm">E-RYT 800</span>
+            <span class="nicoletta-stat__label">Certificata Yoga Alliance</span>
+          </div>
+        </div>
+        <div class="nicoletta-preview__tags">
+          <span class="tag tag--green">Yoga</span>
+          <span class="tag tag--green">Coaching</span>
+          <span class="tag tag--peach">Benessere psicofisico</span>
+          <span class="tag tag--green">Approccio scientifico</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--green section--lg" aria-label="Percorsi Yoga e Coaching">
+  <div class="container">
+    <div class="section__header section__header--centered reveal">
+      <span class="section-label">I percorsi</span>
+      <h2>Due vie, un&nbsp;solo approccio integrato.</h2>
+      <p class="section__intro" style="margin-inline:auto;">Yoga e&nbsp;coaching sono strumenti distinti che&nbsp;puoi seguire separatamente o&nbsp;come parte di&nbsp;un&nbsp;percorso costruito intorno a te.</p>
+    </div>
+    <div class="grid-3 reveal" style="gap:2rem;">
+      <article class="percorso-card percorso-card--yoga">
+        <div class="percorso-card__image">
+          <img src="Assets/Foto/yoga.webp" alt="Percorso Yoga" loading="lazy"/>
+          <div class="percorso-card__badge">Yoga</div>
+        </div>
+        <div class="percorso-card__body">
+          <h3 class="percorso-card__title">Il percorso Yoga</h3>
+          <p class="percorso-card__desc">Uno strumento di&nbsp;conoscenza di&nbsp;sé che&nbsp;integra movimento, respiro e&nbsp;consapevolezza in modo scientifico e&nbsp;personalizzato. Percorsi individuali e&nbsp;di gruppo, in presenza e&nbsp;a distanza.</p>
+        </div>
+      </article>
+      <article class="percorso-card percorso-card--coaching">
+        <div class="percorso-card__image">
+          <img src="Assets/Foto/coaching.webp" alt="Percorso Coaching" loading="lazy"/>
+          <div class="percorso-card__badge">Coaching</div>
+        </div>
+        <div class="percorso-card__body">
+          <h3 class="percorso-card__title">Il percorso Coaching</h3>
+          <p class="percorso-card__desc">Un percorso che&nbsp;parte dall'ascolto per&nbsp;portare chiarezza, strumenti concreti e&nbsp;direzione. Non soluzioni rapide, ma&nbsp;cambiamenti reali e&nbsp;sostenibili nel&nbsp;tempo.</p>
+        </div>
+      </article>
+      <article class="percorso-card percorso-card--benessere">
+        <div class="percorso-card__image">
+          <img src="Assets/Foto/benessereaziendale.webp" alt="Benessere Aziendale" loading="lazy"/>
+          <div class="percorso-card__badge">Benessere Aziendale</div>
+        </div>
+        <div class="percorso-card__body">
+          <h3 class="percorso-card__title">Benessere Aziendale</h3>
+          <p class="percorso-card__desc">Programmi su&nbsp;misura per&nbsp;organizzazioni e&nbsp;team. Yoga, coaching e&nbsp;strumenti di&nbsp;gestione dello stress per&nbsp;costruire ambienti di&nbsp;lavoro più sani e&nbsp;produttivi.</p>
+        </div>
+      </article>
+    </div>
+    <div style="margin-top:2.5rem;background:var(--c-white);padding:2rem 2.5rem;border:1px solid var(--c-green-100);display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;" class="reveal">
+      <div>
+        <h3 style="font-size:1.2rem;margin-bottom:0.4rem;">Hai bisogno di&nbsp;un&nbsp;percorso su&nbsp;misura?</h3>
+        <p style="color:var(--c-neutral-400);font-size:0.9rem;max-width:50ch;">Yoga e&nbsp;coaching possono essere integrati in un&nbsp;percorso costruito intorno a te.</p>
+      </div>
+      <a href="#home-v2-form" onclick="document.getElementById('home-v2-form').scrollIntoView({behavior:'smooth'});return false;" class="btn btn--primary">Richiedi informazioni</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--lg aziendale-section" aria-label="Benessere Aziendale">
+  <div class="container">
+    <div class="az-home-grid reveal">
+      <div class="az-home-text">
+        <span class="section-label section-label--peach">Per le&nbsp;organizzazioni</span>
+        <h2 class="aziendale-section__title">Benessere aziendale che&nbsp;produce risultati concreti.</h2>
+        <p class="aziendale-section__text">Programmi tailor made per&nbsp;team e&nbsp;organizzazioni. Non attività di&nbsp;wellness generiche, ma&nbsp;interventi integrati, credibili e&nbsp;misurabili che&nbsp;rispondono ai&nbsp;bisogni reali delle&nbsp;persone.</p>
+        <div class="az-home-ctas" style="justify-content:flex-start;"><a href="#home-v2-form" class="btn btn--secondary" onclick="document.getElementById('home-v2-form').scrollIntoView({behavior:'smooth'});return false;">Prenota una&nbsp;call</a></div>
+      </div>
+      <ul class="az-home-list">
+        <li class="az-home-list__item"><span class="az-home-list__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></span><span class="az-home-list__label">Riduzione di&nbsp;stress e&nbsp;burnout</span></li>
+        <li class="az-home-list__item"><span class="az-home-list__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg></span><span class="az-home-list__label">Miglioramento di&nbsp;focus e&nbsp;presenza</span></li>
+        <li class="az-home-list__item"><span class="az-home-list__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></span><span class="az-home-list__label">Maggiore coesione dei&nbsp;team</span></li>
+        <li class="az-home-list__item"><span class="az-home-list__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></span><span class="az-home-list__label">Strumenti concreti e&nbsp;applicabili</span></li>
+        <li class="az-home-list__item"><span class="az-home-list__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span><span class="az-home-list__label">Percorsi adattati al&nbsp;contesto aziendale</span></li>
+        <li class="az-home-list__item"><span class="az-home-list__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span><span class="az-home-list__label">Approccio credibile e&nbsp;misurabile</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<div class="visual-break" aria-hidden="true">
+  <div class="container">
+    <div class="visual-break__inner">
+      <div class="visual-break__image">
+        <img src="Assets/Foto/lafondatrice.webp" alt="" loading="lazy"/>
+      </div>
+      <blockquote>
+        <p class="visual-break__quote">&ldquo;Il benessere non è un&nbsp;arrivo. È il&nbsp;modo in cui <em>stai nel&nbsp;percorso.</em>&rdquo;</p>
+        <footer class="visual-break__attr">— Nicoletta Ingusci</footer>
+      </blockquote>
+    </div>
+  </div>
+</div>
+
+<section class="section section--neutral" aria-label="Testimonianze">
+  <div class="container">
+    <div class="section__header section__header--centered reveal">
+      <span class="section-label">Testimonianze</span>
+      <h2>Le parole di&nbsp;chi ha scelto questo&nbsp;percorso.</h2>
+    </div>
+    <div class="grid-3 reveal" role="list">
+      <article class="testi-card" role="listitem">
+        <div class="testi-card__mark" aria-hidden="true">&ldquo;</div>
+        <p class="testi-card__text">[Testimonianza — da&nbsp;aggiornare con&nbsp;una&nbsp;recensione reale e&nbsp;autorizzata. Non inventare contenuti.]</p>
+        <div class="testi-card__footer">
+          <p class="testi-card__name">[Nome — da&nbsp;aggiornare]</p>
+          <p class="testi-card__role">[Ruolo o&nbsp;contesto — opzionale]</p>
+          <span class="testi-card__path">[Percorso: Yoga / Coaching]</span>
+        </div>
+      </article>
+      <article class="testi-card" role="listitem">
+        <div class="testi-card__mark" aria-hidden="true">&ldquo;</div>
+        <p class="testi-card__text">[Testimonianza — da&nbsp;aggiornare con&nbsp;una&nbsp;recensione reale e&nbsp;autorizzata.]</p>
+        <div class="testi-card__footer">
+          <p class="testi-card__name">[Nome — da&nbsp;aggiornare]</p>
+          <p class="testi-card__role">[Ruolo — opzionale]</p>
+          <span class="testi-card__path">[Percorso: Benessere Aziendale]</span>
+        </div>
+      </article>
+      <article class="testi-card" role="listitem">
+        <div class="testi-card__mark" aria-hidden="true">&ldquo;</div>
+        <p class="testi-card__text">[Testimonianza — da&nbsp;aggiornare con&nbsp;una&nbsp;recensione reale e&nbsp;autorizzata.]</p>
+        <div class="testi-card__footer">
+          <p class="testi-card__name">[Nome — da&nbsp;aggiornare]</p>
+          <p class="testi-card__role">[Ruolo — opzionale]</p>
+          <span class="testi-card__path">[Percorso: Yoga / Coaching]</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--cream" id="home-v2-form">
+  <div class="container" style="max-width:720px;">
+    <div class="section__header section__header--centered reveal">
+      <span class="section-label">Contatti</span>
+      <h2>Scrivici.</h2>
+      <p class="section__intro" style="text-align:center;margin-inline:auto;">Compila il modulo e riceverai una risposta entro breve.</p>
+    </div>
+    <div class="reveal" style="background:#fff;border-radius:12px;padding:2.5rem;box-shadow:0 2px 20px rgba(0,0,0,0.07);">
+      <form id="contact-form-v2" class="contact-form" novalidate>
+  <div class="form-group"><label for="v2-nome-c" class="form-label">Nome e&nbsp;cognome <span aria-hidden="true">*</span></label><input type="text" id="v2-nome-c" name="nome" class="form-input" required autocomplete="name" placeholder="[Nome Cognome]"/></div>
+  <div class="form-group"><label for="v2-email-c" class="form-label">Email <span aria-hidden="true">*</span></label><input type="email" id="v2-email-c" name="email" class="form-input" required autocomplete="email" placeholder="[email@dominio.it]"/></div>
+  <div class="form-group"><label for="v2-telefono-c" class="form-label">Telefono <span style="color:var(--c-neutral-400);font-weight:400;">(opzionale)</span></label><input type="tel" id="v2-telefono-c" name="telefono" class="form-input" autocomplete="tel" placeholder="[+39 000 000 0000]"/></div>
+  <div class="form-group">
+    <label for="v2-interesse-c" class="form-label">Mi interessa <span aria-hidden="true">*</span></label>
+    <select id="v2-interesse-c" name="interesse" class="form-input" required>
+      <option value="">Seleziona un&nbsp;percorso</option>
+      <option value="yoga">Yoga</option>
+      <option value="coaching">Coaching</option>
+      <option value="benessere-aziendale">Benessere aziendale</option>
+      <option value="evento">Un evento / retreat</option>
+      <option value="altro">Altro</option>
+    </select>
+  </div>
+  <div class="form-group"><label for="v2-messaggio-c" class="form-label">Messaggio <span aria-hidden="true">*</span></label><textarea id="v2-messaggio-c" name="messaggio" class="form-input form-textarea" required rows="5" placeholder="Scrivi qui il tuo messaggio o la tua domanda..."></textarea></div>
+  <div class="form-check"><input type="checkbox" id="v2-privacy-c" name="privacy" required class="form-check__input"/><label for="v2-privacy-c" class="form-check__label">Ho letto e&nbsp;accetto la&nbsp;<a href="#">Privacy Policy</a>. <span aria-hidden="true">*</span></label></div>
+  <button type="submit" class="btn btn--primary form-submit">Invia messaggio</button>
+  <div class="form-success" aria-live="polite" hidden>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#637664" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="#637664" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p>Messaggio inviato. Ti rispondo entro 1-2 giorni lavorativi.</p>
+  </div>
+</form>
+
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__main">
+      <div class="footer__brand">
+        <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
+        <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
+        <div class="footer__social" aria-label="Social media">
+          <a href="#" class="footer__social-link" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" class="footer__social-link" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__col" style="grid-column:4;"><h5>Contatti</h5><p class="footer__contact-item"><a href="#">[email — da&nbsp;inserire]</a></p><p class="footer__contact-item">[Città — da&nbsp;inserire]</p><a href="#home-v2-form" onclick="document.getElementById('home-v2-form').scrollIntoView({behavior:'smooth'});return false;" class="btn btn--outline" style="color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.2);font-size:0.875rem;margin-top:1rem;padding:0.55rem 1.2rem;">Prenota una&nbsp;call</a></div>
+    </div>
+    <div class="footer__bottom">
+      <nav class="footer__legal" aria-label="Link legali"><a href="#">Privacy Policy</a><a href="#">Cookie Policy</a><a href="#">Credits</a></nav>
+      <p class="footer__copy">&copy; <span class="footer-year"></span> Nicoletta Ingusci. Tutti i diritti riservati.</p>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /page-home-v2 -->
+
 <!-- PAGINE RIMANENTI: verranno aggiunte nei prossimi step -->
 <div class="wf-page" id="page-chi-sono">
 
@@ -705,7 +1022,7 @@
   </div>
 </section>
 
-<section class="section section--neutral section--lg" style="padding-bottom:4rem;">
+<section class="section section--neutral">
   <div class="container">
     <div class="inner-2col inner-2col--center">
       <div class="inner-image reveal" style="clip-path:polygon(0 0, 86% 0, 100% 14%, 100% 100%, 14% 100%, 0 86%);overflow:hidden;">
@@ -730,9 +1047,9 @@
   </div>
 </section>
 
-<section class="section section--neutral section--lg">
+<section class="section section--neutral">
   <div class="container">
-    <div class="section__header section__header--centered reveal" style="margin-bottom:3rem;">
+    <div class="section__header section__header--centered reveal">
       <span class="section-label">I percorsi</span>
       <h2>Esplora i percorsi disponibili.</h2>
     </div>
@@ -768,7 +1085,7 @@
   </div>
 </section>
 
-<section class="section section--neutral section--lg" style="padding-bottom:var(--space-2xl);">
+<section class="section section--neutral">
   <div class="container">
     <div class="valori-layout reveal">
       <div class="valori-layout__left">
@@ -818,7 +1135,7 @@
   </div>
 </section>
 
-<section class="section section--cream section--lg" aria-label="Certificazioni">
+<section class="section section--cream" aria-label="Certificazioni">
   <div class="container">
     <div class="cert-compact reveal">
       <div class="cert-compact__header">
@@ -1006,9 +1323,9 @@
   </div>
 </section>
 
-<section class="section section--neutral section--lg">
+<section class="section section--neutral">
   <div class="container">
-    <div class="section__header reveal" style="max-width:680px;margin-bottom:4rem;">
+    <div class="section__header reveal" style="max-width:680px;">
       <span class="section-label">Metodo e&nbsp;modalità</span>
       <h2>Come si svolge il&nbsp;percorso.</h2>
       <p class="section__intro">Ogni percorso inizia da&nbsp;una&nbsp;valutazione iniziale. Non esistono protocolli fissi: la&nbsp;pratica si costruisce intorno alla&nbsp;persona.</p>
@@ -1074,75 +1391,120 @@
   </div>
 </footer>
 
-<!-- YOGA: modal prenotazione corsi -->
-<div id="yoga-booking-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;background:rgba(0,0,0,0.55);align-items:center;justify-content:center;padding:1.5rem;overflow:auto;box-sizing:border-box;">
-  <div style="background:#fff;border-radius:10px;width:100%;max-width:780px;max-height:88vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,0.18);">
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:1.4rem 1.8rem;border-bottom:1.5px solid var(--c-neutral-100);">
-      <div>
-        <p style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--c-green-700);font-weight:700;margin-bottom:0.2rem;">Corsi</p>
-        <h3 style="margin:0;font-size:1.2rem;">Scegli una lezione e prenota</h3>
-      </div>
-      <label for="yoga-modal-toggle" aria-label="Chiudi" style="background:none;border:none;cursor:pointer;padding:0.4rem;color:var(--c-neutral-400);font-size:1.4rem;line-height:1;display:flex;align-items:center;">&#x2715;</label>
+<!-- YOGA: modal prenotazione corsi (stile Eversports) -->
+<div id="yoga-booking-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;background:rgba(0,0,0,0.55);align-items:center;justify-content:center;padding:1rem;overflow:auto;box-sizing:border-box;">
+  <div style="background:#f5f5f5;border-radius:12px;width:100%;max-width:680px;max-height:92vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,0.22);font-family:inherit;">
+
+    <!-- Header -->
+    <div style="background:#fff;border-radius:12px 12px 0 0;padding:1rem 1.4rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e8e8e8;position:sticky;top:0;z-index:2;">
+      <strong style="font-size:1rem;">Prenota una lezione</strong>
+      <label for="yoga-modal-toggle" style="cursor:pointer;width:32px;height:32px;border-radius:50%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:1rem;color:#666;line-height:1;">&#x2715;</label>
     </div>
-    <div style="display:flex;gap:0.5rem;padding:1.2rem 1.8rem;border-bottom:1px solid var(--c-neutral-100);flex-wrap:wrap;">
-      <button style="padding:0.4rem 1rem;border-radius:999px;border:1.5px solid var(--c-green-700);background:var(--c-green-700);color:#fff;font-size:0.78rem;font-family:inherit;cursor:pointer;font-weight:600;">Tutti</button>
-      <button style="padding:0.4rem 1rem;border-radius:999px;border:1.5px solid var(--c-neutral-200);background:transparent;font-size:0.78rem;font-family:inherit;cursor:pointer;">Individuale</button>
-      <button style="padding:0.4rem 1rem;border-radius:999px;border:1.5px solid var(--c-neutral-200);background:transparent;font-size:0.78rem;font-family:inherit;cursor:pointer;">Gruppo</button>
-      <button style="padding:0.4rem 1rem;border-radius:999px;border:1.5px solid var(--c-neutral-200);background:transparent;font-size:0.78rem;font-family:inherit;cursor:pointer;">Online</button>
+
+    <!-- Navigazione settimana -->
+    <div style="background:#fff;padding:0.75rem 1.4rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e8e8e8;">
+      <button style="background:none;border:none;cursor:pointer;font-size:1.2rem;color:#555;padding:0 0.5rem;">&#8249;</button>
+      <span style="font-size:0.85rem;font-weight:600;color:#222;">Lun 14 – Dom 20 Gen 2025</span>
+      <button style="background:none;border:none;cursor:pointer;font-size:1.2rem;color:#555;padding:0 0.5rem;">&#8250;</button>
     </div>
-    <div style="display:flex;flex-direction:column;">
-      <div style="display:grid;grid-template-columns:72px 1fr 110px 100px 110px;gap:1rem;align-items:center;padding:0.6rem 1.8rem;background:var(--c-neutral-50);">
-        <span style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--c-neutral-400);font-weight:700;">Data</span>
-        <span style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--c-neutral-400);font-weight:700;">Lezione</span>
-        <span style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--c-neutral-400);font-weight:700;">Orario</span>
-        <span style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--c-neutral-400);font-weight:700;">Posti</span>
-        <span></span>
+
+    <!-- Lista classi per giorno -->
+    <div style="padding:1rem;display:flex;flex-direction:column;gap:0.75rem;">
+
+      <!-- Giorno: Lunedì -->
+      <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.25rem 0 0.1rem;">Lunedì 14 Gennaio</p>
+      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
+        <div style="min-width:52px;text-align:center;">
+          <div style="font-size:1rem;font-weight:700;color:#222;">09:00</div>
+          <div style="font-size:0.7rem;color:#999;">60 min</div>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Hatha Yoga</div>
+          <div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; In presenza &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">3 posti</span></div>
+        </div>
+        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
       </div>
-      <div style="display:grid;grid-template-columns:72px 1fr 110px 100px 110px;gap:1rem;align-items:center;padding:0.9rem 1.8rem;border-top:1px solid var(--c-neutral-100);">
-        <div style="text-align:center;background:var(--c-green-100);border-radius:6px;padding:0.35rem 0.4rem;line-height:1.2;"><div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--c-green-700);font-weight:700;">LUN</div><div style="font-size:1.2rem;font-weight:700;color:var(--c-green-900);">14</div></div>
-        <div><strong style="display:block;font-size:0.88rem;margin-bottom:0.15rem;">Hatha Yoga</strong><span style="font-size:0.75rem;color:var(--c-neutral-400);">Individuale · 60 min · In presenza</span></div>
-        <span style="font-size:0.85rem;">09:00 – 10:00</span>
-        <span style="font-size:0.78rem;color:var(--c-green-700);font-weight:600;">3 disponibili</span>
-        <a href="#" class="btn btn--primary btn--sm">Prenota</a>
+
+      <!-- Giorno: Martedì -->
+      <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.5rem 0 0.1rem;">Martedì 15 Gennaio</p>
+      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
+        <div style="min-width:52px;text-align:center;">
+          <div style="font-size:1rem;font-weight:700;color:#222;">07:30</div>
+          <div style="font-size:0.7rem;color:#999;">60 min</div>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Yoga e mindfulness</div>
+          <div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Online &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">8 posti</span></div>
+        </div>
+        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
       </div>
-      <div style="display:grid;grid-template-columns:72px 1fr 110px 100px 110px;gap:1rem;align-items:center;padding:0.9rem 1.8rem;border-top:1px solid var(--c-neutral-100);">
-        <div style="text-align:center;background:var(--c-green-100);border-radius:6px;padding:0.35rem 0.4rem;line-height:1.2;"><div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--c-green-700);font-weight:700;">MAR</div><div style="font-size:1.2rem;font-weight:700;color:var(--c-green-900);">15</div></div>
-        <div><strong style="display:block;font-size:0.88rem;margin-bottom:0.15rem;">Pranayama e respiro</strong><span style="font-size:0.75rem;color:var(--c-neutral-400);">Gruppo · 75 min · In presenza</span></div>
-        <span style="font-size:0.85rem;">18:30 – 19:45</span>
-        <span style="font-size:0.78rem;color:var(--c-green-700);font-weight:600;">6 disponibili</span>
-        <a href="#" class="btn btn--primary btn--sm">Prenota</a>
+      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
+        <div style="min-width:52px;text-align:center;">
+          <div style="font-size:1rem;font-weight:700;color:#222;">18:30</div>
+          <div style="font-size:0.7rem;color:#999;">75 min</div>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Pranayama e respiro</div>
+          <div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Gruppo · In presenza &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">6 posti</span></div>
+        </div>
+        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
       </div>
-      <div style="display:grid;grid-template-columns:72px 1fr 110px 100px 110px;gap:1rem;align-items:center;padding:0.9rem 1.8rem;border-top:1px solid var(--c-neutral-100);">
-        <div style="text-align:center;background:var(--c-green-100);border-radius:6px;padding:0.35rem 0.4rem;line-height:1.2;"><div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--c-green-700);font-weight:700;">GIO</div><div style="font-size:1.2rem;font-weight:700;color:var(--c-green-900);">17</div></div>
-        <div><strong style="display:block;font-size:0.88rem;margin-bottom:0.15rem;">Yoga e mindfulness</strong><span style="font-size:0.75rem;color:var(--c-neutral-400);">Gruppo · 60 min · Online</span></div>
-        <span style="font-size:0.85rem;">07:30 – 08:30</span>
-        <span style="font-size:0.78rem;color:var(--c-green-700);font-weight:600;">8 disponibili</span>
-        <a href="#" class="btn btn--primary btn--sm">Prenota</a>
+
+      <!-- Giorno: Giovedì -->
+      <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.5rem 0 0.1rem;">Giovedì 17 Gennaio</p>
+      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
+        <div style="min-width:52px;text-align:center;">
+          <div style="font-size:1rem;font-weight:700;color:#222;">09:00</div>
+          <div style="font-size:0.7rem;color:#999;">90 min</div>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Vinyasa Flow</div>
+          <div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Gruppo · In presenza &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">5 posti</span></div>
+        </div>
+        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
       </div>
-      <div style="display:grid;grid-template-columns:72px 1fr 110px 100px 110px;gap:1rem;align-items:center;padding:0.9rem 1.8rem;border-top:1px solid var(--c-neutral-100);">
-        <div style="text-align:center;background:var(--c-green-100);border-radius:6px;padding:0.35rem 0.4rem;line-height:1.2;"><div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--c-green-700);font-weight:700;">VEN</div><div style="font-size:1.2rem;font-weight:700;color:var(--c-green-900);">18</div></div>
-        <div><strong style="display:block;font-size:0.88rem;margin-bottom:0.15rem;">Hatha Yoga</strong><span style="font-size:0.75rem;color:var(--c-neutral-400);">Individuale · 60 min · In presenza</span></div>
-        <span style="font-size:0.85rem;">10:00 – 11:00</span>
-        <span style="font-size:0.78rem;color:var(--c-terracotta);font-weight:600;">1 disponibile</span>
-        <a href="#" class="btn btn--primary btn--sm">Prenota</a>
+
+      <!-- Giorno: Venerdì -->
+      <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.5rem 0 0.1rem;">Venerdì 18 Gennaio</p>
+      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
+        <div style="min-width:52px;text-align:center;">
+          <div style="font-size:1rem;font-weight:700;color:#222;">10:00</div>
+          <div style="font-size:0.7rem;color:#999;">60 min</div>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Hatha Yoga</div>
+          <div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Individuale &nbsp;·&nbsp; <span style="color:#e57c3b;font-weight:600;">1 posto</span></div>
+        </div>
+        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
       </div>
-      <div style="display:grid;grid-template-columns:72px 1fr 110px 100px 110px;gap:1rem;align-items:center;padding:0.9rem 1.8rem;border-top:1px solid var(--c-neutral-100);opacity:0.45;">
-        <div style="text-align:center;background:var(--c-neutral-100);border-radius:6px;padding:0.35rem 0.4rem;line-height:1.2;"><div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--c-neutral-400);font-weight:700;">SAB</div><div style="font-size:1.2rem;font-weight:700;color:var(--c-neutral-400);">19</div></div>
-        <div><strong style="display:block;font-size:0.88rem;margin-bottom:0.15rem;">Yin Yoga</strong><span style="font-size:0.75rem;color:var(--c-neutral-400);">Gruppo · 90 min · In presenza</span></div>
-        <span style="font-size:0.85rem;">10:00 – 11:30</span>
-        <span style="font-size:0.78rem;color:var(--c-neutral-400);font-weight:600;">Esaurito</span>
-        <button disabled style="padding:0.4rem 0.8rem;border-radius:4px;border:1.5px solid var(--c-neutral-200);background:transparent;color:var(--c-neutral-300);font-size:0.78rem;font-family:inherit;cursor:not-allowed;">Lista d'attesa</button>
+
+      <!-- Giorno: Sabato — esaurito -->
+      <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.5rem 0 0.1rem;">Sabato 19 Gennaio</p>
+      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);opacity:0.55;">
+        <div style="min-width:52px;text-align:center;">
+          <div style="font-size:1rem;font-weight:700;color:#aaa;">10:00</div>
+          <div style="font-size:0.7rem;color:#bbb;">90 min</div>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:0.92rem;font-weight:600;color:#888;margin-bottom:0.2rem;">Yin Yoga</div>
+          <div style="font-size:0.75rem;color:#aaa;">Nicoletta Ingusci &nbsp;·&nbsp; Gruppo · In presenza &nbsp;·&nbsp; <span style="color:#aaa;">Esaurito</span></div>
+        </div>
+        <button disabled style="background:#e8e8e8;color:#aaa;font-size:0.78rem;font-weight:600;padding:0.5rem 1rem;border-radius:6px;border:none;white-space:nowrap;flex-shrink:0;cursor:not-allowed;">Lista d'attesa</button>
       </div>
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 1.8rem;border-top:1.5px solid var(--c-neutral-100);background:var(--c-neutral-50);">
-        <span style="font-size:0.78rem;color:var(--c-neutral-400);">5 di 12 lezioni disponibili</span>
-        <a href="#" class="btn btn--outline btn--sm">Vedi tutto il calendario</a>
-      </div>
+
+    </div><!-- /lista classi -->
+
+    <!-- Footer modal -->
+    <div style="padding:1rem 1.4rem;text-align:center;border-top:1px solid #e8e8e8;background:#fff;border-radius:0 0 12px 12px;">
+      <span style="font-size:0.78rem;color:#aaa;">Prenotazione gestita tramite Eversports</span>
     </div>
+
   </div>
 </div>
 
 </div><!-- /page-yoga -->
 <div class="wf-page" id="page-coaching">
+<input type="checkbox" id="coaching-modal-toggle">
 
 <div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
@@ -1186,7 +1548,7 @@
       <h1>Il percorso Coaching</h1>
       <p class="page-hero__desc">Un percorso che&nbsp;parte dall'ascolto per&nbsp;portare chiarezza, strumenti concreti e&nbsp;direzione. Non soluzioni rapide, ma&nbsp;cambiamenti reali e&nbsp;sostenibili.</p>
       <div class="page-hero__ctas">
-        <a href="#page-contatti" class="btn btn--primary">Prenota una&nbsp;consulenza</a>
+        <label for="coaching-modal-toggle" class="btn btn--primary" style="cursor:pointer;">Prenota una&nbsp;consulenza</label>
         <a href="#page-eventi" class="btn btn--outline">Workshop e&nbsp;retreat</a>
       </div>
     </div>
@@ -1263,9 +1625,9 @@
   </div>
 </section>
 
-<section class="section section--neutral section--lg">
+<section class="section section--neutral">
   <div class="container">
-    <div class="section__header reveal" style="max-width:680px;margin-bottom:4rem;">
+    <div class="section__header reveal" style="max-width:680px;">
       <span class="section-label">Come funziona</span>
       <h2>Come si svolge il&nbsp;percorso.</h2>
       <p class="section__intro">Il percorso si costruisce insieme, sessione dopo sessione. <span style="white-space:nowrap">Non esiste un protocollo fisso.</span></p>
@@ -1278,9 +1640,9 @@
   </div>
 </section>
 
-<section class="section section--cream section--lg">
+<section class="section section--cream">
   <div class="container">
-    <div class="section__header section__header--centered reveal" style="margin-bottom:3.5rem;">
+    <div class="section__header section__header--centered reveal">
       <span class="section-label">Cosa cambia</span>
       <h2>I benefici nel&nbsp;tempo.</h2>
     </div>
@@ -1338,8 +1700,66 @@
   </div>
 </footer>
 
+<!-- COACHING: modal prenotazione consulenza -->
+<div id="coaching-booking-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;background:rgba(0,0,0,0.55);align-items:center;justify-content:center;padding:1rem;overflow:auto;box-sizing:border-box;">
+  <div style="background:#f5f5f5;border-radius:12px;width:100%;max-width:680px;max-height:92vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,0.22);font-family:inherit;">
+
+    <div style="background:#fff;border-radius:12px 12px 0 0;padding:1rem 1.4rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e8e8e8;position:sticky;top:0;z-index:2;">
+      <strong style="font-size:1rem;">Prenota una consulenza</strong>
+      <label for="coaching-modal-toggle" style="cursor:pointer;width:32px;height:32px;border-radius:50%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:1rem;color:#666;line-height:1;">&#x2715;</label>
+    </div>
+
+    <div style="background:#fff;padding:0.75rem 1.4rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e8e8e8;">
+      <button style="background:none;border:none;cursor:pointer;font-size:1.2rem;color:#555;padding:0 0.5rem;">&#8249;</button>
+      <span style="font-size:0.85rem;font-weight:600;color:#222;">Lun 14 – Dom 20 Gen 2025</span>
+      <button style="background:none;border:none;cursor:pointer;font-size:1.2rem;color:#555;padding:0 0.5rem;">&#8250;</button>
+    </div>
+
+    <div style="padding:1rem;display:flex;flex-direction:column;gap:0.75rem;">
+
+      <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.25rem 0 0.1rem;">Lunedì 14 Gennaio</p>
+      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
+        <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">10:00</div><div style="font-size:0.7rem;color:#999;">60 min</div></div>
+        <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Sessione di coaching</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Individuale · Online &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">Disponibile</span></div></div>
+        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
+      </div>
+      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
+        <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">15:00</div><div style="font-size:0.7rem;color:#999;">60 min</div></div>
+        <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Sessione di coaching</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Individuale · Online &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">Disponibile</span></div></div>
+        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
+      </div>
+
+      <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.5rem 0 0.1rem;">Mercoledì 16 Gennaio</p>
+      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
+        <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">09:30</div><div style="font-size:0.7rem;color:#999;">60 min</div></div>
+        <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Sessione di coaching</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Individuale · In presenza &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">Disponibile</span></div></div>
+        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
+      </div>
+      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
+        <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#aaa;">17:00</div><div style="font-size:0.7rem;color:#bbb;">60 min</div></div>
+        <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#888;margin-bottom:0.2rem;">Sessione di coaching</div><div style="font-size:0.75rem;color:#aaa;">Nicoletta Ingusci &nbsp;·&nbsp; Individuale · Online &nbsp;·&nbsp; <span style="color:#aaa;">Esaurito</span></div></div>
+        <button disabled style="background:#e8e8e8;color:#aaa;font-size:0.78rem;font-weight:600;padding:0.5rem 1rem;border-radius:6px;border:none;white-space:nowrap;flex-shrink:0;cursor:not-allowed;">Lista d'attesa</button>
+      </div>
+
+      <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.5rem 0 0.1rem;">Venerdì 18 Gennaio</p>
+      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
+        <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">11:00</div><div style="font-size:0.7rem;color:#999;">60 min</div></div>
+        <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Sessione di coaching</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Individuale · Online &nbsp;·&nbsp; <span style="color:#e57c3b;font-weight:600;">1 posto</span></div></div>
+        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
+      </div>
+
+    </div>
+
+    <div style="padding:1rem 1.4rem;text-align:center;border-top:1px solid #e8e8e8;background:#fff;border-radius:0 0 12px 12px;">
+      <span style="font-size:0.78rem;color:#aaa;">Prenotazione gestita tramite Eversports</span>
+    </div>
+
+  </div>
+</div>
+
 </div><!-- /page-coaching -->
 <div class="wf-page" id="page-aziendale">
+<input type="checkbox" id="aziendale-modal-toggle">
 
 <div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
@@ -1388,8 +1808,8 @@
       <h1 style="color:var(--c-white);">Benessere aziendale che&nbsp;produce risultati concreti.</h1>
       <p class="page-hero__desc" style="color:rgba(255,255,255,0.75);">Programmi tailor made per&nbsp;team e&nbsp;organizzazioni. Non attività di&nbsp;wellness generiche, ma&nbsp;interventi integrati, credibili e&nbsp;adattati al&nbsp;contesto specifico di&nbsp;ogni realtà.</p>
       <div class="page-hero__ctas">
-        <a href="contatti.html" class="btn btn--cream">Richiedi una&nbsp;proposta personalizzata</a>
-        <a href="#" class="btn btn--secondary">Scopri gli&nbsp;eventi</a>
+        <label for="aziendale-modal-toggle" class="btn btn--cream" style="cursor:pointer;">Richiedi una&nbsp;proposta personalizzata</label>
+        <a href="#page-eventi" class="btn btn--secondary">Scopri gli&nbsp;eventi</a>
       </div>
     </div>
   </div>
@@ -1422,7 +1842,7 @@
 <section class="az-section az-section--accent" style="position:relative;overflow:hidden;">
   <svg style="position:absolute;top:-60px;right:-60px;opacity:0.08;pointer-events:none;" width="380" height="380" viewBox="0 0 380 380" fill="none" aria-hidden="true"><polygon points="28,0 380,14 352,380 0,366" stroke="#fff" stroke-width="1"/></svg>
   <div class="container" style="position:relative;z-index:1;">
-    <div class="section__header section__header--centered reveal" style="margin-bottom:4rem;">
+    <div class="section__header section__header--centered reveal">
       <span class="section-label section-label--light">Come iniziare</span>
       <h2 style="color:var(--c-white);">Il processo di&nbsp;collaborazione.</h2>
       <p style="color:rgba(255,255,255,0.65);max-width:46ch;margin:0.8rem auto 0;font-size:0.95rem;line-height:1.75;">Tre passi semplici per&nbsp;avviare un&nbsp;programma costruito sul contesto reale della&nbsp;tua organizzazione.</p>
@@ -1433,14 +1853,14 @@
       <div class="az-process-item"><span class="az-process-item__num">03</span><div class="az-process-item__body"><p class="az-process-item__step">Terzo passo</p><h3 class="az-process-item__title">Implementazione e&nbsp;follow-up</h3><p class="az-process-item__desc">Avvio del&nbsp;programma con&nbsp;possibilità di&nbsp;adattamenti in corso e&nbsp;momenti di&nbsp;verifica dei&nbsp;risultati.</p></div></div>
     </div>
     <div style="text-align:center;margin-top:3.5rem;" class="reveal">
-      <a href="contatti.html" class="btn btn--cream">Richiedi una&nbsp;proposta personalizzata</a>
+      <a href="#page-contatti" class="btn btn--cream">Richiedi informazioni</a>
     </div>
   </div>
 </section>
 
 <section class="az-section az-section--dark" style="background:linear-gradient(180deg,#1f2a20 0%,#2d3d2e 100%);">
   <div class="container">
-    <div class="section__header section__header--centered reveal" style="margin-bottom:3.5rem;">
+    <div class="section__header section__header--centered reveal">
       <span class="section-label section-label--peach">I risultati</span>
       <h2 class="az-text-white">Cosa cambia nelle&nbsp;persone e&nbsp;nell'organizzazione.</h2>
     </div>
@@ -1469,34 +1889,25 @@
   </div>
 </section>
 
-<section class="az-section az-section--medium" style="background:var(--g-corporate);">
+<section id="az-richiesta" class="az-section az-section--medium" style="background:var(--g-corporate);">
   <svg style="position:absolute;top:-60px;right:-60px;opacity:0.07;pointer-events:none;" width="400" height="400" viewBox="0 0 400 400" fill="none" aria-hidden="true"><polygon points="30,0 400,15 370,400 0,385" stroke="#E6BF91" stroke-width="1"/></svg>
   <div class="container" style="position:relative;z-index:1;">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;" class="az-section__inner">
       <div class="reveal">
-        <span class="section-label section-label--peach">Inizia da&nbsp;qui</span>
-        <h2 class="az-text-white" style="margin-bottom:1.2rem;">Parliamo del&nbsp;tuo contesto.</h2>
-        <p class="az-text-muted" style="margin-bottom:2rem;">Ogni organizzazione è diversa. Il primo passo è sempre una&nbsp;conversazione per&nbsp;capire le&nbsp;esigenze reali e&nbsp;valutare insieme il&nbsp;tipo di&nbsp;intervento più adatto.</p>
+        <span class="section-label section-label--peach">Informazioni</span>
+        <h2 class="az-text-white" style="margin-bottom:1.2rem;">Vuoi saperne di&nbsp;più?</h2>
+        <p class="az-text-muted" style="margin-bottom:2rem;">Per qualsiasi domanda sui programmi, i format disponibili o&nbsp;le modalità di&nbsp;collaborazione, scrivici direttamente. Risponderemo entro breve con&nbsp;tutte le&nbsp;informazioni di&nbsp;cui hai bisogno.</p>
         <div style="display:flex;flex-direction:column;gap:1rem;">
-          <div style="display:flex;align-items:center;gap:0.8rem;"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#E6BF91" stroke-width="1"/><path d="M6 9l2 2 4-4" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:0.88rem;color:rgba(255,255,255,0.7);">Prima call conoscitiva gratuita</span></div>
-          <div style="display:flex;align-items:center;gap:0.8rem;"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#E6BF91" stroke-width="1"/><path d="M6 9l2 2 4-4" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:0.88rem;color:rgba(255,255,255,0.7);">Proposta personalizzata senza impegno</span></div>
+          <div style="display:flex;align-items:center;gap:0.8rem;"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#E6BF91" stroke-width="1"/><path d="M6 9l2 2 4-4" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:0.88rem;color:rgba(255,255,255,0.7);">Informazioni su format e&nbsp;modalità</span></div>
+          <div style="display:flex;align-items:center;gap:0.8rem;"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#E6BF91" stroke-width="1"/><path d="M6 9l2 2 4-4" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:0.88rem;color:rgba(255,255,255,0.7);">Disponibilità e&nbsp;budget orientativo</span></div>
           <div style="display:flex;align-items:center;gap:0.8rem;"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#E6BF91" stroke-width="1"/><path d="M6 9l2 2 4-4" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:0.88rem;color:rgba(255,255,255,0.7);">Risposta entro [tempi — da&nbsp;aggiornare]</span></div>
         </div>
       </div>
-      <div class="reveal">
-        <form class="contact-form" novalidate aria-label="Richiesta informazioni benessere aziendale">
-          <div class="form-row">
-            <div class="form-group"><label for="az-name">Nome e&nbsp;cognome <span aria-hidden="true">*</span></label><input type="text" id="az-name" name="name" required placeholder="Il tuo nome" autocomplete="name"/></div>
-            <div class="form-group"><label for="az-email">Email aziendale <span aria-hidden="true">*</span></label><input type="email" id="az-email" name="email" required placeholder="email@azienda.it" autocomplete="email"/></div>
-          </div>
-          <div class="form-group"><label for="az-company">Azienda / Organizzazione</label><input type="text" id="az-company" name="company" placeholder="Nome dell'organizzazione"/></div>
-          <div class="form-group"><label for="az-role">Ruolo</label><input type="text" id="az-role" name="role" placeholder="HR Manager, CEO, Responsabile Welfare…"/></div>
-          <div class="form-group"><label for="az-message">Cosa state cercando? <span aria-hidden="true">*</span></label><textarea id="az-message" name="message" required placeholder="Descrivete brevemente la vostra esigenza e il contesto organizzativo…"></textarea></div>
-          <div class="form-group form-group--checkbox"><input type="checkbox" id="az-privacy" name="privacy" required/><label for="az-privacy">Ho letto e&nbsp;accetto la&nbsp;<a href="#">Privacy Policy</a>. I dati saranno trattati nel&nbsp;rispetto della&nbsp;normativa vigente.</label></div>
-          <button type="submit" class="btn btn--cream" style="width:100%;justify-content:center;">Richiedi una&nbsp;proposta personalizzata</button>
-          <div class="form-success" role="alert">Richiesta inviata. Nicoletta o&nbsp;il suo team ti contatteranno a breve.</div>
-          <p class="form-microcopy">Questa è una&nbsp;simulazione frontend. Nessun dato viene effettivamente inviato.</p>
-        </form>
+      <div class="reveal" style="display:flex;align-items:center;justify-content:center;">
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(230,191,145,0.25);border-radius:12px;padding:2.5rem 2rem;text-align:center;max-width:360px;">
+          <p style="color:rgba(255,255,255,0.75);font-size:0.95rem;line-height:1.7;margin-bottom:2rem;">Compila il modulo di&nbsp;contatto con&nbsp;una breve descrizione del&nbsp;vostro contesto e&nbsp;di&nbsp;quello che&nbsp;state cercando. Ti risponderemo per&nbsp;capire insieme come possiamo collaborare.</p>
+          <a href="#page-contatti" class="btn btn--cream" style="width:100%;justify-content:center;">Richiedi informazioni</a>
+        </div>
       </div>
     </div>
   </div>
@@ -1525,6 +1936,55 @@
     </div>
   </div>
 </footer>
+
+
+<!-- AZIENDALE: modal prenotazione -->
+<div id="aziendale-booking-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;background:rgba(0,0,0,0.55);align-items:center;justify-content:center;padding:1rem;overflow:auto;box-sizing:border-box;">
+  <div style="background:#f5f5f5;border-radius:12px;width:100%;max-width:680px;max-height:92vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,0.22);font-family:inherit;">
+    <div style="background:#fff;border-radius:12px 12px 0 0;padding:1rem 1.4rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e8e8e8;position:sticky;top:0;z-index:2;">
+      <strong style="font-size:1rem;">Richiedi una proposta personalizzata</strong>
+      <label for="aziendale-modal-toggle" style="cursor:pointer;width:32px;height:32px;border-radius:50%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:1rem;color:#666;line-height:1;">&#x2715;</label>
+    </div>
+    <div style="background:#fff;padding:0.75rem 1.4rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e8e8e8;">
+      <button style="background:none;border:none;cursor:pointer;font-size:1.2rem;color:#555;padding:0 0.5rem;">&#8249;</button>
+      <span style="font-size:0.85rem;font-weight:600;color:#222;">Lun 14 – Dom 20 Gen 2025</span>
+      <button style="background:none;border:none;cursor:pointer;font-size:1.2rem;color:#555;padding:0 0.5rem;">&#8250;</button>
+    </div>
+    <div style="padding:1rem;display:flex;flex-direction:column;gap:0.75rem;">
+      <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.25rem 0 0.1rem;">Martedì 15 Gennaio</p>
+      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
+        <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">10:00</div><div style="font-size:0.7rem;color:#999;">45 min</div></div>
+        <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Call conoscitiva</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Online &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">Disponibile</span></div></div>
+        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
+      </div>
+      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
+        <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">14:30</div><div style="font-size:0.7rem;color:#999;">45 min</div></div>
+        <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Call conoscitiva</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Online &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">Disponibile</span></div></div>
+        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
+      </div>
+      <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.5rem 0 0.1rem;">Giovedì 17 Gennaio</p>
+      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
+        <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">09:00</div><div style="font-size:0.7rem;color:#999;">45 min</div></div>
+        <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Incontro di valutazione</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; In presenza &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">Disponibile</span></div></div>
+        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
+      </div>
+      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);opacity:0.55;">
+        <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#aaa;">16:00</div><div style="font-size:0.7rem;color:#bbb;">45 min</div></div>
+        <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#888;margin-bottom:0.2rem;">Call conoscitiva</div><div style="font-size:0.75rem;color:#aaa;">Nicoletta Ingusci &nbsp;·&nbsp; Online &nbsp;·&nbsp; <span style="color:#aaa;">Esaurito</span></div></div>
+        <button disabled style="background:#e8e8e8;color:#aaa;font-size:0.78rem;font-weight:600;padding:0.5rem 1rem;border-radius:6px;border:none;white-space:nowrap;flex-shrink:0;cursor:not-allowed;">Lista d'attesa</button>
+      </div>
+      <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.5rem 0 0.1rem;">Venerdì 18 Gennaio</p>
+      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
+        <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">11:00</div><div style="font-size:0.7rem;color:#999;">45 min</div></div>
+        <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Call conoscitiva</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Online &nbsp;·&nbsp; <span style="color:#e57c3b;font-weight:600;">1 posto</span></div></div>
+        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
+      </div>
+    </div>
+    <div style="padding:1rem 1.4rem;text-align:center;border-top:1px solid #e8e8e8;background:#fff;border-radius:0 0 12px 12px;">
+      <span style="font-size:0.78rem;color:#aaa;">Prenotazione gestita tramite Eversports</span>
+    </div>
+  </div>
+</div>
 
 </div><!-- /page-aziendale -->
 <div class="wf-page" id="page-eventi">
@@ -1567,9 +2027,9 @@
 <section class="page-hero page-hero--light">
   <div class="container">
     <div class="page-hero__inner">
-      <span class="section-label">Calendario</span>
-      <h1>Workshop, retreat e&nbsp;incontri.<br>In presenza e&nbsp;online.</h1>
-      <p class="page-hero__desc">Spazi di&nbsp;pratica, approfondimento e&nbsp;condivisione. Ogni evento è pensato come&nbsp;un'occasione concreta, non come&nbsp;un'esperienza generica.</p>
+      <span class="section-label">Retreat e workshop</span>
+      <h1>Gli eventi organizzati<br>da&nbsp;Nicoletta.</h1>
+      <p class="page-hero__desc">Retreat, workshop e&nbsp;incontri ideati, strutturati e&nbsp;condotti direttamente da&nbsp;Nicoletta. Esperienze intensive per chi vuole approfondire la&nbsp;pratica in un contesto dedicato.</p>
     </div>
   </div>
 </section>
@@ -1577,8 +2037,8 @@
 <section class="section section--cream">
   <div class="container">
     <div class="section__header reveal">
-      <span class="section-label">Calendario completo</span>
-      <h2>Tutti gli&nbsp;eventi.</h2>
+      <span class="section-label">Calendario</span>
+      <h2>Prossimi retreat e&nbsp;workshop.</h2>
     </div>
     <div class="events-list reveal">
       <article class="event-card">
@@ -1673,14 +2133,14 @@
 <section class="page-hero page-hero--light">
   <div class="container">
     <div class="page-hero__inner">
-      <span class="section-label">Risorse</span>
-      <h1>Approfondimenti, pratiche e&nbsp;strumenti concreti.</h1>
-      <p class="page-hero__desc">Articoli, guide e&nbsp;contenuti gratuiti su&nbsp;yoga, coaching e&nbsp;benessere. Materiali utili, non generici.</p>
+      <span class="section-label">News</span>
+      <h1>Articoli, risorse e&nbsp;aggiornamenti.</h1>
+      <p class="page-hero__desc">Contenuti su yoga, coaching e benessere. Approfondimenti, eventi pubblici e tutto quello che succede fuori dalla sede.</p>
     </div>
   </div>
 </section>
 
-<section class="section section--neutral section--lg">
+<section class="section section--neutral">
   <div class="container">
     <span class="section-label reveal">In evidenza</span>
     <div class="inner-2col inner-2col--center reveal">
@@ -1693,6 +2153,64 @@
         <p style="margin-bottom:1.2rem;">[Estratto dell'articolo in evidenza — da&nbsp;aggiornare. 2-3 righe che&nbsp;introducono il&nbsp;tema e&nbsp;invogliano alla&nbsp;lettura.]</p>
         <a href="#" class="btn btn--primary">Leggi l'articolo</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--neutral">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="section-label">Incontri e&nbsp;panel</span>
+      <h2>Eventi e&nbsp;appuntamenti pubblici.</h2>
+      <p class="section__intro">Una selezione di&nbsp;appuntamenti pubblici su&nbsp;yoga, benessere e&nbsp;coaching — panel, conversazioni e&nbsp;incontri aperti.</p>
+    </div>
+    <div class="grid-3 reveal">
+
+      <article style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,0.07);">
+        <div style="aspect-ratio:4/3;background:var(--c-neutral-100);display:flex;align-items:center;justify-content:center;color:var(--c-neutral-300);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;">[Locandina — da&nbsp;aggiornare]</div>
+        <div style="padding:1.2rem;">
+          <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.6rem;flex-wrap:wrap;">
+            <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;background:var(--c-neutral-100);color:var(--c-neutral-500);padding:0.2rem 0.6rem;border-radius:4px;">[Tipo — es. Conferenza]</span>
+          </div>
+          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">[Nome evento — da&nbsp;aggiornare]</h3>
+          <p style="font-size:0.8rem;color:var(--c-neutral-400);line-height:1.55;margin-bottom:0.8rem;">[Breve descrizione — organizzatore, tema, contesto.]</p>
+          <div style="font-size:0.75rem;color:var(--c-neutral-400);display:flex;flex-direction:column;gap:0.25rem;">
+            <span>📅 [Data — da&nbsp;aggiornare]</span>
+            <span>📍 [Luogo — da&nbsp;aggiornare]</span>
+          </div>
+        </div>
+      </article>
+
+      <article style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,0.07);">
+        <div style="aspect-ratio:4/3;background:var(--c-neutral-100);display:flex;align-items:center;justify-content:center;color:var(--c-neutral-300);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;">[Locandina — da&nbsp;aggiornare]</div>
+        <div style="padding:1.2rem;">
+          <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.6rem;flex-wrap:wrap;">
+            <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;background:var(--c-neutral-100);color:var(--c-neutral-500);padding:0.2rem 0.6rem;border-radius:4px;">[Tipo — es. Intervista]</span>
+          </div>
+          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">[Nome evento — da&nbsp;aggiornare]</h3>
+          <p style="font-size:0.8rem;color:var(--c-neutral-400);line-height:1.55;margin-bottom:0.8rem;">[Breve descrizione — canale, media, argomento.]</p>
+          <div style="font-size:0.75rem;color:var(--c-neutral-400);display:flex;flex-direction:column;gap:0.25rem;">
+            <span>📅 [Data — da&nbsp;aggiornare]</span>
+            <span>📍 [Canale / Media — da&nbsp;aggiornare]</span>
+          </div>
+        </div>
+      </article>
+
+      <article style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,0.07);">
+        <div style="aspect-ratio:4/3;background:var(--c-neutral-100);display:flex;align-items:center;justify-content:center;color:var(--c-neutral-300);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;">[Locandina — da&nbsp;aggiornare]</div>
+        <div style="padding:1.2rem;">
+          <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.6rem;flex-wrap:wrap;">
+            <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;background:var(--c-neutral-100);color:var(--c-neutral-500);padding:0.2rem 0.6rem;border-radius:4px;">[Tipo — es. Panel]</span>
+          </div>
+          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">[Nome evento — da&nbsp;aggiornare]</h3>
+          <p style="font-size:0.8rem;color:var(--c-neutral-400);line-height:1.55;margin-bottom:0.8rem;">[Breve descrizione — da&nbsp;aggiornare.]</p>
+          <div style="font-size:0.75rem;color:var(--c-neutral-400);display:flex;flex-direction:column;gap:0.25rem;">
+            <span>📅 [Data — da&nbsp;aggiornare]</span>
+            <span>📍 [Luogo / Online — da&nbsp;aggiornare]</span>
+          </div>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -1710,32 +2228,6 @@
       <article class="news-card"><div class="news-card__image"><img src="Assets/Foto/newseeventi2.webp" alt="[Titolo articolo 4]" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--peach">[Categoria — da&nbsp;aggiornare]</span><h3 class="news-card__title">[Titolo articolo 4 — da&nbsp;aggiornare]</h3><p class="news-card__desc">[Estratto breve — da&nbsp;aggiornare.]</p><a href="#" class="news-card__link">Leggi →</a></div></article>
       <article class="news-card"><div class="news-card__image"><img src="Assets/Foto/newseeventi3.webp" alt="[Titolo articolo 5]" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--green">[Categoria — da&nbsp;aggiornare]</span><h3 class="news-card__title">[Titolo articolo 5 — da&nbsp;aggiornare]</h3><p class="news-card__desc">[Estratto breve — da&nbsp;aggiornare.]</p><a href="#" class="news-card__link">Leggi →</a></div></article>
       <article class="news-card"><div class="news-card__image"><img src="Assets/Foto/newseeventi.webp" alt="[Titolo articolo 6]" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--peach">[Categoria — da&nbsp;aggiornare]</span><h3 class="news-card__title">[Titolo articolo 6 — da&nbsp;aggiornare]</h3><p class="news-card__desc">[Estratto breve — da&nbsp;aggiornare.]</p><a href="#" class="news-card__link">Leggi →</a></div></article>
-    </div>
-  </div>
-</section>
-
-<section class="section section--lg" style="background:var(--c-terracotta);">
-  <div class="container">
-    <div class="podcast-teaser">
-      <div class="podcast-teaser__intro reveal">
-        <span class="section-label section-label--light">Podcast</span>
-        <h2 style="color:var(--c-white);margin-top:0.8rem;">Ascolta gli&nbsp;episodi.</h2>
-        <p style="color:rgba(255,255,255,0.62);font-size:0.95rem;line-height:1.78;margin-top:1rem;">[Breve descrizione del&nbsp;podcast — da&nbsp;aggiornare. Cosa tratta, per&nbsp;chi è pensato, cadenza di&nbsp;uscita.]</p>
-        <div class="podcast-teaser__platforms">
-          <span class="podcast-teaser__platforms-label">Disponibile su</span>
-          <a href="#" class="podcast-teaser__platform">Spotify</a>
-          <a href="#" class="podcast-teaser__platform">Apple Podcasts</a>
-          <a href="#" class="podcast-teaser__platform">Google</a>
-        </div>
-        <a href="#" class="btn btn--cream" style="margin-top:2.5rem;display:inline-flex;">Vai al&nbsp;podcast</a>
-      </div>
-      <div class="podcast-teaser__card reveal">
-        <p class="podcast-teaser__ep-label">Ultimo episodio</p>
-        <div class="podcast-teaser__play" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg></div>
-        <h3 class="podcast-teaser__ep-title">[Titolo episodio — da&nbsp;aggiornare]</h3>
-        <p class="podcast-teaser__ep-desc">[Estratto dell'episodio — da&nbsp;aggiornare. Una o&nbsp;due righe che&nbsp;introducono l'argomento.]</p>
-        <a href="#" class="podcast-teaser__ep-link">Ascolta l'episodio →</a>
-      </div>
     </div>
   </div>
 </section>
@@ -1821,14 +2313,14 @@
       <h1>[Nome del&nbsp;retreat — da&nbsp;aggiornare]</h1>
       <p class="page-hero__desc">[Sottotitolo o&nbsp;tagline del&nbsp;retreat — da&nbsp;aggiornare. Una riga che cattura l'essenza.]</p>
       <div class="page-hero__ctas" style="margin-top:1.5rem;">
-        <a href="#form-iscrizione" class="btn btn--primary">Iscriviti ora</a>
+        <a href="#form-iscrizione" class="btn btn--primary" onclick="document.getElementById('form-iscrizione').scrollIntoView({behavior:'smooth'});return false;">Iscriviti ora</a>
         <a href="#" class="btn btn--outline">Scarica il&nbsp;programma&nbsp;PDF</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section section--neutral section--lg">
+<section class="section section--neutral">
   <div class="container">
     <div class="inner-2col inner-2col--center reveal">
       <div class="inner-image" style="clip-path:polygon(0 0,86% 0,100% 14%,100% 100%,14% 100%,0 86%);overflow:hidden;">
@@ -1858,41 +2350,46 @@
 
 <!-- FORM ISCRIZIONE — uno per tutti gli eventi, tracciamento per pagina -->
 <section class="section section--cream" id="form-iscrizione">
-  <div class="container" style="max-width:680px;">
+  <div class="container" style="max-width:720px;">
     <div class="section__header reveal">
       <span class="section-label">Iscrizione</span>
       <h2>Prenota il&nbsp;tuo posto.</h2>
       <p class="section__intro">[Note sull'iscrizione: posti limitati, conferma via email, ecc. — da&nbsp;aggiornare]</p>
     </div>
-    <form class="evento-form reveal" style="display:flex;flex-direction:column;gap:1rem;" novalidate>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-        <div class="form-field">
-          <label class="form-field__label" for="ev-nome">Nome</label>
-          <input class="form-field__input" type="text" id="ev-nome" placeholder="[Nome]" autocomplete="given-name"/>
+    <div class="reveal" style="background:#fff;border-radius:12px;padding:2.5rem;box-shadow:0 2px 20px rgba(0,0,0,0.07);">
+      <form style="display:flex;flex-direction:column;gap:1.4rem;" novalidate>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
+          <div style="display:flex;flex-direction:column;gap:0.4rem;">
+            <label style="font-size:0.8rem;font-weight:600;letter-spacing:0.04em;color:var(--c-neutral-600);" for="ev-nome">Nome</label>
+            <input style="border:1.5px solid var(--c-neutral-200);border-radius:6px;padding:0.7rem 0.9rem;font-size:0.9rem;font-family:inherit;background:#fafafa;width:100%;box-sizing:border-box;" type="text" id="ev-nome" placeholder="Il tuo nome" autocomplete="given-name"/>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:0.4rem;">
+            <label style="font-size:0.8rem;font-weight:600;letter-spacing:0.04em;color:var(--c-neutral-600);" for="ev-cognome">Cognome</label>
+            <input style="border:1.5px solid var(--c-neutral-200);border-radius:6px;padding:0.7rem 0.9rem;font-size:0.9rem;font-family:inherit;background:#fafafa;width:100%;box-sizing:border-box;" type="text" id="ev-cognome" placeholder="Il tuo cognome" autocomplete="family-name"/>
+          </div>
         </div>
-        <div class="form-field">
-          <label class="form-field__label" for="ev-cognome">Cognome</label>
-          <input class="form-field__input" type="text" id="ev-cognome" placeholder="[Cognome]" autocomplete="family-name"/>
+        <div style="display:flex;flex-direction:column;gap:0.4rem;">
+          <label style="font-size:0.8rem;font-weight:600;letter-spacing:0.04em;color:var(--c-neutral-600);" for="ev-email">Email</label>
+          <input style="border:1.5px solid var(--c-neutral-200);border-radius:6px;padding:0.7rem 0.9rem;font-size:0.9rem;font-family:inherit;background:#fafafa;width:100%;box-sizing:border-box;" type="email" id="ev-email" placeholder="email@esempio.com" autocomplete="email"/>
         </div>
-      </div>
-      <div class="form-field">
-        <label class="form-field__label" for="ev-email">Email</label>
-        <input class="form-field__input" type="email" id="ev-email" placeholder="[email@esempio.com]" autocomplete="email"/>
-      </div>
-      <div class="form-field">
-        <label class="form-field__label" for="ev-tel">Telefono</label>
-        <input class="form-field__input" type="tel" id="ev-tel" placeholder="[+39 —]" autocomplete="tel"/>
-      </div>
-      <div class="form-field">
-        <label class="form-field__label" for="ev-msg">Messaggio <span style="font-weight:300;opacity:0.6;">(facoltativo)</span></label>
-        <textarea class="form-field__input form-field__textarea" id="ev-msg" rows="4" placeholder="[Domande, esigenze particolari, come hai conosciuto questo retreat…]"></textarea>
-      </div>
-      <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-top:0.5rem;">
-        <button type="submit" class="btn btn--primary">Invia iscrizione</button>
-        <a href="#" class="btn btn--outline">Scarica il&nbsp;programma&nbsp;PDF</a>
-      </div>
-      <p style="font-size:0.78rem;color:var(--c-neutral-400);margin-top:0.25rem;">[Privacy: i tuoi dati non verranno ceduti a terzi — da&nbsp;aggiornare con link privacy policy]</p>
-    </form>
+        <div style="display:flex;flex-direction:column;gap:0.4rem;">
+          <label style="font-size:0.8rem;font-weight:600;letter-spacing:0.04em;color:var(--c-neutral-600);" for="ev-tel">Telefono <span style="font-weight:400;opacity:0.55;">(facoltativo)</span></label>
+          <input style="border:1.5px solid var(--c-neutral-200);border-radius:6px;padding:0.7rem 0.9rem;font-size:0.9rem;font-family:inherit;background:#fafafa;width:100%;box-sizing:border-box;" type="tel" id="ev-tel" placeholder="+39" autocomplete="tel"/>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0.4rem;">
+          <label style="font-size:0.8rem;font-weight:600;letter-spacing:0.04em;color:var(--c-neutral-600);" for="ev-msg">Messaggio <span style="font-weight:400;opacity:0.55;">(facoltativo)</span></label>
+          <textarea style="border:1.5px solid var(--c-neutral-200);border-radius:6px;padding:0.7rem 0.9rem;font-size:0.9rem;font-family:inherit;background:#fafafa;width:100%;box-sizing:border-box;resize:vertical;min-height:110px;" id="ev-msg" placeholder="Domande, esigenze particolari, come hai conosciuto questo retreat…"></textarea>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:0.6rem;">
+          <input type="checkbox" id="ev-privacy" style="width:15px;height:15px;margin-top:2px;flex-shrink:0;accent-color:var(--c-green-700);"/>
+          <label for="ev-privacy" style="font-size:0.78rem;color:var(--c-neutral-400);line-height:1.5;">Ho letto e accetto la <a href="#" style="color:var(--c-green-700);">Privacy Policy</a>. I dati saranno trattati nel rispetto della normativa vigente.</label>
+        </div>
+        <div style="padding-top:0.6rem;border-top:1px solid var(--c-neutral-100);">
+          <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;">Invia iscrizione</button>
+          <p style="font-size:0.72rem;color:var(--c-neutral-400);margin-top:0.8rem;text-align:center;">Questa è una simulazione frontend. Nessun dato viene effettivamente inviato.</p>
+        </div>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -1993,7 +2490,7 @@
   </div>
 </section>
 
-<section class="section section--neutral section--lg">
+<section class="section section--neutral">
   <div class="container">
     <div class="inner-2col" style="align-items:start;gap:4rem;">
       <div class="reveal">
@@ -2115,7 +2612,8 @@
     'page-eventi':    'light-hero',
     'page-news':      'light-hero',
     'page-evento-detail': 'light-hero',
-    'page-contatti':  'light-hero'
+    'page-contatti':  'light-hero',
+    'page-home-v2':   ''             /* dark hero — come page-home */
   };
 
   /* ── SCROLL: toglie/aggiunge .scrolled — identico al main ── */
@@ -2141,6 +2639,16 @@
     window.scrollTo(0, 0);
     updateScrolled();
     updateNotes(id);
+    /* switcher pill */
+    var sw = document.getElementById('wf-home-switcher');
+    if (sw) {
+      var onHome = (id === 'page-home' || id === 'page-home-v2');
+      sw.style.display = onHome ? 'flex' : 'none';
+      var b1 = document.getElementById('wf-sw-v1');
+      var b2 = document.getElementById('wf-sw-v2');
+      if (b1) b1.classList.toggle('active', id === 'page-home');
+      if (b2) b2.classList.toggle('active', id === 'page-home-v2');
+    }
   }
 
   /* ── HASH ROUTING ──────────────────────── */
@@ -2189,7 +2697,7 @@
     'contattaci':                        'page-contatti',
     'richiedi informazioni':             'page-contatti',
     'richiedi una proposta personalizzata':'page-aziendale',
-    'iscriviti ora':                     'page-contatti',
+
     'richiedi info':                     'page-contatti',
     'scopri e iscriviti':                'page-evento-detail',
     'vedi retreat e workshop':           'page-eventi',
@@ -2202,6 +2710,8 @@
     var link = e.target.closest('a');
     if (!link) return;
     var href = (link.getAttribute('href') || '').trim();
+    /* ancore in-page (#home-v2-form, ecc.) â lascia fare al browser */
+    if (href.charAt(0) === '#' && href.indexOf('#page-') !== 0) return;
     var text = (link.textContent || '').replace(/ /g, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
     var pageId = hrefMap[href] || textMap[text];
     if (!pageId && href.startsWith('#page-')) pageId = href.slice(1);
@@ -2267,29 +2777,31 @@
   });
 
   /* ── SLIDER HOME HERO ──────────────────── */
-  var slides = document.querySelectorAll('#page-home .hero-slide');
-  var dots   = document.querySelectorAll('#page-home .hero-dot');
-  var cur = 0, timer;
-
-  function gotoSlide(n) {
-    slides[cur].classList.remove('active');
-    dots[cur].classList.remove('active');
-    dots[cur].setAttribute('aria-selected', 'false');
-    cur = (n + slides.length) % slides.length;
-    slides[cur].classList.add('active');
-    dots[cur].classList.add('active');
-    dots[cur].setAttribute('aria-selected', 'true');
+  function initHeroSlider(pageId) {
+    var slides = document.querySelectorAll('#' + pageId + ' .hero-slide');
+    var dots   = document.querySelectorAll('#' + pageId + ' .hero-dot');
+    var cur = 0, timer;
+    function gotoSlide(n) {
+      slides[cur].classList.remove('active');
+      dots[cur].classList.remove('active');
+      dots[cur].setAttribute('aria-selected', 'false');
+      cur = (n + slides.length) % slides.length;
+      slides[cur].classList.add('active');
+      dots[cur].classList.add('active');
+      dots[cur].setAttribute('aria-selected', 'true');
+    }
+    function resetTimer() { clearInterval(timer); timer = setInterval(function () { gotoSlide(cur + 1); }, 5000); }
+    if (slides.length > 0) {
+      var prev = document.querySelector('#' + pageId + ' .hero-prev');
+      var next = document.querySelector('#' + pageId + ' .hero-next');
+      if (prev) prev.addEventListener('click', function () { gotoSlide(cur - 1); resetTimer(); });
+      if (next) next.addEventListener('click', function () { gotoSlide(cur + 1); resetTimer(); });
+      dots.forEach(function (d, i) { d.addEventListener('click', function () { gotoSlide(i); resetTimer(); }); });
+      resetTimer();
+    }
   }
-  function resetTimer() { clearInterval(timer); timer = setInterval(function () { gotoSlide(cur + 1); }, 5000); }
-
-  if (slides.length > 0) {
-    var prev = document.querySelector('#page-home .hero-prev');
-    var next = document.querySelector('#page-home .hero-next');
-    if (prev) prev.addEventListener('click', function () { gotoSlide(cur - 1); resetTimer(); });
-    if (next) next.addEventListener('click', function () { gotoSlide(cur + 1); resetTimer(); });
-    dots.forEach(function (d, i) { d.addEventListener('click', function () { gotoSlide(i); resetTimer(); }); });
-    resetTimer();
-  }
+  initHeroSlider('page-home');
+  initHeroSlider('page-home-v2');
 
   /* ── ANNO FOOTER ── */
   document.querySelectorAll('.footer-year').forEach(function (el) { el.textContent = '2025'; });
