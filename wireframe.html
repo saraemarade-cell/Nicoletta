@@ -1039,97 +1039,6 @@
   </div>
 </section>
 
-<!-- YOGA: modal prenotazione corsi -->
-<div id="yoga-booking-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.55);align-items:center;justify-content:center;padding:1.5rem;">
-  <div style="background:#fff;border-radius:10px;width:100%;max-width:780px;max-height:88vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,0.18);">
-    <!-- Header modal -->
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:1.4rem 1.8rem;border-bottom:1.5px solid var(--c-neutral-100);">
-      <div>
-        <p style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--c-green-700);font-weight:700;margin-bottom:0.2rem;">Corsi</p>
-        <h3 style="margin:0;font-size:1.2rem;">Scegli una lezione e prenota</h3>
-      </div>
-      <button data-close-modal="yoga-booking-modal" aria-label="Chiudi" style="background:none;border:none;cursor:pointer;padding:0.4rem;color:var(--c-neutral-400);font-size:1.4rem;line-height:1;">&#x2715;</button>
-    </div>
-    <!-- Filtri -->
-    <div style="display:flex;gap:0.5rem;padding:1.2rem 1.8rem;border-bottom:1px solid var(--c-neutral-100);flex-wrap:wrap;">
-      <button style="padding:0.4rem 1rem;border-radius:999px;border:1.5px solid var(--c-green-700);background:var(--c-green-700);color:#fff;font-size:0.78rem;font-family:inherit;cursor:pointer;font-weight:600;">Tutti</button>
-      <button style="padding:0.4rem 1rem;border-radius:999px;border:1.5px solid var(--c-neutral-200);background:transparent;font-size:0.78rem;font-family:inherit;cursor:pointer;">Individuale</button>
-      <button style="padding:0.4rem 1rem;border-radius:999px;border:1.5px solid var(--c-neutral-200);background:transparent;font-size:0.78rem;font-family:inherit;cursor:pointer;">Gruppo</button>
-      <button style="padding:0.4rem 1rem;border-radius:999px;border:1.5px solid var(--c-neutral-200);background:transparent;font-size:0.78rem;font-family:inherit;cursor:pointer;">Online</button>
-    </div>
-    <!-- Lista lezioni -->
-    <div style="display:flex;flex-direction:column;">
-      <!-- header colonne -->
-      <div style="display:grid;grid-template-columns:72px 1fr 110px 100px 110px;gap:1rem;align-items:center;padding:0.6rem 1.8rem;background:var(--c-neutral-50);">
-        <span style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--c-neutral-400);font-weight:700;">Data</span>
-        <span style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--c-neutral-400);font-weight:700;">Lezione</span>
-        <span style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--c-neutral-400);font-weight:700;">Orario</span>
-        <span style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--c-neutral-400);font-weight:700;">Posti</span>
-        <span></span>
-      </div>
-      <!-- riga 1 -->
-      <div style="display:grid;grid-template-columns:72px 1fr 110px 100px 110px;gap:1rem;align-items:center;padding:0.9rem 1.8rem;border-top:1px solid var(--c-neutral-100);">
-        <div style="text-align:center;background:var(--c-green-100);border-radius:6px;padding:0.35rem 0.4rem;line-height:1.2;">
-          <div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--c-green-700);font-weight:700;">LUN</div>
-          <div style="font-size:1.2rem;font-weight:700;color:var(--c-green-900);">14</div>
-        </div>
-        <div><strong style="display:block;font-size:0.88rem;margin-bottom:0.15rem;">Hatha Yoga</strong><span style="font-size:0.75rem;color:var(--c-neutral-400);">Individuale · 60 min · In presenza</span></div>
-        <span style="font-size:0.85rem;">09:00 – 10:00</span>
-        <span style="font-size:0.78rem;color:var(--c-green-700);font-weight:600;">3 disponibili</span>
-        <a href="#" class="btn btn--primary btn--sm">Prenota</a>
-      </div>
-      <!-- riga 2 -->
-      <div style="display:grid;grid-template-columns:72px 1fr 110px 100px 110px;gap:1rem;align-items:center;padding:0.9rem 1.8rem;border-top:1px solid var(--c-neutral-100);">
-        <div style="text-align:center;background:var(--c-green-100);border-radius:6px;padding:0.35rem 0.4rem;line-height:1.2;">
-          <div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--c-green-700);font-weight:700;">MAR</div>
-          <div style="font-size:1.2rem;font-weight:700;color:var(--c-green-900);">15</div>
-        </div>
-        <div><strong style="display:block;font-size:0.88rem;margin-bottom:0.15rem;">Pranayama e respiro</strong><span style="font-size:0.75rem;color:var(--c-neutral-400);">Gruppo · 75 min · In presenza</span></div>
-        <span style="font-size:0.85rem;">18:30 – 19:45</span>
-        <span style="font-size:0.78rem;color:var(--c-green-700);font-weight:600;">6 disponibili</span>
-        <a href="#" class="btn btn--primary btn--sm">Prenota</a>
-      </div>
-      <!-- riga 3 -->
-      <div style="display:grid;grid-template-columns:72px 1fr 110px 100px 110px;gap:1rem;align-items:center;padding:0.9rem 1.8rem;border-top:1px solid var(--c-neutral-100);">
-        <div style="text-align:center;background:var(--c-green-100);border-radius:6px;padding:0.35rem 0.4rem;line-height:1.2;">
-          <div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--c-green-700);font-weight:700;">GIO</div>
-          <div style="font-size:1.2rem;font-weight:700;color:var(--c-green-900);">17</div>
-        </div>
-        <div><strong style="display:block;font-size:0.88rem;margin-bottom:0.15rem;">Yoga e mindfulness</strong><span style="font-size:0.75rem;color:var(--c-neutral-400);">Gruppo · 60 min · Online</span></div>
-        <span style="font-size:0.85rem;">07:30 – 08:30</span>
-        <span style="font-size:0.78rem;color:var(--c-green-700);font-weight:600;">8 disponibili</span>
-        <a href="#" class="btn btn--primary btn--sm">Prenota</a>
-      </div>
-      <!-- riga 4 -->
-      <div style="display:grid;grid-template-columns:72px 1fr 110px 100px 110px;gap:1rem;align-items:center;padding:0.9rem 1.8rem;border-top:1px solid var(--c-neutral-100);">
-        <div style="text-align:center;background:var(--c-green-100);border-radius:6px;padding:0.35rem 0.4rem;line-height:1.2;">
-          <div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--c-green-700);font-weight:700;">VEN</div>
-          <div style="font-size:1.2rem;font-weight:700;color:var(--c-green-900);">18</div>
-        </div>
-        <div><strong style="display:block;font-size:0.88rem;margin-bottom:0.15rem;">Hatha Yoga</strong><span style="font-size:0.75rem;color:var(--c-neutral-400);">Individuale · 60 min · In presenza</span></div>
-        <span style="font-size:0.85rem;">10:00 – 11:00</span>
-        <span style="font-size:0.78rem;color:var(--c-terracotta);font-weight:600;">1 disponibile</span>
-        <a href="#" class="btn btn--primary btn--sm">Prenota</a>
-      </div>
-      <!-- riga 5 esaurita -->
-      <div style="display:grid;grid-template-columns:72px 1fr 110px 100px 110px;gap:1rem;align-items:center;padding:0.9rem 1.8rem;border-top:1px solid var(--c-neutral-100);opacity:0.45;">
-        <div style="text-align:center;background:var(--c-neutral-100);border-radius:6px;padding:0.35rem 0.4rem;line-height:1.2;">
-          <div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--c-neutral-400);font-weight:700;">SAB</div>
-          <div style="font-size:1.2rem;font-weight:700;color:var(--c-neutral-400);">19</div>
-        </div>
-        <div><strong style="display:block;font-size:0.88rem;margin-bottom:0.15rem;">Yin Yoga</strong><span style="font-size:0.75rem;color:var(--c-neutral-400);">Gruppo · 90 min · In presenza</span></div>
-        <span style="font-size:0.85rem;">10:00 – 11:30</span>
-        <span style="font-size:0.78rem;color:var(--c-neutral-400);font-weight:600;">Esaurito</span>
-        <button disabled style="padding:0.4rem 0.8rem;border-radius:4px;border:1.5px solid var(--c-neutral-200);background:transparent;color:var(--c-neutral-300);font-size:0.78rem;font-family:inherit;cursor:not-allowed;">Lista d'attesa</button>
-      </div>
-      <!-- footer lista -->
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 1.8rem;border-top:1.5px solid var(--c-neutral-100);background:var(--c-neutral-50);">
-        <span style="font-size:0.78rem;color:var(--c-neutral-400);">5 di 12 lezioni disponibili</span>
-        <a href="#" class="btn btn--outline btn--sm">Vedi tutto il calendario</a>
-      </div>
-    </div>
-  </div>
-</div>
 
 </main>
 
@@ -1154,6 +1063,73 @@
     </div>
   </div>
 </footer>
+
+<!-- YOGA: modal prenotazione corsi -->
+<div id="yoga-booking-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;background:rgba(0,0,0,0.55);align-items:center;justify-content:center;padding:1.5rem;overflow:auto;box-sizing:border-box;">
+  <div style="background:#fff;border-radius:10px;width:100%;max-width:780px;max-height:88vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,0.18);">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:1.4rem 1.8rem;border-bottom:1.5px solid var(--c-neutral-100);">
+      <div>
+        <p style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--c-green-700);font-weight:700;margin-bottom:0.2rem;">Corsi</p>
+        <h3 style="margin:0;font-size:1.2rem;">Scegli una lezione e prenota</h3>
+      </div>
+      <button data-close-modal="yoga-booking-modal" aria-label="Chiudi" style="background:none;border:none;cursor:pointer;padding:0.4rem;color:var(--c-neutral-400);font-size:1.4rem;line-height:1;">&#x2715;</button>
+    </div>
+    <div style="display:flex;gap:0.5rem;padding:1.2rem 1.8rem;border-bottom:1px solid var(--c-neutral-100);flex-wrap:wrap;">
+      <button style="padding:0.4rem 1rem;border-radius:999px;border:1.5px solid var(--c-green-700);background:var(--c-green-700);color:#fff;font-size:0.78rem;font-family:inherit;cursor:pointer;font-weight:600;">Tutti</button>
+      <button style="padding:0.4rem 1rem;border-radius:999px;border:1.5px solid var(--c-neutral-200);background:transparent;font-size:0.78rem;font-family:inherit;cursor:pointer;">Individuale</button>
+      <button style="padding:0.4rem 1rem;border-radius:999px;border:1.5px solid var(--c-neutral-200);background:transparent;font-size:0.78rem;font-family:inherit;cursor:pointer;">Gruppo</button>
+      <button style="padding:0.4rem 1rem;border-radius:999px;border:1.5px solid var(--c-neutral-200);background:transparent;font-size:0.78rem;font-family:inherit;cursor:pointer;">Online</button>
+    </div>
+    <div style="display:flex;flex-direction:column;">
+      <div style="display:grid;grid-template-columns:72px 1fr 110px 100px 110px;gap:1rem;align-items:center;padding:0.6rem 1.8rem;background:var(--c-neutral-50);">
+        <span style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--c-neutral-400);font-weight:700;">Data</span>
+        <span style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--c-neutral-400);font-weight:700;">Lezione</span>
+        <span style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--c-neutral-400);font-weight:700;">Orario</span>
+        <span style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--c-neutral-400);font-weight:700;">Posti</span>
+        <span></span>
+      </div>
+      <div style="display:grid;grid-template-columns:72px 1fr 110px 100px 110px;gap:1rem;align-items:center;padding:0.9rem 1.8rem;border-top:1px solid var(--c-neutral-100);">
+        <div style="text-align:center;background:var(--c-green-100);border-radius:6px;padding:0.35rem 0.4rem;line-height:1.2;"><div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--c-green-700);font-weight:700;">LUN</div><div style="font-size:1.2rem;font-weight:700;color:var(--c-green-900);">14</div></div>
+        <div><strong style="display:block;font-size:0.88rem;margin-bottom:0.15rem;">Hatha Yoga</strong><span style="font-size:0.75rem;color:var(--c-neutral-400);">Individuale · 60 min · In presenza</span></div>
+        <span style="font-size:0.85rem;">09:00 – 10:00</span>
+        <span style="font-size:0.78rem;color:var(--c-green-700);font-weight:600;">3 disponibili</span>
+        <a href="#" class="btn btn--primary btn--sm">Prenota</a>
+      </div>
+      <div style="display:grid;grid-template-columns:72px 1fr 110px 100px 110px;gap:1rem;align-items:center;padding:0.9rem 1.8rem;border-top:1px solid var(--c-neutral-100);">
+        <div style="text-align:center;background:var(--c-green-100);border-radius:6px;padding:0.35rem 0.4rem;line-height:1.2;"><div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--c-green-700);font-weight:700;">MAR</div><div style="font-size:1.2rem;font-weight:700;color:var(--c-green-900);">15</div></div>
+        <div><strong style="display:block;font-size:0.88rem;margin-bottom:0.15rem;">Pranayama e respiro</strong><span style="font-size:0.75rem;color:var(--c-neutral-400);">Gruppo · 75 min · In presenza</span></div>
+        <span style="font-size:0.85rem;">18:30 – 19:45</span>
+        <span style="font-size:0.78rem;color:var(--c-green-700);font-weight:600;">6 disponibili</span>
+        <a href="#" class="btn btn--primary btn--sm">Prenota</a>
+      </div>
+      <div style="display:grid;grid-template-columns:72px 1fr 110px 100px 110px;gap:1rem;align-items:center;padding:0.9rem 1.8rem;border-top:1px solid var(--c-neutral-100);">
+        <div style="text-align:center;background:var(--c-green-100);border-radius:6px;padding:0.35rem 0.4rem;line-height:1.2;"><div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--c-green-700);font-weight:700;">GIO</div><div style="font-size:1.2rem;font-weight:700;color:var(--c-green-900);">17</div></div>
+        <div><strong style="display:block;font-size:0.88rem;margin-bottom:0.15rem;">Yoga e mindfulness</strong><span style="font-size:0.75rem;color:var(--c-neutral-400);">Gruppo · 60 min · Online</span></div>
+        <span style="font-size:0.85rem;">07:30 – 08:30</span>
+        <span style="font-size:0.78rem;color:var(--c-green-700);font-weight:600;">8 disponibili</span>
+        <a href="#" class="btn btn--primary btn--sm">Prenota</a>
+      </div>
+      <div style="display:grid;grid-template-columns:72px 1fr 110px 100px 110px;gap:1rem;align-items:center;padding:0.9rem 1.8rem;border-top:1px solid var(--c-neutral-100);">
+        <div style="text-align:center;background:var(--c-green-100);border-radius:6px;padding:0.35rem 0.4rem;line-height:1.2;"><div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--c-green-700);font-weight:700;">VEN</div><div style="font-size:1.2rem;font-weight:700;color:var(--c-green-900);">18</div></div>
+        <div><strong style="display:block;font-size:0.88rem;margin-bottom:0.15rem;">Hatha Yoga</strong><span style="font-size:0.75rem;color:var(--c-neutral-400);">Individuale · 60 min · In presenza</span></div>
+        <span style="font-size:0.85rem;">10:00 – 11:00</span>
+        <span style="font-size:0.78rem;color:var(--c-terracotta);font-weight:600;">1 disponibile</span>
+        <a href="#" class="btn btn--primary btn--sm">Prenota</a>
+      </div>
+      <div style="display:grid;grid-template-columns:72px 1fr 110px 100px 110px;gap:1rem;align-items:center;padding:0.9rem 1.8rem;border-top:1px solid var(--c-neutral-100);opacity:0.45;">
+        <div style="text-align:center;background:var(--c-neutral-100);border-radius:6px;padding:0.35rem 0.4rem;line-height:1.2;"><div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--c-neutral-400);font-weight:700;">SAB</div><div style="font-size:1.2rem;font-weight:700;color:var(--c-neutral-400);">19</div></div>
+        <div><strong style="display:block;font-size:0.88rem;margin-bottom:0.15rem;">Yin Yoga</strong><span style="font-size:0.75rem;color:var(--c-neutral-400);">Gruppo · 90 min · In presenza</span></div>
+        <span style="font-size:0.85rem;">10:00 – 11:30</span>
+        <span style="font-size:0.78rem;color:var(--c-neutral-400);font-weight:600;">Esaurito</span>
+        <button disabled style="padding:0.4rem 0.8rem;border-radius:4px;border:1.5px solid var(--c-neutral-200);background:transparent;color:var(--c-neutral-300);font-size:0.78rem;font-family:inherit;cursor:not-allowed;">Lista d'attesa</button>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 1.8rem;border-top:1.5px solid var(--c-neutral-100);background:var(--c-neutral-50);">
+        <span style="font-size:0.78rem;color:var(--c-neutral-400);">5 di 12 lezioni disponibili</span>
+        <a href="#" class="btn btn--outline btn--sm">Vedi tutto il calendario</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div><!-- /page-yoga -->
 <div class="wf-page" id="page-coaching">
@@ -2228,7 +2204,12 @@
     if (openBtn) {
       var modalId = openBtn.getAttribute('data-open-modal');
       var modal = document.getElementById(modalId);
-      if (modal) { modal.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+      if (modal) {
+        modal.style.display = 'flex';
+        modal.style.width  = window.innerWidth  + 'px';
+        modal.style.height = window.innerHeight + 'px';
+        document.body.style.overflow = 'hidden';
+      }
       return;
     }
     var closeBtn = e.target.closest('[data-close-modal]');
