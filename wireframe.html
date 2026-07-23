@@ -919,8 +919,8 @@
       <h1>Il percorso Yoga</h1>
       <p class="page-hero__desc">Uno strumento di&nbsp;conoscenza di&nbsp;sé che&nbsp;integra movimento, respiro e&nbsp;consapevolezza in modo scientifico, personalizzato e&nbsp;accessibile.</p>
       <div class="page-hero__ctas">
-        <a href="#" class="btn btn--primary">Richiedi informazioni</a>
-        <a href="#" class="btn btn--outline">Scopri gli&nbsp;eventi</a>
+        <a href="#yoga-corsi" class="btn btn--primary">Prenota un&nbsp;corso</a>
+        <a href="#yoga-retreat" class="btn btn--outline">Retreat e&nbsp;workshop</a>
       </div>
     </div>
   </div>
@@ -1039,24 +1039,121 @@
   </div>
 </section>
 
-<!-- YOGA: widget Eversports per prenotazione corsi -->
-<section class="section section--neutral section--lg" aria-label="Prenota un corso">
+<!-- YOGA: calendario prenotazione corsi -->
+<section class="section section--neutral section--lg" id="yoga-corsi" aria-label="Prenota un corso">
   <div class="container">
-    <div class="section__header section__header--centered reveal" style="margin-bottom:2.5rem;">
-      <span class="section-label">Prenota un&nbsp;corso</span>
-      <h2>Corsi in calendario su&nbsp;Eversports.</h2>
-      <p class="section__intro" style="margin-inline:auto;">Il calendario si aggiorna automaticamente con&nbsp;tutti i&nbsp;corsi caricati da&nbsp;Nicoletta su&nbsp;Eversports. Scegli la&nbsp;data e&nbsp;prenota direttamente.</p>
+    <div class="section__header reveal" style="max-width:680px;margin-bottom:2.5rem;">
+      <span class="section-label">Corsi</span>
+      <h2>Scegli una lezione e&nbsp;prenota.</h2>
+      <p class="section__intro">Disponibilità aggiornata in tempo reale. Scegli il&nbsp;formato e&nbsp;la&nbsp;data che&nbsp;preferisci.</p>
     </div>
-    <div class="reveal" style="background:var(--c-green-100);padding:3rem 2rem;text-align:center;min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;">
-      <p style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--c-green-700);font-weight:700;">Widget Eversports</p>
-      <p style="color:var(--c-neutral-400);font-size:0.9rem;max-width:44ch;">[Il widget di&nbsp;prenotazione Eversports viene integrato qui — si aggiorna automaticamente con&nbsp;i corsi caricati dalla&nbsp;piattaforma]</p>
-      <a href="#" class="btn btn--primary" target="_blank" rel="noopener">Vai a&nbsp;Eversports &rsaquo;</a>
+
+    <!-- Filtri -->
+    <div class="reveal" style="display:flex;gap:0.5rem;margin-bottom:2rem;flex-wrap:wrap;">
+      <button style="padding:0.45rem 1.1rem;border-radius:999px;border:1.5px solid var(--c-green-700);background:var(--c-green-700);color:#fff;font-size:0.8rem;font-family:inherit;cursor:pointer;font-weight:600;letter-spacing:0.04em;">Tutti</button>
+      <button style="padding:0.45rem 1.1rem;border-radius:999px;border:1.5px solid var(--c-neutral-200);background:transparent;font-size:0.8rem;font-family:inherit;cursor:pointer;letter-spacing:0.04em;">Individuale</button>
+      <button style="padding:0.45rem 1.1rem;border-radius:999px;border:1.5px solid var(--c-neutral-200);background:transparent;font-size:0.8rem;font-family:inherit;cursor:pointer;letter-spacing:0.04em;">Gruppo</button>
+      <button style="padding:0.45rem 1.1rem;border-radius:999px;border:1.5px solid var(--c-neutral-200);background:transparent;font-size:0.8rem;font-family:inherit;cursor:pointer;letter-spacing:0.04em;">Online</button>
+    </div>
+
+    <!-- Lista lezioni -->
+    <div class="reveal" style="display:flex;flex-direction:column;gap:0;border:1.5px solid var(--c-neutral-200);border-radius:8px;overflow:hidden;">
+
+      <!-- Intestazione -->
+      <div style="display:grid;grid-template-columns:80px 1fr 120px 100px 120px;gap:1rem;align-items:center;padding:0.65rem 1.4rem;background:var(--c-neutral-50);border-bottom:1.5px solid var(--c-neutral-200);">
+        <span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--c-neutral-400);font-weight:700;">Data</span>
+        <span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--c-neutral-400);font-weight:700;">Lezione</span>
+        <span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--c-neutral-400);font-weight:700;">Orario</span>
+        <span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--c-neutral-400);font-weight:700;">Posti</span>
+        <span></span>
+      </div>
+
+      <!-- Riga 1 -->
+      <div style="display:grid;grid-template-columns:80px 1fr 120px 100px 120px;gap:1rem;align-items:center;padding:1rem 1.4rem;border-bottom:1px solid var(--c-neutral-100);">
+        <div style="text-align:center;background:var(--c-green-100);border-radius:6px;padding:0.4rem 0.5rem;line-height:1.2;">
+          <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--c-green-700);font-weight:700;">LUN</div>
+          <div style="font-size:1.3rem;font-weight:700;color:var(--c-green-900);">14</div>
+        </div>
+        <div>
+          <strong style="display:block;font-size:0.92rem;margin-bottom:0.2rem;">Hatha Yoga</strong>
+          <span style="font-size:0.78rem;color:var(--c-neutral-400);">Individuale · 60&nbsp;min · In&nbsp;presenza</span>
+        </div>
+        <span style="font-size:0.88rem;">09:00 – 10:00</span>
+        <span style="font-size:0.8rem;color:var(--c-green-700);font-weight:600;">3 disponibili</span>
+        <a href="#" class="btn btn--primary btn--sm" style="text-align:center;">Prenota</a>
+      </div>
+
+      <!-- Riga 2 -->
+      <div style="display:grid;grid-template-columns:80px 1fr 120px 100px 120px;gap:1rem;align-items:center;padding:1rem 1.4rem;border-bottom:1px solid var(--c-neutral-100);">
+        <div style="text-align:center;background:var(--c-green-100);border-radius:6px;padding:0.4rem 0.5rem;line-height:1.2;">
+          <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--c-green-700);font-weight:700;">MAR</div>
+          <div style="font-size:1.3rem;font-weight:700;color:var(--c-green-900);">15</div>
+        </div>
+        <div>
+          <strong style="display:block;font-size:0.92rem;margin-bottom:0.2rem;">Pranayama e&nbsp;respiro</strong>
+          <span style="font-size:0.78rem;color:var(--c-neutral-400);">Gruppo · 75&nbsp;min · In&nbsp;presenza</span>
+        </div>
+        <span style="font-size:0.88rem;">18:30 – 19:45</span>
+        <span style="font-size:0.8rem;color:var(--c-green-700);font-weight:600;">6 disponibili</span>
+        <a href="#" class="btn btn--primary btn--sm" style="text-align:center;">Prenota</a>
+      </div>
+
+      <!-- Riga 3 -->
+      <div style="display:grid;grid-template-columns:80px 1fr 120px 100px 120px;gap:1rem;align-items:center;padding:1rem 1.4rem;border-bottom:1px solid var(--c-neutral-100);">
+        <div style="text-align:center;background:var(--c-green-100);border-radius:6px;padding:0.4rem 0.5rem;line-height:1.2;">
+          <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--c-green-700);font-weight:700;">GIO</div>
+          <div style="font-size:1.3rem;font-weight:700;color:var(--c-green-900);">17</div>
+        </div>
+        <div>
+          <strong style="display:block;font-size:0.92rem;margin-bottom:0.2rem;">Yoga e&nbsp;mindfulness</strong>
+          <span style="font-size:0.78rem;color:var(--c-neutral-400);">Gruppo · 60&nbsp;min · Online</span>
+        </div>
+        <span style="font-size:0.88rem;">07:30 – 08:30</span>
+        <span style="font-size:0.8rem;color:var(--c-green-700);font-weight:600;">8 disponibili</span>
+        <a href="#" class="btn btn--primary btn--sm" style="text-align:center;">Prenota</a>
+      </div>
+
+      <!-- Riga 4 -->
+      <div style="display:grid;grid-template-columns:80px 1fr 120px 100px 120px;gap:1rem;align-items:center;padding:1rem 1.4rem;border-bottom:1px solid var(--c-neutral-100);">
+        <div style="text-align:center;background:var(--c-green-100);border-radius:6px;padding:0.4rem 0.5rem;line-height:1.2;">
+          <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--c-green-700);font-weight:700;">VEN</div>
+          <div style="font-size:1.3rem;font-weight:700;color:var(--c-green-900);">18</div>
+        </div>
+        <div>
+          <strong style="display:block;font-size:0.92rem;margin-bottom:0.2rem;">Hatha Yoga</strong>
+          <span style="font-size:0.78rem;color:var(--c-neutral-400);">Individuale · 60&nbsp;min · In&nbsp;presenza</span>
+        </div>
+        <span style="font-size:0.88rem;">10:00 – 11:00</span>
+        <span style="font-size:0.8rem;color:var(--c-terracotta);font-weight:600;">1 disponibile</span>
+        <a href="#" class="btn btn--primary btn--sm" style="text-align:center;">Prenota</a>
+      </div>
+
+      <!-- Riga 5 — esaurita -->
+      <div style="display:grid;grid-template-columns:80px 1fr 120px 100px 120px;gap:1rem;align-items:center;padding:1rem 1.4rem;opacity:0.45;">
+        <div style="text-align:center;background:var(--c-neutral-100);border-radius:6px;padding:0.4rem 0.5rem;line-height:1.2;">
+          <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--c-neutral-400);font-weight:700;">SAB</div>
+          <div style="font-size:1.3rem;font-weight:700;color:var(--c-neutral-400);">19</div>
+        </div>
+        <div>
+          <strong style="display:block;font-size:0.92rem;margin-bottom:0.2rem;">Yin Yoga</strong>
+          <span style="font-size:0.78rem;color:var(--c-neutral-400);">Gruppo · 90&nbsp;min · In&nbsp;presenza</span>
+        </div>
+        <span style="font-size:0.88rem;">10:00 – 11:30</span>
+        <span style="font-size:0.8rem;color:var(--c-neutral-400);font-weight:600;">Esaurito</span>
+        <button disabled style="padding:0.45rem 1rem;border-radius:4px;border:1.5px solid var(--c-neutral-200);background:transparent;color:var(--c-neutral-300);font-size:0.8rem;font-family:inherit;cursor:not-allowed;">Lista d'attesa</button>
+      </div>
+
+      <!-- Footer lista -->
+      <div style="padding:1rem 1.4rem;background:var(--c-neutral-50);border-top:1.5px solid var(--c-neutral-200);display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:0.8rem;color:var(--c-neutral-400);">Mostrando 5 di&nbsp;12 lezioni disponibili</span>
+        <a href="#" class="btn btn--outline btn--sm">Vedi tutto il&nbsp;calendario</a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- YOGA: CTA retreat/eventi separata -->
-<section class="section section--green" style="padding:3.5rem 0;">
+<section class="section section--green" id="yoga-retreat" style="padding:3.5rem 0;">
   <div class="container" style="position:relative;z-index:1;">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;" class="reveal">
       <div>
@@ -1141,8 +1238,8 @@
       <h1>Il percorso Coaching</h1>
       <p class="page-hero__desc">Un percorso che&nbsp;parte dall'ascolto per&nbsp;portare chiarezza, strumenti concreti e&nbsp;direzione. Non soluzioni rapide, ma&nbsp;cambiamenti reali e&nbsp;sostenibili.</p>
       <div class="page-hero__ctas">
-        <a href="#" class="btn btn--primary">Prenota una&nbsp;consulenza</a>
-        <a href="#" class="btn btn--outline">Scopri gli&nbsp;eventi</a>
+        <a href="#coaching-consulenza" class="btn btn--primary">Prenota una&nbsp;consulenza</a>
+        <a href="#page-eventi" class="btn btn--outline">Workshop e&nbsp;retreat</a>
       </div>
     </div>
   </div>
@@ -1269,7 +1366,7 @@
 </section>
 
 <!-- COACHING: CTA principale -->
-<section class="section section--green" style="padding:3.5rem 0;">
+<section class="section section--green" id="coaching-consulenza" style="padding:3.5rem 0;">
   <div class="container" style="position:relative;z-index:1;">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;" class="reveal">
       <div>
