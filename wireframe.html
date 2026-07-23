@@ -919,7 +919,7 @@
       <h1>Il percorso Yoga</h1>
       <p class="page-hero__desc">Uno strumento di&nbsp;conoscenza di&nbsp;sé che&nbsp;integra movimento, respiro e&nbsp;consapevolezza in modo scientifico, personalizzato e&nbsp;accessibile.</p>
       <div class="page-hero__ctas">
-        <button class="btn btn--primary" data-open-modal="yoga-booking-modal">Prenota un&nbsp;corso</button>
+        <button class="btn btn--primary" onclick="openYogaModal()">Prenota un&nbsp;corso</button>
         <a href="#page-eventi" class="btn btn--outline">Retreat e&nbsp;workshop</a>
       </div>
     </div>
@@ -1072,7 +1072,7 @@
         <p style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--c-green-700);font-weight:700;margin-bottom:0.2rem;">Corsi</p>
         <h3 style="margin:0;font-size:1.2rem;">Scegli una lezione e prenota</h3>
       </div>
-      <button data-close-modal="yoga-booking-modal" aria-label="Chiudi" style="background:none;border:none;cursor:pointer;padding:0.4rem;color:var(--c-neutral-400);font-size:1.4rem;line-height:1;">&#x2715;</button>
+      <button onclick="closeYogaModal()" aria-label="Chiudi" style="background:none;border:none;cursor:pointer;padding:0.4rem;color:var(--c-neutral-400);font-size:1.4rem;line-height:1;">&#x2715;</button>
     </div>
     <div style="display:flex;gap:0.5rem;padding:1.2rem 1.8rem;border-bottom:1px solid var(--c-neutral-100);flex-wrap:wrap;">
       <button style="padding:0.4rem 1rem;border-radius:999px;border:1.5px solid var(--c-green-700);background:var(--c-green-700);color:#fff;font-size:0.78rem;font-family:inherit;cursor:pointer;font-weight:600;">Tutti</button>
@@ -2199,33 +2199,24 @@
   });
 
   /* ── MODAL PRENOTAZIONE CORSI ── */
-  document.getElementById('wf-wrapper').addEventListener('click', function (e) {
-    var openBtn = e.target.closest('[data-open-modal]');
-    if (openBtn) {
-      var modalId = openBtn.getAttribute('data-open-modal');
-      var modal = document.getElementById(modalId);
-      if (modal) {
-        modal.style.display = 'flex';
-        modal.style.width  = window.innerWidth  + 'px';
-        modal.style.height = window.innerHeight + 'px';
-        document.body.style.overflow = 'hidden';
-      }
-      return;
-    }
-    var closeBtn = e.target.closest('[data-close-modal]');
-    if (closeBtn) {
-      var modalId = closeBtn.getAttribute('data-close-modal');
-      var modal = document.getElementById(modalId);
-      if (modal) { modal.style.display = 'none'; document.body.style.overflow = ''; }
-      return;
-    }
-    // click su overlay (fuori dal pannello)
-    if (e.target.hasAttribute && e.target.hasAttribute('data-open-modal') === false) {
-      var openModals = document.querySelectorAll('[id$="-modal"][style*="flex"]');
-      openModals.forEach(function(m) {
-        if (e.target === m) { m.style.display = 'none'; document.body.style.overflow = ''; }
-      });
-    }
+  window.openYogaModal = function() {
+    var m = document.getElementById('yoga-booking-modal');
+    if (!m) return;
+    m.style.width   = window.innerWidth  + 'px';
+    m.style.height  = window.innerHeight + 'px';
+    m.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  };
+  window.closeYogaModal = function() {
+    var m = document.getElementById('yoga-booking-modal');
+    if (!m) return;
+    m.style.display = 'none';
+    document.body.style.overflow = '';
+  };
+  /* chiudi cliccando sull'overlay */
+  document.addEventListener('click', function(e) {
+    var m = document.getElementById('yoga-booking-modal');
+    if (m && m.style.display === 'flex' && e.target === m) closeYogaModal();
   });
 
   /* ── SOSTITUZIONE <img> → PLACEHOLDER (logo o immagine) ── */
