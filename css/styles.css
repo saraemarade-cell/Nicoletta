@@ -2730,3 +2730,79 @@ body.light-hero .site-header:not(.scrolled) .hamburger span          { backgroun
   .hp-eventi__featured-img { height: 200px; }
 }
 
+/* ============================================================
+   RESPONSIVE — classi e correzioni mobile
+   ============================================================ */
+
+/* Classi per inline-grid rimossi dal HTML */
+.gr-widget-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.ev-form-row    { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+
+/* ── Tablet (≤ 1023px) ── */
+@media (max-width: 1023px) {
+  .site-header__logo img { height: 56px; }
+  .az-section__inner { grid-template-columns: 1fr !important; gap: 3rem !important; }
+  .gr-widget-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── Mobile largo (≤ 767px) ── */
+@media (max-width: 767px) {
+  /* Spaziatura sezioni */
+  .section     { padding: var(--space-lg) 0; }
+  .section--lg { padding: var(--space-xl) 0; }
+  .section__header { margin-bottom: 2rem; }
+
+  /* Header */
+  .site-header { padding: 0.9rem 20px; }
+  .site-header.scrolled { padding: 0.6rem 20px; }
+  .site-header__logo img { height: 44px; }
+
+  /* Grids inline */
+  .gr-widget-grid { grid-template-columns: 1fr; }
+  .ev-form-row    { grid-template-columns: 1fr; }
+  .az-section__inner { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+
+  /* Bottoni — touch target minimo 44px */
+  .btn { min-height: 44px; }
+
+  /* CTA block */
+  .cta-block { padding: var(--space-xl) 0; }
+  .cta-block__title { font-size: clamp(1.6rem, 5vw, 2.2rem); }
+
+  /* Hero slider CTA già gestito (flex-direction:column) */
+
+  /* Switcher pill homepage */
+  #wf-home-switcher { bottom: 16px; }
+
+  /* Google Reviews widget cards: semplifica su mobile */
+  .gr-widget-grid > div:nth-child(n+2) { display: none; }
+  /* nota: su mobile mostra solo la prima card del widget placeholder;
+     il plugin reale gestirà il proprio layout responsive */
+}
+
+/* ── Mobile stretto (≤ 479px) ── */
+@media (max-width: 479px) {
+  :root { --container-pad: 1rem; }
+
+  /* Switcher pill */
+  #wf-home-switcher button { padding: 6px 14px; font-size: 0.72rem; }
+
+  /* Form evento */
+  .ev-form-row { gap: 0.8rem; }
+
+  /* Target benefits già collassati a 540px */
+
+  /* Aziendale info grid */
+  .az-section__inner { gap: 2rem !important; }
+
+  /* News/video card grids */
+  .grid-3 article { min-width: 0; }
+
+  /* Footer legal */
+  .footer__legal { gap: 1rem; }
+  .footer__legal a { font-size: 0.8rem; }
+
+  /* Pagina hero — meno padding top su mobile stretto */
+  .page-hero { padding-top: calc(var(--space-xl) + 1.5rem); }
+}
+
