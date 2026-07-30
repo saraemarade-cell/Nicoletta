@@ -129,8 +129,10 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.3rem); }
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  position: relative;
-  z-index: var(--z-header);
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: calc(var(--z-header) + 1);
+  width: 100%;
 }
 .info-bar a { color: var(--c-peach); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 .info-bar__close {
@@ -2747,37 +2749,81 @@ body.light-hero .site-header:not(.scrolled) .hamburger span          { backgroun
 
 /* ── Mobile largo (≤ 767px) ── */
 @media (max-width: 767px) {
-  /* Spaziatura sezioni */
-  .section     { padding: var(--space-lg) 0; }
-  .section--lg { padding: var(--space-xl) 0; }
+  /* Spaziatura sezioni — scala uniforme su mobile */
+  .section     { padding: var(--space-lg) 0; }   /* 4rem */
+  .section--lg { padding: var(--space-xl) 0; }   /* 6rem */
+  .section--sm { padding: var(--space-md) 0; }   /* 2rem — era uguale a .section */
   .section__header { margin-bottom: 2rem; }
 
-  /* Header */
+  /* Info bar: più piccola, testo centrato */
+  .info-bar { font-size: 0.72rem; padding: 0.32rem 2.5rem; text-align: center; }
+  /* Header: offset dalla info bar più piccola */
   .site-header { padding: 0.9rem 20px; }
   .site-header.scrolled { padding: 0.6rem 20px; }
+  .site-header.with-infobar { top: 40px; }
   .site-header__logo img { height: 44px; }
 
+  /* Sezioni adiacenti con stesso sfondo: dimezza il gap tra loro */
+  .section--neutral + .section--neutral,
+  .section--cream   + .section--cream,
+  .section--white   + .section--white { padding-top: var(--space-md); }
+
+  /* inner-image 2-col: riduci altezza su mobile */
+  .inner-image { height: 280px !important; }
+  .inner-image img { height: 100% !important; margin-top: 0; }
+
+  /* Chi sono homepage: evita overflow */
+  .nicoletta-preview__inner { max-width: 100%; overflow: hidden; }
+  .nicoletta-preview__image { height: 240px; max-width: 100%; clip-path: none; }
+  .nicoletta-preview__img-container { height: 240px; }
+  .nicoletta-preview__img-container img { height: 100%; margin-top: 0; }
+  .nicoletta-preview__text { padding-left: 0; max-width: 100%; }
+  /* Stats row: wrap su mobile */
+  .nicoletta-stats-row { flex-wrap: wrap; gap: 0.75rem 1.5rem; }
+  .nicoletta-stats-row .nicoletta-stat { flex: 0 0 auto; border-right: none; padding-right: 0; margin-right: 0; }
+
+  /* Tag/badge più piccoli su mobile */
+  .tag { font-size: 0.7rem; padding: 0.28rem 0.65rem; }
+
+  /* Certificazioni: layout verticale su mobile */
+  .cert-compact__body {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .cert-compact__sep { display: none; }
+  .cert-compact__stat { text-align: left; white-space: normal; }
+  .cert-compact__badges { gap: 1.5rem; }
+
   /* Grids inline */
-  .gr-widget-grid { grid-template-columns: 1fr; }
+  .gr-widget-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 0.75rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .gr-widget-grid::-webkit-scrollbar { display: none; }
+  .gr-widget-grid > div {
+    flex: 0 0 85%;
+    min-width: 0;
+    scroll-snap-align: start;
+  }
   .ev-form-row    { grid-template-columns: 1fr; }
   .az-section__inner { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
 
-  /* Bottoni — touch target minimo 44px */
-  .btn { min-height: 44px; }
+  /* Bottoni — touch target minimo 44px, testo centrato */
+  .btn { min-height: 44px; text-align: center; justify-content: center; }
 
-  /* CTA block */
-  .cta-block { padding: var(--space-xl) 0; }
+  /* CTA block — allineato a .section su mobile */
+  .cta-block { padding: var(--space-lg) 0; }
   .cta-block__title { font-size: clamp(1.6rem, 5vw, 2.2rem); }
-
-  /* Hero slider CTA già gestito (flex-direction:column) */
 
   /* Switcher pill homepage */
   #wf-home-switcher { bottom: 16px; }
-
-  /* Google Reviews widget cards: semplifica su mobile */
-  .gr-widget-grid > div:nth-child(n+2) { display: none; }
-  /* nota: su mobile mostra solo la prima card del widget placeholder;
-     il plugin reale gestirà il proprio layout responsive */
 }
 
 /* ── Mobile stretto (≤ 479px) ── */
@@ -2801,6 +2847,17 @@ body.light-hero .site-header:not(.scrolled) .hamburger span          { backgroun
   /* Footer legal */
   .footer__legal { gap: 1rem; }
   .footer__legal a { font-size: 0.8rem; }
+
+  /* Footer mobile: brand full-width, colonne impilate, social più grandi */
+  .site-footer { padding: var(--space-lg) 0 var(--space-md); }
+  .footer__brand { max-width: 100%; }
+  .footer__payoff { max-width: 100%; }
+  .footer__social { gap: 0.9rem; }
+  .footer__social-link { width: 40px; height: 40px; }
+  .footer__col h5 { margin-top: 1.5rem; }
+  .footer__bottom { gap: 0.75rem; }
+  .footer__copy { font-size: 0.75rem; }
+
 
   /* Pagina hero — meno padding top su mobile stretto */
   .page-hero { padding-top: calc(var(--space-xl) + 1.5rem); }

@@ -267,6 +267,11 @@
     #wf-devnotes {
       position: fixed; right: 1.5rem; bottom: 0;
       z-index: 9999; display: flex; flex-direction: column-reverse; align-items: flex-end;
+      pointer-events: none;
+    }
+    #wf-devnotes-toggle,
+    #wf-devnotes-panel:not(.wf-dn-hidden) {
+      pointer-events: auto;
     }
     #wf-devnotes-toggle {
       writing-mode: horizontal-tb;
@@ -332,7 +337,7 @@
 
 <header class="site-header with-infobar">
   <div class="header-inner">
-    <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
+    <a href="#page-home" class="site-header__logo" onclick="history.replaceState(null,'','#');window.location.hash='page-home';return false;" aria-label="Nicoletta Ingusci — Homepage">
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"    alt="Nicoletta Ingusci" width="160" height="40"/>
     </a>
@@ -424,7 +429,7 @@
         <div class="nicoletta-preview__method">Non si tratta di&nbsp;proporre soluzioni rapide. Si tratta di&nbsp;costruire insieme un&nbsp;percorso che&nbsp;risponda a esigenze reali e&nbsp;produca cambiamenti duraturi.</div>
         <div class="nicoletta-stats-row">
           <div class="nicoletta-stat">
-            <span class="nicoletta-stat__num">3000+</span>
+            <span class="nicoletta-stat__num">4500+</span>
             <span class="nicoletta-stat__label">Ore di&nbsp;insegnamento</span>
           </div>
           <div class="nicoletta-stat">
@@ -714,11 +719,12 @@
   <div class="container">
     <div class="footer__main">
       <div class="footer__brand">
-        <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
+        <div class="footer__logo"><a href="#page-home" onclick="history.replaceState(null,'','#');window.location.hash='page-home';return false;"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
         <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
         <div class="footer__social" aria-label="Social media">
-          <a href="#" class="footer__social-link" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="#" class="footer__social-link" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M13 8h-1a2 2 0 00-2 2v1H9v2.5h1V19h2.5v-5.5H14l.5-2.5h-2V10a.5.5 0 01.5-.5h1V8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
         </div>
       </div>
       <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
@@ -738,7 +744,7 @@
 
 <header class="site-header">
   <div class="header-inner" style="justify-content:center;">
-    <a href="#" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
+    <a href="#page-home-v2" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage" onclick="history.replaceState(null,'','#');window.location.hash='page-home-v2';return false;">
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"    alt="Nicoletta Ingusci" width="160" height="40"/>
     </a>
@@ -798,7 +804,7 @@
         <div class="nicoletta-preview__method">Non si tratta di&nbsp;proporre soluzioni rapide. Si tratta di&nbsp;costruire insieme un&nbsp;percorso che&nbsp;risponda a esigenze reali e&nbsp;produca cambiamenti duraturi.</div>
         <div class="nicoletta-stats-row">
           <div class="nicoletta-stat">
-            <span class="nicoletta-stat__num">3000+</span>
+            <span class="nicoletta-stat__num">4500+</span>
             <span class="nicoletta-stat__label">Ore di&nbsp;insegnamento</span>
           </div>
           <div class="nicoletta-stat">
@@ -979,14 +985,13 @@
 </section>
 
 <section class="section section--cream" id="home-v2-form">
-  <div class="container" style="max-width:720px;">
+  <div class="container" style="max-width:860px;">
     <div class="section__header section__header--centered reveal">
       <span class="section-label">Contatti</span>
       <h2>Scrivici.</h2>
       <p class="section__intro" style="text-align:center;margin-inline:auto;">Compila il modulo e riceverai una risposta entro breve.</p>
     </div>
-    <div class="reveal" style="background:#fff;border-radius:12px;padding:2.5rem;box-shadow:0 2px 20px rgba(0,0,0,0.07);">
-      <form id="contact-form-v2" class="contact-form" novalidate>
+    <form id="contact-form-v2" class="contact-form reveal" novalidate>
   <div class="form-group"><label for="v2-nome-c" class="form-label">Nome e&nbsp;cognome <span aria-hidden="true">*</span></label><input type="text" id="v2-nome-c" name="nome" class="form-input" required autocomplete="name" placeholder="[Nome Cognome]"/></div>
   <div class="form-group"><label for="v2-email-c" class="form-label">Email <span aria-hidden="true">*</span></label><input type="email" id="v2-email-c" name="email" class="form-input" required autocomplete="email" placeholder="[email@dominio.it]"/></div>
   <div class="form-group"><label for="v2-telefono-c" class="form-label">Telefono <span style="color:var(--c-neutral-400);font-weight:400;">(opzionale)</span></label><input type="tel" id="v2-telefono-c" name="telefono" class="form-input" autocomplete="tel" placeholder="[+39 000 000 0000]"/></div>
@@ -1010,7 +1015,6 @@
   </div>
 </form>
 
-    </div>
   </div>
 </section>
 
@@ -1021,14 +1025,15 @@
   <div class="container">
     <div class="footer__main">
       <div class="footer__brand">
-        <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
+        <div class="footer__logo"><a href="#page-home-v2" onclick="history.replaceState(null,'','#');window.location.hash='page-home-v2';return false;"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
         <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
         <div class="footer__social" aria-label="Social media">
-          <a href="#" class="footer__social-link" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="#" class="footer__social-link" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M13 8h-1a2 2 0 00-2 2v1H9v2.5h1V19h2.5v-5.5H14l.5-2.5h-2V10a.5.5 0 01.5-.5h1V8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
         </div>
       </div>
-      <div class="footer__col" style="grid-column:4;"><h5>Contatti</h5><p class="footer__contact-item"><a href="#">[email — da&nbsp;inserire]</a></p><p class="footer__contact-item">[Città — da&nbsp;inserire]</p><a href="#home-v2-form" onclick="document.getElementById('home-v2-form').scrollIntoView({behavior:'smooth'});return false;" class="btn btn--outline" style="color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.2);font-size:0.875rem;margin-top:1rem;padding:0.55rem 1.2rem;">Prenota una&nbsp;call</a></div>
+      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="#">[email — da&nbsp;inserire]</a></p><p class="footer__contact-item">[Città — da&nbsp;inserire]</p><a href="#home-v2-form" onclick="document.getElementById('home-v2-form').scrollIntoView({behavior:'smooth'});return false;" class="btn btn--outline" style="color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.2);font-size:0.875rem;margin-top:1rem;padding:0.55rem 1.2rem;">Prenota una&nbsp;call</a></div>
     </div>
     <div class="footer__bottom">
       <nav class="footer__legal" aria-label="Link legali"><a href="#">Privacy Policy</a><a href="#">Cookie Policy</a><a href="#">Credits</a></nav>
@@ -1042,10 +1047,10 @@
 <!-- PAGINE RIMANENTI: verranno aggiunte nei prossimi step -->
 <div class="wf-page" id="page-chi-sono">
 
-<div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
+<div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
   <div class="header-inner">
-    <a href="#" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
+    <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
     </a>
@@ -1060,7 +1065,7 @@
         <li><a class="site-nav__link" href="#">Contatti</a></li>
       </ul>
     </nav>
-    <a href="#" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
+    <a href="#page-contatti" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
     <button class="hamburger" aria-label="Apri menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -1072,7 +1077,7 @@
   <a class="mobile-nav__link" href="#">Eventi</a>
   <a class="mobile-nav__link" href="#">News</a>
   <a class="mobile-nav__link" href="#">Contatti</a>
-  <a href="#" class="btn btn--primary">Prenota una&nbsp;call</a>
+  <a href="#page-contatti" class="btn btn--primary">Prenota una&nbsp;call</a>
 </nav>
 
 <main>
@@ -1105,7 +1110,7 @@
           <span class="tag tag--green">E-RYT 800</span>
           <span class="tag tag--green">YACEP</span>
           <span class="tag tag--peach">ICF Global</span>
-          <span class="tag tag--green">+3.000h di&nbsp;insegnamento</span>
+          <span class="tag tag--green">+4.500h di&nbsp;insegnamento</span>
         </div>
       </div>
     </div>
@@ -1214,7 +1219,7 @@
         </div>
         <div class="cert-compact__sep" aria-hidden="true"></div>
         <div class="cert-compact__stat">
-          <span class="cert-compact__num">+3.000</span>
+          <span class="cert-compact__num">+4.500</span>
           <span class="cert-compact__unit">Ore di&nbsp;insegnamento certificato</span>
         </div>
         <div class="cert-compact__sep" aria-hidden="true"></div>
@@ -1236,7 +1241,7 @@
     <h2 class="cta-block__title">Vuoi saperne di&nbsp;più?</h2>
     <p class="cta-block__text">Scrivici per&nbsp;un&nbsp;primo incontro conoscitivo, senza impegno.</p>
     <div class="cta-block__ctas">
-      <a href="#" class="btn btn--cream">Contatta Nicoletta</a>
+      <a href="#page-contatti" class="btn btn--cream">Contatta Nicoletta</a>
     </div>
   </div>
 </section>
@@ -1250,8 +1255,9 @@
         <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
         <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
         <div class="footer__social" aria-label="Social media">
-          <a href="#" class="footer__social-link" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="#" class="footer__social-link" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M13 8h-1a2 2 0 00-2 2v1H9v2.5h1V19h2.5v-5.5H14l.5-2.5h-2V10a.5.5 0 01.5-.5h1V8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
         </div>
       </div>
       <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
@@ -1269,10 +1275,10 @@
 <div class="wf-page" id="page-yoga">
 <input type="checkbox" id="yoga-modal-toggle">
 
-<div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
+<div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
   <div class="header-inner">
-    <a href="#" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
+    <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
     </a>
@@ -1287,7 +1293,7 @@
         <li><a class="site-nav__link" href="#">Contatti</a></li>
       </ul>
     </nav>
-    <a href="#" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
+    <a href="#page-contatti" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
     <button class="hamburger" aria-label="Apri menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -1299,7 +1305,7 @@
   <a class="mobile-nav__link" href="#">Eventi</a>
   <a class="mobile-nav__link" href="#">News</a>
   <a class="mobile-nav__link" href="#">Contatti</a>
-  <a href="#" class="btn btn--primary">Prenota una&nbsp;call</a>
+  <a href="#page-contatti" class="btn btn--primary">Prenota una&nbsp;call</a>
 </nav>
 
 <main>
@@ -1406,7 +1412,7 @@
         <div class="modalita-card"><div class="modalita-card__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h4 class="modalita-card__title">Sessioni individuali</h4><p class="modalita-card__desc">Lavoro personalizzato, ritmo proprio, massima attenzione alle&nbsp;esigenze specifiche. In presenza o&nbsp;online.</p></div>
         <div class="modalita-card"><div class="modalita-card__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4 class="modalita-card__title">Sessioni di&nbsp;gruppo</h4><p class="modalita-card__desc">Gruppi piccoli e&nbsp;omogenei per&nbsp;una&nbsp;pratica condivisa e&nbsp;supportata.</p></div>
         <div class="modalita-card"><div class="modalita-card__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h4 class="modalita-card__title">Online</h4><p class="modalita-card__desc">Percorsi a distanza con&nbsp;la&nbsp;stessa qualità e&nbsp;attenzione delle&nbsp;sessioni in presenza.</p></div>
-        <div class="modalita-card"><div class="modalita-card__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div><h4 class="modalita-card__title">Retreat e&nbsp;workshop</h4><p class="modalita-card__desc">Appuntamenti intensivi, residenziali o&nbsp;giornalieri. <a href="#">Vedi il&nbsp;calendario</a></p></div>
+        <div class="modalita-card"><div class="modalita-card__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div><h4 class="modalita-card__title">Retreat e&nbsp;workshop</h4><p class="modalita-card__desc">Appuntamenti intensivi, residenziali o&nbsp;giornalieri. <a href="#page-eventi">Vedi il&nbsp;calendario</a></p></div>
       </div>
     </div>
   </div>
@@ -1450,14 +1456,14 @@
       <div class="reveal">
         <span class="section-label">Domande frequenti</span>
         <h2>Hai qualche dubbio?</h2>
-        <p style="color:var(--c-neutral-400);margin-top:0.8rem;">Se hai altre domande, <a href="#" style="color:var(--c-green-700);text-decoration:underline;text-underline-offset:2px;">scrivici direttamente.</a></p>
+        <p style="color:var(--c-neutral-400);margin-top:0.8rem;">Se hai altre domande, <a href="#page-contatti" style="color:var(--c-green-700);text-decoration:underline;text-underline-offset:2px;">scrivici direttamente.</a></p>
       </div>
       <div class="faq-list reveal">
         <div class="faq-item"><button class="faq-question">Ho bisogno di&nbsp;esperienza precedente?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">No. Il percorso è adatto sia a chi si avvicina per&nbsp;la&nbsp;prima volta sia a chi ha già una&nbsp;pratica consolidata. Il punto di&nbsp;partenza è sempre una&nbsp;valutazione iniziale.</div></div>
         <div class="faq-item"><button class="faq-question">È adatto anche se&nbsp;ho problemi fisici o&nbsp;dolori?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">In molti casi sì. La pratica viene adattata alla&nbsp;condizione fisica della&nbsp;persona. È comunque utile comunicare eventuali condizioni mediche al&nbsp;primo incontro, per&nbsp;costruire un&nbsp;percorso sicuro e&nbsp;appropriato.</div></div>
         <div class="faq-item"><button class="faq-question">Quanto dura un&nbsp;percorso?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">[Durata indicativa — da&nbsp;aggiornare con&nbsp;informazioni reali.] La durata dipende dagli obiettivi e&nbsp;dalla frequenza delle&nbsp;sessioni.</div></div>
         <div class="faq-item"><button class="faq-question">Le sessioni sono disponibili anche online?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">Sì. Le sessioni online offrono la&nbsp;stessa attenzione e&nbsp;qualità di&nbsp;quelle&nbsp;in presenza. [Dettagli su&nbsp;piattaforme o&nbsp;modalità — da&nbsp;aggiornare.]</div></div>
-        <div class="faq-item"><button class="faq-question">Come posso iniziare?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">Il modo più semplice è <a href="#" style="color:var(--c-green-700);">contattarci</a> per&nbsp;un&nbsp;primo incontro conoscitivo, senza impegno.</div></div>
+        <div class="faq-item"><button class="faq-question">Come posso iniziare?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">Il modo più semplice è <a href="#page-contatti" style="color:var(--c-green-700);">contattarci</a> per&nbsp;un&nbsp;primo incontro conoscitivo, senza impegno.</div></div>
       </div>
     </div>
   </div>
@@ -1473,8 +1479,9 @@
         <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
         <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
         <div class="footer__social" aria-label="Social media">
-          <a href="#" class="footer__social-link" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="#" class="footer__social-link" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M13 8h-1a2 2 0 00-2 2v1H9v2.5h1V19h2.5v-5.5H14l.5-2.5h-2V10a.5.5 0 01.5-.5h1V8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
         </div>
       </div>
       <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
@@ -1519,7 +1526,7 @@
           <div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Hatha Yoga</div>
           <div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; In presenza &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">3 posti</span></div>
         </div>
-        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
+        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
       </div>
 
       <!-- Giorno: Martedì -->
@@ -1533,7 +1540,7 @@
           <div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Yoga e mindfulness</div>
           <div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Online &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">8 posti</span></div>
         </div>
-        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
+        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
       </div>
       <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
         <div style="min-width:52px;text-align:center;">
@@ -1544,7 +1551,7 @@
           <div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Pranayama e respiro</div>
           <div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Gruppo · In presenza &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">6 posti</span></div>
         </div>
-        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
+        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
       </div>
 
       <!-- Giorno: Giovedì -->
@@ -1558,7 +1565,7 @@
           <div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Vinyasa Flow</div>
           <div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Gruppo · In presenza &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">5 posti</span></div>
         </div>
-        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
+        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
       </div>
 
       <!-- Giorno: Venerdì -->
@@ -1572,7 +1579,7 @@
           <div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Hatha Yoga</div>
           <div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Individuale &nbsp;·&nbsp; <span style="color:#e57c3b;font-weight:600;">1 posto</span></div>
         </div>
-        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
+        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
       </div>
 
       <!-- Giorno: Sabato — esaurito -->
@@ -1603,10 +1610,10 @@
 <div class="wf-page" id="page-coaching">
 <input type="checkbox" id="coaching-modal-toggle">
 
-<div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
+<div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
   <div class="header-inner">
-    <a href="#" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
+    <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
     </a>
@@ -1621,7 +1628,7 @@
         <li><a class="site-nav__link" href="#">Contatti</a></li>
       </ul>
     </nav>
-    <a href="#" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
+    <a href="#page-contatti" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
     <button class="hamburger" aria-label="Apri menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -1633,7 +1640,7 @@
   <a class="mobile-nav__link" href="#">Eventi</a>
   <a class="mobile-nav__link" href="#">News</a>
   <a class="mobile-nav__link" href="#">Contatti</a>
-  <a href="#" class="btn btn--primary">Prenota una&nbsp;call</a>
+  <a href="#page-contatti" class="btn btn--primary">Prenota una&nbsp;call</a>
 </nav>
 
 <main>
@@ -1760,13 +1767,13 @@
       <div class="reveal">
         <span class="section-label">Domande frequenti</span>
         <h2>Qualche risposta utile.</h2>
-        <p style="color:var(--c-neutral-400);margin-top:0.8rem;font-size:0.92rem;">Per qualsiasi altra domanda, <a href="#" style="color:var(--c-green-700);text-decoration:underline;">scrivi direttamente.</a></p>
+        <p style="color:var(--c-neutral-400);margin-top:0.8rem;font-size:0.92rem;">Per qualsiasi altra domanda, <a href="#page-contatti" style="color:var(--c-green-700);text-decoration:underline;">scrivi direttamente.</a></p>
       </div>
       <div class="faq-list reveal">
         <div class="faq-item"><button class="faq-question">Il coaching è come&nbsp;una&nbsp;terapia?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">No. Il coaching non è psicoterapia. Lavora sul presente e&nbsp;sul futuro — su&nbsp;obiettivi, risorse, scelte. Non si occupa di&nbsp;patologie o&nbsp;traumi. In certi casi i due percorsi possono coesistere e&nbsp;supportarsi a vicenda.</div></div>
         <div class="faq-item"><button class="faq-question">Quanto dura un&nbsp;percorso di&nbsp;coaching?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">[Durata indicativa — da&nbsp;aggiornare con&nbsp;informazioni reali.] La durata dipende dagli obiettivi. Si può iniziare con&nbsp;un&nbsp;ciclo di&nbsp;sessioni e&nbsp;valutare insieme come&nbsp;proseguire.</div></div>
         <div class="faq-item"><button class="faq-question">Le sessioni si tengono in presenza o&nbsp;online?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">Entrambe le&nbsp;modalità sono disponibili. [Dettagli su&nbsp;luoghi e&nbsp;piattaforme — da&nbsp;aggiornare.]</div></div>
-        <div class="faq-item"><button class="faq-question">Come iniziare?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">Con una&nbsp;consulenza conoscitiva gratuita. È un&nbsp;primo incontro senza impegno per&nbsp;capire insieme se&nbsp;il&nbsp;percorso è adatto. <a href="#" style="color:var(--c-green-700);">Scrivici per&nbsp;prenotarla.</a></div></div>
+        <div class="faq-item"><button class="faq-question">Come iniziare?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">Con una&nbsp;consulenza conoscitiva gratuita. È un&nbsp;primo incontro senza impegno per&nbsp;capire insieme se&nbsp;il&nbsp;percorso è adatto. <a href="#page-contatti" style="color:var(--c-green-700);">Scrivici per&nbsp;prenotarla.</a></div></div>
       </div>
     </div>
   </div>
@@ -1782,8 +1789,9 @@
         <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
         <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
         <div class="footer__social" aria-label="Social media">
-          <a href="#" class="footer__social-link" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="#" class="footer__social-link" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M13 8h-1a2 2 0 00-2 2v1H9v2.5h1V19h2.5v-5.5H14l.5-2.5h-2V10a.5.5 0 01.5-.5h1V8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
         </div>
       </div>
       <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
@@ -1818,19 +1826,19 @@
       <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
         <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">10:00</div><div style="font-size:0.7rem;color:#999;">60 min</div></div>
         <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Sessione di coaching</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Individuale · Online &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">Disponibile</span></div></div>
-        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
+        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
       </div>
       <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
         <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">15:00</div><div style="font-size:0.7rem;color:#999;">60 min</div></div>
         <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Sessione di coaching</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Individuale · Online &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">Disponibile</span></div></div>
-        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
+        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
       </div>
 
       <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.5rem 0 0.1rem;">Mercoledì 16 Gennaio</p>
       <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
         <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">09:30</div><div style="font-size:0.7rem;color:#999;">60 min</div></div>
         <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Sessione di coaching</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Individuale · In presenza &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">Disponibile</span></div></div>
-        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
+        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
       </div>
       <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
         <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#aaa;">17:00</div><div style="font-size:0.7rem;color:#bbb;">60 min</div></div>
@@ -1842,7 +1850,7 @@
       <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
         <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">11:00</div><div style="font-size:0.7rem;color:#999;">60 min</div></div>
         <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Sessione di coaching</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Individuale · Online &nbsp;·&nbsp; <span style="color:#e57c3b;font-weight:600;">1 posto</span></div></div>
-        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
+        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
       </div>
 
     </div>
@@ -1858,10 +1866,10 @@
 <div class="wf-page" id="page-aziendale">
 <input type="checkbox" id="aziendale-modal-toggle">
 
-<div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
+<div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
   <div class="header-inner">
-    <a href="#" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
+    <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
     </a>
@@ -1876,7 +1884,7 @@
         <li><a class="site-nav__link" href="#">Contatti</a></li>
       </ul>
     </nav>
-    <a href="#" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
+    <a href="#page-contatti" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
     <button class="hamburger" aria-label="Apri menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -1888,7 +1896,7 @@
   <a class="mobile-nav__link" href="#">Eventi</a>
   <a class="mobile-nav__link" href="#">News</a>
   <a class="mobile-nav__link" href="#">Contatti</a>
-  <a href="#" class="btn btn--primary">Prenota una&nbsp;call</a>
+  <a href="#page-contatti" class="btn btn--primary">Prenota una&nbsp;call</a>
 </nav>
 
 <main>
@@ -2080,8 +2088,9 @@
         <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
         <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
         <div class="footer__social" aria-label="Social media">
-          <a href="#" class="footer__social-link" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="#" class="footer__social-link" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M13 8h-1a2 2 0 00-2 2v1H9v2.5h1V19h2.5v-5.5H14l.5-2.5h-2V10a.5.5 0 01.5-.5h1V8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
         </div>
       </div>
       <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
@@ -2113,18 +2122,18 @@
       <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
         <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">10:00</div><div style="font-size:0.7rem;color:#999;">45 min</div></div>
         <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Call conoscitiva</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Online &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">Disponibile</span></div></div>
-        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
+        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
       </div>
       <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
         <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">14:30</div><div style="font-size:0.7rem;color:#999;">45 min</div></div>
         <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Call conoscitiva</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Online &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">Disponibile</span></div></div>
-        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
+        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
       </div>
       <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.5rem 0 0.1rem;">Giovedì 17 Gennaio</p>
       <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
         <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">09:00</div><div style="font-size:0.7rem;color:#999;">45 min</div></div>
         <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Incontro di valutazione</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; In presenza &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">Disponibile</span></div></div>
-        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
+        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
       </div>
       <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);opacity:0.55;">
         <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#aaa;">16:00</div><div style="font-size:0.7rem;color:#bbb;">45 min</div></div>
@@ -2135,7 +2144,7 @@
       <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
         <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">11:00</div><div style="font-size:0.7rem;color:#999;">45 min</div></div>
         <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Call conoscitiva</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Online &nbsp;·&nbsp; <span style="color:#e57c3b;font-weight:600;">1 posto</span></div></div>
-        <a href="#" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
+        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
       </div>
     </div>
     <div style="padding:1rem 1.4rem;text-align:center;border-top:1px solid #e8e8e8;background:#fff;border-radius:0 0 12px 12px;">
@@ -2147,10 +2156,10 @@
 </div><!-- /page-aziendale -->
 <div class="wf-page" id="page-eventi">
 
-<div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
+<div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
   <div class="header-inner">
-    <a href="#" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
+    <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
     </a>
@@ -2165,7 +2174,7 @@
         <li><a class="site-nav__link" href="#">Contatti</a></li>
       </ul>
     </nav>
-    <a href="#" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
+    <a href="#page-contatti" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
     <button class="hamburger" aria-label="Apri menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -2177,7 +2186,7 @@
   <a class="mobile-nav__link" href="#">Eventi</a>
   <a class="mobile-nav__link" href="#">News</a>
   <a class="mobile-nav__link" href="#">Contatti</a>
-  <a href="#" class="btn btn--primary">Prenota una&nbsp;call</a>
+  <a href="#page-contatti" class="btn btn--primary">Prenota una&nbsp;call</a>
 </nav>
 
 <main>
@@ -2222,7 +2231,7 @@
   <div class="container" style="position:relative;z-index:1;">
     <h2 class="cta-block__title">Rimani aggiornato sui prossimi eventi.</h2>
     <p class="cta-block__text">Scrivici per&nbsp;essere inserito nella&nbsp;lista e&nbsp;ricevere le&nbsp;date in anteprima.</p>
-    <div class="cta-block__ctas"><a href="#" class="btn btn--cream">Contattaci</a></div>
+    <div class="cta-block__ctas"><a href="#page-contatti" class="btn btn--cream">Contattaci</a></div>
   </div>
 </section>
 
@@ -2235,8 +2244,9 @@
         <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
         <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
         <div class="footer__social" aria-label="Social media">
-          <a href="#" class="footer__social-link" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="#" class="footer__social-link" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M13 8h-1a2 2 0 00-2 2v1H9v2.5h1V19h2.5v-5.5H14l.5-2.5h-2V10a.5.5 0 01.5-.5h1V8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
         </div>
       </div>
       <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
@@ -2253,10 +2263,10 @@
 </div><!-- /page-eventi -->
 <div class="wf-page" id="page-news">
 
-<div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
+<div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
   <div class="header-inner">
-    <a href="#" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
+    <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
     </a>
@@ -2271,7 +2281,7 @@
         <li><a class="site-nav__link" href="#">Contatti</a></li>
       </ul>
     </nav>
-    <a href="#" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
+    <a href="#page-contatti" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
     <button class="hamburger" aria-label="Apri menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -2283,7 +2293,7 @@
   <a class="mobile-nav__link" href="#">Eventi</a>
   <a class="mobile-nav__link" href="#">News</a>
   <a class="mobile-nav__link" href="#">Contatti</a>
-  <a href="#" class="btn btn--primary">Prenota una&nbsp;call</a>
+  <a href="#page-contatti" class="btn btn--primary">Prenota una&nbsp;call</a>
 </nav>
 
 <main>
@@ -2309,7 +2319,7 @@
         <span class="tag tag--green" style="margin-bottom:0.8rem;display:inline-block;">[Categoria — es. Yoga]</span>
         <h2 style="margin-bottom:1rem;">[Titolo articolo in evidenza — da&nbsp;aggiornare]</h2>
         <p style="margin-bottom:1.2rem;">[Estratto dell'articolo in evidenza — da&nbsp;aggiornare. 2-3 righe che&nbsp;introducono il&nbsp;tema e&nbsp;invogliano alla&nbsp;lettura.]</p>
-        <a href="#" class="btn btn--primary">Leggi l'articolo</a>
+        <a href="#page-news" class="btn btn--primary">Leggi l'articolo</a>
       </div>
     </div>
   </div>
@@ -2449,7 +2459,7 @@
   <div class="container" style="position:relative;z-index:1;">
     <h2 class="cta-block__title">Non perderti i nuovi contenuti.</h2>
     <p class="cta-block__text">Scrivici per&nbsp;ricevere articoli, risorse e&nbsp;aggiornamenti sugli eventi.</p>
-    <div class="cta-block__ctas"><a href="#" class="btn btn--cream">Contattaci</a></div>
+    <div class="cta-block__ctas"><a href="#page-contatti" class="btn btn--cream">Contattaci</a></div>
   </div>
 </section>
 
@@ -2462,8 +2472,9 @@
         <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
         <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
         <div class="footer__social" aria-label="Social media">
-          <a href="#" class="footer__social-link" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="#" class="footer__social-link" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M13 8h-1a2 2 0 00-2 2v1H9v2.5h1V19h2.5v-5.5H14l.5-2.5h-2V10a.5.5 0 01.5-.5h1V8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
         </div>
       </div>
       <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
@@ -2480,10 +2491,10 @@
 </div><!-- /page-news -->
 <div class="wf-page" id="page-evento-detail">
 
-<div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
+<div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
   <div class="header-inner">
-    <a href="#" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
+    <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
     </a>
@@ -2498,7 +2509,7 @@
         <li><a class="site-nav__link" href="#">Contatti</a></li>
       </ul>
     </nav>
-    <a href="#" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
+    <a href="#page-contatti" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
     <button class="hamburger" aria-label="Apri menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -2510,7 +2521,7 @@
   <a class="mobile-nav__link" href="#">Eventi</a>
   <a class="mobile-nav__link" href="#">News</a>
   <a class="mobile-nav__link" href="#">Contatti</a>
-  <a href="#" class="btn btn--primary">Prenota una&nbsp;call</a>
+  <a href="#page-contatti" class="btn btn--primary">Prenota una&nbsp;call</a>
 </nav>
 
 <main>
@@ -2640,8 +2651,9 @@
         <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
         <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
         <div class="footer__social" aria-label="Social media">
-          <a href="#" class="footer__social-link" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="#" class="footer__social-link" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M13 8h-1a2 2 0 00-2 2v1H9v2.5h1V19h2.5v-5.5H14l.5-2.5h-2V10a.5.5 0 01.5-.5h1V8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
         </div>
       </div>
       <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
@@ -2658,10 +2670,10 @@
 </div><!-- /page-evento-detail -->
 <div class="wf-page" id="page-contatti">
 
-<div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
+<div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
   <div class="header-inner">
-    <a href="#" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
+    <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
     </a>
@@ -2676,7 +2688,7 @@
         <li><a class="site-nav__link" href="#">Contatti</a></li>
       </ul>
     </nav>
-    <a href="#" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
+    <a href="#page-contatti" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
     <button class="hamburger" aria-label="Apri menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -2688,7 +2700,7 @@
   <a class="mobile-nav__link" href="#">Eventi</a>
   <a class="mobile-nav__link" href="#">News</a>
   <a class="mobile-nav__link" href="#">Contatti</a>
-  <a href="#" class="btn btn--primary">Prenota una&nbsp;call</a>
+  <a href="#page-contatti" class="btn btn--primary">Prenota una&nbsp;call</a>
 </nav>
 
 <main>
@@ -2741,8 +2753,9 @@
         <div style="margin-top:2.5rem;">
           <p style="font-size:0.875rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--c-neutral-400);margin-bottom:1rem;">Seguimi</p>
           <div style="display:flex;gap:1rem;">
-            <a href="#" style="display:flex;align-items:center;gap:0.5rem;font-size:0.9rem;color:var(--c-green-700);text-decoration:none;" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Instagram</a>
-            <a href="#" style="display:flex;align-items:center;gap:0.5rem;font-size:0.9rem;color:var(--c-green-700);text-decoration:none;" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>LinkedIn</a>
+            <a href="https://www.instagram.com/nicoletta.ingusci/" style="display:flex;align-items:center;gap:0.5rem;font-size:0.9rem;color:var(--c-green-700);text-decoration:none;" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Instagram</a>
+            <a href="https://www.facebook.com/nicoletta.ingusci/" style="display:flex;align-items:center;gap:0.5rem;font-size:0.9rem;color:var(--c-green-700);text-decoration:none;" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M13 8h-1a2 2 0 00-2 2v1H9v2.5h1V19h2.5v-5.5H14l.5-2.5h-2V10a.5.5 0 01.5-.5h1V8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Facebook</a>
+            <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" style="display:flex;align-items:center;gap:0.5rem;font-size:0.9rem;color:var(--c-green-700);text-decoration:none;" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>LinkedIn</a>
           </div>
         </div>
         <div style="margin-top:2.5rem;padding:2rem 1.75rem;background:var(--c-green-100);clip-path:polygon(0 0,95% 0,100% 10%,100% 100%,5% 100%,0 90%);">
@@ -2778,8 +2791,9 @@
         <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
         <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
         <div class="footer__social" aria-label="Social media">
-          <a href="#" class="footer__social-link" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="#" class="footer__social-link" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M13 8h-1a2 2 0 00-2 2v1H9v2.5h1V19h2.5v-5.5H14l.5-2.5h-2V10a.5.5 0 01.5-.5h1V8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
         </div>
       </div>
       <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
@@ -2872,6 +2886,7 @@
   }
   routeHash();
   window.addEventListener('hashchange', routeHash);
+  window.wfShowPage = showPage;
 
   /* ── CLICK DELEGATION ──────────────────── */
   var hrefMap = {
@@ -2956,6 +2971,40 @@
     if (m && m.style.display === 'flex' && e.target === m) closeYogaModal();
   });
 
+  /* ── HAMBURGER MENU — tutte le pagine ── */
+  document.querySelectorAll('.hamburger').forEach(function (btn) {
+    /* ogni hamburger è dentro un .wf-page; il mobile-nav è il fratello successivo dell'header */
+    var page = btn.closest('.wf-page');
+    var nav  = page ? page.querySelector('.mobile-nav') : null;
+    if (!nav) return;
+    btn.addEventListener('click', function () {
+      var isOpen = nav.classList.toggle('open');
+      btn.classList.toggle('open', isOpen);
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    nav.querySelectorAll('.mobile-nav__link').forEach(function (link) {
+      link.addEventListener('click', function () {
+        nav.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+  });
+
+  /* ── AUTO-SCROLL TESTIMONIANZE (mobile) ── */
+  document.querySelectorAll('.gr-widget-grid').forEach(function (grid) {
+    var cards = grid.querySelectorAll(':scope > div');
+    if (cards.length < 2) return;
+    var idx = 0;
+    setInterval(function () {
+      if (window.innerWidth > 767) return;
+      idx = (idx + 1) % cards.length;
+      grid.scrollTo({ left: cards[idx].offsetLeft, behavior: 'smooth' });
+    }, 3000);
+  });
+
   /* ── SOSTITUZIONE <img> → PLACEHOLDER (logo o immagine) ── */
   document.querySelectorAll('#wf-wrapper img').forEach(function (img) {
     var src    = img.getAttribute('src') || '';
@@ -3021,7 +3070,7 @@
   initHeroSlider('page-home-v2');
 
   /* ── ANNO FOOTER ── */
-  document.querySelectorAll('.footer-year').forEach(function (el) { el.textContent = '2025'; });
+  document.querySelectorAll('.footer-year').forEach(function (el) { el.textContent = '2026'; });
 
   /* ══ NOTE SVILUPPATORE ═════════════════════════════════════════════ */
   var devNotes = {
