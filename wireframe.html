@@ -317,137 +317,162 @@
   <style>
     /* ════════════════════════════════════════════════════════
        MOCKUP HOMEPAGE V2 — Identità Visiva applicata
+       Sequenza sfondi: foto → bianco → sabbia → verde (aziendale)
+                        → terracotta → bianco → crema → footer verde
        ════════════════════════════════════════════════════════ */
 
-    /* Rimuovi grayscale wireframe per homepage v2 */
     #page-home-v2 > main,
     #page-home-v2 > .site-footer { filter: none !important; }
 
-    /* ── Contenitore frammenti geometrici ── */
-    .vi-frags {
-      position: absolute; inset: 0;
-      pointer-events: none; overflow: hidden; z-index: 1;
+    #page-home-v2 {
+      --frag-a: polygon(6% 0, 94% 4%, 100% 50%, 93% 100%, 5% 96%, 0 48%);
+      --frag-b: polygon(0 12%, 88% 0, 100% 62%, 82% 100%, 10% 92%);
+      --frag-img: polygon(8% 0, 100% 0, 100% 86%, 90% 100%, 0 100%, 0 12%);
     }
+
+    .vi-frags { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 1; }
+
+    /* ── Tipografia ── */
+    #page-home-v2 h2 { font-weight: 600; letter-spacing: -0.01em; }
+    #page-home-v2 .section-label {
+      display: inline-block;
+      padding: 0.45rem 1.3rem;
+      background: var(--c-green-100);
+      color: var(--c-green-700);
+      clip-path: var(--frag-a);
+      font-size: 0.75rem;
+    }
+
+    /* ── Pulsanti a frammento ── */
+    #page-home-v2 .btn { border-radius: 0; border: none; clip-path: var(--frag-a); padding: 1rem 2.2rem; }
+    #page-home-v2 .btn--primary { background: var(--c-terracotta); color: #fff; }
+    #page-home-v2 .btn--primary:hover { background: #7f4e39; }
+    #page-home-v2 .btn--secondary { background: var(--c-cream); color: var(--c-terracotta); }
+    #page-home-v2 .btn--secondary:hover { background: var(--c-peach); color: #5c3626; }
 
     /* ══════════════ HERO ══════════════ */
     #page-home-v2 .home-hero { position: relative; }
-    /* Gradient overlay: caldo terracotta → scuro → sabbia */
     #page-home-v2 .hero-slide::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(160deg,
-        rgba(159,100,74,0.45) 0%,
-        rgba(8,8,8,0.58) 45%,
-        rgba(230,191,145,0.20) 100%);
-      z-index: 1;
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(160deg, rgba(159,100,74,0.55) 0%, rgba(20,14,10,0.55) 50%, rgba(230,191,145,0.25) 100%);
     }
-    #page-home-v2 .hero-slide__inner { z-index: 3; position: relative; }
-    #page-home-v2 .hero-controls      { z-index: 3; position: relative; }
-    /* Logo mark nel hero */
-    #page-home-v2 .hero-slide__logo-mark {
-      display: block;
-      height: 64px; width: auto;
-      margin: 0 auto 1.2rem;
-      filter: brightness(0) invert(1);
-      opacity: 0.9;
-    }
-    #page-home-v2 .hero-slide__label  { color: var(--c-peach); letter-spacing: 0.18em; }
-    #page-home-v2 .hero-slide__title  { color: #fff; }
-    #page-home-v2 .hero-slide__desc   { color: rgba(255,255,255,0.88); }
+    #page-home-v2 .hero-slide__inner,
+    #page-home-v2 .hero-controls { z-index: 3; position: relative; }
+    #page-home-v2 .hero-slide__logo-mark { display: block; height: 72px; width: auto; margin: 0 auto 1.4rem; }
+    #page-home-v2 .hero-slide__label { color: var(--c-cream); letter-spacing: 0.22em; }
+    #page-home-v2 .hero-slide__title { color: #fff; font-weight: 600; text-shadow: 0 2px 24px rgba(0,0,0,0.25); }
+    #page-home-v2 .hero-slide__desc  { color: rgba(255,255,255,0.92); }
+    #page-home-v2 .hero-dot { background: rgba(248,240,197,0.45); }
+    #page-home-v2 .hero-dot.active { background: var(--c-cream); }
 
-    /* ══════════════ CHI SONO ══════════════ */
-    #page-home-v2 .section--neutral {
-      background: linear-gradient(160deg, #fdf6ee 0%, var(--c-cream) 100%);
+    /* ══════════════ CHI SONO (bianco) ══════════════ */
+    #page-home-v2 .section--neutral { background: #fff; }
+    #page-home-v2 .nicoletta-preview__img-container {
+      position: relative; clip-path: var(--frag-img); border-radius: 0;
     }
+    #page-home-v2 .nicoletta-preview__image { position: relative; }
+    #page-home-v2 .nicoletta-preview__image::before {
+      content: ''; position: absolute; z-index: 0;
+      width: 55%; height: 45%; right: -6%; bottom: -6%;
+      background: var(--c-peach); clip-path: var(--frag-b); opacity: 0.7;
+    }
+    #page-home-v2 .nicoletta-preview__img-container { z-index: 1; }
+    #page-home-v2 .nicoletta-preview__text h2 { color: var(--c-terracotta); }
+    #page-home-v2 .nicoletta-preview__intro { color: #2b2b2b; }
     #page-home-v2 .nicoletta-preview__method {
-      background: var(--c-green-100);
-      border-left: 3px solid var(--c-green-700);
-      border-radius: 0 8px 8px 0;
-      padding: 1rem 1.2rem;
-      color: var(--c-green-700);
+      background: var(--c-cream); color: #4a3a2e;
+      border: none; border-left: 3px solid var(--c-terracotta);
+      padding: 1.1rem 1.3rem;
     }
-    #page-home-v2 .nicoletta-stat__num  { color: var(--c-terracotta); font-weight: 700; }
-    #page-home-v2 .nicoletta-stat__label { color: var(--c-green-700); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; }
-    #page-home-v2 .tag--green  { background: var(--c-green-100); color: var(--c-green-700); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.78rem; font-weight: 600; }
-    #page-home-v2 .tag--peach  { background: #f5e8d4; color: var(--c-terracotta); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.78rem; font-weight: 600; }
+    #page-home-v2 .nicoletta-stat__num { color: var(--c-terracotta); font-weight: 700; }
+    #page-home-v2 .nicoletta-stat__label { color: var(--c-green-700); }
+    #page-home-v2 .nicoletta-stats-row .nicoletta-stat { border-right-color: var(--c-peach); }
+    #page-home-v2 .tag {
+      clip-path: var(--frag-a); border: none; border-radius: 0;
+      padding: 0.4rem 1.1rem; font-weight: 600;
+    }
+    #page-home-v2 .tag--green { background: var(--c-green-100); color: var(--c-green-700); }
+    #page-home-v2 .tag--peach { background: var(--c-peach); color: #5c3626; }
 
-    /* ══════════════ PERCORSI ══════════════ */
-    #page-home-v2 .section--green {
-      background: linear-gradient(160deg, var(--c-cream) 0%, #f0e8d8 100%);
-    }
-    #page-home-v2 .section--green .section-label { color: var(--c-terracotta); }
-    #page-home-v2 .section--green h2 { color: var(--c-green-700); }
-    #page-home-v2 .section--green .section__intro { color: #4a4540; }
-    /* Card percorsi */
+    /* ══════════════ PERCORSI (sabbia) ══════════════ */
+    #page-home-v2 .section--green { background: var(--c-peach); }
+    #page-home-v2 .section--green .section-label { background: var(--c-cream); color: var(--c-terracotta); }
+    #page-home-v2 .section--green h2 { color: #3b2418; }
+    #page-home-v2 .section--green .section__intro { color: #3b2e26; }
     #page-home-v2 .percorso-card {
-      background: #fff;
-      border: 1px solid #ede0cf;
-      border-radius: 12px;
-      box-shadow: 0 4px 24px rgba(159,100,74,0.07);
-      overflow: hidden;
+      background: #fff; border: none; border-radius: 0;
+      box-shadow: 0 10px 30px rgba(92,54,38,0.12);
     }
-    #page-home-v2 .percorso-card:hover { border-color: var(--c-peach); box-shadow: 0 8px 32px rgba(159,100,74,0.13); }
-    #page-home-v2 .percorso-card__title { color: var(--c-green-700); }
-    #page-home-v2 .percorso-card__desc  { color: #5a5248; }
-    #page-home-v2 .percorso-card--yoga .percorso-card__badge     { background: var(--c-green-700); }
-    #page-home-v2 .percorso-card--coaching .percorso-card__badge { background: var(--c-terracotta); }
-    #page-home-v2 .percorso-card--benessere .percorso-card__badge{ background: var(--c-green-500); }
-    /* Box su misura */
-    #page-home-v2 .section--green .reveal[style] {
-      background: #fff !important;
-      border: 1px solid #e6bf91 !important;
-      border-radius: 12px !important;
+    #page-home-v2 .percorso-card__image { clip-path: polygon(0 0, 100% 0, 100% 88%, 70% 100%, 0 94%); }
+    #page-home-v2 .percorso-card__badge { clip-path: var(--frag-a); border-radius: 0; padding: 0.4rem 1.1rem; }
+    #page-home-v2 .percorso-card--yoga .percorso-card__badge      { background: var(--c-green-700); color: #fff; }
+    #page-home-v2 .percorso-card--coaching .percorso-card__badge  { background: var(--c-terracotta); color: #fff; }
+    #page-home-v2 .percorso-card--benessere .percorso-card__badge { background: var(--c-cream); color: #5c3626; }
+    #page-home-v2 .percorso-card__title { color: var(--c-terracotta); font-weight: 600; }
+    #page-home-v2 .percorso-card__desc  { color: #4a4540; }
+    /* Box "su misura" */
+    #page-home-v2 .section--green .reveal[style*="space-between"] {
+      background: var(--c-terracotta) !important; border: none !important;
+      clip-path: polygon(0 0, 98% 0, 100% 30%, 100% 100%, 2% 100%, 0 70%);
     }
-    #page-home-v2 .section--green .reveal[style] h3 { color: var(--c-green-700); }
-    #page-home-v2 .section--green .reveal[style] p { color: #5a5248; }
+    #page-home-v2 .section--green .reveal[style*="space-between"] h3 { color: #fff; }
+    #page-home-v2 .section--green .reveal[style*="space-between"] p  { color: var(--c-cream) !important; }
+    #page-home-v2 .section--green .reveal[style*="space-between"] .btn--primary { background: var(--c-cream); color: var(--c-terracotta); }
 
-    /* ══════════════ BENESSERE AZIENDALE ══════════════ */
-    #page-home-v2 .aziendale-section {
-      background: var(--g-corporate);
-      color: var(--c-white);
-      position: relative; overflow: hidden;
-    }
-    #page-home-v2 .aziendale-section .section-label--peach { color: var(--c-peach); }
-    #page-home-v2 .aziendale-section h2          { color: #fff; }
-    #page-home-v2 .aziendale-section p           { color: rgba(255,255,255,0.82); }
-    #page-home-v2 .aziendale-section .az-home-list__label { color: rgba(255,255,255,0.85); }
-    #page-home-v2 .aziendale-section .az-home-list__icon  { color: var(--c-peach); }
-    #page-home-v2 .aziendale-section .btn--secondary {
-      color: #fff; border-color: rgba(255,255,255,0.45);
-    }
-    #page-home-v2 .aziendale-section .btn--secondary:hover {
-      background: rgba(255,255,255,0.1); border-color: #fff;
+    /* ══════════════ BENESSERE AZIENDALE (verde) ══════════════ */
+    #page-home-v2 .aziendale-section { background: var(--g-corporate); position: relative; overflow: hidden; }
+    #page-home-v2 .aziendale-section .section-label { background: rgba(230,191,145,0.18); color: var(--c-peach); }
+    #page-home-v2 .aziendale-section h2 { color: #fff; }
+    #page-home-v2 .aziendale-section p  { color: rgba(255,255,255,0.85); }
+    #page-home-v2 .az-home-list__item { border-color: rgba(255,255,255,0.14); }
+    #page-home-v2 .az-home-list__label { color: #fff; }
+    #page-home-v2 .az-home-list__icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px; flex-shrink: 0;
+      background: rgba(230,191,145,0.18); color: var(--c-peach);
+      clip-path: var(--frag-a);
     }
 
-    /* ══════════════ VISUAL BREAK (citazione) ══════════════ */
-    #page-home-v2 .visual-break {
-      background: linear-gradient(150deg, var(--c-peach) 0%, var(--c-cream) 60%, #f5ede0 100%);
-      position: relative; overflow: hidden;
-    }
-    #page-home-v2 .visual-break .visual-break__quote,
-    #page-home-v2 .visual-break .visual-break__attr { color: var(--c-green-700) !important; }
-    #page-home-v2 .visual-break em { color: var(--c-terracotta); font-style: italic; }
+    /* ══════════════ CITAZIONE (terracotta) ══════════════ */
+    #page-home-v2 .visual-break { background: var(--c-terracotta); position: relative; overflow: hidden; }
+    #page-home-v2 .visual-break .container { position: relative; z-index: 2; }
+    #page-home-v2 .visual-break__image { clip-path: var(--frag-img); }
+    #page-home-v2 .visual-break__quote { color: var(--c-cream) !important; font-weight: 500; }
+    #page-home-v2 .visual-break__quote em { color: #fff; }
+    #page-home-v2 .visual-break__attr { color: var(--c-peach) !important; }
 
-    /* ══════════════ TESTIMONIANZE ══════════════ */
-    /* section--neutral già coperta sopra (caldo) */
+    /* ══════════════ TESTIMONIANZE (bianco) ══════════════ */
+    #page-home-v2 [aria-label="Testimonianze"] h2 { color: var(--c-terracotta); }
+    #page-home-v2 [aria-label="Testimonianze"] .reveal > div {
+      border: 1px solid var(--c-peach) !important; border-radius: 0 !important;
+    }
+    #page-home-v2 .gr-widget-grid > div { background: #fdf8ec !important; border-radius: 0 !important; clip-path: polygon(0 0, 96% 0, 100% 8%, 100% 100%, 4% 100%, 0 92%); }
+
+    /* ══════════════ FORM (crema) ══════════════ */
+    #page-home-v2 .section--cream { background: var(--c-cream); }
+    #page-home-v2 .section--cream .section-label { background: var(--c-terracotta); color: var(--c-cream); }
+    #page-home-v2 .section--cream h2 { color: var(--c-terracotta); }
+    #page-home-v2 .section--cream .section__intro { color: #4a3a2e; }
+    #page-home-v2 .form-label { color: #3b2418; }
+    #page-home-v2 .form-input { background: #fff; border: 1px solid var(--c-peach); border-radius: 0; }
+    #page-home-v2 .form-input:focus { border-color: var(--c-terracotta); outline: 2px solid rgba(159,100,74,0.2); }
 
     /* ══════════════ FOOTER ══════════════ */
-    #page-home-v2 .site-footer {
-      background: var(--c-green-700);
-    }
-    #page-home-v2 .footer__payoff { color: rgba(255,255,255,0.72); }
-    #page-home-v2 .footer__col h5 { color: var(--c-peach); }
+    #page-home-v2 .site-footer { background: var(--c-green-700); }
+    #page-home-v2 .footer__payoff { color: rgba(255,255,255,0.8); }
+    #page-home-v2 .footer__col h5 { color: var(--c-cream); }
     #page-home-v2 .footer__contact-item,
-    #page-home-v2 .footer__contact-item a { color: rgba(255,255,255,0.72); }
+    #page-home-v2 .footer__contact-item a { color: rgba(255,255,255,0.8); }
     #page-home-v2 .footer__social-link {
-      border-color: rgba(255,255,255,0.3);
-      color: rgba(255,255,255,0.8);
+      border: none; border-radius: 0; clip-path: var(--frag-a);
+      background: rgba(255,255,255,0.14); color: #fff;
     }
-    #page-home-v2 .footer__social-link:hover { border-color: var(--c-peach); color: var(--c-peach); }
-    #page-home-v2 .footer__legal a { color: rgba(255,255,255,0.45); }
-    #page-home-v2 .footer__legal a:hover { color: rgba(255,255,255,0.85); }
-    #page-home-v2 .footer__copy { color: rgba(255,255,255,0.3); }
-    #page-home-v2 .footer__bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 1.5rem; }
+    #page-home-v2 .footer__social-link:hover { background: var(--c-peach); color: #3b2418; }
+    #page-home-v2 .footer__col .btn--outline { background: var(--c-cream); color: var(--c-terracotta) !important; clip-path: var(--frag-a); border: none; }
+    #page-home-v2 .footer__legal a { color: rgba(255,255,255,0.6); }
+    #page-home-v2 .footer__legal a:hover { color: #fff; }
+    #page-home-v2 .footer__copy { color: rgba(255,255,255,0.55); }
+    #page-home-v2 .footer__bottom { border-top: 1px solid rgba(255,255,255,0.18); padding-top: 1.5rem; }
   </style>
 </head>
 <body>
@@ -3165,6 +3190,7 @@
 
   /* ── SOSTITUZIONE <img> → PLACEHOLDER (logo o immagine) ── */
   document.querySelectorAll('#wf-wrapper img').forEach(function (img) {
+    if (img.closest('#page-home-v2')) return;
     var src    = img.getAttribute('src') || '';
     var cls    = img.className || '';
     var isLogo = src.indexOf('/LOGO/') !== -1 || cls.indexOf('logo') !== -1;
@@ -3191,6 +3217,7 @@
   /* ── RIMUOVI background-image → overlay X per visibilità wireframe ── */
   document.querySelectorAll('#wf-wrapper [style]').forEach(function (el) {
     if ((el.getAttribute('style') || '').indexOf('background-image') === -1) return;
+    if (el.closest('#page-home-v2')) return;
     el.style.backgroundImage = 'none';
     el.style.backgroundColor = '#b4b4b4';
     var cs = window.getComputedStyle(el);
