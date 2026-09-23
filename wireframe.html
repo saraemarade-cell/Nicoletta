@@ -407,6 +407,18 @@
       border: none; border-left: 3px solid var(--c-terracotta);
       padding: 1.1rem 1.3rem;
     }
+    #page-home-v2 .nicoletta-preview__subtitle {
+      font-family: var(--font-display); font-size: 1.15rem; font-weight: 500;
+      color: var(--c-green-700); margin-bottom: 1.2rem;
+    }
+    #page-home-v2 .nicoletta-credentials {
+      font-size: 0.9rem; font-weight: 600; letter-spacing: 0.02em;
+      color: #5c3626; line-height: 1.7; margin: -0.8rem 0 1.6rem;
+    }
+    #page-home-v2 .percorso-card__tags {
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em;
+      color: var(--c-terracotta); margin: -0.6rem 0 0.4rem;
+    }
     #page-home-v2 .nicoletta-stat__num { color: var(--c-terracotta); font-weight: 700; }
     #page-home-v2 .nicoletta-stat__label { color: var(--c-green-700); }
     #page-home-v2 .nicoletta-stats-row .nicoletta-stat { border-right-color: var(--c-peach); }
@@ -974,8 +986,8 @@
       <div class="hero-slide__inner">
         <img class="hero-slide__logo-mark" src="Assets/Foto/LOGO/BIANCO/nipittogrammabianco.webp" alt="" aria-hidden="true"/>
         <span class="hero-slide__label">Percorso Coaching</span>
-        <h1 class="hero-slide__title">Chiarezza,<br>direzione e&nbsp;cambiamento reale.</h1>
-        <p class="hero-slide__desc">Non soluzioni rapide, ma&nbsp;un&nbsp;metodo strutturato per&nbsp;fare chiarezza su&nbsp;sé stessi e&nbsp;costruire cambiamenti che&nbsp;durano.</p>
+        <h1 class="hero-slide__title">Dalla consapevolezza<br>all'azione.</h1>
+        <p class="hero-slide__desc">Un percorso per&nbsp;fare chiarezza, superare ciò che&nbsp;ti limita e&nbsp;costruire il&nbsp;cambiamento.</p>
         <div class="hero-slide__ctas" style="justify-content:center;"><a href="#home-v2-form" class="btn btn--secondary" onclick="document.getElementById('home-v2-form').scrollIntoView({behavior:'smooth'});return false;">Prenota una&nbsp;call</a></div>
       </div>
     </div>
@@ -999,23 +1011,25 @@
       </div>
       <div class="nicoletta-preview__text reveal">
         <span class="section-label">Chi sono</span>
-        <h2 style="margin-bottom:1.2rem;">Un metodo fondato su&nbsp;studio, ascolto e&nbsp;pratica concreta.</h2>
+        <h2 style="margin-bottom:0.8rem;">La persona al&nbsp;centro. La&nbsp;competenza al&nbsp;servizio del&nbsp;cambiamento.</h2>
+        <p class="nicoletta-preview__subtitle">Dove esperienza, metodo e&nbsp;scienza incontrano la&nbsp;persona.</p>
         <p class="nicoletta-preview__intro">Nicoletta Ingusci lavora con&nbsp;persone e&nbsp;organizzazioni per&nbsp;costruire percorsi di&nbsp;benessere reali, personalizzati e&nbsp;sostenibili, integrando yoga, coaching e&nbsp;conoscenze scientifiche.</p>
-        <div class="nicoletta-preview__method">Non si tratta di&nbsp;proporre soluzioni rapide. Si tratta di&nbsp;costruire insieme un&nbsp;percorso che&nbsp;risponda a esigenze reali e&nbsp;produca cambiamenti duraturi.</div>
+        <div class="nicoletta-preview__method">Non esistono percorsi uguali per&nbsp;tutti. Esiste la&nbsp;possibilità di&nbsp;individuare ciò che&nbsp;serve davvero, trasformarlo in strumenti concreti e&nbsp;creare un&nbsp;cambiamento che&nbsp;possa diventare parte della propria vita.</div>
         <div class="nicoletta-stats-row">
-          <div class="nicoletta-stat">
-            <span class="nicoletta-stat__num">4500+</span>
-            <span class="nicoletta-stat__label">Ore di&nbsp;insegnamento</span>
-          </div>
           <div class="nicoletta-stat">
             <span class="nicoletta-stat__num">17+</span>
             <span class="nicoletta-stat__label">Anni di&nbsp;pratica</span>
           </div>
           <div class="nicoletta-stat">
+            <span class="nicoletta-stat__num">4.800+</span>
+            <span class="nicoletta-stat__label">Ore di&nbsp;insegnamento</span>
+          </div>
+          <div class="nicoletta-stat">
             <span class="nicoletta-stat__num nicoletta-stat__num--sm">E-RYT 800</span>
-            <span class="nicoletta-stat__label">Certificata Yoga Alliance</span>
+            <span class="nicoletta-stat__label">Formazione indiana</span>
           </div>
         </div>
+        <p class="nicoletta-credentials">PNL Coach professionista membro ICF &middot; Luxx Profile Expert &middot; Formatrice &middot; Esperienza in ambito clinico e&nbsp;aziendale</p>
         <div class="nicoletta-preview__tags">
           <span class="tag tag--green">Yoga</span>
           <span class="tag tag--green">Coaching</span>
@@ -1041,8 +1055,8 @@
           <div class="percorso-card__badge">Yoga</div>
         </div>
         <div class="percorso-card__body">
-          <h3 class="percorso-card__title">Il percorso Yoga</h3>
-          <p class="percorso-card__desc">Uno strumento di&nbsp;conoscenza di&nbsp;sé che&nbsp;integra movimento, respiro e&nbsp;consapevolezza in modo scientifico e&nbsp;personalizzato. Percorsi individuali e&nbsp;di gruppo, in presenza e&nbsp;a distanza.</p>
+          <h3 class="percorso-card__title">Tradizione antica, conoscenza contemporanea, pratica personale.</h3>
+          <p class="percorso-card__desc">Un sapere antico che&nbsp;dialoga con&nbsp;le conoscenze contemporanee sulla salute e&nbsp;sul benessere, attraverso percorsi costruiti sulla persona. Individualmente o&nbsp;in gruppo. In presenza oppure online.</p>
         </div>
       </article>
       <article class="percorso-card percorso-card--coaching">
@@ -1051,8 +1065,9 @@
           <div class="percorso-card__badge">Coaching</div>
         </div>
         <div class="percorso-card__body">
-          <h3 class="percorso-card__title">Il percorso Coaching</h3>
-          <p class="percorso-card__desc">Un percorso che&nbsp;parte dall'ascolto per&nbsp;portare chiarezza, strumenti concreti e&nbsp;direzione. Non soluzioni rapide, ma&nbsp;cambiamenti reali e&nbsp;sostenibili nel&nbsp;tempo.</p>
+          <h3 class="percorso-card__title">Comprendere. Scegliere. Agire.</h3>
+          <p class="percorso-card__desc">Un metodo strutturato e&nbsp;personalizzato per&nbsp;fare chiarezza, superare ciò che&nbsp;ti limita e&nbsp;trasformare intenzioni e&nbsp;obiettivi in cambiamenti concreti.</p>
+          <p class="percorso-card__tags">Life &middot; Health &amp; Wellness &middot; Sport &amp; Performance &middot; Business &amp; Leadership</p>
         </div>
       </article>
       <article class="percorso-card percorso-card--benessere">
@@ -1117,7 +1132,7 @@
         <img src="Assets/Foto/lafondatrice.webp" alt="" loading="lazy"/>
       </div>
       <blockquote>
-        <p class="visual-break__quote">&ldquo;Il benessere non è un&nbsp;arrivo. È il&nbsp;modo in cui <em>stai nel&nbsp;percorso.</em>&rdquo;</p>
+        <p class="visual-break__quote">&ldquo;Il cambiamento non inizia quando diventiamo qualcun altro, ma&nbsp;quando impariamo a&nbsp;<em>vedere con&nbsp;chiarezza chi siamo.</em>&rdquo;</p>
         <footer class="visual-break__attr">— Nicoletta Ingusci</footer>
       </blockquote>
     </div>
@@ -1200,8 +1215,8 @@
   <div class="container" style="max-width:860px;">
     <div class="section__header section__header--centered reveal">
       <span class="section-label">Contatti</span>
-      <h2>Scrivici.</h2>
-      <p class="section__intro" style="text-align:center;margin-inline:auto;">Compila il modulo e riceverai una risposta entro breve.</p>
+      <h2>Parlaci di&nbsp;te e&nbsp;di quello che&nbsp;cerchi.</h2>
+      <p class="section__intro" style="text-align:center;margin-inline:auto;">Compila il form o&nbsp;scrivi direttamente. Nicoletta o&nbsp;il suo team risponderanno per&nbsp;capire insieme il&nbsp;percorso più adatto.</p>
     </div>
     <form id="contact-form-v2" class="contact-form reveal" novalidate>
   <div class="form-group"><label for="v2-nome-c" class="form-label">Nome e&nbsp;cognome <span aria-hidden="true">*</span></label><input type="text" id="v2-nome-c" name="nome" class="form-input" required autocomplete="name" placeholder="[Nome Cognome]"/></div>
