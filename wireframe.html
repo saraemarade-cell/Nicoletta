@@ -329,58 +329,125 @@
       pointer-events: none; overflow: hidden; z-index: 1;
     }
 
-    /* ── Hero v2: gradient overlay warm-to-green come VI (img 4) ── */
+    /* ══════════════ HERO ══════════════ */
     #page-home-v2 .home-hero { position: relative; }
+    /* Gradient overlay: caldo terracotta → scuro → sabbia */
     #page-home-v2 .hero-slide::after {
       content: '';
       position: absolute; inset: 0;
       background: linear-gradient(160deg,
-        rgba(99,118,100,0.52) 0%,
-        rgba(8,8,8,0.52) 50%,
-        rgba(159,100,74,0.22) 100%);
+        rgba(159,100,74,0.45) 0%,
+        rgba(8,8,8,0.58) 45%,
+        rgba(230,191,145,0.20) 100%);
       z-index: 1;
     }
     #page-home-v2 .hero-slide__inner { z-index: 3; position: relative; }
     #page-home-v2 .hero-controls      { z-index: 3; position: relative; }
+    /* Logo mark nel hero */
+    #page-home-v2 .hero-slide__logo-mark {
+      display: block;
+      height: 64px; width: auto;
+      margin: 0 auto 1.2rem;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+    }
+    #page-home-v2 .hero-slide__label  { color: var(--c-peach); letter-spacing: 0.18em; }
+    #page-home-v2 .hero-slide__title  { color: #fff; }
+    #page-home-v2 .hero-slide__desc   { color: rgba(255,255,255,0.88); }
 
-    /* ── Sezione "I percorsi": badge colori VI ── */
+    /* ══════════════ CHI SONO ══════════════ */
+    #page-home-v2 .section--neutral {
+      background: linear-gradient(160deg, #fdf6ee 0%, var(--c-cream) 100%);
+    }
+    #page-home-v2 .nicoletta-preview__method {
+      background: var(--c-green-100);
+      border-left: 3px solid var(--c-green-700);
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.2rem;
+      color: var(--c-green-700);
+    }
+    #page-home-v2 .nicoletta-stat__num  { color: var(--c-terracotta); font-weight: 700; }
+    #page-home-v2 .nicoletta-stat__label { color: var(--c-green-700); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; }
+    #page-home-v2 .tag--green  { background: var(--c-green-100); color: var(--c-green-700); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.78rem; font-weight: 600; }
+    #page-home-v2 .tag--peach  { background: #f5e8d4; color: var(--c-terracotta); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.78rem; font-weight: 600; }
+
+    /* ══════════════ PERCORSI ══════════════ */
+    #page-home-v2 .section--green {
+      background: linear-gradient(160deg, var(--c-cream) 0%, #f0e8d8 100%);
+    }
+    #page-home-v2 .section--green .section-label { color: var(--c-terracotta); }
+    #page-home-v2 .section--green h2 { color: var(--c-green-700); }
+    #page-home-v2 .section--green .section__intro { color: #4a4540; }
+    /* Card percorsi */
+    #page-home-v2 .percorso-card {
+      background: #fff;
+      border: 1px solid #ede0cf;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(159,100,74,0.07);
+      overflow: hidden;
+    }
+    #page-home-v2 .percorso-card:hover { border-color: var(--c-peach); box-shadow: 0 8px 32px rgba(159,100,74,0.13); }
+    #page-home-v2 .percorso-card__title { color: var(--c-green-700); }
+    #page-home-v2 .percorso-card__desc  { color: #5a5248; }
     #page-home-v2 .percorso-card--yoga .percorso-card__badge     { background: var(--c-green-700); }
     #page-home-v2 .percorso-card--coaching .percorso-card__badge { background: var(--c-terracotta); }
     #page-home-v2 .percorso-card--benessere .percorso-card__badge{ background: var(--c-green-500); }
+    /* Box su misura */
+    #page-home-v2 .section--green .reveal[style] {
+      background: #fff !important;
+      border: 1px solid #e6bf91 !important;
+      border-radius: 12px !important;
+    }
+    #page-home-v2 .section--green .reveal[style] h3 { color: var(--c-green-700); }
+    #page-home-v2 .section--green .reveal[style] p { color: #5a5248; }
 
-    /* ── Sezione Benessere Aziendale: gradiente scuro corporate ── */
+    /* ══════════════ BENESSERE AZIENDALE ══════════════ */
     #page-home-v2 .aziendale-section {
       background: var(--g-corporate);
       color: var(--c-white);
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
     }
-    #page-home-v2 .aziendale-section h2          { color: var(--c-white); }
-    #page-home-v2 .aziendale-section p           { color: rgba(255,255,255,0.78); }
-    #page-home-v2 .aziendale-section .az-home-list__label { color: rgba(255,255,255,0.82); }
+    #page-home-v2 .aziendale-section .section-label--peach { color: var(--c-peach); }
+    #page-home-v2 .aziendale-section h2          { color: #fff; }
+    #page-home-v2 .aziendale-section p           { color: rgba(255,255,255,0.82); }
+    #page-home-v2 .aziendale-section .az-home-list__label { color: rgba(255,255,255,0.85); }
     #page-home-v2 .aziendale-section .az-home-list__icon  { color: var(--c-peach); }
     #page-home-v2 .aziendale-section .btn--secondary {
-      color: var(--c-white); border-color: rgba(255,255,255,0.4);
+      color: #fff; border-color: rgba(255,255,255,0.45);
     }
     #page-home-v2 .aziendale-section .btn--secondary:hover {
-      background: rgba(255,255,255,0.1); border-color: var(--c-white);
+      background: rgba(255,255,255,0.1); border-color: #fff;
     }
 
-    /* ── Visual break: gradiente verde salvia scuro ── */
+    /* ══════════════ VISUAL BREAK (citazione) ══════════════ */
     #page-home-v2 .visual-break {
-      background: linear-gradient(150deg, #3d4a3e 0%, #637664 60%, #93A496 100%);
+      background: linear-gradient(150deg, var(--c-peach) 0%, var(--c-cream) 60%, #f5ede0 100%);
       position: relative; overflow: hidden;
     }
     #page-home-v2 .visual-break .visual-break__quote,
-    #page-home-v2 .visual-break .visual-break__attr { color: var(--c-white) !important; }
-    #page-home-v2 .visual-break em { color: var(--c-cream); }
+    #page-home-v2 .visual-break .visual-break__attr { color: var(--c-green-700) !important; }
+    #page-home-v2 .visual-break em { color: var(--c-terracotta); font-style: italic; }
 
-    /* ── Sezione Chi sono: accent sulla stat ── */
-    #page-home-v2 .nicoletta-stat__num { color: var(--c-green-700); }
+    /* ══════════════ TESTIMONIANZE ══════════════ */
+    /* section--neutral già coperta sopra (caldo) */
 
-    /* ── Tag ── */
-    #page-home-v2 .tag--green  { background: var(--c-green-100); color: var(--c-green-700); }
-    #page-home-v2 .tag--peach  { background: #f5e8d4; color: var(--c-terracotta); }
+    /* ══════════════ FOOTER ══════════════ */
+    #page-home-v2 .site-footer {
+      background: var(--c-green-700);
+    }
+    #page-home-v2 .footer__payoff { color: rgba(255,255,255,0.72); }
+    #page-home-v2 .footer__col h5 { color: var(--c-peach); }
+    #page-home-v2 .footer__contact-item,
+    #page-home-v2 .footer__contact-item a { color: rgba(255,255,255,0.72); }
+    #page-home-v2 .footer__social-link {
+      border-color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.8);
+    }
+    #page-home-v2 .footer__social-link:hover { border-color: var(--c-peach); color: var(--c-peach); }
+    #page-home-v2 .footer__legal a { color: rgba(255,255,255,0.45); }
+    #page-home-v2 .footer__legal a:hover { color: rgba(255,255,255,0.85); }
+    #page-home-v2 .footer__copy { color: rgba(255,255,255,0.3); }
+    #page-home-v2 .footer__bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 1.5rem; }
   </style>
 </head>
 <body>
@@ -833,6 +900,7 @@
   <div class="hero-slides">
     <div class="hero-slide active" style="background-image: url('Assets/Foto/homehero.webp');" role="group" aria-label="Slide 1 di 3">
       <div class="hero-slide__inner">
+        <img class="hero-slide__logo-mark" src="Assets/Foto/LOGO/BIANCO/nipittogrammabianco.webp" alt="" aria-hidden="true"/>
         <span class="hero-slide__label">Yoga &middot; Coaching &middot; Benessere</span>
         <h1 class="hero-slide__title">Il benessere non&nbsp;<span style="white-space:nowrap">è un&nbsp;traguardo.</span><br>È una&nbsp;pratica.</h1>
         <p class="hero-slide__desc">Un approccio integrato che&nbsp;mette in dialogo corpo, mente e&nbsp;conoscenze scientifiche per&nbsp;costruire equilibrio, consapevolezza e&nbsp;cambiamenti sostenibili.</p>
@@ -841,6 +909,7 @@
     </div>
     <div class="hero-slide" style="background-image: url('Assets/Foto/yoga.webp');" role="group" aria-label="Slide 2 di 3">
       <div class="hero-slide__inner">
+        <img class="hero-slide__logo-mark" src="Assets/Foto/LOGO/BIANCO/nipittogrammabianco.webp" alt="" aria-hidden="true"/>
         <span class="hero-slide__label">Percorso Yoga</span>
         <h1 class="hero-slide__title">Movimento,<br>respiro e&nbsp;consapevolezza.</h1>
         <p class="hero-slide__desc">Percorsi individuali e&nbsp;di gruppo che&nbsp;integrano pratica, anatomia e&nbsp;conoscenze scientifiche. In presenza e&nbsp;a distanza.</p>
@@ -849,6 +918,7 @@
     </div>
     <div class="hero-slide" style="background-image: url('Assets/Foto/coaching.webp');" role="group" aria-label="Slide 3 di 3">
       <div class="hero-slide__inner">
+        <img class="hero-slide__logo-mark" src="Assets/Foto/LOGO/BIANCO/nipittogrammabianco.webp" alt="" aria-hidden="true"/>
         <span class="hero-slide__label">Percorso Coaching</span>
         <h1 class="hero-slide__title">Chiarezza,<br>direzione e&nbsp;cambiamento reale.</h1>
         <p class="hero-slide__desc">Non soluzioni rapide, ma&nbsp;un&nbsp;metodo strutturato per&nbsp;fare chiarezza su&nbsp;sé stessi e&nbsp;costruire cambiamenti che&nbsp;durano.</p>
