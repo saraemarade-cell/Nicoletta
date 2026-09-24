@@ -542,16 +542,31 @@
     #page-home-v2 .form-check { gap: 0.9rem; margin-bottom: 27px; }
     #page-home-v2 .form-check__input { margin-right: 0.9rem; flex-shrink: 0; }
 
-    /* Navbar non fissa: scorre via con la pagina */
-    #wf-wrapper #page-home-v2 .site-header { position: absolute !important; }
+    /* Navbar fissa: allo scroll mostra solo il pittogramma bianco su salvia */
+    #page-home-v2 .site-header__logo--mark { display: none; height: 44px; width: auto; }
+    #wf-wrapper #page-home-v2 .site-header.scrolled {
+      background: var(--c-green-700) !important;
+      border-bottom-color: transparent !important;
+    }
+    #wf-wrapper #page-home-v2 .site-header.scrolled .site-header__logo--white,
+    #wf-wrapper #page-home-v2 .site-header.scrolled .site-header__logo--dark { display: none !important; }
+    #wf-wrapper #page-home-v2 .site-header.scrolled .site-header__logo--mark { display: block !important; }
+    #wf-wrapper #page-home-v2 .site-header:not(.scrolled) .site-header__logo--mark { display: none !important; }
+    @media (max-width: 767px) {
+      #page-home-v2 .site-header__logo--mark { height: 36px; }
+    }
+
+    /* Organizzazioni: contenuto sopra i frammenti */
+    #page-home-v2 .aziendale-section .container { position: relative; z-index: 2; }
+
+    /* Card percorsi: area sotto il taglio dell'immagine dello stesso colore del corpo */
+    #page-home-v2 .percorso-card--yoga      { background: var(--c-cream); }
+    #page-home-v2 .percorso-card--coaching  { background: var(--c-peach); }
+    #page-home-v2 .percorso-card--benessere { background: var(--c-green-100); }
 
     /* ════════ REVISIONE 3 ════════ */
     /* Navbar: logo ridotto allo scroll */
     #page-home-v2 .site-header__logo img { transition: height 0.3s ease; }
-    #page-home-v2 .site-header.scrolled .site-header__logo img { height: 46px; }
-    @media (max-width: 767px) {
-      #page-home-v2 .site-header.scrolled .site-header__logo img { height: 34px; }
-    }
 
     /* Chi sono: fondo crema, niente frammento sotto la foto, numeri protagonisti */
     #page-home-v2 [aria-label="Chi è Nicoletta Ingusci"] { background: var(--c-cream); }
@@ -571,7 +586,7 @@
     #page-home-v2 .section--green { background: var(--c-neutral-050); }
     #page-home-v2 .section--green .section-label { background: var(--c-cream); color: var(--c-terracotta); }
     #page-home-v2 .section--green h2 { color: var(--c-terracotta); }
-    #page-home-v2 .percorso-card { background: transparent; box-shadow: 0 10px 30px rgba(92,54,38,0.10); }
+    #page-home-v2 .percorso-card { box-shadow: 0 10px 30px rgba(92,54,38,0.10); }
     #page-home-v2 .percorso-card__body { background: var(--c-cream); }
     #page-home-v2 .percorso-card--coaching .percorso-card__body { background: var(--c-peach); }
     #page-home-v2 .percorso-card--benessere .percorso-card__body { background: var(--c-green-100); }
@@ -1032,6 +1047,7 @@
     <a href="#page-home-v2" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage" onclick="history.replaceState(null,'','#');window.location.hash='page-home-v2';return false;">
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"    alt="Nicoletta Ingusci" width="160" height="40"/>
+      <img class="site-header__logo--mark"  src="Assets/Foto/LOGO/BIANCO/nipittogrammabianco.webp" alt="Nicoletta Ingusci"/>
     </a>
   </div>
 </header>
@@ -3392,7 +3408,7 @@
       title: 'Homepage v2 — mockup VI', effort: 'Alta — 18–22h',
       plugins: ['Elementor Pro', 'Smart Slider 3', 'WP Reviews Plugin for Google', 'WPForms o Contact Form 7', 'Yoast SEO'],
       sections: [
-        { n: 'Header', t: 'Solo logo centrato (Assets/Foto/LOGO). NON sticky: scorre via con la pagina. Logo bianco su hero.' },
+        { n: 'Header', t: 'Solo logo centrato, sticky. Sull\'hero: trasparente + logo completo bianco. Allo scroll: sfondo salvia #637664 + solo pittogramma bianco (LOGO/BIANCO/nipittogrammabianco.webp), 44px desktop / 36px mobile.' },
         { n: 'Hero slider (3 slide)', t: 'Smart Slider 3. Overlay gradient terracotta→scuro→sabbia + 4 frammenti SVG semitrasparenti. 1 CTA per slide → ancora #form.' },
         { n: 'Chi è Nicoletta', t: 'Fondo crema #F8F0C5. 2 col: foto con clip-path a frammento + testo (terza persona). Fascia 3 numeri allineati (Counter) con separatori terracotta + riga credenziali.' },
         { n: 'I percorsi', t: 'Fondo panna #FAFAFA. 3 card: immagine con taglio irregolare, badge a frammento, corpo colorato (crema / sabbia / salvia chiaro). Box "su misura" sabbia + CTA terracotta.' },
