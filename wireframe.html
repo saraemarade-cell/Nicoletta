@@ -517,7 +517,55 @@
     #page-home-v2 .footer__legal a { color: rgba(255,255,255,0.6); }
     #page-home-v2 .footer__legal a:hover { color: #fff; }
     #page-home-v2 .footer__copy { color: rgba(255,255,255,0.55); }
-    #page-home-v2 .footer__bottom { border-top: 1px solid rgba(255,255,255,0.18); padding-top: 1.5rem; }
+    #page-home-v2 .footer__main { border-bottom-color: rgba(255,255,255,0.18); }
+
+    /* ════════ REVISIONE 3 ════════ */
+    /* Navbar: logo ridotto allo scroll */
+    #page-home-v2 .site-header__logo img { transition: height 0.3s ease; }
+    #page-home-v2 .site-header.scrolled .site-header__logo img { height: 46px; }
+    @media (max-width: 767px) {
+      #page-home-v2 .site-header.scrolled .site-header__logo img { height: 34px; }
+    }
+
+    /* Chi sono: fondo crema, niente frammento sotto la foto, numeri protagonisti */
+    #page-home-v2 [aria-label="Chi è Nicoletta Ingusci"] { background: var(--c-cream); }
+    #page-home-v2 [aria-label="Chi è Nicoletta Ingusci"] .section-label { background: #fff; color: var(--c-terracotta); }
+    #page-home-v2 .nicoletta-preview__image::before { display: none; }
+    #page-home-v2 .nicoletta-preview__intro { margin-bottom: 2.2rem; }
+    #page-home-v2 .nicoletta-stats-row { margin-bottom: 2rem; }
+    #page-home-v2 .nicoletta-stat__num { font-size: clamp(2.2rem, 4vw, 3rem); }
+    #page-home-v2 .nicoletta-stat__num--sm { font-size: clamp(1.7rem, 3vw, 2.2rem); }
+    #page-home-v2 .nicoletta-stat__label { color: #3b2418; margin-top: 0.3rem; }
+    #page-home-v2 .nicoletta-stats-row .nicoletta-stat { border-right-color: var(--c-terracotta); }
+    #page-home-v2 .nicoletta-credentials { margin: 0; color: #5c3626; }
+
+    /* Percorsi: fondo panna, corpo card colorato */
+    #page-home-v2 .section--green { background: var(--c-neutral-050); }
+    #page-home-v2 .section--green .section-label { background: var(--c-cream); color: var(--c-terracotta); }
+    #page-home-v2 .section--green h2 { color: var(--c-terracotta); }
+    #page-home-v2 .percorso-card { background: transparent; box-shadow: 0 10px 30px rgba(92,54,38,0.10); }
+    #page-home-v2 .percorso-card__body { background: var(--c-cream); }
+    #page-home-v2 .percorso-card--coaching .percorso-card__body { background: var(--c-peach); }
+    #page-home-v2 .percorso-card--benessere .percorso-card__body { background: var(--c-green-100); }
+    #page-home-v2 .percorso-card__title { color: #5c3626; }
+    #page-home-v2 .percorso-card--benessere .percorso-card__title { color: var(--c-green-700); }
+    #page-home-v2 .percorso-card__desc { color: #3b2e26; }
+    /* Box "su misura": colore sabbia, più leggero */
+    #page-home-v2 .section--green .reveal[style*="space-between"] { background: var(--c-peach) !important; }
+    #page-home-v2 .section--green .reveal[style*="space-between"] h3 { color: #3b2418; }
+    #page-home-v2 .section--green .reveal[style*="space-between"] p  { color: #4a3a2e !important; }
+    #page-home-v2 .section--green .reveal[style*="space-between"] .btn--primary { background: var(--c-terracotta); color: #fff; }
+
+    /* Organizzazioni: salvia piatto, frammenti più scuri */
+    #page-home-v2 .aziendale-section { background: var(--c-green-700); }
+    #page-home-v2 .aziendale-section .vi-frags polygon { fill: #3d4a3e; }
+    #page-home-v2 .aziendale-section .vi-frags svg { opacity: 0.35 !important; }
+
+    /* Citazione: tinta unica, testo di un solo colore */
+    #page-home-v2 .visual-break__quote em { color: inherit; }
+
+    /* Testimonianze: niente cornice */
+    #page-home-v2 [aria-label="Testimonianze"] .reveal > div { border: none !important; padding: 0 !important; }
   </style>
 </head>
 <body>
@@ -970,7 +1018,6 @@
   <div class="hero-slides">
     <div class="hero-slide active" style="background-image: url('Assets/Foto/homehero.webp');" role="group" aria-label="Slide 1 di 3">
       <div class="hero-slide__inner">
-        <img class="hero-slide__logo-mark" src="Assets/Foto/LOGO/BIANCO/nipittogrammabianco.webp" alt="" aria-hidden="true"/>
         <span class="hero-slide__label">Yoga &middot; Coaching &middot; Benessere</span>
         <h1 class="hero-slide__title">Il benessere non&nbsp;<span style="white-space:nowrap">è un&nbsp;traguardo.</span><br>È una&nbsp;pratica.</h1>
         <p class="hero-slide__desc">Un approccio integrato che&nbsp;mette in dialogo corpo, mente e&nbsp;conoscenze scientifiche per&nbsp;costruire equilibrio, consapevolezza e&nbsp;cambiamenti sostenibili.</p>
@@ -979,7 +1026,6 @@
     </div>
     <div class="hero-slide" style="background-image: url('Assets/Foto/yoga.webp');" role="group" aria-label="Slide 2 di 3">
       <div class="hero-slide__inner">
-        <img class="hero-slide__logo-mark" src="Assets/Foto/LOGO/BIANCO/nipittogrammabianco.webp" alt="" aria-hidden="true"/>
         <span class="hero-slide__label">Percorso Yoga</span>
         <h1 class="hero-slide__title">Movimento,<br>respiro e&nbsp;consapevolezza.</h1>
         <p class="hero-slide__desc">Percorsi individuali e&nbsp;di gruppo che&nbsp;integrano pratica, anatomia e&nbsp;conoscenze scientifiche. In presenza e&nbsp;a distanza.</p>
@@ -988,7 +1034,6 @@
     </div>
     <div class="hero-slide" style="background-image: url('Assets/Foto/coaching.webp');" role="group" aria-label="Slide 3 di 3">
       <div class="hero-slide__inner">
-        <img class="hero-slide__logo-mark" src="Assets/Foto/LOGO/BIANCO/nipittogrammabianco.webp" alt="" aria-hidden="true"/>
         <span class="hero-slide__label">Percorso Coaching</span>
         <h1 class="hero-slide__title">Dalla consapevolezza<br>all'azione.</h1>
         <p class="hero-slide__desc">Un percorso per&nbsp;fare chiarezza, superare ciò che&nbsp;ti limita e&nbsp;costruire il&nbsp;cambiamento.</p>
@@ -1014,11 +1059,10 @@
         </div>
       </div>
       <div class="nicoletta-preview__text reveal">
-        <span class="section-label">Chi sono</span>
+        <span class="section-label">Chi è Nicoletta</span>
         <h2 style="margin-bottom:0.8rem;">La persona al&nbsp;centro. La&nbsp;competenza al&nbsp;servizio del&nbsp;cambiamento.</h2>
         <p class="nicoletta-preview__subtitle">Dove esperienza, metodo e&nbsp;scienza incontrano la&nbsp;persona.</p>
         <p class="nicoletta-preview__intro">Nicoletta Ingusci lavora con&nbsp;persone e&nbsp;organizzazioni per&nbsp;costruire percorsi di&nbsp;benessere reali, personalizzati e&nbsp;sostenibili, integrando yoga, coaching e&nbsp;conoscenze scientifiche.</p>
-        <div class="nicoletta-preview__method">Non esistono percorsi uguali per&nbsp;tutti. Esiste la&nbsp;possibilità di&nbsp;individuare ciò che&nbsp;serve davvero, trasformarlo in strumenti concreti e&nbsp;creare un&nbsp;cambiamento che&nbsp;possa diventare parte della propria vita.</div>
         <div class="nicoletta-stats-row">
           <div class="nicoletta-stat">
             <span class="nicoletta-stat__num">17+</span>
@@ -1034,12 +1078,6 @@
           </div>
         </div>
         <p class="nicoletta-credentials">PNL Coach professionista membro ICF &middot; Luxx Profile Expert &middot; Formatrice &middot; Esperienza in ambito clinico e&nbsp;aziendale</p>
-        <div class="nicoletta-preview__tags">
-          <span class="tag tag--green">Yoga</span>
-          <span class="tag tag--green">Coaching</span>
-          <span class="tag tag--peach">Benessere psicofisico</span>
-          <span class="tag tag--green">Approccio scientifico</span>
-        </div>
       </div>
     </div>
   </div>
@@ -1071,7 +1109,6 @@
         <div class="percorso-card__body">
           <h3 class="percorso-card__title">Comprendere. Scegliere. Agire.</h3>
           <p class="percorso-card__desc">Un metodo strutturato e&nbsp;personalizzato per&nbsp;fare chiarezza, superare ciò che&nbsp;ti limita e&nbsp;trasformare intenzioni e&nbsp;obiettivi in cambiamenti concreti.</p>
-          <p class="percorso-card__tags">Life &middot; Health &amp; Wellness &middot; Sport &amp; Performance &middot; Business &amp; Leadership</p>
         </div>
       </article>
       <article class="percorso-card percorso-card--benessere">
@@ -1125,11 +1162,6 @@
 
 <div class="visual-break" aria-hidden="true">
   <div class="container">
-    <!-- Frammenti geometrici VI -->
-    <div class="vi-frags" aria-hidden="true" style="z-index:0;">
-      <svg style="position:absolute;top:-40px;right:-20px;opacity:0.15;" width="260" height="280" viewBox="0 0 260 280" fill="none"><polygon points="80,0 260,40 230,190 110,280 0,200 15,60" fill="#F8F0C5"/></svg>
-      <svg style="position:absolute;bottom:-30px;left:-40px;opacity:0.12;" width="220" height="240" viewBox="0 0 220 240" fill="none"><polygon points="55,0 220,30 195,165 100,240 0,175 10,52" fill="#D8E2D9"/></svg>
-    </div>
 
     <div class="visual-break__inner">
       <div class="visual-break__image">
