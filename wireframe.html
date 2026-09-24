@@ -568,6 +568,9 @@
 
     /* Citazione: tinta unica, testo di un solo colore */
     #page-home-v2 .visual-break__quote em { color: inherit; }
+    #page-home-v2 .visual-break .vi-frags polygon { fill: #7f4e39; }
+    #page-home-v2 .visual-break .vi-frags svg { opacity: 0.45; }
+    #page-home-v2 .visual-break__inner { position: relative; z-index: 1; }
 
     /* Testimonianze: niente cornice */
     #page-home-v2 [aria-label="Testimonianze"] .reveal > div { border: none !important; padding: 0 !important; }
@@ -1167,6 +1170,11 @@
 
 <div class="visual-break" aria-hidden="true">
   <div class="container">
+    <!-- Frammenti geometrici VI -->
+    <div class="vi-frags" aria-hidden="true" style="z-index:0;">
+      <svg style="position:absolute;top:-40px;right:-20px;" width="260" height="280" viewBox="0 0 260 280" fill="none"><polygon points="80,0 260,40 230,190 110,280 0,200 15,60"/></svg>
+      <svg style="position:absolute;bottom:-30px;left:-40px;" width="220" height="240" viewBox="0 0 220 240" fill="none"><polygon points="55,0 220,30 195,165 100,240 0,175 10,52"/></svg>
+    </div>
 
     <div class="visual-break__inner">
       <div class="visual-break__image">
