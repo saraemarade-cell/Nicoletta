@@ -542,11 +542,11 @@
     #page-home-v2 .form-check { gap: 0.9rem; margin-bottom: 27px; }
     #page-home-v2 .form-check__input { margin-right: 0.9rem; flex-shrink: 0; }
 
-    /* Navbar fissa: allo scroll mostra solo il pittogramma bianco su salvia */
+    /* Navbar fissa: allo scroll sfondo bianco e solo il pittogramma verde salvia */
     #page-home-v2 .site-header__logo--mark { display: none; height: 44px; width: auto; }
     #wf-wrapper #page-home-v2 .site-header.scrolled {
-      background: var(--c-green-700) !important;
-      border-bottom-color: transparent !important;
+      background: #fff !important;
+      border-bottom-color: rgba(0,0,0,0.06) !important;
     }
     #wf-wrapper #page-home-v2 .site-header.scrolled .site-header__logo--white,
     #wf-wrapper #page-home-v2 .site-header.scrolled .site-header__logo--dark { display: none !important; }
@@ -556,8 +556,13 @@
       #page-home-v2 .site-header__logo--mark { height: 36px; }
     }
 
-    /* Organizzazioni: contenuto sopra i frammenti */
-    #page-home-v2 .aziendale-section .container { position: relative; z-index: 2; }
+    /* Organizzazioni: frammento in alto a sinistra sopra l'etichetta, senza toccarla */
+    @media (max-width: 1023px) {
+      #page-home-v2 .aziendale-section .az-frag-tl { top: -266px !important; }
+    }
+    @media (max-width: 767px) {
+      #page-home-v2 .aziendale-section .az-frag-tl { top: -284px !important; }
+    }
 
     /* Card percorsi: area sotto il taglio dell'immagine dello stesso colore del corpo */
     #page-home-v2 .percorso-card--yoga      { background: var(--c-cream); }
@@ -1047,7 +1052,7 @@
     <a href="#page-home-v2" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage" onclick="history.replaceState(null,'','#');window.location.hash='page-home-v2';return false;">
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"    alt="Nicoletta Ingusci" width="160" height="40"/>
-      <img class="site-header__logo--mark"  src="Assets/Foto/LOGO/BIANCO/nipittogrammabianco.webp" alt="Nicoletta Ingusci"/>
+      <img class="site-header__logo--mark"  src="Assets/Foto/LOGO/VERDESALVIA/nipittogrammaverdesalvia.webp" alt="Nicoletta Ingusci"/>
     </a>
   </div>
 </header>
@@ -1183,7 +1188,7 @@
   <div class="container">
     <!-- Frammenti geometrici VI -->
     <div class="vi-frags" aria-hidden="true">
-      <svg style="position:absolute;top:-80px;left:-60px;opacity:0.12;" width="320" height="340" viewBox="0 0 320 340" fill="none"><polygon points="100,0 320,55 280,240 150,340 0,260 30,85" fill="#93A496"/></svg>
+      <svg class="az-frag-tl" style="position:absolute;top:-230px;left:-60px;opacity:0.12;" width="320" height="340" viewBox="0 0 320 340" fill="none"><polygon points="100,0 320,55 280,240 150,340 0,260 30,85" fill="#93A496"/></svg>
       <svg style="position:absolute;bottom:-50px;right:-30px;opacity:0.14;" width="300" height="280" viewBox="0 0 300 280" fill="none"><polygon points="70,0 300,35 265,190 145,280 0,230 25,75" fill="#E6BF91"/></svg>
     </div>
 
@@ -3408,7 +3413,7 @@
       title: 'Homepage v2 — mockup VI', effort: 'Alta — 18–22h',
       plugins: ['Elementor Pro', 'Smart Slider 3', 'WP Reviews Plugin for Google', 'WPForms o Contact Form 7', 'Yoast SEO'],
       sections: [
-        { n: 'Header', t: 'Solo logo centrato, sticky. Sull\'hero: trasparente + logo completo bianco. Allo scroll: sfondo salvia #637664 + solo pittogramma bianco (LOGO/BIANCO/nipittogrammabianco.webp), 44px desktop / 36px mobile.' },
+        { n: 'Header', t: 'Solo logo centrato, sticky. Sull\'hero: trasparente + logo completo bianco. Allo scroll: sfondo bianco + solo pittogramma verde salvia (LOGO/VERDESALVIA/nipittogrammaverdesalvia.webp), 44px desktop / 36px mobile.' },
         { n: 'Hero slider (3 slide)', t: 'Smart Slider 3. Overlay gradient terracotta→scuro→sabbia + 4 frammenti SVG semitrasparenti. 1 CTA per slide → ancora #form.' },
         { n: 'Chi è Nicoletta', t: 'Fondo crema #F8F0C5. 2 col: foto con clip-path a frammento + testo (terza persona). Fascia 3 numeri allineati (Counter) con separatori terracotta + riga credenziali.' },
         { n: 'I percorsi', t: 'Fondo panna #FAFAFA. 3 card: immagine con taglio irregolare, badge a frammento, corpo colorato (crema / sabbia / salvia chiaro). Box "su misura" sabbia + CTA terracotta.' },
