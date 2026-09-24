@@ -519,6 +519,18 @@
     #page-home-v2 .footer__copy { color: rgba(255,255,255,0.55); }
     #page-home-v2 .footer__main { border-bottom-color: rgba(255,255,255,0.18); }
 
+    /* Spaziatura verticale uniforme tra le sezioni */
+    #page-home-v2 main > section:not(.home-hero),
+    #page-home-v2 main > .visual-break { padding-top: 6rem !important; padding-bottom: 6rem !important; }
+    @media (max-width: 1023px) {
+      #page-home-v2 main > section:not(.home-hero),
+      #page-home-v2 main > .visual-break { padding-top: 5rem !important; padding-bottom: 5rem !important; }
+    }
+    @media (max-width: 767px) {
+      #page-home-v2 main > section:not(.home-hero),
+      #page-home-v2 main > .visual-break { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+    }
+
     /* Navbar non fissa: scorre via con la pagina */
     #wf-wrapper #page-home-v2 .site-header { position: absolute !important; }
 
