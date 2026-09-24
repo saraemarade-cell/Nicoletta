@@ -3388,6 +3388,30 @@
         { n: 'Footer', t: 'Global Widget riutilizzabile su tutte le pagine.' }
       ]
     },
+    'page-home-v2': {
+      title: 'Homepage v2 — mockup VI', effort: 'Alta — 18–22h',
+      plugins: ['Elementor Pro', 'Smart Slider 3', 'WP Reviews Plugin for Google', 'WPForms o Contact Form 7', 'Yoast SEO'],
+      sections: [
+        { n: 'Header', t: 'Solo logo centrato (Assets/Foto/LOGO). NON sticky: scorre via con la pagina. Logo bianco su hero.' },
+        { n: 'Hero slider (3 slide)', t: 'Smart Slider 3. Overlay gradient terracotta→scuro→sabbia + 4 frammenti SVG semitrasparenti. 1 CTA per slide → ancora #form.' },
+        { n: 'Chi è Nicoletta', t: 'Fondo crema #F8F0C5. 2 col: foto con clip-path a frammento + testo (terza persona). Fascia 3 numeri allineati (Counter) con separatori terracotta + riga credenziali.' },
+        { n: 'I percorsi', t: 'Fondo panna #FAFAFA. 3 card: immagine con taglio irregolare, badge a frammento, corpo colorato (crema / sabbia / salvia chiaro). Box "su misura" sabbia + CTA terracotta.' },
+        { n: 'Per le organizzazioni', t: 'Fondo salvia #637664 piatto (no gradient). Icon List con icone in chip a frammento. Frammenti SVG in verde scuro #3D4A3E.' },
+        { n: 'Citazione', t: 'Fondo terracotta #9F644A piatto, testo tutto crema. Foto con clip-path + frammenti SVG terracotta scuro #7F4E39. Foto nascosta su mobile.' },
+        { n: 'Testimonianze', t: 'Fondo bianco, senza cornice. Widget WP Reviews Plugin for Google.' },
+        { n: 'Form contatti', t: 'Fondo crema. WPForms/CF7: nome, email, telefono, interesse, messaggio, privacy. Input bordo sabbia, focus terracotta.' },
+        { n: 'Footer', t: 'Fondo salvia #637664, logo bianco 88px, social 52px e CTA "Prenota una call" a frammento crema. Una sola linea sopra i link legali.' }
+      ],
+      design: [
+        'Font: Syne (titoli) + Josefin Sans 400 (testi, non 300)',
+        'Frammento base (pulsanti, etichette, tag, badge, social): clip-path polygon(6% 0, 94% 4%, 100% 50%, 93% 100%, 5% 96%, 0 48%)',
+        'Pulsanti gialli: crema #F8F0C5 + testo terracotta; hover sabbia #E6BF91 + testo #5C3626. Stesso comportamento per icone social e CTA footer',
+        'Pulsante primario: terracotta #9F644A + testo bianco; hover #7F4E39',
+        'Padding verticale sezioni: 96px desktop / 80px tablet / 64px mobile',
+        'Spazio testo → CTA: 32px ovunque',
+        'Verde solo in "Per le organizzazioni" e footer; resto su crema, sabbia, terracotta, bianco'
+      ]
+    },
     'page-chi-sono': {
       title: 'Chi sono', effort: 'Media — 8–10h',
       plugins: ['Elementor Pro', 'Yoast SEO'],
@@ -3483,7 +3507,13 @@
     d.sections.forEach(function (s) {
       h += '<li><strong style="color:#e5e7eb">' + s.n + '</strong><br>' + s.t + '</li>';
     });
-    h += '</ul><hr>';
+    h += '</ul>';
+    if (d.design) {
+      h += '<h5>Regole di stile (VI)</h5><ul>';
+      d.design.forEach(function (x) { h += '<li>' + x + '</li>'; });
+      h += '</ul>';
+    }
+    h += '<hr>';
     h += '<p class="dn-footer">Stack: WordPress + Elementor Pro<br>Tema: Hello Elementor (child theme)</p>';
     return h;
   }
@@ -3508,7 +3538,8 @@
     document.getElementById('wf-devnotes-panel').classList.toggle('wf-dn-hidden');
   });
 
-  updateNotes('page-home');
+  var visiblePage = document.querySelector('.wf-page.wf-visible');
+  updateNotes(visiblePage ? visiblePage.id : 'page-home');
 
 })();
 </script>
