@@ -6,6 +6,7 @@
   <title>Wireframe — Nicoletta Ingusci</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"/>
   <link rel="stylesheet" href="css/tokens.css"/>
   <link rel="stylesheet" href="css/styles.css"/>
 
@@ -617,6 +618,58 @@
 
     /* Testimonianze: niente cornice */
     #page-home-v2 [aria-label="Testimonianze"] .reveal > div { border: none !important; padding: 0 !important; }
+
+    /* ════════ REVISIONE 4 ════════ */
+    /* Font: Syne bold per i titoli, Josefin Sans bold per i sottotitoli, Inter per tutti i body text */
+    #page-home-v2 { --font-inter: "Inter", system-ui, sans-serif; }
+    #page-home-v2 h1, #page-home-v2 h2, #page-home-v2 h3, #page-home-v2 h4,
+    #page-home-v2 .hero-slide__title,
+    #page-home-v2 .percorso-card__title,
+    #page-home-v2 .nicoletta-stat__num { font-family: var(--font-display); font-weight: 700; }
+    #page-home-v2 .visual-break__quote { font-family: var(--font-display); font-weight: 500; }
+    #page-home-v2 .hero-slide__label,
+    #page-home-v2 .section-label,
+    #page-home-v2 .nicoletta-preview__subtitle,
+    #page-home-v2 .nicoletta-stat__label,
+    #page-home-v2 .visual-break__attr,
+    #page-home-v2 .form-label,
+    #page-home-v2 .footer__col h5,
+    #page-home-v2 .btn { font-family: var(--font-body); font-weight: 700; }
+    #page-home-v2 .nicoletta-preview__subtitle { font-size: 1.2rem; }
+    #page-home-v2 main p:not(.visual-break__quote):not(.nicoletta-preview__subtitle),
+    #page-home-v2 main li,
+    #page-home-v2 .az-home-list__label,
+    #page-home-v2 .form-input,
+    #page-home-v2 .form-check__label,
+    #page-home-v2 .form-success p,
+    #page-home-v2 .site-footer p,
+    #page-home-v2 .footer__legal a,
+    #page-home-v2 .footer__contact-item a { font-family: var(--font-inter); font-weight: 400; letter-spacing: 0; }
+    #page-home-v2 .nicoletta-credentials { font-weight: 500 !important; }
+
+    /* Hero: struttura costante in tutte le slide (percorso 1 riga · titolo 2 · sottotitolo 2 · CTA) */
+    #page-home-v2 .hero-slide__label { display: block; white-space: nowrap; line-height: 1.4; height: 1.4em; }
+    #page-home-v2 .hero-slide__title { line-height: 1.12; min-height: calc(2 * 1.12em); }
+    #page-home-v2 .hero-slide__desc  { line-height: 1.6; min-height: calc(2 * 1.6em); max-width: 60ch; margin-inline: auto; }
+    @media (max-width: 767px) {
+      #page-home-v2 .hero-slide__title { min-height: calc(3 * 1.12em); }
+      #page-home-v2 .hero-slide__desc  { min-height: calc(5 * 1.6em); }
+    }
+
+    /* Citazione: foto di sfondo al posto della tinta unita */
+    #page-home-v2 .visual-break {
+      background: #3b2418 url('Assets/Foto/ascoltailtuocentro.webp') center 18% / cover no-repeat;
+    }
+    #page-home-v2 .visual-break::before {
+      content: ''; position: absolute; inset: 0; z-index: 0;
+      background: linear-gradient(90deg, rgba(59,36,24,0.25) 0%, rgba(59,36,24,0.55) 40%, rgba(59,36,24,0.82) 100%);
+    }
+    #page-home-v2 .visual-break__image { visibility: hidden; }
+    #page-home-v2 .visual-break .vi-frags polygon { fill: var(--c-cream); }
+    #page-home-v2 .visual-break .vi-frags svg { opacity: 0.12; }
+    @media (max-width: 767px) {
+      #page-home-v2 .visual-break::before { background: rgba(59,36,24,0.7); }
+    }
   </style>
 </head>
 <body>
@@ -1146,7 +1199,6 @@
       <article class="percorso-card percorso-card--yoga">
         <div class="percorso-card__image">
           <img src="Assets/Foto/yoga.webp" alt="Percorso Yoga" loading="lazy"/>
-          <div class="percorso-card__badge">Yoga</div>
         </div>
         <div class="percorso-card__body">
           <h3 class="percorso-card__title">Tradizione antica, conoscenza contemporanea, pratica personale.</h3>
@@ -1156,7 +1208,6 @@
       <article class="percorso-card percorso-card--coaching">
         <div class="percorso-card__image">
           <img src="Assets/Foto/coaching.webp" alt="Percorso Coaching" loading="lazy"/>
-          <div class="percorso-card__badge">Coaching</div>
         </div>
         <div class="percorso-card__body">
           <h3 class="percorso-card__title">Comprendere. Scegliere. Agire.</h3>
@@ -1166,7 +1217,6 @@
       <article class="percorso-card percorso-card--benessere">
         <div class="percorso-card__image">
           <img src="Assets/Foto/benessereaziendale.webp" alt="Benessere Aziendale" loading="lazy"/>
-          <div class="percorso-card__badge">Benessere Aziendale</div>
         </div>
         <div class="percorso-card__body">
           <h3 class="percorso-card__title">Benessere Aziendale</h3>
@@ -3414,17 +3464,17 @@
       plugins: ['Elementor Pro', 'Smart Slider 3', 'WP Reviews Plugin for Google', 'WPForms o Contact Form 7', 'Yoast SEO'],
       sections: [
         { n: 'Header', t: 'Solo logo centrato, sticky. Sull\'hero: trasparente + logo completo bianco. Allo scroll: sfondo bianco + solo pittogramma verde salvia (LOGO/VERDESALVIA/nipittogrammaverdesalvia.webp), 44px desktop / 36px mobile.' },
-        { n: 'Hero slider (3 slide)', t: 'Smart Slider 3. Overlay gradient terracotta→scuro→sabbia + 4 frammenti SVG semitrasparenti. 1 CTA per slide → ancora #form.' },
+        { n: 'Hero slider (3 slide)', t: 'Smart Slider 3. Overlay gradient terracotta→scuro→sabbia + 4 frammenti SVG. Struttura fissa in tutte le slide: percorso 1 riga, titolo 2, sottotitolo 2 (mobile: spazio riservato 3+5 righe), CTA → ancora #form.' },
         { n: 'Chi è Nicoletta', t: 'Fondo crema #F8F0C5. 2 col: foto con clip-path a frammento + testo (terza persona). Fascia 3 numeri allineati (Counter) con separatori terracotta + riga credenziali.' },
-        { n: 'I percorsi', t: 'Fondo panna #FAFAFA. 3 card: immagine con taglio irregolare, badge a frammento, corpo colorato (crema / sabbia / salvia chiaro). Box "su misura" sabbia + CTA terracotta.' },
+        { n: 'I percorsi', t: 'Fondo panna #FAFAFA. 3 card senza etichetta sull immagine: foto con taglio irregolare, corpo colorato (crema / sabbia / salvia chiaro). Box "su misura" sabbia + CTA terracotta.' },
         { n: 'Per le organizzazioni', t: 'Fondo salvia #637664 piatto (no gradient). Icon List con icone in chip a frammento. Frammenti SVG in verde scuro #3D4A3E.' },
-        { n: 'Citazione', t: 'Fondo terracotta #9F644A piatto, testo tutto crema. Foto con clip-path + frammenti SVG terracotta scuro #7F4E39. Foto nascosta su mobile.' },
+        { n: 'Citazione', t: 'Foto di sfondo (ascoltailtuocentro.webp, cover) con overlay marrone più scuro a destra; testo crema. Frammenti SVG crema al 12%.' },
         { n: 'Testimonianze', t: 'Fondo bianco, senza cornice. Widget WP Reviews Plugin for Google.' },
         { n: 'Form contatti', t: 'Fondo crema. WPForms/CF7: nome, email, telefono, interesse, messaggio, privacy. Input bordo sabbia, focus terracotta.' },
         { n: 'Footer', t: 'Fondo salvia #637664, logo bianco 88px, social 52px e CTA "Prenota una call" a frammento crema. Una sola linea sopra i link legali.' }
       ],
       design: [
-        'Font: Syne (titoli) + Josefin Sans 400 (testi, non 300)',
+        'Font: Syne 700 per i titoli · Josefin Sans 700 per sottotitoli, etichette, pulsanti · Inter 400 per tutti i body text',
         'Frammento base (pulsanti, etichette, tag, badge, social): clip-path polygon(6% 0, 94% 4%, 100% 50%, 93% 100%, 5% 96%, 0 48%)',
         'Pulsanti gialli: crema #F8F0C5 + testo terracotta; hover sabbia #E6BF91 + testo #5C3626. Stesso comportamento per icone social e CTA footer',
         'Pulsante primario: terracotta #9F644A + testo bianco; hover #7F4E39',
