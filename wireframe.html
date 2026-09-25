@@ -665,6 +665,19 @@
       background: linear-gradient(90deg, rgba(59,36,24,0.25) 0%, rgba(59,36,24,0.55) 40%, rgba(59,36,24,0.82) 100%);
     }
     #page-home-v2 .visual-break__image { visibility: hidden; }
+    /* Citazione: foto ingrandita e spostata a sinistra, sempre a copertura del contenitore */
+    @media (min-width: 768px) {
+      #page-home-v2 .visual-break { background-size: 125% auto; background-position: 88% 16%; }
+    }
+
+    /* Inquadratura foto: soggetto (volto) sempre visibile nel contenitore */
+    #page-home-v2 .hero-slide { background-size: cover; }
+    #page-home-v2 .hero-slide:nth-child(1) { background-position: 68% 22%; }
+    #page-home-v2 .hero-slide:nth-child(2) { background-position: 30% 22%; }
+    #page-home-v2 .hero-slide:nth-child(3) { background-position: 72% 22%; }
+    #page-home-v2 .percorso-card--yoga .percorso-card__image img      { object-position: 30% 22%; }
+    #page-home-v2 .percorso-card--coaching .percorso-card__image img  { object-position: 72% 20%; }
+    #page-home-v2 .percorso-card--benessere .percorso-card__image img { object-position: 50% 24%; }
     #page-home-v2 .visual-break .vi-frags polygon { fill: var(--c-cream); }
     #page-home-v2 .visual-break .vi-frags svg { opacity: 0.12; }
     @media (max-width: 767px) {
