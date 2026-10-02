@@ -686,6 +686,11 @@
     #page-home-v2 .percorso-card--yoga .percorso-card__image img      { object-position: 52% 30%; }
     #page-home-v2 .percorso-card--coaching .percorso-card__image img  { object-position: 50% 45%; }
     #page-home-v2 .percorso-card--benessere .percorso-card__image img { object-position: 35% 40%; }
+
+    /* Chi è Nicoletta: numeri in Josefin Sans (Syne è troppo largo), badge certificazioni */
+    #page-home-v2 .nicoletta-stat__num,
+    #page-home-v2 .nicoletta-stat__num--sm { font-family: var(--font-body); font-weight: 700; letter-spacing: 0; font-size: clamp(1.8rem, 2.4vw, 2.2rem); }
+    #page-home-v2 .nicoletta-certs { display: block; width: 100%; max-width: 360px; height: auto; margin-top: 1.4rem; }
     #page-home-v2 .visual-break .vi-frags polygon { fill: var(--c-cream); }
     #page-home-v2 .visual-break .vi-frags svg { opacity: 0.12; }
     @media (max-width: 767px) {
@@ -1204,6 +1209,7 @@
           </div>
         </div>
         <p class="nicoletta-credentials">PNL Coach professionista membro ICF &middot; Luxx Profile Expert &middot; Formatrice &middot; Esperienza in ambito clinico e&nbsp;aziendale</p>
+        <img class="nicoletta-certs" src="Assets/NEW%20images/certificazioni.webp" alt="Certificazioni: ICF Member, Yoga Alliance YACEP, Yoga Alliance E-RYT" width="800" height="300" loading="lazy"/>
       </div>
     </div>
   </div>
@@ -3486,7 +3492,7 @@
       sections: [
         { n: 'Header', t: 'Solo logo centrato, sticky. Sull\'hero: trasparente + logo completo bianco. Allo scroll: sfondo bianco + solo pittogramma verde salvia (LOGO/VERDESALVIA/nipittogrammaverdesalvia.webp), 44px desktop / 36px mobile.' },
         { n: 'Hero slider (3 slide)', t: 'Smart Slider 3. Overlay gradient terracotta→scuro→sabbia + 4 frammenti SVG. Struttura fissa in tutte le slide: percorso 1 riga, titolo 2, sottotitolo 2 (mobile: spazio riservato 3+5 righe), CTA → ancora #form.' },
-        { n: 'Chi è Nicoletta', t: 'Fondo crema #F8F0C5. 2 col: foto con clip-path a frammento + testo (terza persona). Fascia 3 numeri allineati (Counter) con separatori terracotta + riga credenziali.' },
+        { n: 'Chi è Nicoletta', t: 'Fondo crema #F8F0C5. 2 col: foto con clip-path a frammento + testo (terza persona). Fascia 3 numeri allineati (Counter, Josefin Sans 700) con separatori terracotta + riga credenziali + badge certificazioni ICF/YACEP/E-RYT (NEW images/certificazioni.webp, max 360px).' },
         { n: 'I percorsi', t: 'Fondo panna #FAFAFA. 3 card senza etichetta sull immagine: foto con taglio irregolare, corpo colorato (crema / sabbia / salvia chiaro). Box "su misura" sabbia + CTA terracotta.' },
         { n: 'Per le organizzazioni', t: 'Fondo salvia #637664 piatto (no gradient). CTA: "Scopri di più" (pulsante chiaro standard, hover come gli altri; link esterno https://www.benessereaziendale.it/ in nuova scheda) + "Prenota una call" in outline crema a frammento (hover: contorno e testo sabbia #E6BF91, interno resta verde) → #form. Icon List con icone in chip a frammento. Frammenti SVG in verde scuro #3D4A3E.' },
         { n: 'Citazione', t: 'Foto di sfondo (NEW images/citazione.webp, cover, soggetto a sinistra) con overlay marrone più scuro a destra; testo crema. Frammenti SVG crema al 12%.' },
