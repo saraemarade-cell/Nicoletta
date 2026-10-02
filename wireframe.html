@@ -680,8 +680,12 @@
     #page-home-v2 .visual-break__image { visibility: hidden; }
     /* Inquadratura foto: soggetto (volto) sempre visibile nel contenitore */
     #page-home-v2 .hero-slide { background-size: cover; z-index: 0; }
-    /* Prismi su un livello fisso sopra le slide: niente salto di trasparenza a fine dissolvenza */
-    #page-home-v2 .home-hero > .vi-frags { z-index: 2; }
+    /* Prismi su un livello fisso: tenui a riposo, si illuminano gradualmente durante il cambio slide */
+    #page-home-v2 .home-hero > .vi-frags {
+      z-index: 2; opacity: 0.5;
+      transition: opacity 0.9s ease-in-out;
+    }
+    #page-home-v2 .home-hero.is-changing > .vi-frags { opacity: 1; }
     #page-home-v2 .hero-slide:nth-child(1) { background-position: 68% 22%; }
     #page-home-v2 .hero-slide:nth-child(2) { background-position: 28% 30%; }
     #page-home-v2 .hero-slide:nth-child(3) { background-position: 30% 40%; }
@@ -3488,6 +3492,20 @@
   initHeroSlider('page-home');
   initHeroSlider('page-home-v2');
 
+  /* Hero v2: segnala il cambio slide per far "respirare" i prismi */
+  (function () {
+    var hero = document.querySelector('#page-home-v2 .home-hero');
+    if (!hero) return;
+    var t;
+    new MutationObserver(function (list) {
+      var changed = list.some(function (m) { return m.target.classList.contains('active'); });
+      if (!changed) return;
+      hero.classList.add('is-changing');
+      clearTimeout(t);
+      t = setTimeout(function () { hero.classList.remove('is-changing'); }, 1800);
+    }).observe(hero, { subtree: true, attributes: true, attributeFilter: ['class'] });
+  })();
+
   /* ── ANNO FOOTER ── */
   document.querySelectorAll('.footer-year').forEach(function (el) { el.textContent = '2026'; });
 
@@ -3511,7 +3529,7 @@
       plugins: ['Elementor Pro', 'Smart Slider 3', 'WP Reviews Plugin for Google', 'WPForms o Contact Form 7', 'Yoast SEO'],
       sections: [
         { n: 'Header', t: 'Solo logo centrato, sticky. Sull\'hero: trasparente + logo completo bianco. Allo scroll: sfondo bianco + solo pittogramma verde salvia (LOGO/VERDESALVIA/nipittogrammaverdesalvia.webp), 44px desktop / 36px mobile.' },
-        { n: 'Hero slider (3 slide)', t: 'Smart Slider 3. Overlay gradient terracotta→scuro→sabbia + 4 frammenti SVG. Struttura fissa in tutte le slide: percorso 1 riga, titolo 2, sottotitolo 2 (mobile: spazio riservato 3+5 righe), CTA → ancora #form.' },
+        { n: 'Hero slider (3 slide)', t: 'Smart Slider 3. Overlay gradient terracotta→scuro→sabbia + 4 frammenti SVG (livello fisso sopra le foto: opacità 50% a riposo, salgono al 100% con dissolvenza 0.9s durante il cambio slide e poi ridiscendono). Struttura fissa in tutte le slide: percorso 1 riga, titolo 2, sottotitolo 2 (mobile: spazio riservato 3+5 righe), CTA → ancora #form.' },
         { n: 'Chi è Nicoletta', t: 'Fondo crema #F8F0C5. 2 col: foto larga 460px con clip-path a frammento, bordo alto = etichetta Chi è Nicoletta, bordo basso = fine riga credenziali PNL; badge sotto, fuori allineamento, + testo (terza persona). Fascia 3 numeri allineati (Counter, Josefin Sans 700) con separatori terracotta + riga credenziali + badge certificazioni ICF/YACEP/E-RYT (NEW images/certificazioni.webp, max 360px).' },
         { n: 'I percorsi', t: 'Fondo panna #FAFAFA. 3 card senza etichetta sull immagine: foto con taglio irregolare, corpo colorato (crema / sabbia / salvia chiaro). Box "su misura" sabbia + CTA terracotta.' },
         { n: 'Per le organizzazioni', t: 'Fondo salvia #637664 piatto (no gradient). CTA: "Scopri di più" (pulsante chiaro standard, hover come gli altri; link esterno https://www.benessereaziendale.it/ in nuova scheda) + "Prenota una call" in outline crema a frammento (hover: contorno e testo sabbia #E6BF91, interno resta verde) → #form. Icon List con icone in chip a frammento. Frammenti SVG in verde scuro #3D4A3E.' },
