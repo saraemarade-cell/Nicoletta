@@ -679,7 +679,9 @@
     }
     #page-home-v2 .visual-break__image { visibility: hidden; }
     /* Inquadratura foto: soggetto (volto) sempre visibile nel contenitore */
-    #page-home-v2 .hero-slide { background-size: cover; }
+    #page-home-v2 .hero-slide { background-size: cover; z-index: 0; }
+    /* Prismi su un livello fisso sopra le slide: niente salto di trasparenza a fine dissolvenza */
+    #page-home-v2 .home-hero > .vi-frags { z-index: 2; }
     #page-home-v2 .hero-slide:nth-child(1) { background-position: 68% 22%; }
     #page-home-v2 .hero-slide:nth-child(2) { background-position: 28% 30%; }
     #page-home-v2 .hero-slide:nth-child(3) { background-position: 30% 40%; }
