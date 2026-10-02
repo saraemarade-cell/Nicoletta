@@ -671,26 +671,21 @@
 
     /* Citazione: foto di sfondo al posto della tinta unita */
     #page-home-v2 .visual-break {
-      background: #3b2418 url('Assets/Foto/ascoltailtuocentro.webp') center 25% / cover no-repeat;
+      background: #3b2418 url('Assets/NEW%20images/citazione.webp') 30% 30% / cover no-repeat;
     }
     #page-home-v2 .visual-break::before {
       content: ''; position: absolute; inset: 0; z-index: 0;
       background: linear-gradient(90deg, rgba(59,36,24,0.25) 0%, rgba(59,36,24,0.55) 40%, rgba(59,36,24,0.82) 100%);
     }
     #page-home-v2 .visual-break__image { visibility: hidden; }
-    /* Citazione: foto ingrandita e spostata a sinistra, sempre a copertura del contenitore */
-    @media (min-width: 768px) {
-      #page-home-v2 .visual-break { background-size: 125% auto; background-position: 88% 29%; }
-    }
-
     /* Inquadratura foto: soggetto (volto) sempre visibile nel contenitore */
     #page-home-v2 .hero-slide { background-size: cover; }
     #page-home-v2 .hero-slide:nth-child(1) { background-position: 68% 22%; }
-    #page-home-v2 .hero-slide:nth-child(2) { background-position: 30% 22%; }
-    #page-home-v2 .hero-slide:nth-child(3) { background-position: 72% 22%; }
-    #page-home-v2 .percorso-card--yoga .percorso-card__image img      { object-position: 30% 22%; }
-    #page-home-v2 .percorso-card--coaching .percorso-card__image img  { object-position: 72% 20%; }
-    #page-home-v2 .percorso-card--benessere .percorso-card__image img { object-position: 50% 24%; }
+    #page-home-v2 .hero-slide:nth-child(2) { background-position: 28% 30%; }
+    #page-home-v2 .hero-slide:nth-child(3) { background-position: 30% 40%; }
+    #page-home-v2 .percorso-card--yoga .percorso-card__image img      { object-position: 52% 30%; }
+    #page-home-v2 .percorso-card--coaching .percorso-card__image img  { object-position: 50% 45%; }
+    #page-home-v2 .percorso-card--benessere .percorso-card__image img { object-position: 35% 40%; }
     #page-home-v2 .visual-break .vi-frags polygon { fill: var(--c-cream); }
     #page-home-v2 .visual-break .vi-frags svg { opacity: 0.12; }
     @media (max-width: 767px) {
@@ -1155,7 +1150,7 @@
         <div class="hero-slide__ctas" style="justify-content:center;"><a href="#home-v2-form" class="btn btn--secondary" onclick="document.getElementById('home-v2-form').scrollIntoView({behavior:'smooth'});return false;">Contatta Nicoletta</a></div>
       </div>
     </div>
-    <div class="hero-slide" style="background-image: url('Assets/Foto/yoga.webp');" role="group" aria-label="Slide 2 di 3">
+    <div class="hero-slide" style="background-image: url('Assets/NEW%20images/hero/hero2.webp');" role="group" aria-label="Slide 2 di 3">
       <div class="hero-slide__inner">
         <span class="hero-slide__label">Percorso Yoga</span>
         <h1 class="hero-slide__title">Movimento,<br>respiro e&nbsp;consapevolezza.</h1>
@@ -1163,7 +1158,7 @@
         <div class="hero-slide__ctas" style="justify-content:center;"><a href="#home-v2-form" class="btn btn--secondary" onclick="document.getElementById('home-v2-form').scrollIntoView({behavior:'smooth'});return false;">Prenota una&nbsp;call</a></div>
       </div>
     </div>
-    <div class="hero-slide" style="background-image: url('Assets/Foto/coaching.webp');" role="group" aria-label="Slide 3 di 3">
+    <div class="hero-slide" style="background-image: url('Assets/NEW%20images/hero/hero3.webp');" role="group" aria-label="Slide 3 di 3">
       <div class="hero-slide__inner">
         <span class="hero-slide__label">Percorso Coaching</span>
         <h1 class="hero-slide__title">Dalla consapevolezza<br>all'azione.</h1>
@@ -1224,7 +1219,7 @@
     <div class="grid-3 reveal" style="gap:2rem;">
       <article class="percorso-card percorso-card--yoga">
         <div class="percorso-card__image">
-          <img src="Assets/Foto/yoga.webp" alt="Percorso Yoga" loading="lazy"/>
+          <img src="Assets/NEW%20images/i%20percorsi/Tradizione%20anticaconoscenza.webp" alt="Percorso Yoga" loading="lazy"/>
         </div>
         <div class="percorso-card__body">
           <h3 class="percorso-card__title">Tradizione antica, conoscenza contemporanea, pratica personale.</h3>
@@ -1233,7 +1228,7 @@
       </article>
       <article class="percorso-card percorso-card--coaching">
         <div class="percorso-card__image">
-          <img src="Assets/Foto/coaching.webp" alt="Percorso Coaching" loading="lazy"/>
+          <img src="Assets/NEW%20images/i%20percorsi/Comprenderescegliereagire.webp" alt="Percorso Coaching" loading="lazy"/>
         </div>
         <div class="percorso-card__body">
           <h3 class="percorso-card__title">Comprendere. Scegliere. Agire.</h3>
@@ -1242,7 +1237,7 @@
       </article>
       <article class="percorso-card percorso-card--benessere">
         <div class="percorso-card__image">
-          <img src="Assets/Foto/benessereaziendale.webp" alt="Benessere Aziendale" loading="lazy"/>
+          <img src="Assets/NEW%20images/i%20percorsi/benessereaziendale.webp" alt="Benessere Aziendale" loading="lazy"/>
         </div>
         <div class="percorso-card__body">
           <h3 class="percorso-card__title">Benessere Aziendale</h3>
@@ -3494,7 +3489,7 @@
         { n: 'Chi è Nicoletta', t: 'Fondo crema #F8F0C5. 2 col: foto con clip-path a frammento + testo (terza persona). Fascia 3 numeri allineati (Counter) con separatori terracotta + riga credenziali.' },
         { n: 'I percorsi', t: 'Fondo panna #FAFAFA. 3 card senza etichetta sull immagine: foto con taglio irregolare, corpo colorato (crema / sabbia / salvia chiaro). Box "su misura" sabbia + CTA terracotta.' },
         { n: 'Per le organizzazioni', t: 'Fondo salvia #637664 piatto (no gradient). CTA: "Scopri di più" (pulsante chiaro standard, hover come gli altri; link esterno https://www.benessereaziendale.it/ in nuova scheda) + "Prenota una call" in outline crema a frammento (hover: contorno e testo sabbia #E6BF91, interno resta verde) → #form. Icon List con icone in chip a frammento. Frammenti SVG in verde scuro #3D4A3E.' },
-        { n: 'Citazione', t: 'Foto di sfondo (ascoltailtuocentro.webp, cover) con overlay marrone più scuro a destra; testo crema. Frammenti SVG crema al 12%.' },
+        { n: 'Citazione', t: 'Foto di sfondo (NEW images/citazione.webp, cover, soggetto a sinistra) con overlay marrone più scuro a destra; testo crema. Frammenti SVG crema al 12%.' },
         { n: 'Testimonianze', t: 'Fondo bianco, senza cornice. Widget WP Reviews Plugin for Google.' },
         { n: 'Form contatti', t: 'Fondo crema. WPForms/CF7: nome, email, telefono, interesse, messaggio, privacy. Input bordo sabbia, focus terracotta.' },
         { n: 'Footer', t: 'Fondo salvia #637664, logo bianco 88px, social 52px e CTA "Prenota una call" a frammento crema. Una sola linea sopra i link legali.' }
