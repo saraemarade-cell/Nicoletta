@@ -722,6 +722,498 @@
       #page-home-v2 .visual-break::before { background: rgba(59,36,24,0.7); }
     }
   </style>
+
+  <style>
+    /* ════════════════════════════════════════════════════════
+       MOCKUP HOMEPAGE V1 (derivato dal blocco V2, valido solo per #page-home) — Identità Visiva applicata
+       Sequenza sfondi: foto → bianco → sabbia → verde (aziendale)
+                        → terracotta → bianco → crema → footer verde
+       ════════════════════════════════════════════════════════ */
+
+    #page-home > main,
+    #page-home > .site-footer { filter: none !important; }
+
+    #page-home {
+      --frag-a: polygon(6% 0, 94% 4%, 100% 50%, 93% 100%, 5% 96%, 0 48%);
+      --frag-b: polygon(0 12%, 88% 0, 100% 62%, 82% 100%, 10% 92%);
+      --frag-img: polygon(8% 0, 100% 0, 100% 86%, 90% 100%, 0 100%, 0 12%);
+    }
+
+    .vi-frags { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 1; }
+
+    /* ── Tipografia ── */
+    #page-home h2 { font-weight: 600; letter-spacing: -0.01em; }
+    /* Body e didascalie: Josefin 300 è troppo sottile */
+    #page-home main p,
+    #page-home main li,
+    #page-home .site-footer p,
+    #page-home .site-footer a { font-weight: 400; }
+    #page-home .hero-slide__desc       { font-size: 1.15rem; line-height: 1.7; }
+    #page-home .section__intro,
+    #page-home .nicoletta-preview__intro { font-size: 1.12rem; line-height: 1.75; }
+    #page-home .nicoletta-preview__method,
+    #page-home .percorso-card__desc,
+    #page-home .aziendale-section__text { font-size: 1.02rem; line-height: 1.75; }
+    #page-home .nicoletta-stat__label  { font-size: 0.82rem !important; font-weight: 600; }
+    #page-home .az-home-list__label    { font-size: 1.02rem; font-weight: 400; }
+    #page-home .visual-break__attr     { font-size: 1rem; font-weight: 600; }
+    #page-home .gr-widget-grid p       { font-size: 0.92rem !important; color: #3b2e26 !important; }
+    #page-home .gr-widget-grid span    { font-size: 0.8rem !important; color: #6b5a4c !important; }
+    #page-home .form-label             { font-size: 0.9rem; }
+    #page-home .form-input             { font-size: 1rem; }
+    #page-home .form-check__label      { font-size: 0.95rem; color: #3b2418; }
+    #page-home .footer__payoff,
+    #page-home .footer__contact-item   { font-size: 1rem; }
+    #page-home .footer__legal a,
+    #page-home .footer__copy           { font-size: 0.88rem; }
+    #page-home .section-label {
+      display: inline-block;
+      padding: 0.45rem 1.3rem;
+      background: var(--c-green-100);
+      color: var(--c-green-700);
+      clip-path: var(--frag-a);
+      font-size: 0.75rem;
+    }
+
+    /* ── Pulsanti a frammento ── */
+    #page-home .btn { border-radius: 0; border: none; clip-path: var(--frag-a); padding: 1rem 2.2rem; }
+    #page-home .btn--primary { background: var(--c-terracotta); color: #fff; }
+    #page-home .btn--primary:hover { background: #7f4e39; }
+    #page-home .btn--secondary { background: var(--c-cream); color: var(--c-terracotta); }
+    #page-home .btn--secondary:hover { background: var(--c-peach); color: #5c3626; }
+
+    /* ══════════════ HERO ══════════════ */
+    #page-home .home-hero { position: relative; }
+    #page-home .hero-slide::after {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(160deg, rgba(159,100,74,0.55) 0%, rgba(20,14,10,0.55) 50%, rgba(230,191,145,0.25) 100%);
+    }
+    #page-home .hero-slide__inner,
+    #page-home .hero-controls { z-index: 3; position: relative; }
+    #page-home .hero-slide__logo-mark { display: block; height: 72px; width: auto; margin: 0 auto 1.4rem; }
+    #page-home .hero-slide__label { color: var(--c-cream); letter-spacing: 0.22em; }
+    #page-home .hero-slide__title { color: #fff; font-weight: 600; text-shadow: 0 2px 24px rgba(0,0,0,0.25); }
+    #page-home .hero-slide__desc  { color: rgba(255,255,255,0.92); }
+    #page-home .hero-dot { background: rgba(248,240,197,0.45); }
+    #page-home .hero-dot.active { background: var(--c-cream); }
+
+    /* ══════════════ CHI SONO (bianco) ══════════════ */
+    #page-home .section--neutral { background: #fff; }
+    #page-home .nicoletta-preview__img-container {
+      position: relative; clip-path: var(--frag-img); border-radius: 0;
+    }
+    #page-home .nicoletta-preview__image { position: relative; }
+    #page-home .nicoletta-preview__image::before {
+      content: ''; position: absolute; z-index: 0;
+      width: 55%; height: 45%; right: -6%; bottom: -6%;
+      background: var(--c-peach); clip-path: var(--frag-b); opacity: 0.7;
+    }
+    #page-home .nicoletta-preview__img-container { z-index: 1; }
+    #page-home .nicoletta-preview__text h2 { color: var(--c-terracotta); }
+    #page-home .nicoletta-preview__intro { color: #2b2b2b; }
+    #page-home .nicoletta-preview__method {
+      background: var(--c-cream); color: #4a3a2e;
+      border: none; border-left: 3px solid var(--c-terracotta);
+      padding: 1.1rem 1.3rem;
+    }
+    #page-home .nicoletta-preview__subtitle {
+      font-family: var(--font-display); font-size: 1.15rem; font-weight: 500;
+      color: var(--c-green-700); margin-bottom: 1.2rem;
+    }
+    #page-home .nicoletta-credentials {
+      font-size: 0.9rem; font-weight: 600; letter-spacing: 0.02em;
+      color: #5c3626; line-height: 1.7; margin: -0.8rem 0 1.6rem;
+    }
+    #page-home .percorso-card__tags {
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em;
+      color: var(--c-terracotta); margin: -0.6rem 0 0.4rem;
+    }
+    #page-home .nicoletta-stat__num { color: var(--c-terracotta); font-weight: 700; }
+    #page-home .nicoletta-stat__label { color: var(--c-green-700); }
+    #page-home .nicoletta-stats-row .nicoletta-stat {
+      border-right-color: var(--c-peach);
+      padding-right: 1.6rem !important; margin-right: 1.6rem !important;
+    }
+    #page-home .nicoletta-stats-row .nicoletta-stat:last-child { padding-right: 0 !important; margin-right: 0 !important; }
+    #page-home .tag {
+      clip-path: var(--frag-a); border: none; border-radius: 0;
+      padding: 0.4rem 1.1rem; font-weight: 600;
+    }
+    #page-home .tag--green { background: var(--c-green-100); color: var(--c-green-700); }
+    #page-home .tag--peach { background: var(--c-peach); color: #5c3626; }
+
+    /* ══════════════ PERCORSI (sabbia) ══════════════ */
+    #page-home .section--green { background: var(--c-peach); }
+    #page-home .section--green .section-label { background: var(--c-cream); color: var(--c-terracotta); }
+    #page-home .section--green h2 { color: #3b2418; }
+    #page-home .section--green .section__intro { color: #3b2e26; }
+    #page-home .percorso-card {
+      background: #fff; border: none; border-radius: 0;
+      box-shadow: 0 10px 30px rgba(92,54,38,0.12);
+    }
+    #page-home .percorso-card__image { clip-path: polygon(0 0, 100% 0, 100% 88%, 70% 100%, 0 94%); }
+    #page-home .percorso-card__badge { clip-path: var(--frag-a); border-radius: 0; padding: 0.4rem 1.1rem; }
+    #page-home .percorso-card--yoga .percorso-card__badge      { background: var(--c-cream); color: #5c3626; }
+    #page-home .percorso-card--coaching .percorso-card__badge  { background: var(--c-terracotta); color: #fff; }
+    #page-home .percorso-card--benessere .percorso-card__badge { background: var(--c-green-700); color: #fff; }
+    #page-home .percorso-card__title { color: var(--c-terracotta); font-weight: 600; }
+    #page-home .percorso-card__desc  { color: #4a4540; }
+    /* Box "su misura" */
+    #page-home .section--green .reveal[style*="space-between"] {
+      background: var(--c-terracotta) !important; border: none !important;
+      clip-path: polygon(0 0, 98% 0, 100% 30%, 100% 100%, 2% 100%, 0 70%);
+    }
+    #page-home .section--green .reveal[style*="space-between"] h3 { color: #fff; }
+    #page-home .section--green .reveal[style*="space-between"] p  { color: var(--c-cream) !important; }
+    #page-home .section--green .reveal[style*="space-between"] .btn--primary { background: var(--c-cream); color: var(--c-terracotta); }
+
+    /* ══════════════ BENESSERE AZIENDALE (verde) ══════════════ */
+    #page-home .aziendale-section { background: var(--g-corporate); position: relative; overflow: hidden; }
+    #page-home .aziendale-section .section-label { background: rgba(230,191,145,0.18); color: var(--c-peach); }
+    #page-home .section-label { width: fit-content; }
+    #page-home .section__header--centered .section-label { margin-inline: auto; }
+    #page-home .aziendale-section h2 { color: #fff; }
+    #page-home .aziendale-section p  { color: rgba(255,255,255,0.85); }
+    #page-home .az-home-list__item { border-color: rgba(255,255,255,0.14); }
+    #page-home .az-home-list__label { color: #fff; }
+    #page-home .az-home-list__icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px; flex-shrink: 0;
+      background: rgba(230,191,145,0.18); color: var(--c-peach);
+      clip-path: var(--frag-a);
+    }
+
+    /* ══════════════ CITAZIONE (terracotta) ══════════════ */
+    #page-home .visual-break { background: var(--c-terracotta); position: relative; overflow: hidden; }
+    #page-home .visual-break .container { position: relative; z-index: 2; }
+    #page-home .visual-break__image { clip-path: var(--frag-img); }
+    #page-home .visual-break__quote { color: var(--c-cream) !important; font-weight: 500; }
+    #page-home .visual-break__quote em { color: #fff; }
+    #page-home .visual-break__attr { color: var(--c-peach) !important; }
+
+    /* ══════════════ TESTIMONIANZE (bianco) ══════════════ */
+    #page-home [aria-label="Testimonianze"] h2 { color: var(--c-terracotta); }
+    #page-home [aria-label="Testimonianze"] .reveal > div {
+      border: 1px solid var(--c-peach) !important; border-radius: 0 !important;
+    }
+    #page-home .gr-widget-grid > div { background: #fdf8ec !important; border-radius: 0 !important; clip-path: polygon(0 0, 96% 0, 100% 8%, 100% 100%, 4% 100%, 0 92%); }
+
+    /* ══════════════ FORM (crema) ══════════════ */
+    #page-home .section--cream { background: var(--c-cream); }
+    #page-home .section--cream .section-label { background: var(--c-terracotta); color: var(--c-cream); }
+    #page-home .section--cream h2 { color: var(--c-terracotta); }
+    #page-home .section--cream .section__intro { color: #4a3a2e; }
+    #page-home .form-label { color: #3b2418; }
+    #page-home .form-input { background: #fff; border: 1px solid var(--c-peach); border-radius: 0; }
+    #page-home .form-input:focus { border-color: var(--c-terracotta); outline: 2px solid rgba(159,100,74,0.2); }
+
+    /* ══════════════ FOOTER ══════════════ */
+    #page-home .site-footer { background: var(--c-green-700); }
+    #page-home .footer__payoff { color: rgba(255,255,255,0.8); }
+    #page-home .footer__col h5 { color: var(--c-cream); }
+    #page-home .footer__contact-item,
+    #page-home .footer__contact-item a { color: rgba(255,255,255,0.8); }
+    #page-home .footer__social-link {
+      border: none; border-radius: 0; clip-path: var(--frag-a);
+      background: rgba(255,255,255,0.14); color: #fff;
+    }
+    #page-home .footer__logo img { height: 88px !important; width: auto !important; }
+    #page-home .footer__social { gap: 0.9rem; }
+    #page-home .footer__social-link { width: 52px !important; height: 52px !important; }
+    #page-home .footer__social-link svg { width: 24px; height: 24px; }
+    #page-home .footer__social-link {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--c-cream); color: var(--c-terracotta);
+      transition: all var(--transition-base);
+    }
+    #page-home .footer__social-link:hover { background: var(--c-peach); color: #5c3626; }
+    #page-home .footer__col .btn--outline { transition: all var(--transition-base); }
+    #page-home .footer__col .btn--outline:hover { background: var(--c-peach); color: #5c3626 !important; transform: none; }
+    #page-home .footer__col .btn--outline { background: var(--c-cream); color: var(--c-terracotta) !important; clip-path: var(--frag-a); border: none; }
+    #page-home .footer__legal a { color: rgba(255,255,255,0.6); }
+    #page-home .footer__legal a:hover { color: #fff; }
+    #page-home .footer__copy { color: rgba(255,255,255,0.55); }
+    #page-home .footer__main { border-bottom-color: rgba(255,255,255,0.18); }
+
+    /* Spaziatura verticale uniforme tra le sezioni */
+    #page-home main > section:not(.home-hero),
+    #page-home main > .visual-break { padding-top: 6rem !important; padding-bottom: 6rem !important; }
+    @media (max-width: 1023px) {
+      #page-home main > section:not(.home-hero),
+      #page-home main > .visual-break { padding-top: 5rem !important; padding-bottom: 5rem !important; }
+    }
+    @media (max-width: 767px) {
+      #page-home main > section:not(.home-hero),
+      #page-home main > .visual-break { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+    }
+
+    /* Form: più aria attorno al consenso privacy */
+    #page-home .form-check { gap: 0.9rem; margin-bottom: 27px; }
+    #page-home .form-check__input { margin-right: 0.9rem; flex-shrink: 0; }
+
+    /* Navbar fissa: allo scroll sfondo bianco e solo il pittogramma verde salvia */
+    #page-home .site-header__logo--mark { display: none; height: 44px; width: auto; }
+    #wf-wrapper #page-home .site-header.scrolled {
+      background: #fff !important;
+      border-bottom-color: rgba(0,0,0,0.06) !important;
+    }
+    #wf-wrapper #page-home .site-header.scrolled .site-header__logo--white,
+    #wf-wrapper #page-home .site-header.scrolled .site-header__logo--dark { display: none !important; }
+    #wf-wrapper #page-home .site-header.scrolled .site-header__logo--mark { display: block !important; }
+    #wf-wrapper #page-home .site-header:not(.scrolled) .site-header__logo--mark { display: none !important; }
+    @media (max-width: 767px) {
+      #page-home .site-header__logo--mark { height: 36px; }
+    }
+
+    /* Pulsante outline a frammento: il contorno è il fondo, lo strato interno segue la stessa forma */
+    #page-home .btn--outline-frag {
+      position: relative; isolation: isolate;
+      background: var(--c-cream); color: var(--c-cream);
+      transition: all var(--transition-base);
+    }
+    #page-home .btn--outline-frag::before {
+      content: ''; position: absolute; inset: 1.5px; z-index: -1;
+      background: var(--c-green-700); clip-path: var(--frag-a);
+      transition: background var(--transition-base);
+    }
+    #page-home .btn--outline-frag:hover { background: var(--c-peach); color: var(--c-peach); }
+
+    /* Organizzazioni: frammento in alto a sinistra sopra l'etichetta, senza toccarla */
+    @media (max-width: 1023px) {
+      #page-home .aziendale-section .az-frag-tl { top: -266px !important; }
+    }
+    @media (max-width: 767px) {
+      #page-home .aziendale-section .az-frag-tl { top: -284px !important; }
+    }
+
+    /* Card percorsi: area sotto il taglio dell'immagine dello stesso colore del corpo */
+    #page-home .percorso-card--yoga      { background: var(--c-cream); }
+    #page-home .percorso-card--coaching  { background: var(--c-peach); }
+    #page-home .percorso-card--benessere { background: var(--c-green-100); }
+
+    /* ════════ REVISIONE 3 ════════ */
+    /* Navbar: logo ridotto allo scroll */
+    #page-home .site-header__logo img { transition: height 0.3s ease; }
+
+    /* Chi sono: fondo crema, niente frammento sotto la foto, numeri protagonisti */
+    #page-home [aria-label="Chi è Nicoletta Ingusci"] { background: var(--c-cream); }
+    #page-home [aria-label="Chi è Nicoletta Ingusci"] .section-label { background: #fff; color: var(--c-terracotta); }
+    #page-home .nicoletta-preview__image::before { display: none; }
+    #page-home .nicoletta-preview__intro { margin-bottom: 2.2rem; }
+    #page-home .nicoletta-stats-row { margin-bottom: 2rem; }
+    #page-home .nicoletta-stat__num { font-size: clamp(2.2rem, 4vw, 3rem); }
+    #page-home .nicoletta-stat__num--sm { font-size: clamp(2.2rem, 4vw, 3rem); }
+    #page-home .nicoletta-stats-row { align-items: flex-end; }
+    #page-home .nicoletta-stat__num { line-height: 1; }
+    #page-home .nicoletta-stat__label { color: #3b2418; margin-top: 0.3rem; }
+    #page-home .nicoletta-stats-row .nicoletta-stat { border-right-color: var(--c-terracotta); }
+    #page-home .nicoletta-credentials { margin: 0; color: #5c3626; }
+
+    /* Percorsi: fondo panna, corpo card colorato */
+    #page-home .section--green { background: var(--c-neutral-050); }
+    #page-home .section--green .section-label { background: var(--c-cream); color: var(--c-terracotta); }
+    #page-home .section--green h2 { color: var(--c-terracotta); }
+    #page-home .percorso-card { box-shadow: 0 10px 30px rgba(92,54,38,0.10); }
+    #page-home .percorso-card__body { background: var(--c-cream); }
+    #page-home .percorso-card--coaching .percorso-card__body { background: var(--c-peach); }
+    #page-home .percorso-card--benessere .percorso-card__body { background: var(--c-green-100); }
+    #page-home .percorso-card__title { color: #5c3626; }
+    #page-home .percorso-card--benessere .percorso-card__title { color: var(--c-green-700); }
+    #page-home .percorso-card__desc { color: #3b2e26; }
+    /* Box "su misura": colore sabbia, più leggero */
+    #page-home .section--green .reveal[style*="space-between"] { background: var(--c-peach) !important; }
+    #page-home .section--green .reveal[style*="space-between"] h3 { color: #3b2418; }
+    #page-home .section--green .reveal[style*="space-between"] p  { color: #4a3a2e !important; }
+    #page-home .section--green .reveal[style*="space-between"] .btn--primary { background: var(--c-terracotta); color: #fff; }
+
+    /* Organizzazioni: salvia piatto, frammenti più scuri */
+    #page-home .aziendale-section { background: var(--c-green-700); }
+    #page-home .aziendale-section .vi-frags polygon { fill: #3d4a3e; }
+    #page-home .aziendale-section .vi-frags svg { opacity: 0.35 !important; }
+
+    /* Citazione: tinta unica, testo di un solo colore */
+    #page-home .visual-break__quote em { color: inherit; }
+    #page-home .visual-break .vi-frags polygon { fill: #7f4e39; }
+    #page-home .visual-break .vi-frags svg { opacity: 0.45; }
+    #page-home .visual-break__inner { position: relative; z-index: 1; }
+
+    /* Testimonianze: niente cornice */
+    #page-home [aria-label="Testimonianze"] .reveal > div { border: none !important; padding: 0 !important; }
+
+    /* ════════ REVISIONE 4 ════════ */
+    /* Font: Syne bold per i titoli, Josefin Sans bold per i sottotitoli, Inter per tutti i body text */
+    #page-home { --font-inter: "Inter", system-ui, sans-serif; }
+    #page-home h1, #page-home h2, #page-home h3, #page-home h4,
+    #page-home .hero-slide__title,
+    #page-home .percorso-card__title,
+    #page-home .nicoletta-stat__num { font-family: var(--font-display); font-weight: 700; }
+    #page-home .visual-break__quote { font-family: var(--font-display); font-weight: 500; }
+    #page-home .hero-slide__label,
+    #page-home .section-label,
+    #page-home .nicoletta-preview__subtitle,
+    #page-home .nicoletta-stat__label,
+    #page-home .visual-break__attr,
+    #page-home .form-label,
+    #page-home .footer__col h5,
+    #page-home .btn { font-family: var(--font-body); font-weight: 700; }
+    #page-home .nicoletta-preview__subtitle { font-size: 1.2rem; }
+    #page-home main p:not(.visual-break__quote):not(.nicoletta-preview__subtitle),
+    #page-home main li,
+    #page-home .az-home-list__label,
+    #page-home .form-input,
+    #page-home .form-check__label,
+    #page-home .form-success p,
+    #page-home .site-footer p,
+    #page-home .footer__legal a,
+    #page-home .footer__contact-item a { font-family: var(--font-inter); font-weight: 400; letter-spacing: 0; }
+    #page-home .nicoletta-credentials { font-weight: 500 !important; }
+
+    /* Hero: struttura costante in tutte le slide (percorso 1 riga · titolo 2 · sottotitolo 2 · CTA) */
+    #page-home .hero-slide__label { display: block; white-space: nowrap; line-height: 1.4; height: 1.4em; }
+    #page-home .hero-slide__title { line-height: 1.12; min-height: calc(2 * 1.12em); }
+    #page-home .hero-slide__desc  { line-height: 1.6; min-height: calc(2 * 1.6em); max-width: 60ch; margin-inline: auto; }
+    @media (max-width: 767px) {
+      #page-home .hero-slide__title { min-height: calc(3 * 1.12em); }
+      #page-home .hero-slide__desc  { min-height: calc(5 * 1.6em); }
+    }
+
+    /* Citazione: foto di sfondo al posto della tinta unita */
+    #page-home .visual-break {
+      background: #3b2418 url('Assets/NEW%20images/citazione.webp') 30% 30% / cover no-repeat;
+    }
+    #page-home .visual-break::before {
+      content: ''; position: absolute; inset: 0; z-index: 0;
+      background: linear-gradient(90deg, rgba(59,36,24,0.25) 0%, rgba(59,36,24,0.55) 40%, rgba(59,36,24,0.82) 100%);
+    }
+    #page-home .visual-break__image { visibility: hidden; }
+    /* Inquadratura foto: soggetto (volto) sempre visibile nel contenitore */
+    #page-home .hero-slide { background-size: cover; z-index: 0; }
+    /* Prismi su un livello fisso: tenui a riposo, si illuminano gradualmente durante il cambio slide */
+    #page-home .home-hero > .vi-frags {
+      z-index: 2; opacity: 0.35;
+      transition: opacity 1.2s ease-in-out;
+    }
+    #page-home .home-hero > .vi-frags svg { opacity: 0.3 !important; }
+    #page-home .home-hero.is-changing > .vi-frags { opacity: 1; }
+    #page-home .hero-slide:nth-child(1) { background-position: 68% 22%; }
+    #page-home .hero-slide:nth-child(2) { background-position: 28% 30%; }
+    #page-home .hero-slide:nth-child(3) { background-position: 30% 40%; }
+    #page-home .percorso-card--yoga .percorso-card__image img      { object-position: 52% 30%; }
+    #page-home .percorso-card--coaching .percorso-card__image img  { object-position: 50% 45%; }
+    #page-home .percorso-card--benessere .percorso-card__image img { object-position: 35% 40%; }
+
+    /* Chi è Nicoletta: numeri in Josefin Sans (Syne è troppo largo), badge certificazioni */
+    #page-home .nicoletta-stat__num,
+    #page-home .nicoletta-stat__num--sm { font-family: var(--font-body); font-weight: 700; letter-spacing: 0; font-size: clamp(1.8rem, 2.4vw, 2.2rem); }
+    #page-home .nicoletta-certs { display: block; width: 100%; max-width: 360px; height: auto; margin-top: 1.4rem; }
+
+    /* Chi è Nicoletta: foto più stretta (≈400×450), allineata in alto con l'etichetta */
+    @media (min-width: 1024px) {
+      #page-home .nicoletta-preview__inner {
+        grid-template-columns: minmax(320px, 460px) 1fr;
+        gap: 5.5rem; align-items: start;
+      }
+      /* Foto alta dall'etichetta "Chi è Nicoletta" alla riga credenziali PNL; badge sotto, fuori allineamento */
+      #page-home .nicoletta-preview__inner { align-items: stretch; row-gap: 0; column-gap: 5.5rem; }
+      #page-home .nicoletta-preview__text { display: contents; }
+      #page-home .nicoletta-preview__text > * { grid-column: 2; }
+      #page-home .nicoletta-preview__image { grid-column: 1; grid-row: 1 / 7; }
+      #page-home .nicoletta-certs { grid-row: 7; }
+      #page-home .nicoletta-preview__image { transform: none; margin: 0; align-self: stretch; height: auto !important; }
+      #page-home .nicoletta-preview__img-container { height: 100% !important; aspect-ratio: auto; }
+      #page-home .nicoletta-preview__img-container img { position: absolute; inset: 0; width: 100%; height: 100% !important; margin: 0 !important; object-fit: cover; }
+      #page-home .nicoletta-preview__text { padding-left: 0; }
+    }
+    #page-home .visual-break .vi-frags polygon { fill: var(--c-cream); }
+    #page-home .visual-break .vi-frags svg { opacity: 0.12; }
+    @media (max-width: 767px) {
+      #page-home .visual-break::before { background: rgba(59,36,24,0.7); }
+    }
+  </style>
+
+  <style>
+    /* ════════════════════════════════════════════════════════
+       MOCKUP HOMEPAGE V1 — parti presenti solo nella v1
+       (header con menu, barra annuncio, news, eventi, blocco finale)
+       ════════════════════════════════════════════════════════ */
+
+    /* Barra annuncio */
+    #wf-wrapper #page-home .info-bar { background: var(--c-terracotta) !important; color: var(--c-cream) !important; }
+    #wf-wrapper #page-home .info-bar a { color: var(--c-cream) !important; }
+    #page-home .info-bar__close { color: var(--c-cream); }
+
+    /* Header: menu e CTA */
+    #page-home .site-nav__link { font-family: var(--font-body); font-weight: 700; letter-spacing: 0.08em; }
+    #wf-wrapper #page-home .site-header.scrolled .site-nav__link { color: var(--c-green-700) !important; }
+    #wf-wrapper #page-home .site-header.scrolled .site-nav__link:hover,
+    #wf-wrapper #page-home .site-header.scrolled .site-nav__link.active { color: var(--c-terracotta) !important; }
+    #wf-wrapper #page-home .site-header .header-cta,
+    #wf-wrapper #page-home .site-header.scrolled .header-cta {
+      background: var(--c-cream) !important; color: var(--c-terracotta) !important; border: none !important;
+      clip-path: var(--frag-a); border-radius: 0; padding: 0.75rem 1.6rem;
+    }
+    #wf-wrapper #page-home .site-header .header-cta:hover { background: var(--c-peach) !important; color: #5c3626 !important; }
+    #wf-wrapper #page-home .site-header.scrolled .hamburger span { background: var(--c-green-700) !important; }
+    #wf-wrapper #page-home .mobile-nav { background: var(--c-green-700) !important; }
+    #wf-wrapper #page-home .mobile-nav__link { color: var(--c-cream) !important; font-family: var(--font-body); font-weight: 700; }
+    #page-home .mobile-nav .btn--primary { background: var(--c-cream); color: var(--c-terracotta); }
+
+    /* Hero: due CTA centrate */
+    #page-home .hero-slide__ctas { justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+    /* Outline a frammento sui fondi chiari: contorno e testo terracotta */
+    #page-home .btn--outline-frag { background: var(--c-terracotta); color: var(--c-terracotta); }
+    #page-home .btn--outline-frag::before { background: var(--ol-inner, #fff); }
+    #page-home .btn--outline-frag:hover { background: #7f4e39; color: #7f4e39; }
+    #page-home .percorso-card--yoga      { --ol-inner: var(--c-cream); }
+    #page-home .percorso-card--coaching  { --ol-inner: var(--c-peach); }
+    #page-home .percorso-card--benessere { --ol-inner: var(--c-green-100); }
+    #page-home .percorso-card__body .btn--outline-frag { align-self: flex-start; margin-top: auto; }
+    /* Nella sezione verde resta crema su salvia, hover sabbia (come la v2) */
+    #page-home .aziendale-section .btn--outline-frag { background: var(--c-cream); color: var(--c-cream); --ol-inner: var(--c-green-700); }
+    #page-home .aziendale-section .btn--outline-frag:hover { background: var(--c-peach); color: var(--c-peach); }
+
+    /* Chi è Nicoletta: CTA sotto i badge */
+    #page-home .nicoletta-cta { justify-self: start; align-self: start; margin-top: 2rem; }
+    @media (min-width: 1024px) { #page-home .nicoletta-cta { grid-column: 2; } }
+
+    /* News (bianco) */
+    #page-home [aria-label="News e Risorse"] h2 { color: var(--c-terracotta); }
+    #page-home .news-card { background: var(--c-cream); border: none; border-radius: 0; box-shadow: 0 10px 30px rgba(92,54,38,0.08); --ol-inner: var(--c-cream); }
+    #page-home .news-card:hover { border: none; }
+    #page-home .news-card__image { clip-path: polygon(0 0, 100% 0, 100% 88%, 70% 100%, 0 94%); }
+    #page-home .news-card__cat { color: var(--c-terracotta); font-family: var(--font-body); font-weight: 700; }
+    #page-home .news-card__date { color: #6b5a4c; }
+    #page-home .news-card__title { color: #5c3626; font-family: var(--font-display); font-weight: 700; }
+    #page-home .news-card__excerpt { color: #3b2e26; }
+    #page-home .news-card__body .btn--outline-frag { align-self: flex-start; margin-top: auto; }
+    #page-home [aria-label="News e Risorse"] .section__header .btn--outline-frag { --ol-inner: #fff; }
+
+    /* Eventi (sabbia) */
+    #page-home [aria-label="Prossimi appuntamenti"] { background: var(--c-peach); }
+    #page-home [aria-label="Prossimi appuntamenti"] .section-label { background: var(--c-cream); color: var(--c-terracotta); }
+    #page-home [aria-label="Prossimi appuntamenti"] h2 { color: #3b2418; }
+    #page-home .hp-eventi__vedi-tutto { color: #5c3626; font-family: var(--font-body); }
+    #page-home .hp-eventi__featured { background: var(--c-cream); border-radius: 0; clip-path: polygon(0 0, 98% 0, 100% 6%, 100% 100%, 2% 100%, 0 94%); }
+    #page-home .hp-eventi__featured-cat { color: var(--c-terracotta); font-family: var(--font-body); }
+    #page-home .hp-eventi__featured-title { color: #5c3626; font-family: var(--font-display); font-weight: 700; }
+    #page-home .hp-eventi__featured-meta { color: #4a3a2e; }
+    #page-home .hp-eventi__lista-title { color: #3b2418; font-family: var(--font-display); font-weight: 700; }
+    #page-home .hp-eventi__item { border-color: rgba(92,54,38,0.25) !important; }
+    #page-home .hp-eventi__item-date { color: #5c3626; font-family: var(--font-body); font-weight: 700; }
+    #page-home .hp-eventi__item-info { color: #3b2418; }
+    #page-home .hp-eventi__item-sep,
+    #page-home .hp-eventi__item-place { color: #6b5a4c; }
+
+    /* Blocco finale (crema) */
+    #page-home .cta-block { background: var(--c-cream); }
+    #page-home .cta-block__title { color: var(--c-terracotta); font-family: var(--font-display); font-weight: 700; }
+    #page-home .cta-block__text { color: #4a3a2e; font-family: "Inter", system-ui, sans-serif; }
+
+    /* Footer a 4 colonne */
+    #page-home .footer__link { color: rgba(255,255,255,0.8); font-family: "Inter", system-ui, sans-serif; }
+    #page-home .footer__link:hover { color: var(--c-cream); }
+  </style>
 </head>
 <body>
 
@@ -749,6 +1241,7 @@
     <a href="#page-home" class="site-header__logo" onclick="history.replaceState(null,'','#');window.location.hash='page-home';return false;" aria-label="Nicoletta Ingusci — Homepage">
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"    alt="Nicoletta Ingusci" width="160" height="40"/>
+      <img class="site-header__logo--mark"  src="Assets/Foto/LOGO/VERDESALVIA/niLogocompletoverdesalvia.webp" alt="Nicoletta Ingusci"/>
     </a>
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
@@ -779,6 +1272,13 @@
 <main>
 
 <section class="home-hero" aria-label="Presentazione">
+  <!-- Frammenti geometrici VI -->
+  <div class="vi-frags" aria-hidden="true">
+    <svg style="position:absolute;top:-50px;right:-30px;opacity:0.18;" width="380" height="340" viewBox="0 0 380 340" fill="none"><polygon points="130,0 380,40 340,240 210,340 0,290 50,80" fill="#E6BF91"/></svg>
+    <svg style="position:absolute;top:-30px;left:-60px;opacity:0.14;" width="280" height="300" viewBox="0 0 280 300" fill="none"><polygon points="90,0 280,50 240,210 120,300 0,210 20,70" fill="#D8E2D9"/></svg>
+    <svg style="position:absolute;bottom:80px;right:120px;opacity:0.10;" width="200" height="220" viewBox="0 0 200 220" fill="none"><polygon points="50,0 200,25 175,150 90,220 0,155 15,55" fill="#F8F0C5"/></svg>
+    <svg style="position:absolute;bottom:40px;left:60px;opacity:0.12;" width="160" height="180" viewBox="0 0 160 180" fill="none"><polygon points="40,0 160,20 140,130 70,180 0,130 10,45" fill="#9F644A"/></svg>
+  </div>
   <div class="hero-slides">
     <div class="hero-slide active" style="background-image: url('Assets/Foto/homehero.webp');" role="group" aria-label="Slide 1 di 3">
       <div class="hero-slide__inner">
@@ -791,7 +1291,7 @@
         </div>
       </div>
     </div>
-    <div class="hero-slide" style="background-image: url('Assets/Foto/yoga.webp');" role="group" aria-label="Slide 2 di 3">
+    <div class="hero-slide" style="background-image: url('Assets/NEW%20images/hero/hero2.webp');" role="group" aria-label="Slide 2 di 3">
       <div class="hero-slide__inner">
         <span class="hero-slide__label">Percorso Yoga</span>
         <h1 class="hero-slide__title">Movimento,<br>respiro e&nbsp;consapevolezza.</h1>
@@ -802,11 +1302,11 @@
         </div>
       </div>
     </div>
-    <div class="hero-slide" style="background-image: url('Assets/Foto/coaching.webp');" role="group" aria-label="Slide 3 di 3">
+    <div class="hero-slide" style="background-image: url('Assets/NEW%20images/hero/hero3.webp');" role="group" aria-label="Slide 3 di 3">
       <div class="hero-slide__inner">
         <span class="hero-slide__label">Percorso Coaching</span>
-        <h1 class="hero-slide__title">Chiarezza,<br>direzione e&nbsp;cambiamento reale.</h1>
-        <p class="hero-slide__desc">Non soluzioni rapide, ma&nbsp;un&nbsp;metodo strutturato per&nbsp;fare chiarezza su&nbsp;sé stessi e&nbsp;costruire cambiamenti che&nbsp;durano.</p>
+        <h1 class="hero-slide__title">Dalla consapevolezza<br>all'azione.</h1>
+        <p class="hero-slide__desc">Un percorso per&nbsp;fare chiarezza, superare ciò che&nbsp;ti limita e&nbsp;costruire il&nbsp;cambiamento.</p>
         <div class="hero-slide__ctas">
           <a href="#page-coaching" class="btn btn--primary">Scopri il&nbsp;Coaching</a>
           <a href="#page-contatti" class="btn btn--secondary">Prenota una&nbsp;call</a>
@@ -832,31 +1332,27 @@
         </div>
       </div>
       <div class="nicoletta-preview__text reveal">
-        <span class="section-label">Chi sono</span>
-        <h2 style="margin-bottom:1.2rem;">Un metodo fondato su&nbsp;studio, ascolto e&nbsp;pratica concreta.</h2>
+        <span class="section-label">Chi è Nicoletta</span>
+        <h2 style="margin-bottom:0.8rem;">La persona al&nbsp;centro. La&nbsp;competenza al&nbsp;servizio del&nbsp;cambiamento.</h2>
+        <p class="nicoletta-preview__subtitle">Dove esperienza, metodo e&nbsp;scienza incontrano la&nbsp;persona.</p>
         <p class="nicoletta-preview__intro">Nicoletta Ingusci lavora con&nbsp;persone e&nbsp;organizzazioni per&nbsp;costruire percorsi di&nbsp;benessere reali, personalizzati e&nbsp;sostenibili, integrando yoga, coaching e&nbsp;conoscenze scientifiche.</p>
-        <div class="nicoletta-preview__method">Non si tratta di&nbsp;proporre soluzioni rapide. Si tratta di&nbsp;costruire insieme un&nbsp;percorso che&nbsp;risponda a esigenze reali e&nbsp;produca cambiamenti duraturi.</div>
         <div class="nicoletta-stats-row">
-          <div class="nicoletta-stat">
-            <span class="nicoletta-stat__num">4500+</span>
-            <span class="nicoletta-stat__label">Ore di&nbsp;insegnamento</span>
-          </div>
           <div class="nicoletta-stat">
             <span class="nicoletta-stat__num">17+</span>
             <span class="nicoletta-stat__label">Anni di&nbsp;pratica</span>
           </div>
           <div class="nicoletta-stat">
+            <span class="nicoletta-stat__num">4.800+</span>
+            <span class="nicoletta-stat__label">Ore di&nbsp;insegnamento</span>
+          </div>
+          <div class="nicoletta-stat">
             <span class="nicoletta-stat__num nicoletta-stat__num--sm">E-RYT 800</span>
-            <span class="nicoletta-stat__label">Certificata Yoga Alliance</span>
+            <span class="nicoletta-stat__label">Formazione indiana</span>
           </div>
         </div>
-        <div class="nicoletta-preview__tags">
-          <span class="tag tag--green">Yoga</span>
-          <span class="tag tag--green">Coaching</span>
-          <span class="tag tag--peach">Benessere psicofisico</span>
-          <span class="tag tag--green">Approccio scientifico</span>
-        </div>
-        <a href="#page-chi-sono" class="btn btn--outline">Conosci il&nbsp;mio approccio</a>
+        <p class="nicoletta-credentials">PNL Coach professionista membro ICF &middot; Luxx Profile Expert &middot; Formatrice &middot; Esperienza in ambito clinico e&nbsp;aziendale</p>
+        <img class="nicoletta-certs" src="Assets/NEW%20images/certificazioni.webp" alt="Certificazioni: ICF Member, Yoga Alliance YACEP, Yoga Alliance E-RYT" width="800" height="300" loading="lazy"/>
+        <a href="#page-chi-sono" class="btn btn--primary nicoletta-cta">Conosci il&nbsp;mio approccio</a>
       </div>
     </div>
   </div>
@@ -872,35 +1368,32 @@
     <div class="grid-3 reveal" style="gap:2rem;">
       <article class="percorso-card percorso-card--yoga">
         <div class="percorso-card__image">
-          <img src="Assets/Foto/yoga.webp" alt="Percorso Yoga" loading="lazy"/>
-          <div class="percorso-card__badge">Yoga</div>
+          <img src="Assets/NEW%20images/i%20percorsi/Tradizione%20anticaconoscenza.webp" alt="Percorso Yoga" loading="lazy"/>
         </div>
         <div class="percorso-card__body">
-          <h3 class="percorso-card__title">Il percorso Yoga</h3>
-          <p class="percorso-card__desc">Uno strumento di&nbsp;conoscenza di&nbsp;sé che&nbsp;integra movimento, respiro e&nbsp;consapevolezza in modo scientifico e&nbsp;personalizzato. Percorsi individuali e&nbsp;di gruppo, in presenza e&nbsp;a distanza.</p>
-          <a href="#page-yoga" class="btn btn--outline">Scopri il&nbsp;percorso Yoga</a>
+          <h3 class="percorso-card__title">Tradizione antica, conoscenza contemporanea, pratica personale.</h3>
+          <p class="percorso-card__desc">Un sapere antico che&nbsp;dialoga con&nbsp;le conoscenze contemporanee sulla salute e&nbsp;sul benessere, attraverso percorsi costruiti sulla persona. Individualmente o&nbsp;in gruppo. In presenza oppure online.</p>
+          <a href="#page-yoga" class="btn btn--outline-frag">Scopri il&nbsp;percorso Yoga</a>
         </div>
       </article>
       <article class="percorso-card percorso-card--coaching">
         <div class="percorso-card__image">
-          <img src="Assets/Foto/coaching.webp" alt="Percorso Coaching" loading="lazy"/>
-          <div class="percorso-card__badge">Coaching</div>
+          <img src="Assets/NEW%20images/i%20percorsi/Comprenderescegliereagire.webp" alt="Percorso Coaching" loading="lazy"/>
         </div>
         <div class="percorso-card__body">
-          <h3 class="percorso-card__title">Il percorso Coaching</h3>
-          <p class="percorso-card__desc">Un percorso che&nbsp;parte dall'ascolto per&nbsp;portare chiarezza, strumenti concreti e&nbsp;direzione. Non soluzioni rapide, ma&nbsp;cambiamenti reali e&nbsp;sostenibili nel&nbsp;tempo.</p>
-          <a href="#page-coaching" class="btn btn--outline">Scopri il&nbsp;Coaching</a>
+          <h3 class="percorso-card__title">Comprendere. Scegliere. Agire.</h3>
+          <p class="percorso-card__desc">Un metodo strutturato e&nbsp;personalizzato per&nbsp;fare chiarezza, superare ciò che&nbsp;ti limita e&nbsp;trasformare intenzioni e&nbsp;obiettivi in cambiamenti concreti.</p>
+          <a href="#page-coaching" class="btn btn--outline-frag">Scopri il&nbsp;Coaching</a>
         </div>
       </article>
       <article class="percorso-card percorso-card--benessere">
         <div class="percorso-card__image">
-          <img src="Assets/Foto/benessereaziendale.webp" alt="Benessere Aziendale" loading="lazy"/>
-          <div class="percorso-card__badge">Benessere Aziendale</div>
+          <img src="Assets/NEW%20images/i%20percorsi/benessereaziendale.webp" alt="Benessere Aziendale" loading="lazy"/>
         </div>
         <div class="percorso-card__body">
           <h3 class="percorso-card__title">Benessere Aziendale</h3>
           <p class="percorso-card__desc">Programmi su&nbsp;misura per&nbsp;organizzazioni e&nbsp;team. Yoga, coaching e&nbsp;strumenti di&nbsp;gestione dello stress per&nbsp;costruire ambienti di&nbsp;lavoro più sani e&nbsp;produttivi.</p>
-          <a href="#page-aziendale" class="btn btn--black">Scopri il&nbsp;programma</a>
+          <a href="#page-aziendale" class="btn btn--outline-frag">Scopri il&nbsp;programma</a>
         </div>
       </article>
     </div>
@@ -916,14 +1409,19 @@
 
 <section class="section section--lg aziendale-section" aria-label="Benessere Aziendale">
   <div class="container">
+    <!-- Frammenti geometrici VI -->
+    <div class="vi-frags" aria-hidden="true">
+      <svg class="az-frag-tl" style="position:absolute;top:-230px;left:-60px;opacity:0.12;" width="320" height="340" viewBox="0 0 320 340" fill="none"><polygon points="100,0 320,55 280,240 150,340 0,260 30,85" fill="#93A496"/></svg>
+      <svg style="position:absolute;bottom:-50px;right:-30px;opacity:0.14;" width="300" height="280" viewBox="0 0 300 280" fill="none"><polygon points="70,0 300,35 265,190 145,280 0,230 25,75" fill="#E6BF91"/></svg>
+    </div>
     <div class="az-home-grid reveal">
       <div class="az-home-text">
         <span class="section-label section-label--peach">Per le&nbsp;organizzazioni</span>
         <h2 class="aziendale-section__title">Benessere aziendale che&nbsp;produce risultati concreti.</h2>
         <p class="aziendale-section__text">Programmi tailor made per&nbsp;team e&nbsp;organizzazioni. Non attività di&nbsp;wellness generiche, ma&nbsp;interventi integrati, credibili e&nbsp;misurabili che&nbsp;rispondono ai&nbsp;bisogni reali delle&nbsp;persone.</p>
         <div class="az-home-ctas">
-          <a href="#page-aziendale" class="btn btn--cream">Scopri i programmi</a>
-          <a href="#page-contatti" class="btn btn--secondary">Prenota una&nbsp;call</a>
+          <a href="#page-aziendale" class="btn btn--secondary">Scopri i programmi</a>
+          <a href="#page-contatti" class="btn btn--outline-frag">Prenota una&nbsp;call</a>
         </div>
       </div>
       <ul class="az-home-list">
@@ -945,7 +1443,7 @@
         <span class="section-label">News</span>
         <h2>Aggiornamenti, articoli e&nbsp;approfondimenti.</h2>
       </div>
-      <a href="#page-news" class="btn btn--outline" style="flex-shrink:0;">Vai alle&nbsp;news</a>
+      <a href="#page-news" class="btn btn--outline-frag">Vai alle&nbsp;news</a>
     </div>
     <div class="grid-3 reveal">
       <article class="news-card">
@@ -954,7 +1452,7 @@
           <div class="news-card__meta"><span class="news-card__cat">[Categoria]</span><time class="news-card__date">[Data]</time></div>
           <h3 class="news-card__title">[Titolo articolo — da&nbsp;aggiornare]</h3>
           <p class="news-card__excerpt">[Breve estratto dell'articolo — da&nbsp;aggiornare con&nbsp;contenuto reale.]</p>
-          <a href="#page-news" class="btn btn--outline" style="font-size:0.875rem;padding:0.6rem 1.2rem;">Leggi l'articolo</a>
+          <a href="#page-news" class="btn btn--outline-frag">Leggi l'articolo</a>
         </div>
       </article>
       <article class="news-card">
@@ -963,7 +1461,7 @@
           <div class="news-card__meta"><span class="news-card__cat">[Categoria]</span><time class="news-card__date">[Data]</time></div>
           <h3 class="news-card__title">[Titolo articolo — da&nbsp;aggiornare]</h3>
           <p class="news-card__excerpt">[Breve estratto — da&nbsp;aggiornare.]</p>
-          <a href="#page-news" class="btn btn--outline" style="font-size:0.875rem;padding:0.6rem 1.2rem;">Leggi l'articolo</a>
+          <a href="#page-news" class="btn btn--outline-frag">Leggi l'articolo</a>
         </div>
       </article>
       <article class="news-card">
@@ -972,7 +1470,7 @@
           <div class="news-card__meta"><span class="news-card__cat">[Categoria]</span><time class="news-card__date">[Data]</time></div>
           <h3 class="news-card__title">[Titolo articolo — da&nbsp;aggiornare]</h3>
           <p class="news-card__excerpt">[Breve estratto — da&nbsp;aggiornare.]</p>
-          <a href="#page-news" class="btn btn--outline" style="font-size:0.875rem;padding:0.6rem 1.2rem;">Leggi l'articolo</a>
+          <a href="#page-news" class="btn btn--outline-frag">Leggi l'articolo</a>
         </div>
       </article>
     </div>
@@ -1028,12 +1526,17 @@
 
 <div class="visual-break" aria-hidden="true">
   <div class="container">
+    <!-- Frammenti geometrici VI -->
+    <div class="vi-frags" aria-hidden="true" style="z-index:0;">
+      <svg style="position:absolute;top:-40px;right:-20px;" width="260" height="280" viewBox="0 0 260 280" fill="none"><polygon points="80,0 260,40 230,190 110,280 0,200 15,60"/></svg>
+      <svg style="position:absolute;bottom:-30px;left:-40px;" width="220" height="240" viewBox="0 0 220 240" fill="none"><polygon points="55,0 220,30 195,165 100,240 0,175 10,52"/></svg>
+    </div>
     <div class="visual-break__inner">
       <div class="visual-break__image">
         <img src="Assets/Foto/lafondatrice.webp" alt="" loading="lazy"/>
       </div>
       <blockquote>
-        <p class="visual-break__quote">&ldquo;Il benessere non è un&nbsp;arrivo. È il&nbsp;modo in cui <em>stai nel&nbsp;percorso.</em>&rdquo;</p>
+        <p class="visual-break__quote">&ldquo;Il cambiamento non inizia quando diventiamo qualcun altro, ma&nbsp;quando impariamo a&nbsp;<em>vedere con&nbsp;chiarezza chi siamo.</em>&rdquo;</p>
         <footer class="visual-break__attr">— Nicoletta Ingusci</footer>
       </blockquote>
     </div>
@@ -1117,7 +1620,7 @@
     <h2 class="cta-block__title">Parlaci di&nbsp;te e&nbsp;di quello che&nbsp;cerchi.</h2>
     <p class="cta-block__text">Compila il&nbsp;form o&nbsp;scrivi direttamente. Nicoletta o&nbsp;il suo team risponderanno per&nbsp;capire insieme il&nbsp;percorso più adatto.</p>
     <div class="cta-block__ctas">
-      <a href="#page-contatti" class="btn btn--cream">Contatta Nicoletta</a>
+      <a href="#page-contatti" class="btn btn--primary">Contatta Nicoletta</a>
     </div>
   </div>
 </section>
@@ -1131,9 +1634,9 @@
         <div class="footer__logo"><a href="#page-home" onclick="history.replaceState(null,'','#');window.location.hash='page-home';return false;"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
         <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
         <div class="footer__social" aria-label="Social media">
-          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M13 8h-1a2 2 0 00-2 2v1H9v2.5h1V19h2.5v-5.5H14l.5-2.5h-2V10a.5.5 0 01.5-.5h1V8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10.4H7.8v3h2.6V21h3.1z"/></svg></a>
+          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
       <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
@@ -3429,7 +3932,7 @@
 
   /* ── SOSTITUZIONE <img> → PLACEHOLDER (logo o immagine) ── */
   document.querySelectorAll('#wf-wrapper img').forEach(function (img) {
-    if (img.closest('#page-home-v2')) return;
+    if (img.closest('#page-home-v2, #page-home')) return;
     var src    = img.getAttribute('src') || '';
     var cls    = img.className || '';
     var isLogo = src.indexOf('/LOGO/') !== -1 || cls.indexOf('logo') !== -1;
@@ -3456,7 +3959,7 @@
   /* ── RIMUOVI background-image → overlay X per visibilità wireframe ── */
   document.querySelectorAll('#wf-wrapper [style]').forEach(function (el) {
     if ((el.getAttribute('style') || '').indexOf('background-image') === -1) return;
-    if (el.closest('#page-home-v2')) return;
+    if (el.closest('#page-home-v2, #page-home')) return;
     el.style.backgroundImage = 'none';
     el.style.backgroundColor = '#b4b4b4';
     var cs = window.getComputedStyle(el);
@@ -3493,9 +3996,9 @@
   initHeroSlider('page-home');
   initHeroSlider('page-home-v2');
 
-  /* Hero v2: segnala il cambio slide per far "respirare" i prismi */
-  (function () {
-    var hero = document.querySelector('#page-home-v2 .home-hero');
+  /* Hero v1 e v2: segnala il cambio slide per far "respirare" i prismi */
+  ['#page-home-v2', '#page-home'].forEach(function (pageSel) {
+    var hero = document.querySelector(pageSel + ' .home-hero');
     if (!hero) return;
     var t;
     new MutationObserver(function (list) {
@@ -3505,7 +4008,7 @@
       clearTimeout(t);
       t = setTimeout(function () { hero.classList.remove('is-changing'); }, 2200);
     }).observe(hero, { subtree: true, attributes: true, attributeFilter: ['class'] });
-  })();
+  });
 
   /* ── ANNO FOOTER ── */
   document.querySelectorAll('.footer-year').forEach(function (el) { el.textContent = '2026'; });
@@ -3513,16 +4016,26 @@
   /* ══ NOTE SVILUPPATORE ═════════════════════════════════════════════ */
   var devNotes = {
     'page-home': {
-      title: 'Homepage', effort: 'Alta — 16–20h',
-      plugins: ['Elementor Pro', 'Smart Slider 3', 'Yoast SEO'],
+      title: 'Homepage v1 — mockup VI (multipagina)', effort: 'Alta — 20–26h',
+      plugins: ['Elementor Pro', 'Smart Slider 3', 'WP Reviews Plugin for Google', 'Yoast SEO'],
       sections: [
-        { n: 'Hero slider (3 slide)', t: 'Smart Slider 3. Testo, CTA, autoplay 5s, transizione opacity 1.8s.' },
-        { n: 'Chi sono (preview)', t: 'Inner Section 2 col. Image Box + Text + Counter stats.' },
-        { n: 'Percorsi (cards)', t: 'Loop Grid con CPT "Percorsi". Max 3 elementi.' },
-        { n: 'Aziendale teaser', t: 'Background gradient scuro custom. Heading + Button.' },
-        { n: 'News preview', t: 'Loop Grid con Post type standard. Max 3 articoli.' },
-        { n: 'Podcast teaser', t: 'Widget Text + icone piattaforme. Link esterno.' },
-        { n: 'Footer', t: 'Global Widget riutilizzabile su tutte le pagine.' }
+        { n: 'Barra annuncio', t: 'Terracotta #9F644A, testo crema, chiudibile. Testo [primavera 2025] da verificare prima del lancio.' },
+        { n: 'Header', t: 'Sticky con menu completo + CTA Prenota una call (crema a frammento). Sull hero trasparente con logo bianco; allo scroll sfondo bianco, logo completo verde salvia (LOGO/VERDESALVIA), link verde salvia.' },
+        { n: 'Hero slider (3 slide)', t: 'Come v2: foto homehero + NEW images/hero, overlay caldo, 4 prismi che si illuminano al cambio slide. 2 CTA per slide (terracotta + crema) verso pagine interne.' },
+        { n: 'Chi è Nicoletta', t: 'Come v2 (fondo crema, foto allineata da etichetta a riga PNL, numeri Josefin, badge certificazioni) + CTA Conosci il mio approccio.' },
+        { n: 'I percorsi', t: 'Come v2 (fondo panna, card con corpo colorato, NEW images) + link alle pagine interne in outline terracotta a frammento.' },
+        { n: 'Per le organizzazioni', t: 'Salvia piatto. CTA Scopri i programmi (crema, pagina interna) + Prenota una call (outline crema).' },
+        { n: 'News', t: 'Fondo bianco, 3 card crema con immagine a taglio irregolare. Loop Grid post standard. Pulsanti outline terracotta.' },
+        { n: 'News e Eventi', t: 'Fondo sabbia #E6BF91. Evento in evidenza su crema a frammento + lista In programma con CTA terracotta. CPT eventi o The Events Calendar.' },
+        { n: 'Citazione', t: 'Come v2 (foto NEW images/citazione, testo crema).' },
+        { n: 'Testimonianze', t: 'Come v2. Widget WP Reviews Plugin for Google.' },
+        { n: 'Blocco finale', t: 'Fondo crema, titolo terracotta, CTA terracotta verso Contatti.' },
+        { n: 'Footer', t: 'Come v2 + colonne Percorsi e Nicoletta con link interni.' }
+      ],
+      design: [
+        'Stesse regole VI della homepage v2 (font, frammenti, pulsanti, spaziature)',
+        'Outline a frammento: su fondi chiari contorno e testo terracotta (hover terracotta scuro), su salvia contorno e testo crema (hover sabbia)',
+        'Sequenza sfondi: foto, crema, panna, salvia, bianco, sabbia, foto, bianco, crema, footer salvia'
       ]
     },
     'page-home-v2': {
