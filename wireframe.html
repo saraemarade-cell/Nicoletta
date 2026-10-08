@@ -1779,6 +1779,44 @@
     #wf-wrapper .vi-inner .faq-question__icon { color: var(--c-terracotta); }
     #wf-wrapper .vi-inner .faq-answer { color: #3b2e26; font-family: var(--font-inter); }
     #wf-wrapper .vi-inner .faq-answer a { color: var(--c-terracotta); text-decoration: underline; }
+    /* Outline a frammento su fondi scuri (hero e sezioni salvia/terracotta) */
+    #wf-wrapper .vi-inner .page-hero--dark .btn--outline-frag,
+    #wf-wrapper .vi-inner .az-section--dark .btn--outline-frag,
+    #wf-wrapper .vi-inner .az-section--accent .btn--outline-frag { background: var(--c-cream); color: var(--c-cream); }
+    #wf-wrapper .vi-inner .page-hero--dark .btn--outline-frag::before,
+    #wf-wrapper .vi-inner .az-section--dark .btn--outline-frag::before { background: var(--c-green-700); }
+    #wf-wrapper .vi-inner .az-section--accent .btn--outline-frag::before { background: var(--c-terracotta); }
+    #wf-wrapper .vi-inner .page-hero--dark .btn--outline-frag:hover { background: var(--c-peach); color: var(--c-peach); }
+    #wf-wrapper .vi-inner .az-hero-image img { filter: none; mix-blend-mode: normal; opacity: 0.25; }
+
+    /* Pagina aziendale: problema su crema, richiesta su sabbia (testi scuri) */
+    #page-aziendale .az-section--medium:not(#az-richiesta) { background: var(--c-cream) !important; }
+    #page-aziendale #az-richiesta { background: var(--c-peach) !important; }
+    #page-aziendale .az-section--medium .az-text-white,
+    #page-aziendale .az-section--medium h2 { color: var(--c-terracotta) !important; }
+    #page-aziendale #az-richiesta h2 { color: #3b2418 !important; }
+    #page-aziendale .az-section--medium .az-text-muted { color: #3b2e26 !important; }
+    #page-aziendale .az-section--medium .section-label { background: #fff; color: var(--c-terracotta); }
+    #page-aziendale .az-segnali-label { color: var(--c-terracotta); font-family: var(--font-body); font-weight: 700; }
+    #page-aziendale .az-segnale { border-color: rgba(92,54,38,0.2); }
+    #page-aziendale .az-segnale__num { color: var(--c-terracotta); font-family: var(--font-body); font-weight: 700; }
+    #page-aziendale .az-segnale__text { color: #3b2418; }
+    #page-aziendale #az-richiesta span[style] { color: #3b2418 !important; }
+    #page-aziendale #az-richiesta svg { color: var(--c-terracotta); stroke: var(--c-terracotta); }
+    #page-aziendale #az-richiesta .reveal[style] > div[style] { background: var(--c-cream) !important; border: none !important; border-radius: 0 !important; clip-path: polygon(0 0, 96% 0, 100% 8%, 100% 100%, 4% 100%, 0 92%); }
+    #page-aziendale #az-richiesta .reveal[style] > div[style] p { color: #3b2e26 !important; }
+    #page-aziendale #az-richiesta .reveal[style] > div[style] { max-width: min(360px, 100%) !important; box-sizing: border-box; }
+    #page-aziendale #az-richiesta .reveal[style] { min-width: 0; }
+    #page-aziendale .az-section--medium > svg, #page-aziendale #az-richiesta > svg { opacity: 0.12; }
+    #page-aziendale .az-process-item__num { color: var(--c-peach); font-family: var(--font-body); font-weight: 700; }
+    #page-aziendale .az-process-item__step { color: var(--c-peach); }
+    #page-aziendale .az-process-item__title { color: #fff; }
+    #page-aziendale .az-process-item__body p:not(.az-process-item__step) { color: rgba(255,255,255,0.88); }
+    #page-aziendale .az-risultato { border-color: rgba(255,255,255,0.15); }
+    #page-aziendale .az-risultato__icon { background: rgba(230,191,145,0.18); color: var(--c-peach); clip-path: var(--frag-a); border-radius: 0; }
+    #page-aziendale .az-risultato__title { color: #fff; font-family: var(--font-body); font-weight: 700; }
+    #page-aziendale .az-risultato__desc { color: rgba(255,255,255,0.82); }
+
     /* Fascia ricorrente Onestà · Serietà · Impegno */
     #wf-wrapper .vi-inner .valori-band { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.8rem; max-width: none; }
     #wf-wrapper .vi-inner .valori-band span {
@@ -3444,11 +3482,12 @@
   <div class="container" style="position:relative;z-index:1;padding-bottom:var(--space-xl);">
     <div class="page-hero__inner">
       <span class="section-label section-label--peach">Per le&nbsp;organizzazioni</span>
-      <h1 style="color:var(--c-white);">Benessere aziendale che&nbsp;produce risultati concreti.</h1>
-      <p class="page-hero__desc" style="color:rgba(255,255,255,0.75);">Programmi tailor made per&nbsp;team e&nbsp;organizzazioni. Non attività di&nbsp;wellness generiche, ma&nbsp;interventi integrati, credibili e&nbsp;adattati al&nbsp;contesto specifico di&nbsp;ogni realtà.</p>
+      <h1 style="color:var(--c-white);">Il benessere delle persone è un&nbsp;valore strategico per&nbsp;l’organizzazione.</h1>
+      <p class="page-hero__desc" style="color:rgba(255,255,255,0.85);">Programmi strutturati e&nbsp;personalizzati che&nbsp;integrano salute, prevenzione, coaching e&nbsp;formazione, costruiti a&nbsp;partire dai bisogni reali dell’azienda.</p>
+      <p class="page-hero__desc" style="color:rgba(255,255,255,0.85);">Interventi concreti per&nbsp;sostenere benessere, consapevolezza, qualità delle relazioni e&nbsp;performance.</p>
       <div class="page-hero__ctas">
-        <a href="#page-contatti" class="btn btn--cream">Richiedi una&nbsp;proposta</a>
-        <a href="#page-eventi" class="btn btn--secondary">Scopri gli&nbsp;eventi</a>
+        <a href="#page-contatti" class="btn btn--secondary">Richiedi una&nbsp;proposta</a>
+        <a href="#page-eventi" class="btn btn--outline-frag">Scopri gli&nbsp;eventi</a>
       </div>
     </div>
   </div>
@@ -3461,7 +3500,7 @@
       <div class="reveal">
         <span class="section-label section-label--peach">Il problema</span>
         <h2 class="az-text-white" style="margin-top:1rem;">Le organizzazioni che&nbsp;non investono nel&nbsp;benessere pagano un&nbsp;prezzo elevato.</h2>
-        <p class="az-text-muted" style="margin-top:1.2rem;line-height:1.8;">Stress cronico, burnout, turnover, difficoltà di&nbsp;concentrazione e&nbsp;collaborazione sono segnali che&nbsp;il&nbsp;benessere delle&nbsp;persone non è una&nbsp;questione accessoria. <span style="white-space:nowrap">È una&nbsp;variabile</span> che&nbsp;impatta direttamente sulla performance e&nbsp;sulla qualità del&nbsp;lavoro.</p>
+        <p class="az-text-muted" style="margin-top:1.2rem;line-height:1.8;">Stress cronico, burnout, assenteismo, turnover, difficoltà di&nbsp;concentrazione e&nbsp;collaborazione sono segnali che&nbsp;il benessere delle persone non è una questione accessoria. È una variabile che&nbsp;impatta direttamente sulla performance e&nbsp;sulla qualità del&nbsp;lavoro.</p>
       </div>
       <div class="reveal">
         <p class="az-segnali-label">Segnali da&nbsp;riconoscere</p>
@@ -3487,12 +3526,12 @@
       <p style="color:rgba(255,255,255,0.65);max-width:46ch;margin:0.8rem auto 0;font-size:0.95rem;line-height:1.75;">Tre passi semplici per&nbsp;avviare un&nbsp;programma costruito sul contesto reale della&nbsp;tua organizzazione.</p>
     </div>
     <div class="az-process-list reveal">
-      <div class="az-process-item"><span class="az-process-item__num">01</span><div class="az-process-item__body"><p class="az-process-item__step">Primo passo</p><h3 class="az-process-item__title">Call conoscitiva</h3><p class="az-process-item__desc">Una conversazione per&nbsp;capire le&nbsp;esigenze dell'organizzazione, le&nbsp;aspettative <span style="white-space:nowrap">e&nbsp;il contesto in cui si opera.</span></p></div></div>
+      <div class="az-process-item"><span class="az-process-item__num">01</span><div class="az-process-item__body"><p class="az-process-item__step">Primo passo</p><h3 class="az-process-item__title">Call conoscitiva</h3><p class="az-process-item__desc">Una conversazione per&nbsp;capire le&nbsp;esigenze dell’organizzazione, le&nbsp;aspettative e&nbsp;il contesto in&nbsp;cui si opera.</p></div></div>
       <div class="az-process-item"><span class="az-process-item__num">02</span><div class="az-process-item__body"><p class="az-process-item__step">Secondo passo</p><h3 class="az-process-item__title">Proposta personalizzata</h3><p class="az-process-item__desc">Presentazione di&nbsp;un&nbsp;programma costruito sulle esigenze emerse, con&nbsp;struttura, contenuti, format e&nbsp;budget indicativo.</p></div></div>
-      <div class="az-process-item"><span class="az-process-item__num">03</span><div class="az-process-item__body"><p class="az-process-item__step">Terzo passo</p><h3 class="az-process-item__title">Implementazione e&nbsp;follow-up</h3><p class="az-process-item__desc">Avvio del&nbsp;programma con&nbsp;possibilità di&nbsp;adattamenti in corso e&nbsp;momenti di&nbsp;verifica dei&nbsp;risultati.</p></div></div>
+      <div class="az-process-item"><span class="az-process-item__num">03</span><div class="az-process-item__body"><p class="az-process-item__step">Terzo passo</p><h3 class="az-process-item__title">Implementazione e&nbsp;follow-up</h3><p class="az-process-item__desc">Avvio del&nbsp;programma con&nbsp;possibilità di&nbsp;adattamenti in&nbsp;corso e&nbsp;momenti di&nbsp;verifica dei&nbsp;risultati.</p></div></div>
     </div>
     <div style="text-align:center;margin-top:3.5rem;" class="reveal">
-      <a href="#page-contatti" class="btn btn--cream">Richiedi informazioni</a>
+      <a href="#page-contatti" class="btn btn--secondary">Richiedi informazioni</a>
     </div>
   </div>
 </section>
@@ -3504,12 +3543,12 @@
       <h2 class="az-text-white">Cosa cambia nelle&nbsp;persone e&nbsp;nell'organizzazione.</h2>
     </div>
     <div class="az-risultati-grid reveal">
-      <div class="az-risultato"><div class="az-risultato__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 28 28" fill="none"><path d="M14 4C14 4 6 9 6 16a8 8 0 0016 0c0-7-8-12-8-12z" stroke="#E6BF91" stroke-width="1.2"/><path d="M14 13v5" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round"/></svg></div><h4 class="az-risultato__title">Riduzione di&nbsp;stress e&nbsp;burnout</h4><p class="az-risultato__desc">Strumenti concreti per&nbsp;gestire il&nbsp;carico e&nbsp;prevenire l'esaurimento delle&nbsp;persone.</p></div>
-      <div class="az-risultato"><div class="az-risultato__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="9" stroke="#E6BF91" stroke-width="1.2"/><path d="M10 14l3 3 5-5" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4 class="az-risultato__title">Focus e&nbsp;presenza migliorati</h4><p class="az-risultato__desc">Più concentrazione, qualità dell'attenzione e&nbsp;capacità decisionale nel&nbsp;lavoro quotidiano.</p></div>
+      <div class="az-risultato"><div class="az-risultato__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 28 28" fill="none"><path d="M14 4C14 4 6 9 6 16a8 8 0 0016 0c0-7-8-12-8-12z" stroke="#E6BF91" stroke-width="1.2"/><path d="M14 13v5" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round"/></svg></div><h4 class="az-risultato__title">Riduzione di&nbsp;stress e&nbsp;burnout</h4><p class="az-risultato__desc">Strumenti concreti per&nbsp;gestire il&nbsp;carico e&nbsp;prevenire l’esaurimento delle persone.</p></div>
+      <div class="az-risultato"><div class="az-risultato__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="9" stroke="#E6BF91" stroke-width="1.2"/><path d="M10 14l3 3 5-5" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4 class="az-risultato__title">Focus e&nbsp;presenza migliorati</h4><p class="az-risultato__desc">Più concentrazione, qualità dell’attenzione e&nbsp;capacità decisionale nel lavoro quotidiano.</p></div>
       <div class="az-risultato"><div class="az-risultato__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 28 28" fill="none"><path d="M8 20l6-8 6 8" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round"/><circle cx="14" cy="9" r="3" stroke="#E6BF91" stroke-width="1.2"/></svg></div><h4 class="az-risultato__title">Maggiore coesione dei&nbsp;team</h4><p class="az-risultato__desc">Relazioni più collaborative, comunicazione più efficace, meno conflitti e&nbsp;tensioni.</p></div>
-      <div class="az-risultato"><div class="az-risultato__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 28 28" fill="none"><rect x="5" y="8" width="18" height="12" rx="1" stroke="#E6BF91" stroke-width="1.2"/><path d="M9 13h10M9 16h6" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round"/></svg></div><h4 class="az-risultato__title">Strumenti concreti e&nbsp;applicabili</h4><p class="az-risultato__desc">Pratiche trasferibili nella&nbsp;routine lavorativa e&nbsp;personale di&nbsp;ogni collaboratore.</p></div>
-      <div class="az-risultato"><div class="az-risultato__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 28 28" fill="none"><path d="M7 14h14M14 7l7 7-7 7" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4 class="az-risultato__title">Interventi adattati al&nbsp;contesto</h4><p class="az-risultato__desc">Nessun programma generico: ogni intervento è costruito sul contesto specifico dell'organizzazione.</p></div>
-      <div class="az-risultato"><div class="az-risultato__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 28 28" fill="none"><path d="M7 20l4-8 3 4 3-6 4 10" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="4" width="20" height="20" rx="1" stroke="#E6BF91" stroke-width="1.2"/></svg></div><h4 class="az-risultato__title">Approccio credibile e&nbsp;misurabile</h4><p class="az-risultato__desc">Fondato su&nbsp;evidenze scientifiche, con&nbsp;risultati monitorabili nel&nbsp;tempo.</p></div>
+      <div class="az-risultato"><div class="az-risultato__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 28 28" fill="none"><rect x="5" y="8" width="18" height="12" rx="1" stroke="#E6BF91" stroke-width="1.2"/><path d="M9 13h10M9 16h6" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round"/></svg></div><h4 class="az-risultato__title">Strumenti concreti e&nbsp;applicabili</h4><p class="az-risultato__desc">Pratiche trasferibili nella routine lavorativa e&nbsp;personale di&nbsp;ogni collaboratore.</p></div>
+      <div class="az-risultato"><div class="az-risultato__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 28 28" fill="none"><path d="M7 14h14M14 7l7 7-7 7" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4 class="az-risultato__title">Interventi adattati al&nbsp;contesto</h4><p class="az-risultato__desc">Nessun programma generico: ogni intervento è costruito sul contesto specifico dell’organizzazione.</p></div>
+      <div class="az-risultato"><div class="az-risultato__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 28 28" fill="none"><path d="M7 20l4-8 3 4 3-6 4 10" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="4" width="20" height="20" rx="1" stroke="#E6BF91" stroke-width="1.2"/></svg></div><h4 class="az-risultato__title">Approccio credibile e&nbsp;misurabile</h4><p class="az-risultato__desc">Fondato su&nbsp;evidenze scientifiche, con&nbsp;risultati monitorabili nel tempo.</p></div>
     </div>
     <div class="reveal" style="text-align:center;margin-top:3rem;">
       <a href="javascript:void(0)" class="btn btn--outline" style="color:rgba(255,255,255,0.75);border-color:rgba(255,255,255,0.25);">Approfondisci</a>
@@ -3596,17 +3635,17 @@
       <div class="reveal">
         <span class="section-label section-label--peach">Informazioni</span>
         <h2 class="az-text-white" style="margin-bottom:1.2rem;">Vuoi saperne di&nbsp;più?</h2>
-        <p class="az-text-muted" style="margin-bottom:2rem;">Per qualsiasi domanda sui programmi, i format disponibili o&nbsp;le modalità di&nbsp;collaborazione, scrivici direttamente. Risponderemo entro breve con&nbsp;tutte le&nbsp;informazioni di&nbsp;cui hai bisogno.</p>
+        <p class="az-text-muted" style="margin-bottom:2rem;">Per qualsiasi domanda sui programmi, i&nbsp;format disponibili o&nbsp;le modalità di&nbsp;collaborazione, scrivici direttamente. Risponderemo entro breve con&nbsp;tutte le&nbsp;informazioni di&nbsp;cui hai bisogno.</p>
         <div style="display:flex;flex-direction:column;gap:1rem;">
           <div style="display:flex;align-items:center;gap:0.8rem;"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#E6BF91" stroke-width="1"/><path d="M6 9l2 2 4-4" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:0.88rem;color:rgba(255,255,255,0.7);">Informazioni su format e&nbsp;modalità</span></div>
           <div style="display:flex;align-items:center;gap:0.8rem;"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#E6BF91" stroke-width="1"/><path d="M6 9l2 2 4-4" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:0.88rem;color:rgba(255,255,255,0.7);">Disponibilità e&nbsp;budget orientativo</span></div>
-          <div style="display:flex;align-items:center;gap:0.8rem;"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#E6BF91" stroke-width="1"/><path d="M6 9l2 2 4-4" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:0.88rem;color:rgba(255,255,255,0.7);">Risposta entro [tempi — da&nbsp;aggiornare]</span></div>
+          <div style="display:flex;align-items:center;gap:0.8rem;"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#E6BF91" stroke-width="1"/><path d="M6 9l2 2 4-4" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:0.88rem;color:rgba(255,255,255,0.7);">Risposta entro [DA DEFINIRE]</span></div>
         </div>
       </div>
       <div class="reveal" style="display:flex;align-items:center;justify-content:center;">
         <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(230,191,145,0.25);border-radius:12px;padding:2.5rem 2rem;text-align:center;max-width:360px;">
           <p style="color:rgba(255,255,255,0.75);font-size:0.95rem;line-height:1.7;margin-bottom:2rem;">Compila il modulo di&nbsp;contatto con&nbsp;una breve descrizione del&nbsp;vostro contesto e&nbsp;di&nbsp;quello che&nbsp;state cercando. Ti risponderemo per&nbsp;capire insieme come possiamo collaborare.</p>
-          <a href="#page-contatti" class="btn btn--cream" style="width:100%;justify-content:center;">Richiedi informazioni</a>
+          <a href="#page-contatti" class="btn btn--primary" style="width:100%;justify-content:center;">Richiedi informazioni</a>
         </div>
       </div>
     </div>
