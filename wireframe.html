@@ -1779,6 +1779,19 @@
     #wf-wrapper .vi-inner .faq-question__icon { color: var(--c-terracotta); }
     #wf-wrapper .vi-inner .faq-answer { color: #3b2e26; font-family: var(--font-inter); }
     #wf-wrapper .vi-inner .faq-answer a { color: var(--c-terracotta); text-decoration: underline; }
+    /* Fascia ricorrente Onestà · Serietà · Impegno */
+    #wf-wrapper .vi-inner .valori-band { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.8rem; max-width: none; }
+    #wf-wrapper .vi-inner .valori-band span {
+      background: var(--c-terracotta); color: var(--c-cream); clip-path: var(--frag-a);
+      padding: 0.55rem 1.4rem; font-family: var(--font-body); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.8rem;
+    }
+    #wf-wrapper .vi-inner .metodo-steps + .valori-band { justify-content: center; margin-top: 3rem; }
+    @media (min-width: 1024px) { #wf-wrapper .vi-inner .metodo-steps--4 { grid-template-columns: repeat(4, 1fr); } }
+    #wf-wrapper .vi-inner .section__intro + .section__intro { margin-top: 0.8rem; }
+    #wf-wrapper .vi-inner .benefici-card { background: #fff; border: none; border-radius: 0; box-shadow: 0 8px 24px rgba(92,54,38,0.08); }
+    #wf-wrapper .vi-inner .benefici-card__icon { background: var(--c-cream); color: var(--c-terracotta); clip-path: var(--frag-a); border-radius: 0; }
+    #wf-wrapper .vi-inner .benefici-card__title { color: #5c3626; font-family: var(--font-body); font-weight: 700; }
+    #wf-wrapper .vi-inner .benefici-card__desc { color: #3b2e26; }
     #wf-wrapper .vi-inner .inner-2col .onco__p { color: rgba(255,255,255,0.88); line-height: 1.75; margin-top: 1rem; }
     #wf-wrapper .vi-inner .section-label { background: var(--c-cream); color: var(--c-terracotta); }
     #wf-wrapper .vi-inner .section--cream .section-label { background: #fff; }
@@ -3189,12 +3202,13 @@
 <section class="page-hero page-hero--cream">
   <div class="container">
     <div class="page-hero__inner">
-      <span class="section-label">Percorso</span>
-      <h1>Il percorso Coaching</h1>
-      <p class="page-hero__desc">Un percorso che&nbsp;parte dall'ascolto per&nbsp;portare chiarezza, strumenti concreti e&nbsp;direzione. Non soluzioni rapide, ma&nbsp;cambiamenti reali e&nbsp;sostenibili.</p>
+      <span class="section-label">Coaching</span>
+      <h1>Dalla consapevolezza al&nbsp;cambiamento</h1>
+      <p class="page-hero__desc">Uno spazio per&nbsp;fare chiarezza, guardare ciò che&nbsp;stai vivendo da&nbsp;nuove prospettive e&nbsp;trasformare consapevolezze e&nbsp;obiettivi in&nbsp;scelte concrete.</p>
+      <p class="page-hero__desc">Un percorso strutturato e&nbsp;personalizzato per&nbsp;ritrovare direzione, attivare le&nbsp;tue risorse e&nbsp;creare cambiamenti che&nbsp;abbiano spazio nella vita reale.</p>
       <div class="page-hero__ctas">
         <a href="#page-contatti" class="btn btn--primary">Inizia il&nbsp;percorso</a>
-        <a href="#page-eventi" class="btn btn--outline">Workshop e&nbsp;retreat</a>
+        <a href="#page-eventi" class="btn btn--outline-frag">Workshop e&nbsp;retreat</a>
       </div>
     </div>
   </div>
@@ -3205,20 +3219,19 @@
     <div class="inner-2col inner-2col--center">
       <div class="reveal">
         <span class="section-label">Il percorso</span>
-        <h2 style="margin-bottom:1.2rem;">Coaching <span style="white-space:nowrap">non è motivazione.</span><br><span style="white-space:nowrap">È metodo.</span></h2>
-        <p style="margin-bottom:1.2rem;">Il coaching di&nbsp;Nicoletta Ingusci non promette trasformazioni rapide né offre risposte preconfezionate. Offre un&nbsp;metodo rigoroso, basato sull'ascolto e&nbsp;su strumenti scientificamente fondati, per&nbsp;aiutare le&nbsp;persone a fare chiarezza e&nbsp;scegliere con&nbsp;più consapevolezza.</p>
-        <div class="method-block">
-          <p>Il percorso parte sempre da&nbsp;dove sei. Non da&nbsp;dove dovresti essere. Il lavoro consiste nel&nbsp;comprendere meglio la&nbsp;propria situazione, individuare i margini di&nbsp;cambiamento reale e&nbsp;costruire strumenti applicabili nella&nbsp;vita quotidiana.</p>
-        </div>
+        <h2 style="margin-bottom:1.2rem;">Coaching è creare spazio per&nbsp;vedere nuove possibilità.</h2>
+        <p>Il Coaching è un&nbsp;percorso di&nbsp;consapevolezza e&nbsp;cambiamento. Uno spazio in&nbsp;cui fermarsi, guardare con&nbsp;maggiore chiarezza ciò che&nbsp;stiamo vivendo e&nbsp;riconoscere risorse, possibilità e&nbsp;direzioni che&nbsp;a&nbsp;volte, da&nbsp;soli, facciamo fatica a&nbsp;vedere.</p>
+        <p>Il mio approccio integra coaching, PNL, studio delle motivazioni e&nbsp;del comportamento, attraverso un&nbsp;metodo strutturato e&nbsp;strumenti concreti, scelti sempre in&nbsp;funzione della persona e&nbsp;dell’obiettivo.</p>
+        <p>Onestà, serietà e&nbsp;impegno sono alla base di&nbsp;ogni mio percorso. Da&nbsp;entrambe le&nbsp;parti. Perché quando c’è un&nbsp;obiettivo chiaro e&nbsp;la volontà reale di&nbsp;mettersi in&nbsp;gioco, il&nbsp;cambiamento può arrivare anche in&nbsp;tempi brevi. Un percorso non deve essere necessariamente lungo per&nbsp;essere profondo.</p>
+        <p>Partiamo da&nbsp;dove sei, non da&nbsp;dove pensi di&nbsp;dover essere. Da&nbsp;lì lavoriamo insieme per&nbsp;comprendere cosa vuoi davvero, cosa oggi ti limita e&nbsp;quali possibilità puoi attivare.</p>
+        <p>Non ti dirò mai quale strada prendere. Ti aiuterò a&nbsp;vedere con&nbsp;più chiarezza le&nbsp;strade che&nbsp;hai davanti e&nbsp;scegliere consapevolmente la&nbsp;tua.</p>
         <div class="nicoletta-preview__tags" style="margin-top:1.5rem;">
-          <span class="tag tag--peach">Coaching individuale</span>
-          <span class="tag tag--peach">Chiarezza e&nbsp;direzione</span>
-          <span class="tag tag--green">Approccio scientifico</span>
-          <span class="tag tag--green">Cambiamento sostenibile</span>
+          <span class="tag tag--peach">Life Coaching</span><span class="tag tag--green">Health &amp; Wellness</span><span class="tag tag--peach">Sport &amp; Performance</span><span class="tag tag--green">Business &amp; Leadership</span>
         </div>
+        <p class="valori-band" aria-label="Onestà, serietà, impegno"><span>Onestà</span><span>Serietà</span><span>Impegno</span></p>
       </div>
       <div class="inner-image reveal" style="clip-path:polygon(0 0, 86% 0, 100% 14%, 100% 100%, 14% 100%, 0 86%);overflow:hidden;">
-        <img src="Assets/Foto/coaching.webp" alt="Sessione di Coaching con Nicoletta Ingusci" loading="lazy"/>
+        <img src="Assets/NEW%20images/i%20percorsi/Comprenderescegliereagire.webp" alt="Sessione di Coaching con Nicoletta Ingusci" loading="lazy"/>
       </div>
     </div>
   </div>
@@ -3229,41 +3242,16 @@
     <div class="target-section">
       <div class="target-section__intro reveal">
         <span class="section-label section-label--light">A chi è rivolto</span>
-        <h2>Per chi cerca direzione, non risposte preconfezionate.</h2>
-        <p style="color:rgba(255,255,255,0.65);font-size:0.95rem;line-height:1.7;margin-top:1rem;">Un percorso costruito sulla persona, non su&nbsp;un&nbsp;protocollo.</p>
+        <h2>Persone diverse, obiettivi diversi. Un percorso costruito su&nbsp;di&nbsp;te.</h2>
+        <p style="color:rgba(255,255,255,0.65);font-size:0.95rem;line-height:1.7;margin-top:1rem;">Il Coaching si rivolge a&nbsp;chi desidera fare chiarezza, affrontare un&nbsp;cambiamento, raggiungere un&nbsp;obiettivo o&nbsp;esprimere meglio le&nbsp;proprie risorse, nella vita personale come in&nbsp;quella professionale.</p>
       </div>
       <div class="target-section__body">
         <div class="target-list reveal">
-          <div class="target-item"><span class="target-item__num">01</span><p class="target-item__text">Donne in una&nbsp;fase di&nbsp;transizione personale o&nbsp;professionale</p></div>
-          <div class="target-item"><span class="target-item__num">02</span><p class="target-item__text">Chi sente di&nbsp;essere fuori dal proprio equilibrio e&nbsp;non sa da&nbsp;dove ricominciare</p></div>
-          <div class="target-item"><span class="target-item__num">03</span><p class="target-item__text">Chi vuole prendere decisioni più consapevoli su&nbsp;lavoro, relazioni o&nbsp;stile di&nbsp;vita</p></div>
-          <div class="target-item"><span class="target-item__num">04</span><p class="target-item__text">Chi ha già intrapreso un&nbsp;percorso di&nbsp;crescita e&nbsp;vuole approfondirlo con&nbsp;metodo</p></div>
-          <div class="target-item"><span class="target-item__num">05</span><p class="target-item__text">Chi cerca strumenti concreti, non solo supporto emotivo</p></div>
-        </div>
-        <div class="target-benefits reveal">
-          <p class="target-benefits__label">Cosa si affronta insieme</p>
-          <div class="target-benefits__grid">
-            <div class="target-benefit">
-              <div class="target-benefit__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
-              <strong class="target-benefit__title">Chiarezza e&nbsp;direzione</strong>
-              <p class="target-benefit__desc">Quando non si sa cosa si vuole davvero o&nbsp;si è confusi tra&nbsp;opzioni e&nbsp;aspettative.</p>
-            </div>
-            <div class="target-benefit">
-              <div class="target-benefit__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg></div>
-              <strong class="target-benefit__title">Stress e&nbsp;sovraccarico</strong>
-              <p class="target-benefit__desc">Quando si fatica a stare nei&nbsp;propri ritmi e&nbsp;si cerca un&nbsp;modo più sostenibile di&nbsp;funzionare.</p>
-            </div>
-            <div class="target-benefit">
-              <div class="target-benefit__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-              <strong class="target-benefit__title">Transizioni di&nbsp;vita</strong>
-              <p class="target-benefit__desc">Cambiamenti di&nbsp;lavoro, relazioni, fasi di&nbsp;vita. Come attraversarli con&nbsp;più consapevolezza.</p>
-            </div>
-            <div class="target-benefit">
-              <div class="target-benefit__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></div>
-              <strong class="target-benefit__title">Presenza e&nbsp;consapevolezza</strong>
-              <p class="target-benefit__desc">Imparare a osservarsi e&nbsp;a scegliere piuttosto che&nbsp;reagire automaticamente.</p>
-            </div>
-          </div>
+          <div class="target-item"><span class="target-item__num">01</span><p class="target-item__text"><strong>Life Coaching.</strong> Per chi sta attraversando un&nbsp;cambiamento, vuole prendere una decisione, ritrovare direzione o&nbsp;lavorare su&nbsp;obiettivi, relazioni, equilibrio e&nbsp;crescita personale.</p></div>
+          <div class="target-item"><span class="target-item__num">02</span><p class="target-item__text"><strong>Sport &amp; Performance Coaching.</strong> Per atleti e&nbsp;sportivi che&nbsp;vogliono lavorare su&nbsp;focus, motivazione, gestione della pressione, obiettivi e&nbsp;performance, allenando anche la&nbsp;dimensione mentale della prestazione.</p></div>
+          <div class="target-item"><span class="target-item__num">03</span><p class="target-item__text"><strong>Business Coaching.</strong> Per professionisti e&nbsp;imprenditori che&nbsp;vogliono fare chiarezza sugli obiettivi, affrontare cambiamenti, migliorare performance, organizzazione e&nbsp;capacità decisionale.</p></div>
+          <div class="target-item"><span class="target-item__num">04</span><p class="target-item__text"><strong>Executive &amp; Leadership Coaching.</strong> Per manager e&nbsp;leader che&nbsp;desiderano sviluppare una leadership più consapevole, migliorare comunicazione, gestione delle persone, decision making e&nbsp;capacità di&nbsp;guidare nei momenti complessi.</p></div>
+          <div class="target-item"><span class="target-item__num">05</span><p class="target-item__text"><strong>Health &amp; Wellness Coaching.</strong> Per chi vuole trasformare intenzioni e&nbsp;obiettivi di&nbsp;benessere in&nbsp;scelte e&nbsp;abitudini concrete, lavorando sulla motivazione e&nbsp;sulla continuità nel cambiamento.</p></div>
         </div>
       </div>
     </div>
@@ -3274,14 +3262,18 @@
   <div class="container">
     <div class="section__header reveal" style="max-width:680px;">
       <span class="section-label">Come funziona</span>
-      <h2>Come si svolge il&nbsp;percorso.</h2>
-      <p class="section__intro">Il percorso si costruisce insieme, sessione dopo sessione. <span style="white-space:nowrap">Non esiste un protocollo fisso.</span></p>
+      <h2>Come si svolge il&nbsp;percorso</h2>
+      <p class="section__intro"><strong>Ogni percorso ha un&nbsp;punto di&nbsp;partenza. E&nbsp;una direzione costruita insieme.</strong></p>
+      <p class="section__intro">Onestà, serietà e&nbsp;impegno sono le&nbsp;parole chiave del&nbsp;mio modo di&nbsp;lavorare. Da&nbsp;parte mia e&nbsp;da parte di&nbsp;chi sceglie di&nbsp;intraprendere il&nbsp;percorso.</p>
+      <p class="section__intro">Non credo che&nbsp;un&nbsp;percorso debba essere lungo per&nbsp;essere profondo o&nbsp;efficace. Quando l’obiettivo è chiaro e&nbsp;c’è una reale disponibilità a&nbsp;mettersi in&nbsp;gioco, anche pochi incontri possono generare nuove consapevolezze e&nbsp;cambiamenti importanti.</p>
     </div>
-    <div class="metodo-steps reveal">
-      <div class="metodo-step"><span class="metodo-step__num">01</span><div class="metodo-step__bar"></div><h3 class="metodo-step__title">Consulenza conoscitiva</h3><p class="metodo-step__desc">Un primo incontro gratuito per&nbsp;capire cosa stai cercando e&nbsp;se il&nbsp;coaching con&nbsp;Nicoletta è la&nbsp;risposta giusta.</p></div>
-      <div class="metodo-step"><span class="metodo-step__num">02</span><div class="metodo-step__bar"></div><h3 class="metodo-step__title">Struttura del&nbsp;percorso</h3><p class="metodo-step__desc">Definizione degli&nbsp;obiettivi, della&nbsp;frequenza e&nbsp;della struttura delle&nbsp;sessioni.</p></div>
-      <div class="metodo-step"><span class="metodo-step__num">03</span><div class="metodo-step__bar"></div><h3 class="metodo-step__title">Sessioni e&nbsp;integrazione</h3><p class="metodo-step__desc">Sessioni individuali con&nbsp;strumenti di&nbsp;supporto e&nbsp;spazio per&nbsp;integrare il&nbsp;lavoro nella&nbsp;vita quotidiana.</p></div>
+    <div class="metodo-steps metodo-steps--4 reveal">
+      <div class="metodo-step"><span class="metodo-step__num">01</span><div class="metodo-step__bar"></div><h3 class="metodo-step__title">Primo incontro</h3><p class="metodo-step__desc">La prima sessione è già parte del&nbsp;percorso: partiamo da&nbsp;ciò che&nbsp;stai vivendo, da&nbsp;ciò che&nbsp;vuoi cambiare o&nbsp;raggiungere e&nbsp;iniziamo a&nbsp;definire una direzione.</p></div>
+      <div class="metodo-step"><span class="metodo-step__num">02</span><div class="metodo-step__bar"></div><h3 class="metodo-step__title">Obiettivi e&nbsp;percorso</h3><p class="metodo-step__desc">Mettiamo a&nbsp;fuoco l’obiettivo e&nbsp;definiamo insieme modalità, frequenza e&nbsp;strumenti più adatti.</p></div>
+      <div class="metodo-step"><span class="metodo-step__num">03</span><div class="metodo-step__bar"></div><h3 class="metodo-step__title">Sessioni e&nbsp;azione</h3><p class="metodo-step__desc">Lavoriamo su&nbsp;consapevolezza, risorse, strategie e&nbsp;azioni concrete, portando ciò che&nbsp;emerge nella vita reale.</p></div>
+      <div class="metodo-step"><span class="metodo-step__num">04</span><div class="metodo-step__bar"></div><h3 class="metodo-step__title">Autonomia</h3><p class="metodo-step__desc">Il mio obiettivo non è accompagnarti per&nbsp;sempre, ma&nbsp;aiutarti a&nbsp;costruire strumenti che&nbsp;possano continuare a&nbsp;essere tuoi anche dopo il&nbsp;percorso.</p></div>
     </div>
+    <p class="valori-band" aria-label="Onestà, serietà, impegno"><span>Onestà</span><span>Serietà</span><span>Impegno</span></p>
   </div>
 </section>
 
@@ -3294,10 +3286,10 @@
     <div class="benefici-grid reveal">
       <div class="benefici-card"><div class="benefici-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><h4 class="benefici-card__title">Più chiarezza</h4><p class="benefici-card__desc">Capire cosa conta davvero, cosa si vuole e&nbsp;in quale direzione andare.</p></div>
       <div class="benefici-card"><div class="benefici-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg></div><h4 class="benefici-card__title">Scelte più consapevoli</h4><p class="benefici-card__desc">Meno reattività automatica, più capacità di&nbsp;scegliere con&nbsp;intenzione.</p></div>
-      <div class="benefici-card"><div class="benefici-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h4 class="benefici-card__title">Strumenti applicabili</h4><p class="benefici-card__desc">Non solo insight, ma&nbsp;pratiche concrete da&nbsp;usare nella&nbsp;vita quotidiana.</p></div>
-      <div class="benefici-card"><div class="benefici-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h4 class="benefici-card__title">Maggiore equilibrio</h4><p class="benefici-card__desc">Un modo più sostenibile di&nbsp;stare nel&nbsp;lavoro, nelle&nbsp;relazioni e&nbsp;con se&nbsp;stessi.</p></div>
-      <div class="benefici-card"><div class="benefici-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><h4 class="benefici-card__title">Fiducia nel&nbsp;processo</h4><p class="benefici-card__desc">La capacità di&nbsp;affrontare i cambiamenti con&nbsp;più stabilità interiore.</p></div>
-      <div class="benefici-card"><div class="benefici-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><h4 class="benefici-card__title">Cambiamenti reali</h4><p class="benefici-card__desc">Non trasformazioni immediate: percorsi che&nbsp;si consolidano nel&nbsp;tempo.</p></div>
+      <div class="benefici-card"><div class="benefici-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h4 class="benefici-card__title">Strumenti applicabili</h4><p class="benefici-card__desc">Non solo insight, ma&nbsp;pratiche concrete da&nbsp;usare nella vita quotidiana.</p></div>
+      <div class="benefici-card"><div class="benefici-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h4 class="benefici-card__title">Maggiore equilibrio</h4><p class="benefici-card__desc">Un modo più sostenibile di&nbsp;stare nel lavoro, nelle relazioni e&nbsp;con se&nbsp;stessi.</p></div>
+      <div class="benefici-card"><div class="benefici-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><h4 class="benefici-card__title">Fiducia nel&nbsp;processo</h4><p class="benefici-card__desc">La capacità di&nbsp;affrontare i&nbsp;cambiamenti con&nbsp;più stabilità interiore.</p></div>
+      <div class="benefici-card"><div class="benefici-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><h4 class="benefici-card__title">Cambiamenti reali</h4><p class="benefici-card__desc">Non trasformazioni immediate: percorsi che&nbsp;si consolidano nel tempo.</p></div>
     </div>
   </div>
 </section>
@@ -3311,10 +3303,10 @@
         <p style="color:var(--c-neutral-400);margin-top:0.8rem;font-size:0.92rem;">Per qualsiasi altra domanda, <a href="#page-contatti" style="color:var(--c-green-700);text-decoration:underline;">scrivi direttamente.</a></p>
       </div>
       <div class="faq-list reveal">
-        <div class="faq-item"><button class="faq-question">Il coaching è come&nbsp;una&nbsp;terapia?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">No. Il coaching non è psicoterapia. Lavora sul presente e&nbsp;sul futuro — su&nbsp;obiettivi, risorse, scelte. Non si occupa di&nbsp;patologie o&nbsp;traumi. In certi casi i due percorsi possono coesistere e&nbsp;supportarsi a vicenda.</div></div>
-        <div class="faq-item"><button class="faq-question">Quanto dura un&nbsp;percorso di&nbsp;coaching?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">[Durata indicativa — da&nbsp;aggiornare con&nbsp;informazioni reali.] La durata dipende dagli obiettivi. Si può iniziare con&nbsp;un&nbsp;ciclo di&nbsp;sessioni e&nbsp;valutare insieme come&nbsp;proseguire.</div></div>
-        <div class="faq-item"><button class="faq-question">Le sessioni si tengono in presenza o&nbsp;online?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">Entrambe le&nbsp;modalità sono disponibili. [Dettagli su&nbsp;luoghi e&nbsp;piattaforme — da&nbsp;aggiornare.]</div></div>
-        <div class="faq-item"><button class="faq-question">Come iniziare?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">Con una&nbsp;consulenza conoscitiva gratuita. È un&nbsp;primo incontro senza impegno per&nbsp;capire insieme se&nbsp;il&nbsp;percorso è adatto. <a href="#page-contatti" style="color:var(--c-green-700);">Scrivici per&nbsp;prenotarla.</a></div></div>
+        <div class="faq-item"><button class="faq-question">Il coaching è come&nbsp;una&nbsp;terapia?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">No. Coaching e&nbsp;psicoterapia hanno obiettivi diversi. Il coaching lavora su&nbsp;presente e&nbsp;futuro, obiettivi, risorse e&nbsp;scelte. Quando utile, i&nbsp;due percorsi possono affiancarsi nel rispetto delle rispettive competenze.</div></div>
+        <div class="faq-item"><button class="faq-question">Quanto dura un&nbsp;percorso?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">Dipende dalla persona e&nbsp;dall’obiettivo. Non credo che&nbsp;un&nbsp;percorso debba essere lungo per&nbsp;essere efficace: con&nbsp;impegno, anche pochi incontri possono generare cambiamenti importanti.</div></div>
+        <div class="faq-item"><button class="faq-question">Le sessioni sono in&nbsp;presenza o&nbsp;online?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">Entrambe. Il percorso può svolgersi in&nbsp;presenza oppure online, in&nbsp;base alle esigenze della persona.</div></div>
+        <div class="faq-item"><button class="faq-question">Come si inizia?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">Con una prima sessione, che&nbsp;è già parte del&nbsp;percorso. Partiamo da&nbsp;dove sei, da&nbsp;ciò che&nbsp;vuoi cambiare o&nbsp;raggiungere e&nbsp;iniziamo da&nbsp;lì.</div></div>
       </div>
     </div>
   </div>
