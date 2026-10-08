@@ -1214,6 +1214,547 @@
     #page-home .footer__link { color: rgba(255,255,255,0.8); font-family: "Inter", system-ui, sans-serif; }
     #page-home .footer__link:hover { color: var(--c-cream); }
   </style>
+
+  <style>
+    /* ════════ VI PAGINE INTERNE — derivato dai blocchi della homepage v1 (valido solo per .vi-inner) ════════ */
+    /* ════════════════════════════════════════════════════════
+       MOCKUP HOMEPAGE V1 (derivato dal blocco V2, valido solo per #wf-wrapper .vi-inner) — Identità Visiva applicata
+       Sequenza sfondi: foto → bianco → sabbia → verde (aziendale)
+                        → terracotta → bianco → crema → footer verde
+       ════════════════════════════════════════════════════════ */
+
+    #wf-wrapper .vi-inner > main,
+    #wf-wrapper .vi-inner > .site-footer { filter: none !important; }
+
+    #wf-wrapper .vi-inner {
+      --frag-a: polygon(6% 0, 94% 4%, 100% 50%, 93% 100%, 5% 96%, 0 48%);
+      --frag-b: polygon(0 12%, 88% 0, 100% 62%, 82% 100%, 10% 92%);
+      --frag-img: polygon(8% 0, 100% 0, 100% 86%, 90% 100%, 0 100%, 0 12%);
+    }
+
+    .vi-frags { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 1; }
+
+    /* ── Tipografia ── */
+    #wf-wrapper .vi-inner h2 { font-weight: 600; letter-spacing: -0.01em; }
+    /* Body e didascalie: Josefin 300 è troppo sottile */
+    #wf-wrapper .vi-inner main p,
+    #wf-wrapper .vi-inner main li,
+    #wf-wrapper .vi-inner .site-footer p,
+    #wf-wrapper .vi-inner .site-footer a { font-weight: 400; }
+    #wf-wrapper .vi-inner .hero-slide__desc       { font-size: 1.15rem; line-height: 1.7; }
+    #wf-wrapper .vi-inner .section__intro,
+    #wf-wrapper .vi-inner .nicoletta-preview__intro { font-size: 1.12rem; line-height: 1.75; }
+    #wf-wrapper .vi-inner .nicoletta-preview__method,
+    #wf-wrapper .vi-inner .percorso-card__desc,
+    #wf-wrapper .vi-inner .aziendale-section__text { font-size: 1.02rem; line-height: 1.75; }
+    #wf-wrapper .vi-inner .nicoletta-stat__label  { font-size: 0.82rem !important; font-weight: 600; }
+    #wf-wrapper .vi-inner .az-home-list__label    { font-size: 1.02rem; font-weight: 400; }
+    #wf-wrapper .vi-inner .visual-break__attr     { font-size: 1rem; font-weight: 600; }
+    #wf-wrapper .vi-inner .gr-widget-grid p       { font-size: 0.92rem !important; color: #3b2e26 !important; }
+    #wf-wrapper .vi-inner .gr-widget-grid span    { font-size: 0.8rem !important; color: #6b5a4c !important; }
+    #wf-wrapper .vi-inner .form-label             { font-size: 0.9rem; }
+    #wf-wrapper .vi-inner .form-input             { font-size: 1rem; }
+    #wf-wrapper .vi-inner .form-check__label      { font-size: 0.95rem; color: #3b2418; }
+    #wf-wrapper .vi-inner .footer__payoff,
+    #wf-wrapper .vi-inner .footer__contact-item   { font-size: 1rem; }
+    #wf-wrapper .vi-inner .footer__legal a,
+    #wf-wrapper .vi-inner .footer__copy           { font-size: 0.88rem; }
+    #wf-wrapper .vi-inner .section-label {
+      display: inline-block;
+      padding: 0.45rem 1.3rem;
+      background: var(--c-green-100);
+      color: var(--c-green-700);
+      clip-path: var(--frag-a);
+      font-size: 0.75rem;
+    }
+
+    /* ── Pulsanti a frammento ── */
+    #wf-wrapper .vi-inner .btn { border-radius: 0; border: none; clip-path: var(--frag-a); padding: 1rem 2.2rem; }
+    #wf-wrapper .vi-inner .btn--primary { background: var(--c-terracotta); color: #fff; }
+    #wf-wrapper .vi-inner .btn--primary:hover { background: #7f4e39; }
+    #wf-wrapper .vi-inner .btn--secondary { background: var(--c-cream); color: var(--c-terracotta); }
+    #wf-wrapper .vi-inner .btn--secondary:hover { background: var(--c-peach); color: #5c3626; }
+
+    /* ══════════════ HERO ══════════════ */
+    #wf-wrapper .vi-inner .home-hero { position: relative; }
+    #wf-wrapper .vi-inner .hero-slide::after {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(160deg, rgba(159,100,74,0.55) 0%, rgba(20,14,10,0.55) 50%, rgba(230,191,145,0.25) 100%);
+    }
+    #wf-wrapper .vi-inner .hero-slide__inner,
+    #wf-wrapper .vi-inner .hero-controls { z-index: 3; position: relative; }
+    #wf-wrapper .vi-inner .hero-slide__logo-mark { display: block; height: 72px; width: auto; margin: 0 auto 1.4rem; }
+    #wf-wrapper .vi-inner .hero-slide__label { color: var(--c-cream); letter-spacing: 0.22em; }
+    #wf-wrapper .vi-inner .hero-slide__title { color: #fff; font-weight: 600; text-shadow: 0 2px 24px rgba(0,0,0,0.25); }
+    #wf-wrapper .vi-inner .hero-slide__desc  { color: rgba(255,255,255,0.92); }
+    #wf-wrapper .vi-inner .hero-dot { background: rgba(248,240,197,0.45); }
+    #wf-wrapper .vi-inner .hero-dot.active { background: var(--c-cream); }
+
+    /* ══════════════ CHI SONO (bianco) ══════════════ */
+    #wf-wrapper .vi-inner .section--neutral { background: #fff; }
+    #wf-wrapper .vi-inner .nicoletta-preview__img-container {
+      position: relative; clip-path: var(--frag-img); border-radius: 0;
+    }
+    #wf-wrapper .vi-inner .nicoletta-preview__image { position: relative; }
+    #wf-wrapper .vi-inner .nicoletta-preview__image::before {
+      content: ''; position: absolute; z-index: 0;
+      width: 55%; height: 45%; right: -6%; bottom: -6%;
+      background: var(--c-peach); clip-path: var(--frag-b); opacity: 0.7;
+    }
+    #wf-wrapper .vi-inner .nicoletta-preview__img-container { z-index: 1; }
+    #wf-wrapper .vi-inner .nicoletta-preview__text h2 { color: var(--c-terracotta); }
+    #wf-wrapper .vi-inner .nicoletta-preview__intro { color: #2b2b2b; }
+    #wf-wrapper .vi-inner .nicoletta-preview__method {
+      background: var(--c-cream); color: #4a3a2e;
+      border: none; border-left: 3px solid var(--c-terracotta);
+      padding: 1.1rem 1.3rem;
+    }
+    #wf-wrapper .vi-inner .nicoletta-preview__subtitle {
+      font-family: var(--font-display); font-size: 1.15rem; font-weight: 500;
+      color: var(--c-green-700); margin-bottom: 1.2rem;
+    }
+    #wf-wrapper .vi-inner .nicoletta-credentials {
+      font-size: 0.9rem; font-weight: 600; letter-spacing: 0.02em;
+      color: #5c3626; line-height: 1.7; margin: -0.8rem 0 1.6rem;
+    }
+    #wf-wrapper .vi-inner .percorso-card__tags {
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em;
+      color: var(--c-terracotta); margin: -0.6rem 0 0.4rem;
+    }
+    #wf-wrapper .vi-inner .nicoletta-stat__num { color: var(--c-terracotta); font-weight: 700; }
+    #wf-wrapper .vi-inner .nicoletta-stat__label { color: var(--c-green-700); }
+    #wf-wrapper .vi-inner .nicoletta-stats-row .nicoletta-stat {
+      border-right-color: var(--c-peach);
+      padding-right: 1.6rem !important; margin-right: 1.6rem !important;
+    }
+    #wf-wrapper .vi-inner .nicoletta-stats-row .nicoletta-stat:last-child { padding-right: 0 !important; margin-right: 0 !important; }
+    #wf-wrapper .vi-inner .tag {
+      clip-path: var(--frag-a); border: none; border-radius: 0;
+      padding: 0.4rem 1.1rem; font-weight: 600;
+    }
+    #wf-wrapper .vi-inner .tag--green { background: var(--c-green-100); color: var(--c-green-700); }
+    #wf-wrapper .vi-inner .tag--peach { background: var(--c-peach); color: #5c3626; }
+
+    /* ══════════════ PERCORSI (sabbia) ══════════════ */
+    #wf-wrapper .vi-inner .section--green { background: var(--c-peach); }
+    #wf-wrapper .vi-inner .section--green .section-label { background: var(--c-cream); color: var(--c-terracotta); }
+    #wf-wrapper .vi-inner .section--green h2 { color: #3b2418; }
+    #wf-wrapper .vi-inner .section--green .section__intro { color: #3b2e26; }
+    #wf-wrapper .vi-inner .percorso-card {
+      background: #fff; border: none; border-radius: 0;
+      box-shadow: 0 10px 30px rgba(92,54,38,0.12);
+    }
+    #wf-wrapper .vi-inner .percorso-card__image { clip-path: polygon(0 0, 100% 0, 100% 88%, 70% 100%, 0 94%); }
+    #wf-wrapper .vi-inner .percorso-card__badge { clip-path: var(--frag-a); border-radius: 0; padding: 0.4rem 1.1rem; }
+    #wf-wrapper .vi-inner .percorso-card--yoga .percorso-card__badge      { background: var(--c-cream); color: #5c3626; }
+    #wf-wrapper .vi-inner .percorso-card--coaching .percorso-card__badge  { background: var(--c-terracotta); color: #fff; }
+    #wf-wrapper .vi-inner .percorso-card--benessere .percorso-card__badge { background: var(--c-green-700); color: #fff; }
+    #wf-wrapper .vi-inner .percorso-card__title { color: var(--c-terracotta); font-weight: 600; }
+    #wf-wrapper .vi-inner .percorso-card__desc  { color: #4a4540; }
+    /* Box "su misura" */
+    #wf-wrapper .vi-inner .section--green .reveal[style*="space-between"] {
+      background: var(--c-terracotta) !important; border: none !important;
+      clip-path: polygon(0 0, 98% 0, 100% 30%, 100% 100%, 2% 100%, 0 70%);
+    }
+    #wf-wrapper .vi-inner .section--green .reveal[style*="space-between"] h3 { color: #fff; }
+    #wf-wrapper .vi-inner .section--green .reveal[style*="space-between"] p  { color: var(--c-cream) !important; }
+    #wf-wrapper .vi-inner .section--green .reveal[style*="space-between"] .btn--primary { background: var(--c-cream); color: var(--c-terracotta); }
+
+    /* ══════════════ BENESSERE AZIENDALE (verde) ══════════════ */
+    #wf-wrapper .vi-inner .aziendale-section { background: var(--g-corporate); position: relative; overflow: hidden; }
+    #wf-wrapper .vi-inner .aziendale-section .section-label { background: rgba(230,191,145,0.18); color: var(--c-peach); }
+    #wf-wrapper .vi-inner .section-label { width: fit-content; }
+    #wf-wrapper .vi-inner .section__header--centered .section-label { margin-inline: auto; }
+    #wf-wrapper .vi-inner .aziendale-section h2 { color: #fff; }
+    #wf-wrapper .vi-inner .aziendale-section p  { color: rgba(255,255,255,0.85); }
+    #wf-wrapper .vi-inner .az-home-list__item { border-color: rgba(255,255,255,0.14); }
+    #wf-wrapper .vi-inner .az-home-list__label { color: #fff; }
+    #wf-wrapper .vi-inner .az-home-list__icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px; flex-shrink: 0;
+      background: rgba(230,191,145,0.18); color: var(--c-peach);
+      clip-path: var(--frag-a);
+    }
+
+    /* ══════════════ CITAZIONE (terracotta) ══════════════ */
+    #wf-wrapper .vi-inner .visual-break { background: var(--c-terracotta); position: relative; overflow: hidden; }
+    #wf-wrapper .vi-inner .visual-break .container { position: relative; z-index: 2; }
+    #wf-wrapper .vi-inner .visual-break__image { clip-path: var(--frag-img); }
+    #wf-wrapper .vi-inner .visual-break__quote { color: var(--c-cream) !important; font-weight: 500; }
+    #wf-wrapper .vi-inner .visual-break__quote em { color: #fff; }
+    #wf-wrapper .vi-inner .visual-break__attr { color: var(--c-peach) !important; }
+
+    /* ══════════════ TESTIMONIANZE (bianco) ══════════════ */
+    #wf-wrapper .vi-inner [aria-label="Testimonianze"] h2 { color: var(--c-terracotta); }
+    #wf-wrapper .vi-inner [aria-label="Testimonianze"] .reveal > div {
+      border: 1px solid var(--c-peach) !important; border-radius: 0 !important;
+    }
+    #wf-wrapper .vi-inner .gr-widget-grid > div { background: #fdf8ec !important; border-radius: 0 !important; clip-path: polygon(0 0, 96% 0, 100% 8%, 100% 100%, 4% 100%, 0 92%); }
+
+    /* ══════════════ FORM (crema) ══════════════ */
+    #wf-wrapper .vi-inner .section--cream { background: var(--c-cream); }
+    #wf-wrapper .vi-inner .section--cream .section-label { background: var(--c-terracotta); color: var(--c-cream); }
+    #wf-wrapper .vi-inner .section--cream h2 { color: var(--c-terracotta); }
+    #wf-wrapper .vi-inner .section--cream .section__intro { color: #4a3a2e; }
+    #wf-wrapper .vi-inner .form-label { color: #3b2418; }
+    #wf-wrapper .vi-inner .form-input { background: #fff; border: 1px solid var(--c-peach); border-radius: 0; }
+    #wf-wrapper .vi-inner .form-input:focus { border-color: var(--c-terracotta); outline: 2px solid rgba(159,100,74,0.2); }
+
+    /* ══════════════ FOOTER ══════════════ */
+    #wf-wrapper .vi-inner .site-footer { background: var(--c-green-700); }
+    #wf-wrapper .vi-inner .footer__payoff { color: rgba(255,255,255,0.8); }
+    #wf-wrapper .vi-inner .footer__col h5 { color: var(--c-cream); }
+    #wf-wrapper .vi-inner .footer__contact-item,
+    #wf-wrapper .vi-inner .footer__contact-item a { color: rgba(255,255,255,0.8); }
+    #wf-wrapper .vi-inner .footer__social-link {
+      border: none; border-radius: 0; clip-path: var(--frag-a);
+      background: rgba(255,255,255,0.14); color: #fff;
+    }
+    #wf-wrapper .vi-inner .footer__logo img { height: 88px !important; width: auto !important; }
+    #wf-wrapper .vi-inner .footer__social { gap: 0.9rem; }
+    #wf-wrapper .vi-inner .footer__social-link { width: 52px !important; height: 52px !important; }
+    #wf-wrapper .vi-inner .footer__social-link svg { width: 24px; height: 24px; }
+    #wf-wrapper .vi-inner .footer__social-link {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--c-cream); color: var(--c-terracotta);
+      transition: all var(--transition-base);
+    }
+    #wf-wrapper .vi-inner .footer__social-link:hover { background: var(--c-peach); color: #5c3626; }
+    #wf-wrapper .vi-inner .footer__col .btn--outline { transition: all var(--transition-base); }
+    #wf-wrapper .vi-inner .footer__col .btn--outline:hover { background: var(--c-peach); color: #5c3626 !important; transform: none; }
+    #wf-wrapper .vi-inner .footer__col .btn--outline { background: var(--c-cream); color: var(--c-terracotta) !important; clip-path: var(--frag-a); border: none; }
+    #wf-wrapper .vi-inner .footer__legal a { color: rgba(255,255,255,0.6); }
+    #wf-wrapper .vi-inner .footer__legal a:hover { color: #fff; }
+    #wf-wrapper .vi-inner .footer__copy { color: rgba(255,255,255,0.55); }
+    #wf-wrapper .vi-inner .footer__main { border-bottom-color: rgba(255,255,255,0.18); }
+
+    /* Spaziatura verticale uniforme tra le sezioni */
+    #wf-wrapper .vi-inner main > section:not(.home-hero),
+    #wf-wrapper .vi-inner main > .visual-break { padding-top: 6rem !important; padding-bottom: 6rem !important; }
+    @media (max-width: 1023px) {
+      #wf-wrapper .vi-inner main > section:not(.home-hero),
+      #wf-wrapper .vi-inner main > .visual-break { padding-top: 5rem !important; padding-bottom: 5rem !important; }
+    }
+    @media (max-width: 767px) {
+      #wf-wrapper .vi-inner main > section:not(.home-hero),
+      #wf-wrapper .vi-inner main > .visual-break { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+    }
+
+    /* Form: più aria attorno al consenso privacy */
+    #wf-wrapper .vi-inner .form-check { gap: 0.9rem; margin-bottom: 27px; }
+    #wf-wrapper .vi-inner .form-check__input { margin-right: 0.9rem; flex-shrink: 0; }
+
+    /* Navbar fissa: allo scroll sfondo bianco e solo il pittogramma verde salvia */
+    #wf-wrapper .vi-inner .site-header__logo--mark { display: none; height: 44px; width: auto; }
+    #wf-wrapper .vi-inner .site-header.scrolled {
+      background: #fff !important;
+      border-bottom-color: rgba(0,0,0,0.06) !important;
+    }
+    #wf-wrapper .vi-inner .site-header.scrolled .site-header__logo--white,
+    #wf-wrapper .vi-inner .site-header.scrolled .site-header__logo--dark { display: none !important; }
+    #wf-wrapper .vi-inner .site-header.scrolled .site-header__logo--mark { display: block !important; }
+    #wf-wrapper .vi-inner .site-header:not(.scrolled) .site-header__logo--mark { display: none !important; }
+    @media (max-width: 767px) {
+      #wf-wrapper .vi-inner .site-header__logo--mark { height: 36px; }
+    }
+
+    /* Pulsante outline a frammento: il contorno è il fondo, lo strato interno segue la stessa forma */
+    #wf-wrapper .vi-inner .btn--outline-frag {
+      position: relative; isolation: isolate;
+      background: var(--c-cream); color: var(--c-cream);
+      transition: all var(--transition-base);
+    }
+    #wf-wrapper .vi-inner .btn--outline-frag::before {
+      content: ''; position: absolute; inset: 1.5px; z-index: -1;
+      background: var(--c-green-700); clip-path: var(--frag-a);
+      transition: background var(--transition-base);
+    }
+    #wf-wrapper .vi-inner .btn--outline-frag:hover { background: var(--c-peach); color: var(--c-peach); }
+
+    /* Organizzazioni: frammento in alto a sinistra sopra l'etichetta, senza toccarla */
+    @media (max-width: 1023px) {
+      #wf-wrapper .vi-inner .aziendale-section .az-frag-tl { top: -266px !important; }
+    }
+    @media (max-width: 767px) {
+      #wf-wrapper .vi-inner .aziendale-section .az-frag-tl { top: -284px !important; }
+    }
+
+    /* Card percorsi: area sotto il taglio dell'immagine dello stesso colore del corpo */
+    #wf-wrapper .vi-inner .percorso-card--yoga      { background: var(--c-cream); }
+    #wf-wrapper .vi-inner .percorso-card--coaching  { background: var(--c-peach); }
+    #wf-wrapper .vi-inner .percorso-card--benessere { background: var(--c-green-100); }
+
+    /* ════════ REVISIONE 3 ════════ */
+    /* Navbar: logo ridotto allo scroll */
+    #wf-wrapper .vi-inner .site-header__logo img { transition: height 0.3s ease; }
+
+    /* Chi sono: fondo crema, niente frammento sotto la foto, numeri protagonisti */
+    #wf-wrapper .vi-inner [aria-label="Chi è Nicoletta Ingusci"] { background: var(--c-cream); }
+    #wf-wrapper .vi-inner [aria-label="Chi è Nicoletta Ingusci"] .section-label { background: #fff; color: var(--c-terracotta); }
+    #wf-wrapper .vi-inner .nicoletta-preview__image::before { display: none; }
+    #wf-wrapper .vi-inner .nicoletta-preview__intro { margin-bottom: 2.2rem; }
+    #wf-wrapper .vi-inner .nicoletta-stats-row { margin-bottom: 2rem; }
+    #wf-wrapper .vi-inner .nicoletta-stat__num { font-size: clamp(2.2rem, 4vw, 3rem); }
+    #wf-wrapper .vi-inner .nicoletta-stat__num--sm { font-size: clamp(2.2rem, 4vw, 3rem); }
+    #wf-wrapper .vi-inner .nicoletta-stats-row { align-items: flex-end; }
+    #wf-wrapper .vi-inner .nicoletta-stat__num { line-height: 1; }
+    #wf-wrapper .vi-inner .nicoletta-stat__label { color: #3b2418; margin-top: 0.3rem; }
+    #wf-wrapper .vi-inner .nicoletta-stats-row .nicoletta-stat { border-right-color: var(--c-terracotta); }
+    #wf-wrapper .vi-inner .nicoletta-credentials { margin: 0; color: #5c3626; }
+
+    /* Percorsi: fondo panna, corpo card colorato */
+    #wf-wrapper .vi-inner .section--green { background: var(--c-neutral-050); }
+    #wf-wrapper .vi-inner .section--green .section-label { background: var(--c-cream); color: var(--c-terracotta); }
+    #wf-wrapper .vi-inner .section--green h2 { color: var(--c-terracotta); }
+    #wf-wrapper .vi-inner .percorso-card { box-shadow: 0 10px 30px rgba(92,54,38,0.10); }
+    #wf-wrapper .vi-inner .percorso-card__body { background: var(--c-cream); }
+    #wf-wrapper .vi-inner .percorso-card--coaching .percorso-card__body { background: var(--c-peach); }
+    #wf-wrapper .vi-inner .percorso-card--benessere .percorso-card__body { background: var(--c-green-100); }
+    #wf-wrapper .vi-inner .percorso-card__title { color: #5c3626; }
+    #wf-wrapper .vi-inner .percorso-card--benessere .percorso-card__title { color: var(--c-green-700); }
+    #wf-wrapper .vi-inner .percorso-card__desc { color: #3b2e26; }
+    /* Box "su misura": colore sabbia, più leggero */
+    #wf-wrapper .vi-inner .section--green .reveal[style*="space-between"] { background: var(--c-peach) !important; }
+    #wf-wrapper .vi-inner .section--green .reveal[style*="space-between"] h3 { color: #3b2418; }
+    #wf-wrapper .vi-inner .section--green .reveal[style*="space-between"] p  { color: #4a3a2e !important; }
+    #wf-wrapper .vi-inner .section--green .reveal[style*="space-between"] .btn--primary { background: var(--c-terracotta); color: #fff; }
+
+    /* Organizzazioni: salvia piatto, frammenti più scuri */
+    #wf-wrapper .vi-inner .aziendale-section { background: var(--c-green-700); }
+    #wf-wrapper .vi-inner .aziendale-section .vi-frags polygon { fill: #3d4a3e; }
+    #wf-wrapper .vi-inner .aziendale-section .vi-frags svg { opacity: 0.35 !important; }
+
+    /* Citazione: tinta unica, testo di un solo colore */
+    #wf-wrapper .vi-inner .visual-break__quote em { color: inherit; }
+    #wf-wrapper .vi-inner .visual-break .vi-frags polygon { fill: #7f4e39; }
+    #wf-wrapper .vi-inner .visual-break .vi-frags svg { opacity: 0.45; }
+    #wf-wrapper .vi-inner .visual-break__inner { position: relative; z-index: 1; }
+
+    /* Testimonianze: niente cornice */
+    #wf-wrapper .vi-inner [aria-label="Testimonianze"] .reveal > div { border: none !important; padding: 0 !important; }
+
+    /* ════════ REVISIONE 4 ════════ */
+    /* Font: Syne bold per i titoli, Josefin Sans bold per i sottotitoli, Inter per tutti i body text */
+    #wf-wrapper .vi-inner { --font-inter: "Inter", system-ui, sans-serif; }
+    #wf-wrapper .vi-inner h1, #wf-wrapper .vi-inner h2, #wf-wrapper .vi-inner h3, #wf-wrapper .vi-inner h4,
+    #wf-wrapper .vi-inner .hero-slide__title,
+    #wf-wrapper .vi-inner .percorso-card__title,
+    #wf-wrapper .vi-inner .nicoletta-stat__num { font-family: var(--font-display); font-weight: 700; }
+    #wf-wrapper .vi-inner .visual-break__quote { font-family: var(--font-display); font-weight: 500; }
+    #wf-wrapper .vi-inner .hero-slide__label,
+    #wf-wrapper .vi-inner .section-label,
+    #wf-wrapper .vi-inner .nicoletta-preview__subtitle,
+    #wf-wrapper .vi-inner .nicoletta-stat__label,
+    #wf-wrapper .vi-inner .visual-break__attr,
+    #wf-wrapper .vi-inner .form-label,
+    #wf-wrapper .vi-inner .footer__col h5,
+    #wf-wrapper .vi-inner .btn { font-family: var(--font-body); font-weight: 700; }
+    #wf-wrapper .vi-inner .nicoletta-preview__subtitle { font-size: 1.2rem; }
+    #wf-wrapper .vi-inner main p:not(.visual-break__quote):not(.nicoletta-preview__subtitle),
+    #wf-wrapper .vi-inner main li,
+    #wf-wrapper .vi-inner .az-home-list__label,
+    #wf-wrapper .vi-inner .form-input,
+    #wf-wrapper .vi-inner .form-check__label,
+    #wf-wrapper .vi-inner .form-success p,
+    #wf-wrapper .vi-inner .site-footer p,
+    #wf-wrapper .vi-inner .footer__legal a,
+    #wf-wrapper .vi-inner .footer__contact-item a { font-family: var(--font-inter); font-weight: 400; letter-spacing: 0; }
+    #wf-wrapper .vi-inner .nicoletta-credentials { font-weight: 500 !important; }
+
+    /* Hero: struttura costante in tutte le slide (percorso 1 riga · titolo 2 · sottotitolo 2 · CTA) */
+    #wf-wrapper .vi-inner .hero-slide__label { display: block; white-space: nowrap; line-height: 1.4; height: 1.4em; }
+    #wf-wrapper .vi-inner .hero-slide__title { line-height: 1.12; min-height: calc(2 * 1.12em); }
+    #wf-wrapper .vi-inner .hero-slide__desc  { line-height: 1.6; min-height: calc(2 * 1.6em); max-width: 60ch; margin-inline: auto; }
+    @media (max-width: 767px) {
+      #wf-wrapper .vi-inner .hero-slide__title { min-height: calc(3 * 1.12em); }
+      #wf-wrapper .vi-inner .hero-slide__desc  { min-height: calc(5 * 1.6em); }
+    }
+
+    /* Citazione: foto di sfondo al posto della tinta unita */
+    #wf-wrapper .vi-inner .visual-break {
+      background: #3b2418 url('Assets/NEW%20images/citazione.webp') 30% 30% / cover no-repeat;
+    }
+    #wf-wrapper .vi-inner .visual-break::before {
+      content: ''; position: absolute; inset: 0; z-index: 0;
+      background: linear-gradient(90deg, rgba(59,36,24,0.25) 0%, rgba(59,36,24,0.55) 40%, rgba(59,36,24,0.82) 100%);
+    }
+    #wf-wrapper .vi-inner .visual-break__image { visibility: hidden; }
+    /* Inquadratura foto: soggetto (volto) sempre visibile nel contenitore */
+    #wf-wrapper .vi-inner .hero-slide { background-size: cover; z-index: 0; }
+    /* Prismi su un livello fisso: tenui a riposo, si illuminano gradualmente durante il cambio slide */
+    #wf-wrapper .vi-inner .home-hero > .vi-frags {
+      z-index: 2; opacity: 0.35;
+      transition: opacity 1.2s ease-in-out;
+    }
+    #wf-wrapper .vi-inner .home-hero > .vi-frags svg { opacity: 0.3 !important; }
+    #wf-wrapper .vi-inner .home-hero.is-changing > .vi-frags { opacity: 1; }
+    #wf-wrapper .vi-inner .hero-slide:nth-child(1) { background-position: 68% 22%; }
+    #wf-wrapper .vi-inner .hero-slide:nth-child(2) { background-position: 28% 30%; }
+    #wf-wrapper .vi-inner .hero-slide:nth-child(3) { background-position: 30% 40%; }
+    #wf-wrapper .vi-inner .percorso-card--yoga .percorso-card__image img      { object-position: 52% 30%; }
+    #wf-wrapper .vi-inner .percorso-card--coaching .percorso-card__image img  { object-position: 50% 45%; }
+    #wf-wrapper .vi-inner .percorso-card--benessere .percorso-card__image img { object-position: 35% 40%; }
+
+    /* Chi è Nicoletta: numeri in Josefin Sans (Syne è troppo largo), badge certificazioni */
+    #wf-wrapper .vi-inner .nicoletta-stat__num,
+    #wf-wrapper .vi-inner .nicoletta-stat__num--sm { font-family: var(--font-body); font-weight: 700; letter-spacing: 0; font-size: clamp(1.8rem, 2.4vw, 2.2rem); }
+    #wf-wrapper .vi-inner .nicoletta-certs { display: block; width: 100%; max-width: 360px; height: auto; margin-top: 1.4rem; }
+
+    /* Chi è Nicoletta: foto più stretta (≈400×450), allineata in alto con l'etichetta */
+    @media (min-width: 1024px) {
+      #wf-wrapper .vi-inner .nicoletta-preview__inner {
+        grid-template-columns: minmax(320px, 460px) 1fr;
+        gap: 5.5rem; align-items: start;
+      }
+      /* Foto alta dall'etichetta "Chi è Nicoletta" alla riga credenziali PNL; badge sotto, fuori allineamento */
+      #wf-wrapper .vi-inner .nicoletta-preview__inner { align-items: stretch; row-gap: 0; column-gap: 5.5rem; }
+      #wf-wrapper .vi-inner .nicoletta-preview__text { display: contents; }
+      #wf-wrapper .vi-inner .nicoletta-preview__text > * { grid-column: 2; }
+      #wf-wrapper .vi-inner .nicoletta-preview__image { grid-column: 1; grid-row: 1 / 7; }
+      #wf-wrapper .vi-inner .nicoletta-certs { grid-row: 7; }
+      #wf-wrapper .vi-inner .nicoletta-preview__image { transform: none; margin: 0; align-self: stretch; height: auto !important; }
+      #wf-wrapper .vi-inner .nicoletta-preview__img-container { height: 100% !important; aspect-ratio: auto; }
+      #wf-wrapper .vi-inner .nicoletta-preview__img-container img { position: absolute; inset: 0; width: 100%; height: 100% !important; margin: 0 !important; object-fit: cover; }
+      #wf-wrapper .vi-inner .nicoletta-preview__text { padding-left: 0; }
+    }
+    #wf-wrapper .vi-inner .visual-break .vi-frags polygon { fill: var(--c-cream); }
+    #wf-wrapper .vi-inner .visual-break .vi-frags svg { opacity: 0.12; }
+    @media (max-width: 767px) {
+      #wf-wrapper .vi-inner .visual-break::before { background: rgba(59,36,24,0.7); }
+    }
+  
+    /* ════════════════════════════════════════════════════════
+       MOCKUP HOMEPAGE V1 — parti presenti solo nella v1
+       (header con menu, barra annuncio, news, eventi, blocco finale)
+       ════════════════════════════════════════════════════════ */
+
+    /* Barra annuncio */
+    #wf-wrapper .vi-inner .info-bar { background: var(--c-terracotta) !important; color: var(--c-cream) !important; }
+    #wf-wrapper .vi-inner .info-bar a { color: var(--c-cream) !important; }
+    #wf-wrapper .vi-inner .info-bar__close { color: var(--c-cream); }
+
+    /* Header: menu e CTA */
+    #wf-wrapper .vi-inner .site-nav__link { font-family: var(--font-body); font-weight: 700; letter-spacing: 0.08em; }
+    #wf-wrapper .vi-inner .site-header.scrolled .site-nav__link { color: var(--c-green-700) !important; }
+    #wf-wrapper .vi-inner .site-header.scrolled .site-nav__link:hover,
+    #wf-wrapper .vi-inner .site-header.scrolled .site-nav__link.active { color: var(--c-terracotta) !important; }
+    #wf-wrapper .vi-inner .site-header .header-cta,
+    #wf-wrapper .vi-inner .site-header.scrolled .header-cta {
+      background: var(--c-cream) !important; color: var(--c-terracotta) !important; border: none !important;
+      clip-path: var(--frag-a); border-radius: 0; padding: 0.75rem 1.6rem;
+    }
+    #wf-wrapper .vi-inner .site-header .header-cta:hover { background: var(--c-peach) !important; color: #5c3626 !important; }
+    #wf-wrapper .vi-inner .site-header.scrolled .hamburger span { background: var(--c-green-700) !important; }
+    #wf-wrapper .vi-inner .mobile-nav { background: var(--c-green-700) !important; }
+    #wf-wrapper .vi-inner .mobile-nav__link { color: var(--c-cream) !important; font-family: var(--font-body); font-weight: 700; }
+    #wf-wrapper .vi-inner .mobile-nav .btn--primary { background: var(--c-cream); color: var(--c-terracotta); }
+
+    /* Hero: due CTA centrate */
+    #wf-wrapper .vi-inner .hero-slide__ctas { justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+    /* Outline a frammento sui fondi chiari: contorno e testo terracotta */
+    #wf-wrapper .vi-inner .btn--outline-frag { background: var(--c-terracotta); color: var(--c-terracotta); }
+    #wf-wrapper .vi-inner .btn--outline-frag::before { background: var(--ol-inner, #fff); }
+    #wf-wrapper .vi-inner .btn--outline-frag:hover { background: #7f4e39; color: #7f4e39; }
+    #wf-wrapper .vi-inner .percorso-card--yoga      { --ol-inner: var(--c-cream); }
+    #wf-wrapper .vi-inner .percorso-card--coaching  { --ol-inner: var(--c-peach); }
+    #wf-wrapper .vi-inner .percorso-card--benessere { --ol-inner: var(--c-green-100); }
+    #wf-wrapper .vi-inner .percorso-card__body .btn--outline-frag { align-self: flex-start; margin-top: auto; }
+    /* Nella sezione verde resta crema su salvia, hover sabbia (come la v2) */
+    #wf-wrapper .vi-inner .aziendale-section .btn--outline-frag { background: var(--c-cream); color: var(--c-cream); --ol-inner: var(--c-green-700); }
+    #wf-wrapper .vi-inner .aziendale-section .btn--outline-frag:hover { background: var(--c-peach); color: var(--c-peach); }
+
+    /* Chi è Nicoletta: CTA sotto i badge */
+    #wf-wrapper .vi-inner .nicoletta-cta { justify-self: start; align-self: start; margin-top: 2rem; }
+    @media (min-width: 1024px) { #wf-wrapper .vi-inner .nicoletta-cta { grid-column: 2; } }
+
+    /* News (bianco) */
+    #wf-wrapper .vi-inner [aria-label="News e Risorse"] h2 { color: var(--c-terracotta); }
+    #wf-wrapper .vi-inner .news-card { background: var(--c-cream); border: none; border-radius: 0; box-shadow: 0 10px 30px rgba(92,54,38,0.08); --ol-inner: var(--c-cream); }
+    #wf-wrapper .vi-inner .news-card:hover { border: none; }
+    #wf-wrapper .vi-inner .news-card__image { clip-path: polygon(0 0, 100% 0, 100% 88%, 70% 100%, 0 94%); }
+    #wf-wrapper .vi-inner .news-card__cat { color: var(--c-terracotta); font-family: var(--font-body); font-weight: 700; }
+    #wf-wrapper .vi-inner .news-card__date { color: #6b5a4c; }
+    #wf-wrapper .vi-inner .news-card__title { color: #5c3626; font-family: var(--font-display); font-weight: 700; }
+    #wf-wrapper .vi-inner .news-card__excerpt { color: #3b2e26; }
+    #wf-wrapper .vi-inner .news-card__body .btn--outline-frag { align-self: flex-start; margin-top: auto; }
+    #wf-wrapper .vi-inner [aria-label="News e Risorse"] .section__header .btn--outline-frag { --ol-inner: #fff; }
+
+    /* Eventi (sabbia) */
+    #wf-wrapper .vi-inner [aria-label="Prossimi appuntamenti"] { background: var(--c-peach); }
+    #wf-wrapper .vi-inner [aria-label="Prossimi appuntamenti"] .section-label { background: var(--c-cream); color: var(--c-terracotta); }
+    #wf-wrapper .vi-inner [aria-label="Prossimi appuntamenti"] h2 { color: #3b2418; }
+    #wf-wrapper .vi-inner .hp-eventi__vedi-tutto { color: #5c3626; font-family: var(--font-body); }
+    #wf-wrapper .vi-inner .hp-eventi__featured { background: var(--c-cream); border-radius: 0; clip-path: polygon(0 0, 98% 0, 100% 6%, 100% 100%, 2% 100%, 0 94%); }
+    #wf-wrapper .vi-inner .hp-eventi__featured-cat { color: var(--c-terracotta); font-family: var(--font-body); }
+    #wf-wrapper .vi-inner .hp-eventi__featured-title { color: #5c3626; font-family: var(--font-display); font-weight: 700; }
+    #wf-wrapper .vi-inner .hp-eventi__featured-meta { color: #4a3a2e; }
+    #wf-wrapper .vi-inner .hp-eventi__lista-title { color: #3b2418; font-family: var(--font-display); font-weight: 700; }
+    #wf-wrapper .vi-inner .hp-eventi__item { border-color: rgba(92,54,38,0.25) !important; }
+    #wf-wrapper .vi-inner .hp-eventi__item-date { color: #5c3626; font-family: var(--font-body); font-weight: 700; }
+    #wf-wrapper .vi-inner .hp-eventi__item-info { color: #3b2418; }
+    #wf-wrapper .vi-inner .hp-eventi__item-sep,
+    #wf-wrapper .vi-inner .hp-eventi__item-place { color: #6b5a4c; }
+
+    /* Blocco finale (crema) */
+    #wf-wrapper .vi-inner .cta-block { background: var(--c-cream); }
+    #wf-wrapper .vi-inner .cta-block__title { color: var(--c-terracotta); font-family: var(--font-display); font-weight: 700; }
+    #wf-wrapper .vi-inner .cta-block__text { color: #4a3a2e; font-family: "Inter", system-ui, sans-serif; }
+
+    /* Footer a 4 colonne */
+    #wf-wrapper .vi-inner .footer__link { color: rgba(255,255,255,0.8); font-family: "Inter", system-ui, sans-serif; }
+    #wf-wrapper .vi-inner .footer__link:hover { color: var(--c-cream); }
+  </style>
+
+  <style>
+    /* ════════ VI PAGINE INTERNE — componenti propri delle pagine interne ════════ */
+
+    /* Header su hero chiaro (non scrollato): logo verde salvia, link verdi */
+    body.light-hero #wf-wrapper .vi-inner .site-header:not(.scrolled) .site-header__logo--white,
+    body.light-hero #wf-wrapper .vi-inner .site-header:not(.scrolled) .site-header__logo--dark { display: none !important; }
+    body.light-hero #wf-wrapper .vi-inner .site-header:not(.scrolled) .site-header__logo--mark { display: block !important; }
+    body.light-hero #wf-wrapper .vi-inner .site-header:not(.scrolled) .site-nav__link { color: var(--c-green-700) !important; }
+    body.light-hero #wf-wrapper .vi-inner .site-header:not(.scrolled) .site-nav__link:hover,
+    body.light-hero #wf-wrapper .vi-inner .site-header:not(.scrolled) .site-nav__link.active { color: var(--c-terracotta) !important; }
+    body.light-hero #wf-wrapper .vi-inner .site-header:not(.scrolled) .hamburger span { background: var(--c-green-700) !important; }
+    body.light-hero #wf-wrapper .vi-inner .site-header:not(.scrolled) .header-cta { background: var(--c-terracotta) !important; color: #fff !important; }
+
+    /* Hero di pagina */
+    #wf-wrapper .vi-inner .page-hero { position: relative; overflow: hidden; }
+    #wf-wrapper .vi-inner .page-hero--light,
+    #wf-wrapper .vi-inner .page-hero--cream { background: var(--c-cream); }
+    #wf-wrapper .vi-inner .page-hero--light h1,
+    #wf-wrapper .vi-inner .page-hero--cream h1 { color: var(--c-terracotta); font-family: var(--font-display); font-weight: 700; }
+    #wf-wrapper .vi-inner .page-hero--light .page-hero__desc,
+    #wf-wrapper .vi-inner .page-hero--cream .page-hero__desc { color: #3b2e26; font-family: var(--font-inter); font-weight: 400; }
+    #wf-wrapper .vi-inner .page-hero--light .section-label,
+    #wf-wrapper .vi-inner .page-hero--cream .section-label { background: #fff; color: var(--c-terracotta); }
+    #wf-wrapper .vi-inner .page-hero::after {
+      content: ''; position: absolute; right: -60px; top: -40px; width: 360px; height: 320px;
+      background: var(--c-peach); opacity: 0.35; clip-path: polygon(30% 0, 100% 10%, 92% 70%, 55% 100%, 0 85%, 12% 25%);
+      pointer-events: none;
+    }
+    #wf-wrapper .vi-inner .page-hero > .container { position: relative; z-index: 1; }
+    #wf-wrapper .vi-inner .page-hero--dark { background: var(--c-green-700); }
+    #wf-wrapper .vi-inner .page-hero--dark::after { background: #3d4a3e; opacity: 0.35; }
+    #wf-wrapper .vi-inner .page-hero--dark h1 { color: #fff; font-family: var(--font-display); font-weight: 700; }
+    #wf-wrapper .vi-inner .page-hero--dark .page-hero__desc { color: rgba(255,255,255,0.88); font-family: var(--font-inter); }
+    #wf-wrapper .vi-inner .page-hero--dark .section-label { background: rgba(230,191,145,0.18); color: var(--c-peach); }
+
+    /* Sezioni della pagina aziendale: tinte piatte, niente gradienti */
+    #wf-wrapper .vi-inner .az-section--dark,
+    #wf-wrapper .vi-inner .az-section--medium { background: var(--c-green-700) !important; }
+    #wf-wrapper .vi-inner .az-section--accent { background: var(--c-terracotta) !important; }
+    #wf-wrapper .vi-inner .az-section--neutral { background: #fff; }
+    #wf-wrapper .vi-inner .az-section--green { background: var(--c-cream); }
+
+    /* Componenti testuali ricorrenti */
+    #wf-wrapper .vi-inner .method-block {
+      background: var(--c-cream); border-left: 3px solid var(--c-terracotta); border-radius: 0;
+    }
+    #wf-wrapper .vi-inner .method-block p { color: #4a3a2e; }
+    #wf-wrapper .vi-inner .inner-image img { width: 100%; height: 100%; object-fit: cover; }
+  </style>
 </head>
 <body>
 
@@ -1970,7 +2511,7 @@
 </div><!-- /page-home-v2 -->
 
 <!-- PAGINE RIMANENTI: verranno aggiunte nei prossimi step -->
-<div class="wf-page" id="page-chi-sono">
+<div class="wf-page vi-inner" id="page-chi-sono">
 
 <div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
@@ -1978,6 +2519,7 @@
     <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
+      <img class="site-header__logo--mark"  src="Assets/Foto/LOGO/VERDESALVIA/niLogocompletoverdesalvia.webp" alt="Nicoletta Ingusci"/>
     </a>
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
@@ -2180,9 +2722,9 @@
         <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
         <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
         <div class="footer__social" aria-label="Social media">
-          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M13 8h-1a2 2 0 00-2 2v1H9v2.5h1V19h2.5v-5.5H14l.5-2.5h-2V10a.5.5 0 01.5-.5h1V8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10.4H7.8v3h2.6V21h3.1z"/></svg></a>
+          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
       <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
@@ -2197,7 +2739,7 @@
 </footer>
 
 </div><!-- /page-chi-sono -->
-<div class="wf-page" id="page-yoga">
+<div class="wf-page vi-inner" id="page-yoga">
 <input type="checkbox" id="yoga-modal-toggle">
 
 <div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
@@ -2206,6 +2748,7 @@
     <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
+      <img class="site-header__logo--mark"  src="Assets/Foto/LOGO/VERDESALVIA/niLogocompletoverdesalvia.webp" alt="Nicoletta Ingusci"/>
     </a>
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
@@ -2404,9 +2947,9 @@
         <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
         <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
         <div class="footer__social" aria-label="Social media">
-          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M13 8h-1a2 2 0 00-2 2v1H9v2.5h1V19h2.5v-5.5H14l.5-2.5h-2V10a.5.5 0 01.5-.5h1V8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10.4H7.8v3h2.6V21h3.1z"/></svg></a>
+          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
       <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
@@ -2532,7 +3075,7 @@
 </div>
 
 </div><!-- /page-yoga -->
-<div class="wf-page" id="page-coaching">
+<div class="wf-page vi-inner" id="page-coaching">
 <input type="checkbox" id="coaching-modal-toggle">
 
 <div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
@@ -2541,6 +3084,7 @@
     <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
+      <img class="site-header__logo--mark"  src="Assets/Foto/LOGO/VERDESALVIA/niLogocompletoverdesalvia.webp" alt="Nicoletta Ingusci"/>
     </a>
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
@@ -2714,9 +3258,9 @@
         <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
         <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
         <div class="footer__social" aria-label="Social media">
-          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M13 8h-1a2 2 0 00-2 2v1H9v2.5h1V19h2.5v-5.5H14l.5-2.5h-2V10a.5.5 0 01.5-.5h1V8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10.4H7.8v3h2.6V21h3.1z"/></svg></a>
+          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
       <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
@@ -2788,7 +3332,7 @@
 </div>
 
 </div><!-- /page-coaching -->
-<div class="wf-page" id="page-aziendale">
+<div class="wf-page vi-inner" id="page-aziendale">
 <input type="checkbox" id="aziendale-modal-toggle">
 
 <div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
@@ -2797,6 +3341,7 @@
     <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
+      <img class="site-header__logo--mark"  src="Assets/Foto/LOGO/VERDESALVIA/niLogocompletoverdesalvia.webp" alt="Nicoletta Ingusci"/>
     </a>
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
@@ -3013,9 +3558,9 @@
         <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
         <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
         <div class="footer__social" aria-label="Social media">
-          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M13 8h-1a2 2 0 00-2 2v1H9v2.5h1V19h2.5v-5.5H14l.5-2.5h-2V10a.5.5 0 01.5-.5h1V8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10.4H7.8v3h2.6V21h3.1z"/></svg></a>
+          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
       <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
@@ -3079,7 +3624,7 @@
 </div>
 
 </div><!-- /page-aziendale -->
-<div class="wf-page" id="page-eventi">
+<div class="wf-page vi-inner" id="page-eventi">
 
 <div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
@@ -3087,6 +3632,7 @@
     <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
+      <img class="site-header__logo--mark"  src="Assets/Foto/LOGO/VERDESALVIA/niLogocompletoverdesalvia.webp" alt="Nicoletta Ingusci"/>
     </a>
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
@@ -3169,9 +3715,9 @@
         <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
         <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
         <div class="footer__social" aria-label="Social media">
-          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M13 8h-1a2 2 0 00-2 2v1H9v2.5h1V19h2.5v-5.5H14l.5-2.5h-2V10a.5.5 0 01.5-.5h1V8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10.4H7.8v3h2.6V21h3.1z"/></svg></a>
+          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
       <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
@@ -3186,7 +3732,7 @@
 </footer>
 
 </div><!-- /page-eventi -->
-<div class="wf-page" id="page-news">
+<div class="wf-page vi-inner" id="page-news">
 
 <div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
@@ -3194,6 +3740,7 @@
     <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
+      <img class="site-header__logo--mark"  src="Assets/Foto/LOGO/VERDESALVIA/niLogocompletoverdesalvia.webp" alt="Nicoletta Ingusci"/>
     </a>
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
@@ -3397,9 +3944,9 @@
         <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
         <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
         <div class="footer__social" aria-label="Social media">
-          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M13 8h-1a2 2 0 00-2 2v1H9v2.5h1V19h2.5v-5.5H14l.5-2.5h-2V10a.5.5 0 01.5-.5h1V8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10.4H7.8v3h2.6V21h3.1z"/></svg></a>
+          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
       <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
@@ -3414,7 +3961,7 @@
 </footer>
 
 </div><!-- /page-news -->
-<div class="wf-page" id="page-evento-detail">
+<div class="wf-page vi-inner" id="page-evento-detail">
 
 <div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
@@ -3422,6 +3969,7 @@
     <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
+      <img class="site-header__logo--mark"  src="Assets/Foto/LOGO/VERDESALVIA/niLogocompletoverdesalvia.webp" alt="Nicoletta Ingusci"/>
     </a>
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
@@ -3576,9 +4124,9 @@
         <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
         <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
         <div class="footer__social" aria-label="Social media">
-          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M13 8h-1a2 2 0 00-2 2v1H9v2.5h1V19h2.5v-5.5H14l.5-2.5h-2V10a.5.5 0 01.5-.5h1V8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10.4H7.8v3h2.6V21h3.1z"/></svg></a>
+          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
       <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
@@ -3593,7 +4141,7 @@
 </footer>
 
 </div><!-- /page-evento-detail -->
-<div class="wf-page" id="page-contatti">
+<div class="wf-page vi-inner" id="page-contatti">
 
 <div class="info-bar"><span>[Nuovo retreat in programma — primavera 2025] &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
@@ -3601,6 +4149,7 @@
     <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
+      <img class="site-header__logo--mark"  src="Assets/Foto/LOGO/VERDESALVIA/niLogocompletoverdesalvia.webp" alt="Nicoletta Ingusci"/>
     </a>
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
@@ -3716,9 +4265,9 @@
         <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
         <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
         <div class="footer__social" aria-label="Social media">
-          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M13 8h-1a2 2 0 00-2 2v1H9v2.5h1V19h2.5v-5.5H14l.5-2.5h-2V10a.5.5 0 01.5-.5h1V8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10.4H7.8v3h2.6V21h3.1z"/></svg></a>
+          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
       <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
@@ -3932,7 +4481,7 @@
 
   /* ── SOSTITUZIONE <img> → PLACEHOLDER (logo o immagine) ── */
   document.querySelectorAll('#wf-wrapper img').forEach(function (img) {
-    if (img.closest('#page-home-v2, #page-home')) return;
+    if (img.closest('#page-home-v2, #page-home, .vi-inner')) return;
     var src    = img.getAttribute('src') || '';
     var cls    = img.className || '';
     var isLogo = src.indexOf('/LOGO/') !== -1 || cls.indexOf('logo') !== -1;
@@ -3959,7 +4508,7 @@
   /* ── RIMUOVI background-image → overlay X per visibilità wireframe ── */
   document.querySelectorAll('#wf-wrapper [style]').forEach(function (el) {
     if ((el.getAttribute('style') || '').indexOf('background-image') === -1) return;
-    if (el.closest('#page-home-v2, #page-home')) return;
+    if (el.closest('#page-home-v2, #page-home, .vi-inner')) return;
     el.style.backgroundImage = 'none';
     el.style.backgroundColor = '#b4b4b4';
     var cs = window.getComputedStyle(el);
