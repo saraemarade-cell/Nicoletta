@@ -1755,6 +1755,31 @@
     #wf-wrapper .vi-inner .method-block p { color: #4a3a2e; }
     #wf-wrapper .vi-inner .inner-image img { width: 100%; height: 100%; object-fit: cover; }
     #wf-wrapper .vi-inner h2 { color: var(--c-terracotta); }
+    /* Titoli chiari sulle sezioni scure (salvia, terracotta) */
+    #wf-wrapper .vi-inner section[style*="--c-green-700"] h2,
+    #wf-wrapper .vi-inner section[style*="--c-green-700"] h3,
+    #wf-wrapper .vi-inner .target-section h2,
+    #wf-wrapper .vi-inner .page-hero--dark h2,
+    #wf-wrapper .vi-inner .az-section--dark h2,
+    #wf-wrapper .vi-inner .az-section--medium h2,
+    #wf-wrapper .vi-inner .az-section--accent h2,
+    #wf-wrapper .vi-inner .cta-block:not(.cta-block--cream):not(.cta-block--light) h2 { color: #fff; }
+    #wf-wrapper .vi-inner .target-benefits__label { color: var(--c-peach); }
+
+    /* Metodo, modalità, FAQ */
+    #wf-wrapper .vi-inner .metodo-step__num { color: var(--c-peach); font-family: var(--font-body); font-weight: 700; }
+    #wf-wrapper .vi-inner .metodo-step__bar { background: var(--c-terracotta); }
+    #wf-wrapper .vi-inner .metodo-step__title { color: #5c3626; }
+    #wf-wrapper .vi-inner .modalita-card { background: var(--c-cream); border: none; border-radius: 0; }
+    #wf-wrapper .vi-inner .modalita-card__icon { background: var(--c-terracotta); color: var(--c-cream); clip-path: var(--frag-a); border-radius: 0; }
+    #wf-wrapper .vi-inner .modalita-card__title { color: #5c3626; font-family: var(--font-body); font-weight: 700; }
+    #wf-wrapper .vi-inner .modalita-card__link { color: var(--c-terracotta); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+    #wf-wrapper .vi-inner .faq-item { border-color: rgba(92,54,38,0.2); }
+    #wf-wrapper .vi-inner .faq-question { color: #3b2418; font-family: var(--font-body); font-weight: 700; }
+    #wf-wrapper .vi-inner .faq-question__icon { color: var(--c-terracotta); }
+    #wf-wrapper .vi-inner .faq-answer { color: #3b2e26; font-family: var(--font-inter); }
+    #wf-wrapper .vi-inner .faq-answer a { color: var(--c-terracotta); text-decoration: underline; }
+    #wf-wrapper .vi-inner .inner-2col .onco__p { color: rgba(255,255,255,0.88); line-height: 1.75; margin-top: 1rem; }
     #wf-wrapper .vi-inner .section-label { background: var(--c-cream); color: var(--c-terracotta); }
     #wf-wrapper .vi-inner .section--cream .section-label { background: #fff; }
 
@@ -2831,11 +2856,11 @@
   <div class="container">
     <div class="page-hero__inner">
       <span class="section-label">Percorso</span>
-      <h1>Il percorso Yoga</h1>
-      <p class="page-hero__desc">Uno strumento di&nbsp;conoscenza di&nbsp;sé che&nbsp;integra movimento, respiro e&nbsp;consapevolezza in modo scientifico, personalizzato e&nbsp;accessibile.</p>
+      <h1>Lo Yoga come percorso di&nbsp;conoscenza di&nbsp;sé.</h1>
+      <p class="page-hero__desc">Una pratica integrale, radicata nella tradizione, che&nbsp;attraverso corpo, respiro e&nbsp;consapevolezza ci insegna ad&nbsp;ascoltarci, conoscerci e&nbsp;abitare con&nbsp;più presenza il&nbsp;nostro corpo ma&nbsp;soprattutto la&nbsp;nostra vita.</p>
       <div class="page-hero__ctas">
         <label for="yoga-modal-toggle" class="btn btn--primary" style="cursor:pointer;">Prenota un&nbsp;corso</label>
-        <a href="#page-eventi" class="btn btn--outline">Retreat e&nbsp;workshop</a>
+        <a href="#page-eventi" class="btn btn--outline-frag">Retreat e&nbsp;workshop</a>
       </div>
     </div>
   </div>
@@ -2847,15 +2872,10 @@
       <div class="reveal">
         <span class="section-label">Il percorso</span>
         <h2 style="margin-bottom:1.2rem;">Yoga non è solo una&nbsp;pratica fisica.</h2>
-        <p style="margin-bottom:1.2rem;">È un&nbsp;sistema integrato che&nbsp;lavora su&nbsp;corpo, mente e&nbsp;respiro. Un percorso che&nbsp;parte dall'osservazione di&nbsp;sé per&nbsp;costruire equilibrio, consapevolezza e&nbsp;strumenti concreti da&nbsp;portare nella&nbsp;vita quotidiana.</p>
-        <div class="method-block">
-          <p>L'approccio di&nbsp;Nicoletta si distingue per&nbsp;il&nbsp;rigore scientifico con&nbsp;cui integra la&nbsp;pratica tradizionale con&nbsp;le&nbsp;conoscenze sul sistema nervoso, sull'anatomia funzionale e&nbsp;sulla fisiologia del&nbsp;respiro.</p>
-        </div>
+        <p>È un&nbsp;percorso di&nbsp;conoscenza che&nbsp;coinvolge corpo, mente e&nbsp;spirito. Un sistema antico ma&nbsp;profondamente attuale, che&nbsp;ci insegna ad&nbsp;ascoltare, osservare e&nbsp;conoscere noi stessi.</p>
+        <p>Il mio approccio nasce dallo Yoga Integrale e&nbsp;dalla formazione nella tradizione delle scuole indiane al&nbsp;quale affianco le&nbsp;conoscenze sull’anatomia dello yoga, sulla fisiologia del&nbsp;respiro e&nbsp;sul sistema nervoso. Negli anni ho studiato e&nbsp;praticato stili e&nbsp;strumenti differenti, che&nbsp;oggi integro e&nbsp;scelgo in&nbsp;base alla persona, al&nbsp;suo corpo, al&nbsp;momento che&nbsp;sta vivendo e&nbsp;agli obiettivi del&nbsp;percorso. Dalla pratica più dinamica a&nbsp;quella più introspettiva, dalle asana al&nbsp;pranayama, dai bandha alla meditazione: non esiste per&nbsp;me un&nbsp;unico modo di&nbsp;praticare, ma&nbsp;lo Yoga più adatto alla persona che&nbsp;ho davanti.</p>
         <div class="nicoletta-preview__tags" style="margin-top:1.5rem;">
-          <span class="tag tag--green">Hatha Yoga</span>
-          <span class="tag tag--green">Pranayama</span>
-          <span class="tag tag--green">Mindfulness</span>
-          <span class="tag tag--peach">Approccio scientifico</span>
+          <span class="tag tag--green">Hatha Yoga</span><span class="tag tag--green">Vinyasa Yoga</span><span class="tag tag--green">Ashtanga Yoga</span><span class="tag tag--green">Yin Yoga</span><span class="tag tag--peach">Pranayama</span><span class="tag tag--peach">Bandha</span><span class="tag tag--green">Meditazione</span><span class="tag tag--green">Yoga Nidra</span>
         </div>
       </div>
       <div class="inner-image reveal" style="clip-path:polygon(0 0, 86% 0, 100% 14%, 100% 100%, 14% 100%, 0 86%);overflow:hidden;">
@@ -2870,16 +2890,16 @@
     <div class="target-section">
       <div class="target-section__intro reveal">
         <span class="section-label section-label--light">A chi è rivolto</span>
-        <h2>Per chi vuole<br>più di una<br>lezione di yoga.</h2>
-        <p style="color:rgba(255,255,255,0.65);font-size:0.95rem;line-height:1.7;margin-top:1rem;">Un approccio consapevole e&nbsp;personalizzato, non una&nbsp;pratica generica di&nbsp;gruppo.</p>
+        <h2>Lo Yoga incontra ognuno di&nbsp;noi in&nbsp;un&nbsp;punto diverso.</h2>
+        <p style="color:rgba(255,255,255,0.65);font-size:0.95rem;line-height:1.7;margin-top:1rem;">Non serve essere flessibili, esperti o&nbsp;avere già praticato. Serve semplicemente partire da&nbsp;dove si è. Il percorso si costruisce sulla persona, sul suo corpo, sui suoi bisogni e&nbsp;sul momento che&nbsp;sta vivendo.</p>
       </div>
       <div class="target-section__body">
         <div class="target-list reveal">
-          <div class="target-item"><span class="target-item__num">01</span><p class="target-item__text">Chi sente stress o&nbsp;tensione fisica e&nbsp;vuole strumenti concreti per&nbsp;gestirli</p></div>
-          <div class="target-item"><span class="target-item__num">02</span><p class="target-item__text">Chi ha già una&nbsp;pratica e&nbsp;vuole approfondirla con&nbsp;un&nbsp;supporto esperto</p></div>
-          <div class="target-item"><span class="target-item__num">03</span><p class="target-item__text">Chi si avvicina per&nbsp;la&nbsp;prima volta allo yoga con&nbsp;curiosità e&nbsp;serietà</p></div>
-          <div class="target-item"><span class="target-item__num">04</span><p class="target-item__text">Chi cerca un&nbsp;equilibrio psicofisico sostenibile nel&nbsp;tempo</p></div>
-          <div class="target-item"><span class="target-item__num">05</span><p class="target-item__text">Chi vuole integrare la&nbsp;pratica con&nbsp;un&nbsp;percorso di&nbsp;coaching o&nbsp;benessere personale</p></div>
+          <div class="target-item"><span class="target-item__num">01</span><p class="target-item__text"><strong>A chi sente il&nbsp;bisogno di&nbsp;rallentare</strong> e&nbsp;ritrovare spazio, respiro e&nbsp;presenza nella propria quotidianità.</p></div>
+          <div class="target-item"><span class="target-item__num">02</span><p class="target-item__text"><strong>A chi vuole conoscere meglio sé stesso attraverso il&nbsp;corpo</strong> imparando ad&nbsp;ascoltarne i&nbsp;segnali, i&nbsp;limiti e&nbsp;le possibilità.</p></div>
+          <div class="target-item"><span class="target-item__num">03</span><p class="target-item__text"><strong>A chi pratica già Yoga e&nbsp;desidera andare più in&nbsp;profondità</strong> nell’asana, nel pranayama, nella meditazione e&nbsp;negli altri strumenti della tradizione.</p></div>
+          <div class="target-item"><span class="target-item__num">04</span><p class="target-item__text"><strong>A chi incontra lo&nbsp;Yoga per&nbsp;la prima volta</strong> e&nbsp;desidera essere accompagnato in&nbsp;una pratica costruita sulle proprie possibilità.</p></div>
+          <div class="target-item"><span class="target-item__num">05</span><p class="target-item__text"><strong>A chi cerca qualcosa che&nbsp;vada oltre il&nbsp;tappetino</strong> e&nbsp;vuole portare maggiore consapevolezza, equilibrio e&nbsp;presenza nella propria vita.</p></div>
         </div>
         <div class="target-benefits reveal">
           <p class="target-benefits__label">Cosa cambia nel&nbsp;tempo</p>
@@ -2919,17 +2939,17 @@
       <p class="section__intro">Ogni percorso inizia da&nbsp;una&nbsp;valutazione iniziale. Non esistono protocolli fissi: la&nbsp;pratica si costruisce intorno alla&nbsp;persona.</p>
     </div>
     <div class="metodo-steps reveal">
-      <div class="metodo-step"><span class="metodo-step__num">01</span><div class="metodo-step__bar"></div><h3 class="metodo-step__title">Primo incontro conoscitivo</h3><p class="metodo-step__desc">Una conversazione per&nbsp;capire esigenze, obiettivi e&nbsp;contesto fisico e&nbsp;mentale della&nbsp;persona.</p></div>
-      <div class="metodo-step"><span class="metodo-step__num">02</span><div class="metodo-step__bar"></div><h3 class="metodo-step__title">Definizione del&nbsp;percorso</h3><p class="metodo-step__desc">Struttura, frequenza e&nbsp;contenuti delle&nbsp;sessioni, adattati alle&nbsp;esigenze e&nbsp;ai tempi della&nbsp;persona.</p></div>
+      <div class="metodo-step"><span class="metodo-step__num">01</span><div class="metodo-step__bar"></div><h3 class="metodo-step__title">Primo incontro conoscitivo</h3><p class="metodo-step__desc">Una conversazione per&nbsp;capire esigenze, obiettivi e&nbsp;contesto fisico e&nbsp;mentale della persona.</p></div>
+      <div class="metodo-step"><span class="metodo-step__num">02</span><div class="metodo-step__bar"></div><h3 class="metodo-step__title">Definizione del&nbsp;percorso</h3><p class="metodo-step__desc">Struttura, frequenza e&nbsp;contenuti delle sessioni, adattati alle esigenze e&nbsp;ai tempi della persona.</p></div>
       <div class="metodo-step"><span class="metodo-step__num">03</span><div class="metodo-step__bar"></div><h3 class="metodo-step__title">Pratica e&nbsp;monitoraggio</h3><p class="metodo-step__desc">Sessioni continuative con&nbsp;adattamenti progressivi e&nbsp;momenti di&nbsp;verifica.</p></div>
     </div>
     <div class="metodo-modalita reveal" style="margin-top:4rem;">
       <span class="section-label" style="margin-bottom:1.5rem;display:block;">Modalità di&nbsp;erogazione</span>
       <div class="modalita-grid">
-        <div class="modalita-card"><div class="modalita-card__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h4 class="modalita-card__title">Sessioni individuali</h4><p class="modalita-card__desc">Lavoro personalizzato, ritmo proprio, massima attenzione alle&nbsp;esigenze specifiche. In presenza o&nbsp;online.</p></div>
-        <div class="modalita-card"><div class="modalita-card__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4 class="modalita-card__title">Sessioni di&nbsp;gruppo</h4><p class="modalita-card__desc">Gruppi piccoli e&nbsp;omogenei per&nbsp;una&nbsp;pratica condivisa e&nbsp;supportata.</p></div>
-        <div class="modalita-card"><div class="modalita-card__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h4 class="modalita-card__title">Online</h4><p class="modalita-card__desc">Percorsi a distanza con&nbsp;la&nbsp;stessa qualità e&nbsp;attenzione delle&nbsp;sessioni in presenza.</p></div>
-        <div class="modalita-card"><div class="modalita-card__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div><h4 class="modalita-card__title">Retreat e&nbsp;workshop</h4><p class="modalita-card__desc">Appuntamenti intensivi, residenziali o&nbsp;giornalieri. <a href="#page-eventi">Vedi il&nbsp;calendario</a></p></div>
+        <div class="modalita-card"><div class="modalita-card__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h4 class="modalita-card__title">Sessioni individuali</h4><p class="modalita-card__desc">Lavoro personalizzato, ritmo proprio, massima attenzione alle esigenze specifiche. In&nbsp;presenza o&nbsp;online.</p></div>
+        <div class="modalita-card"><div class="modalita-card__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4 class="modalita-card__title">Sessioni di&nbsp;gruppo</h4><p class="modalita-card__desc">Gruppi piccoli e&nbsp;omogenei per&nbsp;una pratica condivisa e&nbsp;supportata.</p></div>
+        <div class="modalita-card"><div class="modalita-card__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h4 class="modalita-card__title">Online</h4><p class="modalita-card__desc">Percorsi a&nbsp;distanza con&nbsp;la&nbsp;stessa qualità e&nbsp;attenzione delle sessioni in&nbsp;presenza.</p></div>
+        <div class="modalita-card"><div class="modalita-card__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div><h4 class="modalita-card__title">Retreat e&nbsp;workshop</h4><p class="modalita-card__desc">Appuntamenti intensivi, residenziali o&nbsp;giornalieri. <a href="#page-eventi" class="modalita-card__link">Vedi il&nbsp;calendario</a></p></div>
       </div>
     </div>
   </div>
@@ -2940,15 +2960,19 @@
     <div class="inner-2col inner-2col--center">
       <div class="reveal">
         <span class="section-label section-label--light">Progetto speciale</span>
-        <h2 style="color:#fff;">Yoga Oncologica.</h2>
-        <p style="color:rgba(255,255,255,0.75);line-height:1.75;margin-top:1rem;">Nel 2019 Nicoletta ha fondato <em>"Yoga, alleato contro il cancro"</em> in memoria di sua madre, scomparsa nel 2018. Il progetto nasce all'interno del reparto di radioterapia della <strong style="color:#fff;">Casa di Cura Bonvicini di Bolzano</strong> e si è poi esteso a livello nazionale attraverso piattaforme digitali.</p>
-        <p style="color:rgba(255,255,255,0.75);line-height:1.75;margin-top:1rem;">La malattia oncologica produce una frattura tra corpo e mente. Lo yoga — dal sanscrito "unire" — lavora esattamente su quel confine: attraverso movimento adattato, respiro e condivisione di gruppo aiuta i pazienti a ritrovare ascolto corporeo, ridurre la fatigue e attraversare l'incertezza terapeutica con più risorse interiori.</p>
+        <h2 style="color:#fff;">Yoga in&nbsp;oncologia</h2>
+        <p class="onco__p">Nel 2019 ho fondato <em>“Yoga, alleato contro il&nbsp;cancro”</em>, un&nbsp;progetto nato da&nbsp;qualcosa di&nbsp;profondamente personale: la&nbsp;perdita di&nbsp;mia madre, scomparsa nel 2018.</p>
+        <p class="onco__p">È iniziato all’interno del&nbsp;reparto di&nbsp;Radioterapia della <strong>Casa di&nbsp;Cura Bonvicini di&nbsp;Bolzano</strong> ed&nbsp;è cresciuto negli anni, arrivando anche a&nbsp;persone lontane attraverso la&nbsp;pratica online.</p>
+        <p class="onco__p">Durante la&nbsp;malattia il&nbsp;rapporto con&nbsp;il proprio corpo può cambiare profondamente. Lo Yoga può diventare uno spazio in&nbsp;cui tornare ad&nbsp;ascoltarlo, respirarlo, abitarlo. Senza performance e&nbsp;senza aspettative.</p>
+        <p class="onco__p">Attraverso movimento adattato, respirazione, rilassamento e&nbsp;condivisione, accompagno le&nbsp;persone in&nbsp;una pratica pensata per&nbsp;sostenere il&nbsp;benessere psicofisico e&nbsp;offrire strumenti da&nbsp;portare con&nbsp;sé anche nei momenti più difficili.</p>
+        <p class="onco__p">Per me questo progetto è molto più di&nbsp;un&nbsp;percorso Yoga. È il&nbsp;luogo in&nbsp;cui una perdita personale ha trovato un&nbsp;modo per&nbsp;trasformarsi in&nbsp;cura per&nbsp;gli altri.</p>
         <div class="nicoletta-preview__tags" style="margin-top:1.5rem;">
           <span class="tag" style="background:rgba(255,255,255,0.15);color:#fff;">Pazienti oncologici</span>
           <span class="tag" style="background:rgba(255,255,255,0.15);color:#fff;">Yoga adattato</span>
-          <span class="tag" style="background:rgba(255,255,255,0.15);color:#fff;">In presenza · Online</span>
+          <span class="tag" style="background:rgba(255,255,255,0.15);color:#fff;">In presenza</span>
+          <span class="tag" style="background:rgba(255,255,255,0.15);color:#fff;">Online</span>
         </div>
-        <a href="#page-contatti" class="btn btn--outline" style="margin-top:2rem;color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.35);">Richiedi informazioni</a>
+        <a href="#page-contatti" class="btn btn--secondary" style="margin-top:2rem;">Richiedi informazioni</a>
       </div>
       <div class="reveal">
         <div style="background:rgba(255,255,255,0.08);border-radius:12px;padding:2rem 2rem 1.5rem;">
@@ -2976,11 +3000,10 @@
         <p style="color:var(--c-neutral-400);margin-top:0.8rem;">Se hai altre domande, <a href="#page-contatti" style="color:var(--c-green-700);text-decoration:underline;text-underline-offset:2px;">scrivici direttamente.</a></p>
       </div>
       <div class="faq-list reveal">
-        <div class="faq-item"><button class="faq-question">Ho bisogno di&nbsp;esperienza precedente?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">No. Il percorso è adatto sia a chi si avvicina per&nbsp;la&nbsp;prima volta sia a chi ha già una&nbsp;pratica consolidata. Il punto di&nbsp;partenza è sempre una&nbsp;valutazione iniziale.</div></div>
-        <div class="faq-item"><button class="faq-question">È adatto anche se&nbsp;ho problemi fisici o&nbsp;dolori?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">In molti casi sì. La pratica viene adattata alla&nbsp;condizione fisica della&nbsp;persona. È comunque utile comunicare eventuali condizioni mediche al&nbsp;primo incontro, per&nbsp;costruire un&nbsp;percorso sicuro e&nbsp;appropriato.</div></div>
-        <div class="faq-item"><button class="faq-question">Quanto dura un&nbsp;percorso?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">[Durata indicativa — da&nbsp;aggiornare con&nbsp;informazioni reali.] La durata dipende dagli obiettivi e&nbsp;dalla frequenza delle&nbsp;sessioni.</div></div>
-        <div class="faq-item"><button class="faq-question">Le sessioni sono disponibili anche online?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">Sì. Le sessioni online offrono la&nbsp;stessa attenzione e&nbsp;qualità di&nbsp;quelle&nbsp;in presenza. [Dettagli su&nbsp;piattaforme o&nbsp;modalità — da&nbsp;aggiornare.]</div></div>
-        <div class="faq-item"><button class="faq-question">Come posso iniziare?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">Il modo più semplice è <a href="#page-contatti" style="color:var(--c-green-700);">contattarci</a> per&nbsp;un&nbsp;primo incontro conoscitivo, senza impegno.</div></div>
+        <div class="faq-item"><button class="faq-question">Ho bisogno di&nbsp;esperienza precedente?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">No. Il percorso è adatto sia a&nbsp;chi si avvicina per&nbsp;la prima volta sia a&nbsp;chi ha già una pratica consolidata. Il punto di&nbsp;partenza è sempre una valutazione iniziale.</div></div>
+        <div class="faq-item"><button class="faq-question">È adatto anche se&nbsp;ho problemi fisici o&nbsp;dolori?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">In molti casi sì. La pratica viene adattata alla condizione fisica della persona. È comunque utile comunicare eventuali condizioni mediche al&nbsp;primo incontro, per&nbsp;costruire un&nbsp;percorso sicuro e&nbsp;appropriato.</div></div>
+        <div class="faq-item"><button class="faq-question">Le sessioni sono disponibili anche online?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">Sì. Le sessioni online offrono la&nbsp;stessa attenzione e&nbsp;qualità di&nbsp;quelle in&nbsp;presenza. [DA DEFINIRE: dettagli su&nbsp;piattaforme o&nbsp;modalità]</div></div>
+        <div class="faq-item"><button class="faq-question">Come posso iniziare?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">Il modo più semplice è <a href="#page-contatti">contattarci</a> per&nbsp;un&nbsp;primo incontro conoscitivo, senza impegno. L’incontro conoscitivo gratuito è riservato a&nbsp;chi desidera intraprendere un&nbsp;percorso individuale.</div></div>
       </div>
     </div>
   </div>
