@@ -2169,20 +2169,18 @@
     #wf-wrapper #page-home .news-card:nth-child(3) .news-card__image img { object-position: center center; }
     #wf-wrapper #page-home .btn.hp-eventi__vedi-tutto { --ol-inner: var(--c-peach); color: #5c3626; font-family: var(--font-label); }
     /* Chi sono: racconto in verticale, CTA finale con colore distinto dalla sezione precedente */
-    /* Racconto: foto allineata al contenitore, sfuma a destra nel bianco; testo senza pannello */
-    #wf-wrapper #page-chi-sono section:has(.chi-sono__story), #wf-wrapper #page-chi-sono section:has(.chi-sono__story) > .container { overflow: clip !important; overflow: visible; }
-    #wf-wrapper #page-chi-sono .chi-sono__story { display: grid; grid-template-columns: 5fr 7fr; gap: 0; align-items: start; }
-    #wf-wrapper #page-chi-sono .chi-sono__story .inner-image {
-      position: relative !important; top: 0; align-self: start !important; aspect-ratio: 4 / 5; height: auto !important; min-height: 0 !important; max-height: calc(100vh - 160px) !important; width: 100%; margin: 0;
-      clip-path: none !important; z-index: 0;
-      -webkit-mask-image: linear-gradient(to right, #000 62%, transparent 100%); mask-image: linear-gradient(to right, #000 62%, transparent 100%);
-    }
-    #wf-wrapper #page-chi-sono .chi-sono__story .inner-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
-    #wf-wrapper #page-chi-sono .chi-sono__story > .reveal:last-child { position: relative; z-index: 1; margin-left: -4rem; padding-left: 0; background: none; clip-path: none; }
+    /* Racconto: foto sopra (grande, poco tagliata), testo sotto su due colonne */
+    #wf-wrapper #page-chi-sono .chi-sono__story { display: grid; grid-template-columns: 1fr; gap: 3.5rem; }
+    #wf-wrapper #page-chi-sono .chi-sono__story .inner-image { aspect-ratio: 4 / 3; max-height: 860px; width: 100%; height: auto !important; }
+    #wf-wrapper #page-chi-sono .chi-sono__story .inner-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
+    #wf-wrapper #page-chi-sono .chi-sono__story > .reveal:last-child { columns: 2; column-gap: 3.5rem; }
+    #wf-wrapper #page-chi-sono .chi-sono__story > .reveal:last-child > :is(.section-label, h2, .chi-sono__motto, .chi-sono__creds, .chi-sono__certs) { column-span: all; }
+    #wf-wrapper #page-chi-sono .chi-sono__story > .reveal:last-child > h2 { max-width: 30ch; }
+    #wf-wrapper #page-chi-sono .chi-sono__story > .reveal:last-child > p { break-inside: avoid; }
     @media (max-width: 900px) {
-      #wf-wrapper #page-chi-sono .chi-sono__story { grid-template-columns: 1fr; gap: 2.5rem; }
-      #wf-wrapper #page-chi-sono .chi-sono__story .inner-image { position: relative !important; top: 0; max-height: 480px; -webkit-mask-image: none; mask-image: none; }
-      #wf-wrapper #page-chi-sono .chi-sono__story > .reveal:last-child { margin-left: 0; }
+      #wf-wrapper #page-chi-sono .chi-sono__story { gap: 2.5rem; }
+      #wf-wrapper #page-chi-sono .chi-sono__story .inner-image { aspect-ratio: 4 / 5; }
+      #wf-wrapper #page-chi-sono .chi-sono__story > .reveal:last-child { columns: 1; }
     }
     #wf-wrapper #page-chi-sono .cta-block { background: var(--c-peach); }
     /* Coaching: meno a capo, niente lineette tra gli step */
