@@ -1762,8 +1762,10 @@
     #wf-wrapper .vi-inner .page-hero--dark h2,
     #wf-wrapper .vi-inner .az-section--dark h2,
     #wf-wrapper .vi-inner .az-section--medium h2,
-    #wf-wrapper .vi-inner .az-section--accent h2,
-    #wf-wrapper .vi-inner .cta-block:not(.cta-block--cream):not(.cta-block--light) h2 { color: #fff; }
+    #wf-wrapper .vi-inner .az-section--accent h2 { color: #fff; }
+    /* Blocco finale crema: titolo terracotta, testo scuro */
+    #wf-wrapper .vi-inner .cta-block h2 { color: var(--c-terracotta); }
+    #wf-wrapper .vi-inner .cta-block__text { color: #4a3a2e; }
     #wf-wrapper .vi-inner .target-benefits__label { color: var(--c-peach); }
 
     /* Metodo, modalità, FAQ */
@@ -1882,7 +1884,7 @@
     #wf-wrapper .vi-inner .benefici-card__desc { color: #3b2e26; }
     #wf-wrapper .vi-inner .inner-2col .onco__p { color: rgba(255,255,255,0.88); line-height: 1.75; margin-top: 1rem; }
     #wf-wrapper .vi-inner .section-label { background: var(--c-cream); color: var(--c-terracotta); }
-    #wf-wrapper .vi-inner .section--cream .section-label { background: #fff; }
+    #wf-wrapper .vi-inner .section--cream .section-label { background: #fff; color: var(--c-terracotta); }
 
     /* Chi sono: racconto, motto, credenziali, badge */
     #wf-wrapper .vi-inner .inner-2col p { margin-bottom: 1rem; color: #2b2b2b; }
@@ -1922,8 +1924,37 @@
     #wf-wrapper .vi-inner .valori-formazione__title { color: var(--c-terracotta); font-family: var(--font-body); font-weight: 700; }
     #wf-wrapper .vi-inner .valori-formazione__list li { color: #3b2e26; }
 
-    /* Certificazioni */
-    #wf-wrapper .vi-inner .cert-compact__badges img { width: 100%; max-width: 300px; height: auto; }
+    /* Chi sono: titolo hero su meno righe, foto alta quanto il racconto */
+    #page-chi-sono .page-hero__inner { max-width: 1040px; }
+    #page-chi-sono .page-hero h1 { max-width: none; font-size: clamp(2rem, 3.6vw, 3.2rem); }
+    @media (min-width: 1024px) {
+      #page-chi-sono .inner-2col--center { align-items: stretch; }
+      #page-chi-sono .inner-2col--center .inner-image { height: auto !important; min-height: 100%; position: relative; }
+      #page-chi-sono .inner-2col--center .inner-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+    }
+
+    /* Certificazioni: due colonne (titolo + ore | badge + elenco) */
+    #wf-wrapper .vi-inner .cert-compact { display: grid; gap: 2.5rem; }
+    @media (min-width: 1024px) {
+      #wf-wrapper .vi-inner .cert-compact { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 4rem; align-items: start; }
+    }
+    #wf-wrapper .vi-inner .cert-compact__body {
+      display: grid; grid-template-columns: auto 1fr; gap: 2rem 2.5rem; align-items: center;
+      background: #fff; padding: 2.2rem; clip-path: polygon(0 0, 97% 0, 100% 6%, 100% 100%, 3% 100%, 0 94%);
+    }
+    #wf-wrapper .vi-inner .cert-compact__badges { grid-column: 1 / -1; display: block; }
+    #wf-wrapper .vi-inner .cert-compact__sep { display: none; }
+    #wf-wrapper .vi-inner .cert-compact__stat { display: flex; flex-direction: column; gap: 0.3rem; align-self: start; }
+    #wf-wrapper .vi-inner .cert-compact__num { font-size: clamp(2.4rem, 4vw, 3.2rem); line-height: 1; }
+    #wf-wrapper .vi-inner .cert-compact__unit { font-family: var(--font-body); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; max-width: 14ch; white-space: normal !important; }
+    #wf-wrapper .vi-inner .cert-compact__stat { max-width: 12rem; }
+    #wf-wrapper .vi-inner .cert-compact__list { display: grid; gap: 0.55rem; border-left: 2px solid var(--c-peach); padding-left: 1.5rem; }
+    #wf-wrapper .vi-inner .cert-compact__list li { font-size: 0.95rem; }
+    @media (max-width: 600px) {
+      #wf-wrapper .vi-inner .cert-compact__body { grid-template-columns: 1fr; }
+      #wf-wrapper .vi-inner .cert-compact__list { border-left: none; padding-left: 0; border-top: 2px solid var(--c-peach); padding-top: 1.2rem; }
+    }
+    #wf-wrapper .vi-inner .cert-compact__badges img { width: 100%; max-width: 340px; height: auto; }
     #wf-wrapper .vi-inner .cert-compact__num { color: var(--c-terracotta); font-family: var(--font-body); font-weight: 700; }
     #wf-wrapper .vi-inner .cert-compact__unit { color: #5c3626; }
     #wf-wrapper .vi-inner .cert-compact__sep { background: var(--c-terracotta); opacity: 0.4; }
