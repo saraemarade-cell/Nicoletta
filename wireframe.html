@@ -1719,6 +1719,16 @@
     body.light-hero #wf-wrapper .vi-inner .site-header:not(.scrolled) .hamburger span { background: var(--c-green-700) !important; }
     body.light-hero #wf-wrapper .vi-inner .site-header:not(.scrolled) .header-cta { background: var(--c-terracotta) !important; color: #fff !important; }
 
+    /* Logo header pagine interne: stessa misura della homepage quando non scrollato */
+    #wf-wrapper .vi-inner .site-header:not(.scrolled) .site-header__logo--mark { height: 80px; }
+    @media (max-width: 1023px) { #wf-wrapper .vi-inner .site-header:not(.scrolled) .site-header__logo--mark { height: 56px; } }
+    @media (max-width: 767px)  { #wf-wrapper .vi-inner .site-header:not(.scrolled) .site-header__logo--mark { height: 44px; } }
+
+    /* Hero di pagina: spazio libero sotto barra annuncio + header fisso */
+    #wf-wrapper .vi-inner main > section.page-hero { padding-top: 15rem !important; padding-bottom: 5.5rem !important; }
+    @media (max-width: 1023px) { #wf-wrapper .vi-inner main > section.page-hero { padding-top: 13rem !important; } }
+    @media (max-width: 767px)  { #wf-wrapper .vi-inner main > section.page-hero { padding-top: 11rem !important; padding-bottom: 4rem !important; } }
+
     /* Hero di pagina */
     #wf-wrapper .vi-inner .page-hero { position: relative; overflow: hidden; }
     #wf-wrapper .vi-inner .page-hero--light,
