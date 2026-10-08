@@ -1801,33 +1801,58 @@
     #wf-wrapper .vi-inner .page-hero--dark .btn--outline-frag:hover { background: var(--c-peach); color: var(--c-peach); }
     #wf-wrapper .vi-inner .az-hero-image img { filter: none; mix-blend-mode: normal; opacity: 0.25; }
 
-    /* Pagina aziendale: problema su crema, richiesta su sabbia (testi scuri) */
-    #page-aziendale .az-section--medium:not(#az-richiesta) { background: var(--c-cream) !important; }
-    #page-aziendale #az-richiesta { background: var(--c-peach) !important; }
-    #page-aziendale .az-section--medium .az-text-white,
-    #page-aziendale .az-section--medium h2 { color: var(--c-terracotta) !important; }
-    #page-aziendale #az-richiesta h2 { color: #3b2418 !important; }
-    #page-aziendale .az-section--medium .az-text-muted { color: #3b2e26 !important; }
-    #page-aziendale .az-section--medium .section-label { background: #fff; color: var(--c-terracotta); }
-    #page-aziendale .az-segnali-label { color: var(--c-terracotta); font-family: var(--font-body); font-weight: 700; }
-    #page-aziendale .az-segnale { border-color: rgba(92,54,38,0.2); }
-    #page-aziendale .az-segnale__num { color: var(--c-terracotta); font-family: var(--font-body); font-weight: 700; }
-    #page-aziendale .az-segnale__text { color: #3b2418; }
-    #page-aziendale #az-richiesta span[style] { color: #3b2418 !important; }
-    #page-aziendale #az-richiesta svg { color: var(--c-terracotta); stroke: var(--c-terracotta); }
-    #page-aziendale #az-richiesta .reveal[style] > div[style] { background: var(--c-cream) !important; border: none !important; border-radius: 0 !important; clip-path: polygon(0 0, 96% 0, 100% 8%, 100% 100%, 4% 100%, 0 92%); }
-    #page-aziendale #az-richiesta .reveal[style] > div[style] p { color: #3b2e26 !important; }
-    #page-aziendale #az-richiesta .reveal[style] > div[style] { max-width: min(360px, 100%) !important; box-sizing: border-box; }
-    #page-aziendale #az-richiesta .reveal[style] { min-width: 0; }
-    #page-aziendale .az-section--medium > svg, #page-aziendale #az-richiesta > svg { opacity: 0.12; }
-    #page-aziendale .az-process-item__num { color: var(--c-peach); font-family: var(--font-body); font-weight: 700; }
-    #page-aziendale .az-process-item__step { color: var(--c-peach); }
-    #page-aziendale .az-process-item__title { color: #fff; }
-    #page-aziendale .az-process-item__body p:not(.az-process-item__step) { color: rgba(255,255,255,0.88); }
-    #page-aziendale .az-risultato { border-color: rgba(255,255,255,0.15); }
-    #page-aziendale .az-risultato__icon { background: rgba(230,191,145,0.18); color: var(--c-peach); clip-path: var(--frag-a); border-radius: 0; }
-    #page-aziendale .az-risultato__title { color: #fff; font-family: var(--font-body); font-weight: 700; }
-    #page-aziendale .az-risultato__desc { color: rgba(255,255,255,0.82); }
+    /* Pagina aziendale: prevalgono verde e bianco
+       hero verde > problema bianco > processo verde > risultati bianco > testimonianze salvia chiaro > richiesta verde */
+    @media (min-width: 768px) { #wf-wrapper #page-aziendale .page-hero__inner { max-width: 54% !important; } }
+    #wf-wrapper #page-aziendale .page-hero h1 { font-size: clamp(2rem, 3.4vw, 3rem); }
+
+    /* Problema (bianco) */
+    #wf-wrapper #page-aziendale .az-section--medium:not(#az-richiesta) { background: #fff !important; }
+    #wf-wrapper #page-aziendale .az-section--medium:not(#az-richiesta) .az-text-white,
+    #wf-wrapper #page-aziendale .az-section--medium:not(#az-richiesta) h2 { color: var(--c-green-700) !important; }
+    #wf-wrapper #page-aziendale .az-section--medium:not(#az-richiesta) .az-text-muted { color: #2b2b2b !important; }
+    #wf-wrapper #page-aziendale .az-section--medium:not(#az-richiesta) .section-label { background: var(--c-green-100); color: var(--c-green-700); }
+    #wf-wrapper #page-aziendale .az-segnali-label { color: var(--c-green-700); font-family: var(--font-body); font-weight: 700; }
+    #wf-wrapper #page-aziendale .az-segnale { border-color: rgba(99,118,100,0.25); }
+    #wf-wrapper #page-aziendale .az-segnale__num { color: var(--c-green-700); font-family: var(--font-body); font-weight: 700; }
+    #wf-wrapper #page-aziendale .az-segnale__text { color: #2b2b2b; }
+    #wf-wrapper #page-aziendale .az-section--medium > svg { opacity: 0.08; }
+
+    /* Processo (verde) */
+    #wf-wrapper #page-aziendale .az-section--accent { background: var(--c-green-700) !important; }
+    #wf-wrapper #page-aziendale .az-section--accent .btn--outline-frag::before { background: var(--c-green-700); }
+    #wf-wrapper #page-aziendale .az-section--accent .section-label { background: rgba(230,191,145,0.18); color: var(--c-peach); }
+    #wf-wrapper #page-aziendale .az-process-item__num { color: var(--c-peach); font-family: var(--font-body); font-weight: 700; }
+    #wf-wrapper #page-aziendale .az-process-item__step { color: var(--c-peach); }
+    #wf-wrapper #page-aziendale .az-process-item__title { color: #fff; }
+    #wf-wrapper #page-aziendale .az-process-item__body p:not(.az-process-item__step) { color: rgba(255,255,255,0.88); }
+
+    /* Risultati (bianco) */
+    #wf-wrapper #page-aziendale .az-section--dark { background: #fff !important; }
+    #wf-wrapper #page-aziendale .az-section--dark h2,
+    #wf-wrapper #page-aziendale .az-section--dark .az-text-white { color: var(--c-green-700) !important; }
+    #wf-wrapper #page-aziendale .az-section--dark .section-label { background: var(--c-green-100); color: var(--c-green-700); }
+    #wf-wrapper #page-aziendale .az-risultato { background: var(--c-green-100); border: none; border-radius: 0; }
+    #wf-wrapper #page-aziendale .az-risultato__icon { background: var(--c-green-700); color: #fff; clip-path: var(--frag-a); border-radius: 0; }
+    #wf-wrapper #page-aziendale .az-risultato__title { color: #2f3a30; font-family: var(--font-body); font-weight: 700; }
+    #wf-wrapper #page-aziendale .az-risultato__desc { color: #2b2b2b; }
+
+    /* Testimonianze (salvia chiaro) */
+    #wf-wrapper #page-aziendale .az-section--neutral { background: var(--c-green-100) !important; }
+    #wf-wrapper #page-aziendale .az-section--neutral h2 { color: var(--c-green-700); }
+    #wf-wrapper #page-aziendale .az-section--neutral .section-label { background: #fff; color: var(--c-green-700); }
+
+    /* Richiesta informazioni (bianco, per staccarsi dal footer verde) */
+    #wf-wrapper #page-aziendale #az-richiesta { background: #fff !important; }
+    #wf-wrapper #page-aziendale #az-richiesta h2 { color: var(--c-green-700) !important; }
+    #wf-wrapper #page-aziendale #az-richiesta .az-text-muted { color: #2b2b2b !important; }
+    #wf-wrapper #page-aziendale #az-richiesta .section-label { background: var(--c-green-100); color: var(--c-green-700); }
+    #wf-wrapper #page-aziendale #az-richiesta span[style] { color: #2b2b2b !important; }
+    #wf-wrapper #page-aziendale #az-richiesta svg { color: var(--c-green-700); stroke: var(--c-green-700); }
+    #wf-wrapper #page-aziendale #az-richiesta > svg { opacity: 0.08; }
+    #wf-wrapper #page-aziendale #az-richiesta .reveal[style] > div[style] { background: var(--c-green-100) !important; border: none !important; border-radius: 0 !important; clip-path: polygon(0 0, 96% 0, 100% 8%, 100% 100%, 4% 100%, 0 92%); max-width: min(360px, 100%) !important; box-sizing: border-box; }
+    #wf-wrapper #page-aziendale #az-richiesta .reveal[style] > div[style] p { color: #2b2b2b !important; }
+    #wf-wrapper #page-aziendale #az-richiesta .reveal[style] { min-width: 0; }
 
     /* Eventi: card calendario */
     #wf-wrapper .vi-inner .event-card { background: #fff; border: none; border-radius: 0; box-shadow: 0 8px 24px rgba(92,54,38,0.08); }
@@ -2030,8 +2055,11 @@
     @media (max-width: 767px) { #wf-wrapper :is(#page-home, .vi-inner) .site-header__logo--pitto { height: 40px; } }
 
     /* Voce di menu della pagina aperta */
-    #wf-wrapper :is(#page-home, .vi-inner) .site-nav__link.active { font-weight: 700 !important; box-shadow: inset 0 -2px 0 currentColor; border-radius: 0; }
-    #wf-wrapper :is(#page-home, .vi-inner) .site-nav__link.active::before { display: none; }
+    #wf-wrapper :is(#page-home, .vi-inner) .site-nav__link.active { font-weight: 700 !important; box-shadow: none !important; border: none !important; outline: none; }
+    #wf-wrapper :is(#page-home, .vi-inner) .site-nav__link::before,
+    #wf-wrapper :is(#page-home, .vi-inner) .site-nav__link::after { display: none !important; }
+    #wf-wrapper .vi-inner .page-hero--dark ~ * .site-nav__link.active,
+    #wf-wrapper #page-aziendale .site-header:not(.scrolled) .site-nav__link.active { color: var(--c-peach) !important; }
     #wf-wrapper :is(#page-home, .vi-inner) .mobile-nav__link.active { color: var(--c-peach) !important; }
 
     /* Testi grigi non leggibili su fondi chiari/caldi */
@@ -3742,7 +3770,7 @@
       <div class="az-risultato"><div class="az-risultato__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 28 28" fill="none"><path d="M7 20l4-8 3 4 3-6 4 10" stroke="#E6BF91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="4" width="20" height="20" rx="1" stroke="#E6BF91" stroke-width="1.2"/></svg></div><h4 class="az-risultato__title">Approccio credibile e&nbsp;misurabile</h4><p class="az-risultato__desc">Fondato su&nbsp;evidenze scientifiche, con&nbsp;risultati monitorabili nel tempo.</p></div>
     </div>
     <div class="reveal" style="text-align:center;margin-top:3rem;">
-      <a href="javascript:void(0)" class="btn btn--outline" style="color:rgba(255,255,255,0.75);border-color:rgba(255,255,255,0.25);">Approfondisci</a>
+      <a href="javascript:void(0)" class="btn btn--primary">Approfondisci</a>
     </div>
   </div>
 </section>
