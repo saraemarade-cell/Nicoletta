@@ -1943,7 +1943,21 @@
     #page-news .grid-3 > article[style] p,
     #page-news .grid-3 > article[style] div[style] { color: #3b2e26 !important; }
     #page-news .grid-3 > article[style] span[style*="text-transform:uppercase"] { background: #fff !important; color: var(--c-terracotta) !important; font-family: var(--font-body); }
-    #page-news .grid-3 > article[style] > div[style*="aspect-ratio"] { clip-path: polygon(0 0, 100% 0, 100% 88%, 70% 100%, 0 94%); }
+    #page-news .grid-3 > article[style] > div[style*="aspect-ratio"] { clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%, 0 90%); }
+    #page-news .grid-3 > article[style] > div[style*="aspect-ratio"] > span[style*="position:absolute"] { color: #fff !important; background: rgba(59,36,24,0.8) !important; font-weight: 600; font-size: 0.75rem !important; }
+    #page-news .news-card__link[aria-disabled="true"] { cursor: default; opacity: 0.6; pointer-events: none; }
+
+    /* Contatti: etichette coerenti col resto, social come nel footer */
+    #page-contatti .contact-info__label,
+    #page-contatti .contact-social__title { font-family: var(--font-body) !important; font-weight: 700 !important; text-transform: none !important; letter-spacing: 0 !important; font-size: 1rem !important; color: var(--c-terracotta) !important; margin-bottom: 0.2rem; }
+    #page-contatti .contact-info__value { font-family: var(--font-inter); font-weight: 400; font-size: 1rem; color: #3b2418; }
+    #page-contatti .contact-social__title { margin-bottom: 0.9rem; }
+    #page-contatti .contact-social__link {
+      display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px;
+      background: var(--c-cream); color: var(--c-terracotta); clip-path: var(--frag-a); transition: all var(--transition-base);
+    }
+    #page-contatti .contact-social__link svg { width: 24px; height: 24px; }
+    #page-contatti .contact-social__link:hover { background: var(--c-peach); color: #5c3626; }
 
     /* Contatti */
     #page-contatti .contact-info { background: var(--c-cream); border: none; border-radius: 0; }
@@ -4193,8 +4207,8 @@
           <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">[Nome evento — da&nbsp;aggiornare]</h3>
           <p style="font-size:0.8rem;color:var(--c-neutral-400);line-height:1.55;margin-bottom:0.8rem;">[Breve descrizione — organizzatore, tema, contesto.]</p>
           <div style="font-size:0.75rem;color:var(--c-neutral-400);display:flex;flex-direction:column;gap:0.25rem;">
-            <span>📅 [Data — da&nbsp;aggiornare]</span>
-            <span>📍 [Luogo — da&nbsp;aggiornare]</span>
+            <span>[Data — da&nbsp;aggiornare]</span>
+            <span>[Luogo — da&nbsp;aggiornare]</span>
           </div>
         </div>
       </article>
@@ -4208,8 +4222,8 @@
           <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">[Nome evento — da&nbsp;aggiornare]</h3>
           <p style="font-size:0.8rem;color:var(--c-neutral-400);line-height:1.55;margin-bottom:0.8rem;">[Breve descrizione — canale, media, argomento.]</p>
           <div style="font-size:0.75rem;color:var(--c-neutral-400);display:flex;flex-direction:column;gap:0.25rem;">
-            <span>📅 [Data — da&nbsp;aggiornare]</span>
-            <span>📍 [Canale / Media — da&nbsp;aggiornare]</span>
+            <span>[Data — da&nbsp;aggiornare]</span>
+            <span>[Canale / Media — da&nbsp;aggiornare]</span>
           </div>
         </div>
       </article>
@@ -4223,8 +4237,8 @@
           <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">[Nome evento — da&nbsp;aggiornare]</h3>
           <p style="font-size:0.8rem;color:var(--c-neutral-400);line-height:1.55;margin-bottom:0.8rem;">[Breve descrizione — da&nbsp;aggiornare.]</p>
           <div style="font-size:0.75rem;color:var(--c-neutral-400);display:flex;flex-direction:column;gap:0.25rem;">
-            <span>📅 [Data — da&nbsp;aggiornare]</span>
-            <span>📍 [Luogo / Online — da&nbsp;aggiornare]</span>
+            <span>[Data — da&nbsp;aggiornare]</span>
+            <span>[Luogo / Online — da&nbsp;aggiornare]</span>
           </div>
         </div>
       </article>
@@ -4295,12 +4309,12 @@
       <h2>Esplora le&nbsp;risorse.</h2>
     </div>
     <div class="grid-3 reveal">
-      <article class="news-card"><div class="news-card__image"><img src="Assets/Foto/newseeventi2.webp" alt="[Titolo articolo 1]" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--green">[Categoria — da&nbsp;aggiornare]</span><h3 class="news-card__title">[Titolo articolo 1 — da&nbsp;aggiornare]</h3><p class="news-card__desc">[Estratto breve — da&nbsp;aggiornare.]</p><a href="#" class="news-card__link">Leggi →</a></div></article>
-      <article class="news-card"><div class="news-card__image"><img src="Assets/Foto/newseeventi3.webp" alt="[Titolo articolo 2]" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--peach">[Categoria — da&nbsp;aggiornare]</span><h3 class="news-card__title">[Titolo articolo 2 — da&nbsp;aggiornare]</h3><p class="news-card__desc">[Estratto breve — da&nbsp;aggiornare.]</p><a href="#" class="news-card__link">Leggi →</a></div></article>
-      <article class="news-card"><div class="news-card__image"><img src="Assets/Foto/newseeventi.webp" alt="[Titolo articolo 3]" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--green">[Categoria — da&nbsp;aggiornare]</span><h3 class="news-card__title">[Titolo articolo 3 — da&nbsp;aggiornare]</h3><p class="news-card__desc">[Estratto breve — da&nbsp;aggiornare.]</p><a href="#" class="news-card__link">Leggi →</a></div></article>
-      <article class="news-card"><div class="news-card__image"><img src="Assets/Foto/newseeventi2.webp" alt="[Titolo articolo 4]" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--peach">[Categoria — da&nbsp;aggiornare]</span><h3 class="news-card__title">[Titolo articolo 4 — da&nbsp;aggiornare]</h3><p class="news-card__desc">[Estratto breve — da&nbsp;aggiornare.]</p><a href="#" class="news-card__link">Leggi →</a></div></article>
-      <article class="news-card"><div class="news-card__image"><img src="Assets/Foto/newseeventi3.webp" alt="[Titolo articolo 5]" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--green">[Categoria — da&nbsp;aggiornare]</span><h3 class="news-card__title">[Titolo articolo 5 — da&nbsp;aggiornare]</h3><p class="news-card__desc">[Estratto breve — da&nbsp;aggiornare.]</p><a href="#" class="news-card__link">Leggi →</a></div></article>
-      <article class="news-card"><div class="news-card__image"><img src="Assets/Foto/newseeventi.webp" alt="[Titolo articolo 6]" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--peach">[Categoria — da&nbsp;aggiornare]</span><h3 class="news-card__title">[Titolo articolo 6 — da&nbsp;aggiornare]</h3><p class="news-card__desc">[Estratto breve — da&nbsp;aggiornare.]</p><a href="#" class="news-card__link">Leggi →</a></div></article>
+      <article class="news-card"><div class="news-card__image"><img src="Assets/Foto/newseeventi2.webp" alt="[Titolo articolo 1]" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--green">[Categoria — da&nbsp;aggiornare]</span><h3 class="news-card__title">[Titolo articolo 1 — da&nbsp;aggiornare]</h3><p class="news-card__desc">[Estratto breve — da&nbsp;aggiornare.]</p><a href="javascript:void(0)" class="news-card__link" aria-disabled="true" title="[DA DEFINIRE: link articolo]">Leggi →</a></div></article>
+      <article class="news-card"><div class="news-card__image"><img src="Assets/Foto/newseeventi3.webp" alt="[Titolo articolo 2]" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--peach">[Categoria — da&nbsp;aggiornare]</span><h3 class="news-card__title">[Titolo articolo 2 — da&nbsp;aggiornare]</h3><p class="news-card__desc">[Estratto breve — da&nbsp;aggiornare.]</p><a href="javascript:void(0)" class="news-card__link" aria-disabled="true" title="[DA DEFINIRE: link articolo]">Leggi →</a></div></article>
+      <article class="news-card"><div class="news-card__image"><img src="Assets/Foto/newseeventi.webp" alt="[Titolo articolo 3]" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--green">[Categoria — da&nbsp;aggiornare]</span><h3 class="news-card__title">[Titolo articolo 3 — da&nbsp;aggiornare]</h3><p class="news-card__desc">[Estratto breve — da&nbsp;aggiornare.]</p><a href="javascript:void(0)" class="news-card__link" aria-disabled="true" title="[DA DEFINIRE: link articolo]">Leggi →</a></div></article>
+      <article class="news-card"><div class="news-card__image"><img src="Assets/Foto/newseeventi2.webp" alt="[Titolo articolo 4]" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--peach">[Categoria — da&nbsp;aggiornare]</span><h3 class="news-card__title">[Titolo articolo 4 — da&nbsp;aggiornare]</h3><p class="news-card__desc">[Estratto breve — da&nbsp;aggiornare.]</p><a href="javascript:void(0)" class="news-card__link" aria-disabled="true" title="[DA DEFINIRE: link articolo]">Leggi →</a></div></article>
+      <article class="news-card"><div class="news-card__image"><img src="Assets/Foto/newseeventi3.webp" alt="[Titolo articolo 5]" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--green">[Categoria — da&nbsp;aggiornare]</span><h3 class="news-card__title">[Titolo articolo 5 — da&nbsp;aggiornare]</h3><p class="news-card__desc">[Estratto breve — da&nbsp;aggiornare.]</p><a href="javascript:void(0)" class="news-card__link" aria-disabled="true" title="[DA DEFINIRE: link articolo]">Leggi →</a></div></article>
+      <article class="news-card"><div class="news-card__image"><img src="Assets/Foto/newseeventi.webp" alt="[Titolo articolo 6]" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--peach">[Categoria — da&nbsp;aggiornare]</span><h3 class="news-card__title">[Titolo articolo 6 — da&nbsp;aggiornare]</h3><p class="news-card__desc">[Estratto breve — da&nbsp;aggiornare.]</p><a href="javascript:void(0)" class="news-card__link" aria-disabled="true" title="[DA DEFINIRE: link articolo]">Leggi →</a></div></article>
     </div>
   </div>
 </section>
@@ -4632,11 +4646,11 @@
           <div class="contact-info__item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><div><p class="contact-info__label">Tempi di&nbsp;risposta</p><p class="contact-info__value">Entro 1-2 giorni lavorativi</p></div></div>
         </div>
         <div style="margin-top:2.5rem;">
-          <p style="font-size:0.875rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--c-neutral-400);margin-bottom:1rem;">Seguimi</p>
+          <p class="contact-info__label contact-social__title">Seguimi</p>
           <div style="display:flex;gap:1rem;">
-            <a href="https://www.instagram.com/nicoletta.ingusci/" style="display:flex;align-items:center;gap:0.5rem;font-size:0.9rem;color:var(--c-green-700);text-decoration:none;" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Instagram</a>
-            <a href="https://www.facebook.com/nicoletta.ingusci/" style="display:flex;align-items:center;gap:0.5rem;font-size:0.9rem;color:var(--c-green-700);text-decoration:none;" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M13 8h-1a2 2 0 00-2 2v1H9v2.5h1V19h2.5v-5.5H14l.5-2.5h-2V10a.5.5 0 01.5-.5h1V8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Facebook</a>
-            <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" style="display:flex;align-items:center;gap:0.5rem;font-size:0.9rem;color:var(--c-green-700);text-decoration:none;" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.5M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>LinkedIn</a>
+            <a href="https://www.instagram.com/nicoletta.ingusci/" class="contact-social__link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.facebook.com/nicoletta.ingusci/" class="contact-social__link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10.4H7.8v3h2.6V21h3.1z"/></svg></a>
+            <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="contact-social__link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
           </div>
         </div>
         <div style="margin-top:2.5rem;padding:2rem 1.75rem;background:var(--c-green-100);clip-path:polygon(0 0,95% 0,100% 10%,100% 100%,5% 100%,0 90%);">
