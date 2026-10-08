@@ -2187,6 +2187,14 @@
     @media (min-width: 900px) { #wf-wrapper #page-aziendale .section__header--centered > p[style*="max-width:46ch"] { max-width: none !important; white-space: nowrap; } }
     #wf-wrapper #page-aziendale #az-richiesta .btn--primary { background: var(--c-green-700, #637664); color: #fff; }
     #wf-wrapper #page-aziendale #az-richiesta .btn--primary:hover { background: #4f5f50; color: #fff; }
+    /* Contatti: foto nella hero */
+    #wf-wrapper #page-contatti .contact-hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; }
+    #wf-wrapper #page-contatti .contact-hero__img { aspect-ratio: 4 / 5; max-height: 560px; overflow: hidden; clip-path: polygon(0 0, 86% 0, 100% 14%, 100% 100%, 14% 100%, 0 86%); }
+    #wf-wrapper #page-contatti .contact-hero__img img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; filter: none; }
+    @media (max-width: 768px) {
+      #wf-wrapper #page-contatti .contact-hero { grid-template-columns: 1fr; gap: 2rem; }
+      #wf-wrapper #page-contatti .contact-hero__img { aspect-ratio: 1 / 1; max-height: 420px; }
+    }
     /* Eventi */
     @media (min-width: 900px) { #wf-wrapper #page-eventi .cta-block__text { max-width: none; white-space: nowrap; } }
   </style>
@@ -4628,10 +4636,12 @@
 
 <section class="page-hero page-hero--light" style="padding-bottom:var(--space-lg);">
   <div class="container">
-    <div class="page-hero__inner" style="max-width:680px;">
+    <div class="contact-hero"><div class="page-hero__inner" style="max-width:680px;">
       <span class="section-label">Contatti</span>
       <h1>Inizia da&nbsp;un&nbsp;messaggio.</h1>
       <p class="page-hero__desc">Compila il&nbsp;form per&nbsp;ricevere informazioni sui percorsi, prenotare un&nbsp;consulto o&nbsp;chiedere un&nbsp;preventivo per&nbsp;la&nbsp;tua azienda.</p>
+    </div>
+      <div class="contact-hero__img"><img src="Assets/Foto/contatti.webp" alt="Nicoletta Ingusci sorridente, seduta con il mento appoggiato alla mano" width="1080" height="1350" loading="eager"/></div>
     </div>
   </div>
 </section>
