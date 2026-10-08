@@ -1846,6 +1846,27 @@
     #page-evento-detail #form-iscrizione textarea[style] { border-color: var(--c-peach) !important; border-radius: 0 !important; background: #fff !important; }
     #page-evento-detail #form-iscrizione label[style] { color: #3b2418 !important; font-family: var(--font-body); font-weight: 700 !important; }
 
+    /* News: card incontri e video */
+    #page-news .grid-3 > article[style] { background: var(--c-cream) !important; border-radius: 0 !important; box-shadow: 0 8px 24px rgba(92,54,38,0.08) !important; }
+    #page-news .grid-3 > article[style] h3 { color: #5c3626; font-family: var(--font-display); font-weight: 700; }
+    #page-news .grid-3 > article[style] p,
+    #page-news .grid-3 > article[style] div[style] { color: #3b2e26 !important; }
+    #page-news .grid-3 > article[style] span[style*="text-transform:uppercase"] { background: #fff !important; color: var(--c-terracotta) !important; font-family: var(--font-body); }
+    #page-news .grid-3 > article[style] > div[style*="aspect-ratio"] { clip-path: polygon(0 0, 100% 0, 100% 88%, 70% 100%, 0 94%); }
+
+    /* Contatti */
+    #page-contatti .contact-info { background: var(--c-cream); border: none; border-radius: 0; }
+    #page-contatti .contact-info h3 { color: var(--c-terracotta); }
+    #page-contatti .contact-info__label { color: var(--c-terracotta); font-family: var(--font-body); font-weight: 700; }
+    #page-contatti .contact-info__value { color: #3b2418; }
+    #page-contatti .contact-info__item svg { color: var(--c-terracotta); stroke: var(--c-terracotta); }
+    #page-contatti a[href*="instagram"][style],
+    #page-contatti a[href*="facebook"][style],
+    #page-contatti a[href*="linkedin"][style] { color: var(--c-terracotta) !important; font-weight: 600; }
+    #page-contatti div[style*="--c-green-100"] { background: var(--c-peach) !important; }
+    #page-contatti div[style*="--c-green-100"] p { color: #3b2418 !important; }
+    #page-contatti div[style*="--c-green-100"] p:first-child { font-family: var(--font-display); color: #5c3626 !important; }
+
     /* Fascia ricorrente Onestà · Serietà · Impegno */
     #wf-wrapper .vi-inner .valori-band { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.8rem; max-width: none; }
     #wf-wrapper .vi-inner .valori-band span {
@@ -4063,7 +4084,7 @@
   <div class="container" style="position:relative;z-index:1;">
     <h2 class="cta-block__title">Non perderti i nuovi contenuti.</h2>
     <p class="cta-block__text">Scrivici per&nbsp;ricevere articoli, risorse e&nbsp;aggiornamenti sugli eventi.</p>
-    <div class="cta-block__ctas"><a href="#page-contatti" class="btn btn--cream">Contattaci</a></div>
+    <div class="cta-block__ctas"><a href="#page-contatti" class="btn btn--primary">Contattaci</a></div>
   </div>
 </section>
 
@@ -4378,7 +4399,7 @@
         <div class="contact-info">
           <h3 style="margin-bottom:1.5rem;font-size:1.1rem;">Informazioni utili</h3>
           <div class="contact-info__item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="1.5"/><path d="M4 4l8 8 8-8" stroke="currentColor" stroke-width="1.5"/></svg><div><p class="contact-info__label">Email</p><a href="#" class="contact-info__value">[email — da&nbsp;inserire]</a></div></div>
-          <div class="contact-info__item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-6.9-7-12a7 7 0 0114 0c0 5.1-7 12-7 12z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9" r="2" stroke="currentColor" stroke-width="1.5"/></svg><div><p class="contact-info__label">Dove si lavora</p><p class="contact-info__value">[Città / modalità — da&nbsp;inserire]</p></div></div>
+          <div class="contact-info__item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-6.9-7-12a7 7 0 0114 0c0 5.1-7 12-7 12z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9" r="2" stroke="currentColor" stroke-width="1.5"/></svg><div><p class="contact-info__label">Dove si lavora</p><p class="contact-info__value">[DA DEFINIRE]</p></div></div>
           <div class="contact-info__item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><div><p class="contact-info__label">Tempi di&nbsp;risposta</p><p class="contact-info__value">Entro 1-2 giorni lavorativi</p></div></div>
         </div>
         <div style="margin-top:2.5rem;">
@@ -4391,8 +4412,8 @@
         </div>
         <div style="margin-top:2.5rem;padding:2rem 1.75rem;background:var(--c-green-100);clip-path:polygon(0 0,95% 0,100% 10%,100% 100%,5% 100%,0 90%);">
           <p style="font-weight:700;font-size:1rem;margin-bottom:0.4rem;">Consulto individuale</p>
-          <p style="font-size:0.8rem;font-weight:600;color:var(--c-green-700);margin-bottom:0.75rem;">[Durata · Prezzo — da&nbsp;aggiornare]</p>
-          <p style="font-size:0.875rem;color:var(--c-neutral-600);line-height:1.75;">Un incontro one-to-one per&nbsp;valutare insieme il&nbsp;percorso più adatto alle&nbsp;tue esigenze. Seleziona il&nbsp;percorso di&nbsp;interesse nel&nbsp;form e&nbsp;indicalo nel&nbsp;messaggio. Ti rispondo con&nbsp;le&nbsp;disponibilità.</p>
+          <p style="font-size:0.8rem;font-weight:600;color:var(--c-green-700);margin-bottom:0.75rem;">[DA DEFINIRE: durata · prezzo — da&nbsp;validare con&nbsp;la cliente]</p>
+          <p style="font-size:0.875rem;color:var(--c-neutral-600);line-height:1.75;">Un incontro one-to-one per&nbsp;valutare insieme il&nbsp;percorso più adatto alle tue esigenze. Seleziona il&nbsp;percorso di&nbsp;interesse nel form e&nbsp;indicalo nel messaggio. Ti rispondo con&nbsp;le disponibilità.</p>
         </div>
       </div>
     </div>
@@ -4406,9 +4427,9 @@
       <h2>Hai un&nbsp;dubbio?</h2>
     </div>
     <div class="faq reveal" style="max-width:720px;">
-      <div class="faq-item"><button class="faq-question" aria-expanded="false">Come funziona il&nbsp;primo contatto?<svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><div class="faq-answer"><p>Dopo che&nbsp;invii il&nbsp;form, ti rispondo via email entro 1-2 giorni lavorativi. Se è il&nbsp;caso, organizziamo un&nbsp;consulto individuale per&nbsp;capire come&nbsp;posso aiutarti.</p></div></div>
-      <div class="faq-item"><button class="faq-question" aria-expanded="false">I percorsi si svolgono in presenza o&nbsp;online?<svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><div class="faq-answer"><p>[Risposta — da&nbsp;aggiornare con&nbsp;le&nbsp;modalità reali offerte da&nbsp;Nicoletta: in presenza, online, o&nbsp;entrambe.]</p></div></div>
-      <div class="faq-item"><button class="faq-question" aria-expanded="false">Offrite preventivi per&nbsp;aziende?<svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><div class="faq-answer"><p>Sì. Seleziona "Benessere aziendale" nel&nbsp;form e&nbsp;descrivi brevemente il&nbsp;tuo contesto (dimensione del&nbsp;team, obiettivi). Rispondo con&nbsp;una&nbsp;prima proposta personalizzata.</p></div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false">Come funziona il&nbsp;primo contatto?<svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><div class="faq-answer"><p>Dopo che&nbsp;invii il&nbsp;form, ti rispondo via email entro 1-2 giorni lavorativi. Se è il&nbsp;caso, organizziamo un&nbsp;consulto individuale per&nbsp;capire come posso aiutarti.</p></div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false">I percorsi si svolgono in presenza o&nbsp;online?<svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><div class="faq-answer"><p>[DA DEFINIRE: modalità reali offerte]</p></div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false">Offrite preventivi per&nbsp;aziende?<svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><div class="faq-answer"><p>Sì. Seleziona “Benessere aziendale” nel form e&nbsp;descrivi brevemente il&nbsp;tuo contesto (dimensione del&nbsp;team, obiettivi). Rispondo con&nbsp;una prima proposta personalizzata.</p></div></div>
     </div>
   </div>
 </section>
