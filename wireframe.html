@@ -1817,6 +1817,35 @@
     #page-aziendale .az-risultato__title { color: #fff; font-family: var(--font-body); font-weight: 700; }
     #page-aziendale .az-risultato__desc { color: rgba(255,255,255,0.82); }
 
+    /* Eventi: card calendario */
+    #wf-wrapper .vi-inner .event-card { background: #fff; border: none; border-radius: 0; box-shadow: 0 8px 24px rgba(92,54,38,0.08); }
+    #wf-wrapper .vi-inner .event-card__date { background: var(--c-terracotta); color: var(--c-cream); clip-path: var(--frag-a); border-radius: 0; }
+    #wf-wrapper .vi-inner .event-card__day { color: var(--c-cream); font-family: var(--font-body); font-weight: 700; }
+    #wf-wrapper .vi-inner .event-card__month { color: var(--c-cream); }
+    #wf-wrapper .vi-inner .event-card__type { color: var(--c-terracotta); font-family: var(--font-body); font-weight: 700; }
+    #wf-wrapper .vi-inner .event-card__title { color: #5c3626; font-family: var(--font-display); font-weight: 700; }
+    #wf-wrapper .vi-inner .event-card__desc { color: #3b2e26; }
+    #wf-wrapper .vi-inner .event-badge { background: var(--c-terracotta); color: var(--c-cream); clip-path: var(--frag-a); border-radius: 0; }
+    #wf-wrapper .vi-inner .ev-meta { color: #5c3626; font-weight: 700; }
+
+    /* Dettaglio evento: info, team, programma, form */
+    #page-evento-detail .inner-2col div[style*="--c-green-100"] { background: var(--c-cream) !important; clip-path: polygon(0 0, 98% 0, 100% 12%, 100% 100%, 2% 100%, 0 88%); }
+    #page-evento-detail .inner-2col div[style*="--c-green-100"] span { color: var(--c-terracotta) !important; font-family: var(--font-body); font-weight: 700; }
+    #wf-wrapper .vi-inner .ev-team { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    #wf-wrapper .vi-inner .ev-team__card { background: #fff; padding: 1.6rem; box-shadow: 0 8px 24px rgba(92,54,38,0.08); }
+    #wf-wrapper .vi-inner .ev-team__name { color: var(--c-terracotta); font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; margin-bottom: 0.6rem; }
+    #wf-wrapper .vi-inner .ev-team__desc { color: #3b2e26; font-size: 0.95rem; line-height: 1.65; }
+    #wf-wrapper .vi-inner .ev-days { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
+    #wf-wrapper .vi-inner .ev-day { background: var(--c-cream); padding: 1.5rem; }
+    #wf-wrapper .vi-inner .ev-day__title { color: var(--c-terracotta); font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    #wf-wrapper .vi-inner .ev-day__list li { display: grid; grid-template-columns: 6.2rem 1fr; gap: 0.6rem; padding: 0.45rem 0; border-top: 1px solid rgba(92,54,38,0.15); font-size: 0.9rem; color: #3b2e26; font-family: var(--font-inter); }
+    #wf-wrapper .vi-inner .ev-day__time { color: #5c3626; font-family: var(--font-body); font-weight: 700; }
+    #wf-wrapper .vi-inner .ev-days__note { margin-top: 1.5rem; color: #4a3a2e; font-style: italic; }
+    #page-evento-detail #form-iscrizione .reveal[style] { border-radius: 0 !important; }
+    #page-evento-detail #form-iscrizione input[style],
+    #page-evento-detail #form-iscrizione textarea[style] { border-color: var(--c-peach) !important; border-radius: 0 !important; background: #fff !important; }
+    #page-evento-detail #form-iscrizione label[style] { color: #3b2418 !important; font-family: var(--font-body); font-weight: 700 !important; }
+
     /* Fascia ricorrente Onestà · Serietà · Impegno */
     #wf-wrapper .vi-inner .valori-band { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.8rem; max-width: none; }
     #wf-wrapper .vi-inner .valori-band span {
@@ -3805,7 +3834,7 @@
   <div class="container" style="position:relative;z-index:1;">
     <h2 class="cta-block__title">Rimani aggiornato sui prossimi eventi.</h2>
     <p class="cta-block__text">Scrivici per&nbsp;essere inserito nella&nbsp;lista e&nbsp;ricevere le&nbsp;date in anteprima.</p>
-    <div class="cta-block__ctas"><a href="#page-contatti" class="btn btn--cream">Contattaci</a></div>
+    <div class="cta-block__ctas"><a href="#page-contatti" class="btn btn--primary">Contattaci</a></div>
   </div>
 </section>
 
@@ -4107,14 +4136,14 @@
   <div class="container">
     <div class="page-hero__inner">
       <div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.8rem;flex-wrap:wrap;">
-        <span class="event-badge" style="position:static;">[Tipo — es. Retreat]</span>
-        <span style="font-size:0.8rem;color:var(--c-neutral-400);letter-spacing:0.1em;text-transform:uppercase;">[Data] &middot; [Luogo]</span>
+        <span class="event-badge" style="position:static;">Retreat</span>
+        <span style="font-size:0.8rem;color:var(--c-neutral-400);letter-spacing:0.1em;text-transform:uppercase;"><span class="ev-meta">1-4 Ottobre 2026</span></span>
       </div>
-      <h1>[Nome del&nbsp;retreat — da&nbsp;aggiornare]</h1>
-      <p class="page-hero__desc">[Sottotitolo o&nbsp;tagline del&nbsp;retreat — da&nbsp;aggiornare. Una riga che cattura l'essenza.]</p>
+      <h1>Anima Retreat – The Quality of&nbsp;Life</h1>
+      <p class="page-hero__desc">Un’esperienza che&nbsp;unisce yoga, medicina, scienza e&nbsp;natura per&nbsp;esplorare ciò che&nbsp;realmente determina la&nbsp;qualità della nostra vita.</p>
       <div class="page-hero__ctas" style="margin-top:1.5rem;">
         <a href="#form-iscrizione" class="btn btn--primary" onclick="document.getElementById('form-iscrizione').scrollIntoView({behavior:'smooth'});return false;">Iscriviti ora</a>
-        <a href="#" class="btn btn--outline">Scarica il&nbsp;programma&nbsp;PDF</a>
+        <a href="#" class="btn btn--outline-frag" title="[DA DEFINIRE: file PDF del programma]">Scarica il&nbsp;programma&nbsp;PDF</a>
       </div>
     </div>
   </div>
@@ -4124,27 +4153,52 @@
   <div class="container">
     <div class="inner-2col inner-2col--center reveal">
       <div class="inner-image" style="clip-path:polygon(0 0,86% 0,100% 14%,100% 100%,14% 100%,0 86%);overflow:hidden;">
-        <img src="Assets/Foto/newseeventi.webp" alt="[Nome retreat]" loading="lazy"/>
+        <img src="Assets/Foto/newseeventi.webp" alt="[ALT TEXT DA DEFINIRE — immagine evento/location non fornita]" loading="lazy"/>
       </div>
       <div>
         <span class="section-label">Il programma</span>
-        <h2 style="margin-bottom:1.2rem;">[Titolo descrittivo del&nbsp;retreat — da&nbsp;aggiornare]</h2>
-        <p style="margin-bottom:1rem;">[Descrizione completa del&nbsp;retreat: cosa si fa, come è strutturato, quale approccio viene seguito. 4–6 righe.]</p>
-        <p>[Seconda parte della descrizione, se necessaria. Contesto, ispirazione, perché questo retreat adesso.]</p>
-        <ul class="geo-list" style="margin:1.5rem 0;">
-          <li class="geo-list__item"><span class="geo-list__dot" aria-hidden="true"></span>[Incluso 1 — da&nbsp;aggiornare]</li>
-          <li class="geo-list__item"><span class="geo-list__dot" aria-hidden="true"></span>[Incluso 2 — da&nbsp;aggiornare]</li>
-          <li class="geo-list__item"><span class="geo-list__dot" aria-hidden="true"></span>[Incluso 3 — da&nbsp;aggiornare]</li>
-          <li class="geo-list__item"><span class="geo-list__dot" aria-hidden="true"></span>[Incluso 4 — da&nbsp;aggiornare]</li>
-        </ul>
+        <h2 style="margin-bottom:1.2rem;">Un’esperienza che&nbsp;unisce yoga, medicina, scienza e&nbsp;natura</h2>
+        <p>Pratiche di&nbsp;asana, pranayama e&nbsp;meditazione si intrecciano con&nbsp;gli interventi di&nbsp;medici e&nbsp;professionisti della salute, offrendo strumenti concreti per&nbsp;migliorare il&nbsp;proprio benessere in&nbsp;modo semplice e&nbsp;sostenibile.</p>
+        <p>La grande novità di&nbsp;questa edizione sarà un&nbsp;percorso alimentare dedicato: un’alimentazione studiata per&nbsp;nutrire il&nbsp;corpo in&nbsp;profondità, favorire i&nbsp;naturali processi di&nbsp;riequilibrio dell’organismo e&nbsp;dimostrare come un&nbsp;piatto semplice, equilibrato e&nbsp;consapevole possa diventare uno strumento quotidiano di&nbsp;salute.</p>
+        <p>Accanto allo yoga, la&nbsp;natura sarà protagonista attraverso passeggiate e&nbsp;trekking, mentre le&nbsp;costellazioni sistemico-familiari offriranno uno spazio di&nbsp;ascolto e&nbsp;crescita interiore.</p>
+        <p>L’obiettivo è semplice: fornire conoscenze, esperienze e&nbsp;strumenti pratici da&nbsp;portare nella vita di&nbsp;tutti i&nbsp;giorni, perché il&nbsp;benessere non nasce da&nbsp;gesti straordinari, ma&nbsp;dalla qualità delle scelte che&nbsp;compiamo ogni giorno.</p>
+        <p>Il retreat include una formazione certificata <strong>Yoga Alliance International – 20H</strong>.</p>
+        <p><em>Un invito a&nbsp;vivere con&nbsp;più presenza, più consapevolezza e&nbsp;più qualità.</em></p>
         <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:1.5rem;padding:1.2rem;background:var(--c-green-100);">
-          <div><span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--c-green-700);display:block;margin-bottom:0.25rem;">Data</span><strong>[GG–GG Mese AAAA]</strong></div>
-          <div><span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--c-green-700);display:block;margin-bottom:0.25rem;">Luogo</span><strong>[Luogo — da&nbsp;aggiornare]</strong></div>
-          <div><span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--c-green-700);display:block;margin-bottom:0.25rem;">Posti</span><strong>[N] posti disponibili</strong></div>
-          <div><span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--c-green-700);display:block;margin-bottom:0.25rem;">Quota</span><strong>[€ — da&nbsp;aggiornare]</strong></div>
+          <div><span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--c-green-700);display:block;margin-bottom:0.25rem;">Data</span><strong>1-4 Ottobre 2026</strong></div>
+          <div><span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--c-green-700);display:block;margin-bottom:0.25rem;">Luogo</span><strong>[DA DEFINIRE]</strong></div>
+          <div><span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--c-green-700);display:block;margin-bottom:0.25rem;">Posti</span><strong>[DA DEFINIRE]</strong></div>
+          <div><span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--c-green-700);display:block;margin-bottom:0.25rem;">Quota</span><strong>[DA DEFINIRE]</strong></div>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section section--cream" aria-label="Il team">
+  <div class="container">
+    <div class="section__header reveal"><span class="section-label">Il team</span><h2>Chi ti accompagna.</h2></div>
+    <div class="ev-team reveal">
+      <article class="ev-team__card"><h3 class="ev-team__name">Dr.ssa Nicoletta Ingusci</h3><p class="ev-team__desc">Insegnante e&nbsp;Formatrice Yoga E-800, coach ICF e&nbsp;specialista in&nbsp;PNL. Accompagna le&nbsp;persone in&nbsp;percorsi di&nbsp;crescita e&nbsp;benessere, integrando yoga, coaching e&nbsp;conoscenze scientifiche per&nbsp;trasformare la&nbsp;consapevolezza in&nbsp;uno stile di&nbsp;vita sano.</p></article>
+      <article class="ev-team__card"><h3 class="ev-team__name">Dr.ssa Federica Rungger</h3><p class="ev-team__desc">Biologa Nutrizionista: la&nbsp;sua missione è trasformare l’alimentazione in&nbsp;uno strumento di&nbsp;salute, energia e&nbsp;benessere, accompagnando ogni persona verso uno stile di&nbsp;vita più consapevole e&nbsp;sostenibile.</p></article>
+      <article class="ev-team__card"><h3 class="ev-team__name">Dr.ssa Isabella Comazzi</h3><p class="ev-team__desc">Medico chirurgo specialista in&nbsp;Scienza dell’alimentazione e&nbsp;medico estetico. Unisce la&nbsp;medicina della nutrizione e&nbsp;la medicina estetica perché crede che&nbsp;la vera bellezza nasca dal&nbsp;benessere interiore e&nbsp;dall’equilibrio dell’organismo.</p></article>
+      <article class="ev-team__card"><h3 class="ev-team__name">Dr.ssa Simona Sitia</h3><p class="ev-team__desc">Medico internista, specialista in&nbsp;Nefrologia, che&nbsp;predilige un&nbsp;approccio olistico alla persona e&nbsp;crede fortemente nella prevenzione a&nbsp;360&nbsp;gradi delle malattie.</p></article>
+      <article class="ev-team__card"><h3 class="ev-team__name">Dr.ssa Dina Tommasi</h3><p class="ev-team__desc">Formatrice e&nbsp;Costellatrice familiare, metodo Hellinger. Ricercatrice della Visione secondo la&nbsp;tradizione del&nbsp;Fuego Sagrado. Accompagna le&nbsp;persone in&nbsp;un&nbsp;viaggio di&nbsp;profonda connessione con&nbsp;se stesse, le&nbsp;proprie radici e&nbsp;la forza degli antenati.</p></article>
+      <article class="ev-team__card"><h3 class="ev-team__name">Dr. Alessandro Bonvicini</h3><p class="ev-team__desc">Guida Escursionistica: condivide la&nbsp;sua passione per&nbsp;la montagna accompagnando il&nbsp;gruppo lungo percorsi che&nbsp;invitano a&nbsp;rallentare, respirare e&nbsp;ritrovare equilibrio.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--neutral" aria-label="Bozza di programma">
+  <div class="container">
+    <div class="section__header reveal"><span class="section-label">Bozza di&nbsp;programma</span><h2>Quattro giorni, giorno per&nbsp;giorno.</h2><p class="section__intro">Il programma può subire variazioni.</p></div>
+    <div class="ev-days reveal">
+      <div class="ev-day"><h3 class="ev-day__title">Giovedì 1 ottobre</h3><ul class="ev-day__list"><li><span class="ev-day__time">15.00-17.00</span><span>Check in</span></li><li><span class="ev-day__time">17.30-19.00</span><span>Cerimonia di&nbsp;apertura</span></li><li><span class="ev-day__time">19.15</span><span>Cena</span></li><li><span class="ev-day__time">21.00-21.30</span><span>Meditazione (Nicoletta e&nbsp;Dina)</span></li></ul></div>
+      <div class="ev-day"><h3 class="ev-day__title">Venerdì 2 ottobre</h3><ul class="ev-day__list"><li><span class="ev-day__time">6.00-8.00</span><span>Sessione Yoga (Nicoletta)</span></li><li><span class="ev-day__time">8.30-9.30</span><span>Colazione consapevole (Dr.ssa Rungger)</span></li><li><span class="ev-day__time">10.30-12.30</span><span>Trekking (Alessandro)</span></li><li><span class="ev-day__time">13.00-14.00</span><span>Pranzo consapevole (Dr.ssa Rungger)</span></li><li><span class="ev-day__time">15.00-18.00</span><span>Laboratorio esperienziale (Dr.ssa Dina Tommasi)</span></li><li><span class="ev-day__time">19.30</span><span>Cena consapevole (Dr.ssa Rungger)</span></li><li><span class="ev-day__time">21.00-22.30</span><span>Meditazione (Nicoletta) o&nbsp;Costellazioni Familiari (Dr.ssa Dina Tommasi)</span></li></ul></div>
+      <div class="ev-day"><h3 class="ev-day__title">Sabato 3 ottobre</h3><ul class="ev-day__list"><li><span class="ev-day__time">6.00-8.00</span><span>Sessione Yoga (Nicoletta)</span></li><li><span class="ev-day__time">8.15</span><span>Colazione consapevole (Dr.ssa Rungger)</span></li><li><span class="ev-day__time">10.30-12.30</span><span>Trekking (Alessandro)</span></li><li><span class="ev-day__time">13.00-14.00</span><span>Pranzo consapevole (Dr.ssa Rungger)</span></li><li><span class="ev-day__time">16.00-18.00</span><span>Laboratorio esperienziale (Dr.ssa Isabella Comazzi)</span></li><li><span class="ev-day__time">19.30</span><span>Cena consapevole (Dr.ssa Rungger)</span></li><li><span class="ev-day__time">21.00-21.30</span><span>Meditazione Slow Beauty Ritual (Nicoletta e&nbsp;Dr.ssa Isabella Comazzi)</span></li></ul></div>
+      <div class="ev-day"><h3 class="ev-day__title">Domenica 4 ottobre</h3><ul class="ev-day__list"><li><span class="ev-day__time">6.00-8.00</span><span>Sessione Yoga (Nicoletta)</span></li><li><span class="ev-day__time">8.15</span><span>Colazione consapevole (Dr.ssa Rungger)</span></li><li><span class="ev-day__time">10.30-12.00</span><span>Laboratorio esperienziale (Dr.ssa Simona Sitia)</span></li><li><span class="ev-day__time">12.00-13.00</span><span>Cerimonia di&nbsp;chiusura</span></li><li><span class="ev-day__time">13.00-14.00</span><span>Pranzo per&nbsp;chi vuole</span></li></ul></div>
+    </div>
+    <p class="ev-days__note reveal">Nelle pause più lunghe è possibile richiedere sessioni private o&nbsp;consulti agli esperti.</p>
   </div>
 </section>
 
@@ -4154,7 +4208,7 @@
     <div class="section__header reveal">
       <span class="section-label">Iscrizione</span>
       <h2>Prenota il&nbsp;tuo posto.</h2>
-      <p class="section__intro">[Note sull'iscrizione: posti limitati, conferma via email, ecc. — da&nbsp;aggiornare]</p>
+      <p class="section__intro">[DA DEFINIRE: note su&nbsp;posti limitati, conferma via email, ecc.]</p>
     </div>
     <div class="reveal" style="background:#fff;border-radius:12px;padding:2.5rem;box-shadow:0 2px 20px rgba(0,0,0,0.07);">
       <form style="display:flex;flex-direction:column;gap:1.4rem;" novalidate>
@@ -4201,7 +4255,7 @@
         <span class="section-label">Altri eventi</span>
         <h2>Potrebbero interessarti.</h2>
       </div>
-      <a href="#page-eventi" class="btn btn--outline" style="flex-shrink:0;">Vedi tutti gli&nbsp;eventi</a>
+      <a href="#page-eventi" class="btn btn--outline-frag" style="flex-shrink:0;">Vedi tutti gli&nbsp;eventi</a>
     </div>
     <div class="events-list reveal">
       <article class="event-card">
