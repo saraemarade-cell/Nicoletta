@@ -2171,7 +2171,7 @@
     /* Chi sono: racconto in verticale, CTA finale con colore distinto dalla sezione precedente */
     /* Racconto: foto sopra (grande, poco tagliata), testo sotto su due colonne */
     #wf-wrapper #page-chi-sono .chi-sono__story { display: grid; grid-template-columns: 1fr; gap: 3.5rem; }
-    #wf-wrapper #page-chi-sono .chi-sono__story .inner-image { aspect-ratio: 4 / 3; max-height: 860px; width: 100%; height: auto !important; }
+    #wf-wrapper #page-chi-sono .chi-sono__story .inner-image { aspect-ratio: 16 / 9; max-height: 700px; width: 100%; height: auto !important; }
     #wf-wrapper #page-chi-sono .chi-sono__story .inner-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
     #wf-wrapper #page-chi-sono .chi-sono__story > .reveal:last-child { columns: 2; column-gap: 3.5rem; }
     #wf-wrapper #page-chi-sono .chi-sono__story > .reveal:last-child > :is(.section-label, h2, .chi-sono__motto, .chi-sono__creds, .chi-sono__certs) { column-span: all; }
@@ -2188,7 +2188,7 @@
     #wf-wrapper #page-coaching .target-section__intro :is(h2, p) { max-width: none !important; }
     #wf-wrapper #page-coaching .section__header[style*="max-width:680px"] { max-width: 1000px !important; }
     #wf-wrapper #page-coaching .section__header .section__intro { max-width: none; }
-    #wf-wrapper #page-coaching .metodo-step__bar { display: none; }
+    #wf-wrapper :is(#page-coaching, #page-yoga) .metodo-step__bar { display: none; }
     /* Benessere aziendale */
     @media (min-width: 900px) { #wf-wrapper #page-aziendale .section__header--centered > p[style*="max-width:46ch"] { max-width: none !important; white-space: nowrap; } }
     #wf-wrapper #page-aziendale #az-richiesta .btn--primary { background: var(--c-green-700, #637664); color: #fff; }
@@ -2219,8 +2219,8 @@
     /* Homepage: etichette senza verde */
     #wf-wrapper #page-home section:not(.section--green):not(.hp-aziendale) .section-label:not(.section-label--light):not(.section-label--peach) { background: var(--c-cream); color: var(--c-terracotta); }
     /* Coaching: nessun divisore tra gli step */
-    #wf-wrapper #page-coaching .metodo-step { border: 0 !important; box-shadow: none !important; }
-    #wf-wrapper #page-coaching .metodo-step::before, #wf-wrapper #page-coaching .metodo-step::after { display: none !important; }
+    #wf-wrapper :is(#page-coaching, #page-yoga) .metodo-step, #wf-wrapper :is(#page-coaching, #page-yoga) .metodo-step * { border: 0 !important; box-shadow: none !important; text-decoration: none !important; }
+    #wf-wrapper :is(#page-coaching, #page-yoga) .metodo-step::before, #wf-wrapper :is(#page-coaching, #page-yoga) .metodo-step::after { display: none !important; }
     /* News: card risorse bianche su crema, link Leggi terracotta */
     #wf-wrapper #page-news .news-card { background: #fff; }
     #wf-wrapper #page-news .news-card__link { color: var(--c-terracotta); }
