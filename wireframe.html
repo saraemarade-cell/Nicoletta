@@ -1934,9 +1934,56 @@
     #wf-wrapper .vi-inner .valori-formazione__title { color: var(--c-terracotta); font-family: var(--font-body); font-weight: 700; }
     #wf-wrapper .vi-inner .valori-formazione__list li { color: #3b2e26; }
 
-    /* Chi sono: titolo hero su meno righe, foto alta quanto il racconto */
-    #page-chi-sono .page-hero__inner { max-width: 1040px; }
-    #page-chi-sono .page-hero h1 { max-width: none; font-size: clamp(2rem, 3.6vw, 3.2rem); }
+    /* Titolo hero delle pagine interne su meno righe */
+    #wf-wrapper .vi-inner .page-hero__inner { max-width: 1040px; }
+    #wf-wrapper .vi-inner .page-hero h1 { max-width: none; font-size: clamp(2rem, 3.6vw, 3.2rem); }
+    #wf-wrapper .vi-inner .page-hero__desc { max-width: 62ch; }
+
+    /* "A chi è rivolto" (Yoga, Coaching): fondo crema, intro sopra, card al posto di linee e numeri grandi */
+    #wf-wrapper .vi-inner section:has(.target-section) { background: var(--c-cream) !important; }
+    #wf-wrapper .vi-inner .target-section { display: block; }
+    #wf-wrapper .vi-inner .target-section__intro { max-width: 62ch; margin-bottom: 2.8rem; }
+    #wf-wrapper .vi-inner .target-section__intro h2 { color: var(--c-terracotta) !important; }
+    #wf-wrapper .vi-inner .target-section__intro p[style] { color: #3b2e26 !important; font-size: 1.05rem !important; }
+    #wf-wrapper .vi-inner .target-section__intro .section-label { background: #fff; color: var(--c-terracotta); }
+    #wf-wrapper .vi-inner .target-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.2rem; }
+    #wf-wrapper .vi-inner .target-item {
+      display: flex; gap: 1rem; align-items: flex-start; border: none !important;
+      background: #fff; padding: 1.4rem 1.5rem; box-shadow: 0 8px 24px rgba(92,54,38,0.07);
+    }
+    #wf-wrapper .vi-inner .target-item__num {
+      flex-shrink: 0; font-size: 0.8rem !important; line-height: 1; color: var(--c-cream) !important;
+      background: var(--c-terracotta); clip-path: var(--frag-a); padding: 0.5rem 0.8rem;
+      font-family: var(--font-body); font-weight: 700; letter-spacing: 0.06em;
+    }
+    #wf-wrapper .vi-inner .target-item__text { color: #3b2e26 !important; font-size: 1rem; line-height: 1.6; margin: 0; }
+    #wf-wrapper .vi-inner .target-item__text strong { color: #5c3626; }
+    #wf-wrapper .vi-inner .target-benefits { margin-top: 3rem; border: none; padding: 0; }
+    #wf-wrapper .vi-inner .target-benefits__label { color: var(--c-terracotta) !important; font-family: var(--font-body); font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.8rem; }
+    #wf-wrapper .vi-inner .target-benefits__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; }
+    #wf-wrapper .vi-inner .target-benefit { background: var(--c-peach); border: none; border-radius: 0; padding: 1.5rem; }
+    #wf-wrapper .vi-inner .target-benefit__icon { background: var(--c-terracotta); color: var(--c-cream); clip-path: var(--frag-a); border-radius: 0; border: none; }
+    #wf-wrapper .vi-inner .target-benefit__title { color: #3b2418 !important; font-family: var(--font-body); font-weight: 700; }
+    #wf-wrapper .vi-inner .target-benefit__desc { color: #3b2e26 !important; }
+
+    /* FAQ: icona a frammento, risposte apribili, testo introduttivo leggibile */
+    #wf-wrapper .vi-inner .faq-question { display: flex; justify-content: space-between; align-items: center; gap: 1rem; width: 100%; text-align: left; }
+    #wf-wrapper .vi-inner .faq-question__icon,
+    #wf-wrapper .vi-inner .faq-question > svg {
+      flex-shrink: 0; width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center;
+      background: var(--c-cream); color: var(--c-terracotta); clip-path: var(--frag-a); border: none; border-radius: 0;
+      font-size: 1.2rem; font-weight: 700; transition: transform var(--transition-base), background var(--transition-base);
+    }
+    #wf-wrapper .vi-inner .section--cream .faq-question__icon,
+    #wf-wrapper .vi-inner .section--cream .faq-question > svg { background: #fff; }
+    #wf-wrapper .vi-inner .faq-question > svg { padding: 9px; }
+    #wf-wrapper .vi-inner .faq-item.is-open .faq-question__icon,
+    #wf-wrapper .vi-inner .faq-item.is-open .faq-question > svg { transform: rotate(45deg); background: var(--c-terracotta); color: var(--c-cream); }
+    #wf-wrapper .vi-inner .faq-item.is-open .faq-answer { max-height: 600px !important; padding-bottom: 1.2rem; opacity: 1; }
+    #wf-wrapper .vi-inner .inner-2col > .reveal > p[style*="--c-neutral-400"] { color: #3b2e26 !important; }
+    #wf-wrapper .vi-inner .inner-2col > .reveal > p[style*="--c-neutral-400"] a { color: var(--c-terracotta) !important; font-weight: 600; }
+
+    /* Chi sono: foto alta quanto il racconto */
     @media (min-width: 1024px) {
       #page-chi-sono .inner-2col--center { align-items: stretch; }
       #page-chi-sono .inner-2col--center .inner-image { height: auto !important; min-height: 100%; position: relative; }
@@ -4763,6 +4810,15 @@
   }
   initHeroSlider('page-home');
   initHeroSlider('page-home-v2');
+
+  /* FAQ pagine interne: apre e chiude la risposta */
+  document.addEventListener('click', function (ev) {
+    var btn = ev.target.closest('.vi-inner .faq-question');
+    if (!btn) return;
+    var item = btn.closest('.faq-item');
+    var open = item.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
 
   /* Hero v1 e v2: segnala il cambio slide per far "respirare" i prismi */
   ['#page-home-v2', '#page-home'].forEach(function (pageSel) {
