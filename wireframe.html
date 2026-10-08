@@ -1754,6 +1754,54 @@
     }
     #wf-wrapper .vi-inner .method-block p { color: #4a3a2e; }
     #wf-wrapper .vi-inner .inner-image img { width: 100%; height: 100%; object-fit: cover; }
+    #wf-wrapper .vi-inner h2 { color: var(--c-terracotta); }
+    #wf-wrapper .vi-inner .section-label { background: var(--c-cream); color: var(--c-terracotta); }
+    #wf-wrapper .vi-inner .section--cream .section-label { background: #fff; }
+
+    /* Chi sono: racconto, motto, credenziali, badge */
+    #wf-wrapper .vi-inner .inner-2col p { margin-bottom: 1rem; color: #2b2b2b; }
+    #wf-wrapper .vi-inner .chi-sono__motto {
+      font-family: var(--font-body) !important; font-weight: 700 !important; font-size: 1.15rem;
+      color: var(--c-green-700) !important; margin: 1.6rem 0 1.4rem;
+    }
+    #wf-wrapper .vi-inner .chi-sono__creds { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.4rem; }
+    #wf-wrapper .vi-inner .chi-sono__creds li {
+      background: var(--c-cream); color: #5c3626; clip-path: var(--frag-a);
+      padding: 0.45rem 1.1rem; font-size: 0.82rem; font-weight: 600;
+    }
+    #wf-wrapper .vi-inner .chi-sono__certs { display: block; width: 100%; max-width: 360px; height: auto; }
+
+    /* Card percorso con link (pagine interne) */
+    #wf-wrapper .vi-inner .percorso-link-card { background: var(--c-cream); border: none; border-radius: 0; box-shadow: 0 10px 30px rgba(92,54,38,0.10); }
+    #wf-wrapper .vi-inner .percorso-link-card:nth-child(2) { background: var(--c-peach); }
+    #wf-wrapper .vi-inner .percorso-link-card:nth-child(3) { background: var(--c-green-100); }
+    #wf-wrapper .vi-inner .percorso-link-card__img { clip-path: polygon(0 0, 100% 0, 100% 88%, 70% 100%, 0 94%); }
+    #wf-wrapper .vi-inner .percorso-link-card__cat { color: var(--c-terracotta) !important; background: none !important; font-family: var(--font-body); font-weight: 700; }
+    #wf-wrapper .vi-inner .percorso-link-card__title { color: #5c3626; font-family: var(--font-display); font-weight: 700; }
+    #wf-wrapper .vi-inner .percorso-link-card__desc { color: #3b2e26; }
+    #wf-wrapper .vi-inner .percorso-link-card__arrow { color: var(--c-terracotta); font-family: var(--font-body); font-weight: 700; }
+
+    /* Valori e metodo */
+    #wf-wrapper .vi-inner .valori-item__icon {
+      background: var(--c-cream); color: var(--c-terracotta); clip-path: var(--frag-a); border-radius: 0;
+    }
+    #wf-wrapper .vi-inner .valori-item__title { color: #5c3626; font-family: var(--font-body); font-weight: 700; }
+    #wf-wrapper .vi-inner .valori-item__desc { color: #3b2e26; }
+    #wf-wrapper .vi-inner .valori-quote { background: var(--c-terracotta); border-radius: 0; clip-path: polygon(0 0, 100% 0, 100% 92%, 94% 100%, 0 100%); }
+    #wf-wrapper .vi-inner .valori-quote__text { color: var(--c-cream); font-family: var(--font-display); font-weight: 500; }
+    #wf-wrapper .vi-inner .valori-quote__mark,
+    #wf-wrapper .vi-inner .valori-quote__attr { color: var(--c-peach); }
+    #wf-wrapper .vi-inner .valori-formazione { background: var(--c-cream); border: none; border-radius: 0; }
+    #wf-wrapper .vi-inner .valori-formazione__icon { background: var(--c-terracotta); color: var(--c-cream); clip-path: var(--frag-a); border-radius: 0; }
+    #wf-wrapper .vi-inner .valori-formazione__title { color: var(--c-terracotta); font-family: var(--font-body); font-weight: 700; }
+    #wf-wrapper .vi-inner .valori-formazione__list li { color: #3b2e26; }
+
+    /* Certificazioni */
+    #wf-wrapper .vi-inner .cert-compact__badges img { width: 100%; max-width: 300px; height: auto; }
+    #wf-wrapper .vi-inner .cert-compact__num { color: var(--c-terracotta); font-family: var(--font-body); font-weight: 700; }
+    #wf-wrapper .vi-inner .cert-compact__unit { color: #5c3626; }
+    #wf-wrapper .vi-inner .cert-compact__sep { background: var(--c-terracotta); opacity: 0.4; }
+    #wf-wrapper .vi-inner .cert-compact__list li { color: #3b2e26; }
   </style>
 </head>
 <body>
@@ -2553,8 +2601,8 @@
   <div class="container">
     <div class="page-hero__inner">
       <span class="section-label">Nicoletta Ingusci</span>
-      <h1>Un metodo fondato su&nbsp;studio, ascolto e&nbsp;pratica concreta.</h1>
-      <p class="page-hero__desc">[Titolo professionale e&nbsp;qualifica — da&nbsp;aggiornare con&nbsp;dati reali.] Lavora con&nbsp;persone e&nbsp;organizzazioni per&nbsp;costruire percorsi di&nbsp;benessere reali, personalizzati e&nbsp;sostenibili.</p>
+      <h1>Un metodo costruito sulla conoscenza, affinato dall’esperienza, guidato dall’ascolto.</h1>
+      <p class="page-hero__desc">[DA DEFINIRE: titolo professionale e&nbsp;qualifica] Lavora con&nbsp;persone e&nbsp;organizzazioni per&nbsp;costruire percorsi di&nbsp;benessere reali, personalizzati e&nbsp;sostenibili.</p>
     </div>
   </div>
 </section>
@@ -2566,19 +2614,20 @@
         <img src="Assets/Foto/lafondatrice.webp" alt="Nicoletta Ingusci" loading="lazy"/>
       </div>
       <div class="reveal">
-        <span class="section-label">La storia</span>
-        <h2 style="margin-bottom:1.2rem;">Perché ho scelto questo&nbsp;approccio.</h2>
-        <p style="margin-bottom:1.2rem;">Nel 2009 sono entrata per&nbsp;caso in una&nbsp;Shala, e&nbsp;ho sentito di&nbsp;aver trovato il&nbsp;mio posto nel&nbsp;mondo. Ho studiato con&nbsp;il&nbsp;maestro Prashant Pandey della&nbsp;scuola Bihar (India), apprendendo la&nbsp;tradizione yogica più autentica. Insegno Vinyasa, Hatha, Ashtanga, Yin, Pranayama, Meditazione e&nbsp;Yoga Nidra.</p>
-        <p style="margin-bottom:1.2rem;">Nel 2020 ho completato la&nbsp;formazione in NLP Coaching (European Institute for Coaching and NLP), dando forma a un&nbsp;metodo integrato: yoga e&nbsp;coaching come&nbsp;strumenti complementari. Nel 2019 ho fondato il&nbsp;progetto "Yoga, alleato contro il&nbsp;cancro", oggi attivo in tutta Italia.</p>
-        <div class="method-block">
-          <p>Il tappetino è il&nbsp;mio amico più fedele, compagno inseparabile di&nbsp;esplorazione dell'anima. Su di&nbsp;esso traccio ogni giorno pratiche personali e&nbsp;di insegnamento, perché&nbsp;il&nbsp;benessere non è un&nbsp;traguardo, è una&nbsp;pratica.</p>
-        </div>
-        <div class="nicoletta-preview__tags" style="margin-top:1.5rem;">
-          <span class="tag tag--green">E-RYT 800</span>
-          <span class="tag tag--green">YACEP</span>
-          <span class="tag tag--peach">ICF Global</span>
-          <span class="tag tag--green">+4.500h di&nbsp;insegnamento</span>
-        </div>
+        <span class="section-label">Chi sono</span>
+        <h2 style="margin-bottom:1.4rem;">Un solo sguardo non mi è mai bastato. Per&nbsp;questo ho continuato a&nbsp;studiare, cercare, integrare.</h2>
+        <p>Sono Nicoletta Ingusci, insegnante e&nbsp;formatrice Yoga, Coach professionista e&nbsp;consulente nell’ambito della salute e&nbsp;del&nbsp;benessere.</p>
+        <p>Da oltre 17&nbsp;anni lo&nbsp;Yoga è parte della mia vita. La&nbsp;mia formazione affonda le&nbsp;sue radici nelle scuole della tradizione indiana e&nbsp;nello Yoga Integrale, una visione che&nbsp;mi ha insegnato a&nbsp;guardare alla persona nella sua interezza: corpo, mente, spirito.</p>
+        <p>Negli anni ho sentito il&nbsp;bisogno di&nbsp;ampliare questo sguardo. Ho incontrato il&nbsp;Coaching, la&nbsp;PNL, lo&nbsp;studio delle motivazioni con&nbsp;il Luxx Profile e&nbsp;del comportamento umano e&nbsp;ho continuato a&nbsp;formarmi per&nbsp;comprendere sempre meglio ciò che&nbsp;ci permette di&nbsp;cambiare, stare bene e&nbsp;vivere con&nbsp;maggiore consapevolezza.</p>
+        <p>Oggi porto queste competenze anche in&nbsp;ambito clinico e&nbsp;aziendale, sviluppando percorsi dedicati alla prevenzione, alla salute e&nbsp;al benessere e&nbsp;collaborando a&nbsp;progetti di&nbsp;ricerca sull’applicazione dello Yoga in&nbsp;ambito sanitario.</p>
+        <p>Il mio approccio nasce proprio dall’incontro di&nbsp;questi mondi: la&nbsp;profondità della tradizione yogica, gli strumenti del&nbsp;coaching e&nbsp;le conoscenze contemporanee sulla salute e&nbsp;sul comportamento.</p>
+        <p>Non credo in un&nbsp;metodo uguale per&nbsp;tutti. Credo nell’ascolto, nella competenza e&nbsp;nella capacità di&nbsp;individuare gli strumenti più adatti alla persona che&nbsp;ho davanti.</p>
+        <p>Perché la&nbsp;consapevolezza è importante. Ma&nbsp;è quando entra nelle nostre scelte, nelle nostre abitudini e&nbsp;nel modo in&nbsp;cui viviamo ogni giorno che&nbsp;può diventare cambiamento reale.</p>
+        <p class="chi-sono__motto">Corpo. Mente. Comportamento. Tre&nbsp;dimensioni, un’unica persona.</p>
+        <ul class="chi-sono__creds" role="list">
+          <li>4.800+ ore di&nbsp;insegnamento</li><li>E-RYT 800 (formazione indiana)</li><li>PNL Coach professionista membro ICF</li><li>Luxx Profile Expert</li><li>Formatrice</li><li>Esperienza in&nbsp;ambito clinico e&nbsp;aziendale</li>
+        </ul>
+        <img class="chi-sono__certs" src="Assets/NEW%20images/certificazioni.webp" alt="Certificazioni: ICF Member, Yoga Alliance YACEP, Yoga Alliance E-RYT" width="800" height="300" loading="lazy"/>
       </div>
     </div>
   </div>
@@ -2591,26 +2640,26 @@
       <h2>Esplora i percorsi disponibili.</h2>
     </div>
     <div class="percorsi-cards reveal">
-      <a href="yoga.html" class="percorso-link-card">
-        <div class="percorso-link-card__img"><img src="Assets/Foto/yoga.webp" alt="Yoga" loading="lazy"/></div>
+      <a href="#page-yoga" class="percorso-link-card">
+        <div class="percorso-link-card__img"><img src="Assets/NEW%20images/i%20percorsi/Tradizione%20anticaconoscenza.webp" alt="Percorso Yoga" loading="lazy"/></div>
         <div class="percorso-link-card__body">
           <span class="percorso-link-card__cat percorso-link-card__cat--green">Yoga</span>
-          <h3 class="percorso-link-card__title">Il percorso Yoga</h3>
-          <p class="percorso-link-card__desc">Percorsi individuali e&nbsp;di gruppo. Pratica, respiro e&nbsp;consapevolezza radicati nella&nbsp;tradizione, orientati al&nbsp;benessere contemporaneo.</p>
+          <h3 class="percorso-link-card__title">Un viaggio verso di&nbsp;sé</h3>
+          <p class="percorso-link-card__desc">Pratica di&nbsp;yoga integrale: Asana, Pranayama, Mudra Bandha, Meditazione, Rilassamento. Percorsi individuali e&nbsp;di gruppo, costruiti sulla persona e&nbsp;portati nel presente attraverso esperienza, studio e&nbsp;conoscenze contemporanee sul benessere.</p>
           <span class="percorso-link-card__arrow">Scopri il&nbsp;percorso <span aria-hidden="true">→</span></span>
         </div>
       </a>
-      <a href="coaching.html" class="percorso-link-card">
-        <div class="percorso-link-card__img"><img src="Assets/Foto/coaching.webp" alt="Coaching" loading="lazy"/></div>
+      <a href="#page-coaching" class="percorso-link-card">
+        <div class="percorso-link-card__img"><img src="Assets/NEW%20images/i%20percorsi/Comprenderescegliereagire.webp" alt="Percorso Coaching" loading="lazy"/></div>
         <div class="percorso-link-card__body">
           <span class="percorso-link-card__cat percorso-link-card__cat--peach">Coaching</span>
-          <h3 class="percorso-link-card__title">Il percorso Coaching</h3>
-          <p class="percorso-link-card__desc">Chiarezza, strumenti concreti e&nbsp;cambiamenti sostenibili. Un metodo strutturato per&nbsp;fare chiarezza su&nbsp;sé stessi e&nbsp;scegliere con&nbsp;più consapevolezza.</p>
+          <h3 class="percorso-link-card__title">Dalla consapevolezza al&nbsp;cambiamento</h3>
+          <p class="percorso-link-card__desc">Uno spazio per&nbsp;fare chiarezza, guardare ciò che&nbsp;stai vivendo da&nbsp;nuove prospettive e&nbsp;trasformare consapevolezze e&nbsp;obiettivi in&nbsp;scelte concrete. Un percorso strutturato e&nbsp;personalizzato per&nbsp;ritrovare direzione, attivare le&nbsp;tue risorse e&nbsp;creare cambiamenti che&nbsp;abbiano spazio nella vita reale.</p>
           <span class="percorso-link-card__arrow">Scopri il&nbsp;percorso <span aria-hidden="true">→</span></span>
         </div>
       </a>
-      <a href="benessere-aziendale.html" class="percorso-link-card">
-        <div class="percorso-link-card__img"><img src="Assets/Foto/benessereaziendale.webp" alt="Benessere Aziendale" loading="lazy"/></div>
+      <a href="#page-aziendale" class="percorso-link-card">
+        <div class="percorso-link-card__img"><img src="Assets/NEW%20images/i%20percorsi/benessereaziendale.webp" alt="Benessere Aziendale" loading="lazy"/></div>
         <div class="percorso-link-card__body">
           <span class="percorso-link-card__cat percorso-link-card__cat--green">Aziendale</span>
           <h3 class="percorso-link-card__title">Benessere Aziendale</h3>
@@ -2631,40 +2680,42 @@
         <div class="valori-list">
           <div class="valori-item">
             <span class="valori-item__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <div><strong class="valori-item__title">Ascolto prima di&nbsp;tutto.</strong><p class="valori-item__desc">Ogni percorso inizia da&nbsp;un&nbsp;incontro, non da&nbsp;un&nbsp;programma preconfezionato.</p></div>
+            <div><strong class="valori-item__title">Ascolto prima di&nbsp;tutto.</strong><p class="valori-item__desc">Ogni percorso parte dalla persona: dalla sua storia, dai suoi bisogni e&nbsp;da ciò che&nbsp;desidera davvero per&nbsp;sé.</p></div>
           </div>
           <div class="valori-item">
             <span class="valori-item__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
-            <div><strong class="valori-item__title">Rigore senza dogmi.</strong><p class="valori-item__desc">La pratica è fondata su&nbsp;evidenze, ma&nbsp;non si riduce a protocolli fissi.</p></div>
+            <div><strong class="valori-item__title">Rigore senza dogmi.</strong><p class="valori-item__desc">Studio, esperienza e&nbsp;aggiornamento continuo guidano il&nbsp;mio lavoro, lasciando sempre spazio all’unicità della persona.</p></div>
           </div>
           <div class="valori-item">
             <span class="valori-item__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
-            <div><strong class="valori-item__title">Personalizzazione reale.</strong><p class="valori-item__desc">Non adatto a tutti allo stesso modo: ogni percorso è costruito sulla persona.</p></div>
+            <div><strong class="valori-item__title">Personalizzazione reale.</strong><p class="valori-item__desc">Non esiste un&nbsp;percorso uguale per&nbsp;tutti. Gli strumenti cambiano perché ogni persona è unica, così come il&nbsp;momento che&nbsp;sta attraversando.</p></div>
           </div>
           <div class="valori-item">
             <span class="valori-item__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
-            <div><strong class="valori-item__title">Cambiamenti sostenibili.</strong><p class="valori-item__desc">Non trasformazioni immediate, ma&nbsp;pratiche che&nbsp;si integrano nella&nbsp;vita.</p></div>
+            <div><strong class="valori-item__title">Cambiamenti sostenibili.</strong><p class="valori-item__desc">Il cambiamento diventa reale quando ciò che&nbsp;impariamo e&nbsp;comprendiamo trova spazio nelle nostre scelte, nelle abitudini e&nbsp;nella vita di&nbsp;ogni giorno.</p></div>
           </div>
           <div class="valori-item">
             <span class="valori-item__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
-            <div><strong class="valori-item__title">Nessuna promessa eccessiva.</strong><p class="valori-item__desc">Chiarezza su&nbsp;cosa il&nbsp;percorso può e&nbsp;non può fare.</p></div>
+            <div><strong class="valori-item__title">Etica e&nbsp;trasparenza.</strong><p class="valori-item__desc">Credo nella chiarezza, nel rispetto dei&nbsp;confini professionali e&nbsp;nella responsabilità di&nbsp;proporre solo ciò che&nbsp;può essere realmente utile alla persona.</p></div>
           </div>
         </div>
       </div>
       <div class="valori-layout__right">
         <div class="valori-quote">
           <div class="valori-quote__mark" aria-hidden="true">&ldquo;</div>
-          <p class="valori-quote__text">Sono un'eterna studente, una&nbsp;dimostrante. Sono un'istruttrice di&nbsp;yoga. Sono una&nbsp;coach. Sono la&nbsp;tua compagna di&nbsp;viaggio.</p>
+          <p class="valori-quote__text">Sono un’eterna studentessa, una dimostrante. Sono uno strumento dello yoga. Sono una coach. Sono la&nbsp;tua compagna di&nbsp;viaggio.</p>
           <footer class="valori-quote__attr">— Nicoletta Ingusci</footer>
         </div>
         <div class="valori-formazione">
           <div class="valori-formazione__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3.33 2 8.67 2 12 0v-5"/></svg></div>
           <h5 class="valori-formazione__title">Formazione</h5>
           <ul class="valori-formazione__list">
-            <li>European Institute for Coaching and NLP</li>
-            <li>Scuola Bihar, India — maestro Prashant Pandey</li>
-            <li>Young Goose Academy</li>
-            <li>Studi universitari in Scienze Giuridiche</li>
+            <li>Allenati per&nbsp;l’eccellenza — European Institute for Coaching and NLP</li>
+            <li>Membro ICF Global</li>
+            <li>Kaavalya in&nbsp;India dall’India — maestro Prashant Pandey</li>
+            <li>Membro Yoga Alliance</li>
+            <li>Costellazioni sistemico familiari con&nbsp;oggetti simbolici</li>
+            <li>Studi universitari in&nbsp;Scienze Giuridiche</li>
           </ul>
         </div>
       </div>
@@ -2680,13 +2731,10 @@
         <h2>Una formazione riconosciuta<br>a livello internazionale.</h2>
       </div>
       <div class="cert-compact__body">
-        <div class="cert-compact__badges">
-          <img src="Assets/e-ryt-500.webp" alt="E-RYT 500 — Yoga Alliance" loading="lazy"/>
-          <img src="Assets/yacep-2025.webp" alt="YACEP 2025 — Yoga Alliance" loading="lazy"/>
-        </div>
+        <div class="cert-compact__badges"><img src="Assets/NEW%20images/certificazioni.webp" alt="Certificazioni: ICF Member, Yoga Alliance YACEP, Yoga Alliance E-RYT" loading="lazy"/></div>
         <div class="cert-compact__sep" aria-hidden="true"></div>
         <div class="cert-compact__stat">
-          <span class="cert-compact__num">+4.500</span>
+          <span class="cert-compact__num">+4.800</span>
           <span class="cert-compact__unit">Ore di&nbsp;insegnamento certificato</span>
         </div>
         <div class="cert-compact__sep" aria-hidden="true"></div>
@@ -2697,6 +2745,7 @@
           <li>Surya Namaskara classico — 50h RYT</li>
           <li>Chakra Shuddi — 50h RYT</li>
           <li>Mental Coach &amp; PNL · ICF Global</li>
+          <li>Luxx Profile Expert</li>
         </ul>
       </div>
     </div>
@@ -2708,7 +2757,7 @@
     <h2 class="cta-block__title">Vuoi saperne di&nbsp;più?</h2>
     <p class="cta-block__text">Scrivici per&nbsp;un&nbsp;primo incontro conoscitivo, senza impegno.</p>
     <div class="cta-block__ctas">
-      <a href="#page-contatti" class="btn btn--cream">Contatta Nicoletta</a>
+      <a href="#page-contatti" class="btn btn--primary">Contatta Nicoletta</a>
     </div>
   </div>
 </section>
