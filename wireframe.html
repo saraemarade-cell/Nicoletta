@@ -1827,6 +1827,40 @@
     #wf-wrapper #page-aziendale .az-process-item__title { color: #fff; }
     #wf-wrapper #page-aziendale .az-process-item__body p:not(.az-process-item__step) { color: rgba(255,255,255,0.88); }
 
+    /* Processo: tre passi affiancati, spaziature regolari */
+    #wf-wrapper #page-aziendale .az-section--accent .section__header { margin-bottom: 0; }
+    #wf-wrapper #page-aziendale .az-process-list {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3rem;
+      max-width: none; width: 100%; margin: 3.5rem 0 0;
+    }
+    #wf-wrapper #page-aziendale .az-process-item {
+      display: flex; flex-direction: column; gap: 1rem; padding: 0 !important; border: none !important;
+      grid-template-columns: none;
+    }
+    #wf-wrapper #page-aziendale .az-process-item__num {
+      width: 3.2rem; height: 3.2rem; padding: 0 !important; display: inline-flex; align-items: center; justify-content: center;
+      background: var(--c-peach) !important; color: var(--c-green-700) !important; clip-path: var(--frag-a); border: none !important; border-radius: 0;
+      font-size: 1rem !important; line-height: 1;
+    }
+    #wf-wrapper #page-aziendale .az-process-item__body { display: flex; flex-direction: column; gap: 0.5rem; }
+    #wf-wrapper #page-aziendale .az-process-item__step { margin: 0; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; font-family: var(--font-body); font-weight: 700; }
+    #wf-wrapper #page-aziendale .az-process-item__title { margin: 0; font-size: 1.3rem; }
+    #wf-wrapper #page-aziendale .az-section--accent .reveal[style*="text-align:center"] { margin-top: 3.5rem !important; }
+    @media (max-width: 900px) { #wf-wrapper #page-aziendale .az-process-list { grid-template-columns: 1fr; gap: 2.2rem; } }
+
+    /* Testimonianze: solo bianco, salvia e verde */
+    #wf-wrapper #page-aziendale .az-section--neutral .reveal > div[style] { border: none !important; border-radius: 0 !important; background: #fff !important; padding: 2rem !important; }
+    #wf-wrapper #page-aziendale .az-section--neutral .reveal > div[style] > div[style*="position:absolute"] { background: var(--c-green-100) !important; border: none !important; color: var(--c-green-700) !important; border-radius: 0 !important; clip-path: var(--frag-a); }
+    #wf-wrapper #page-aziendale .az-section--neutral [style*="border-bottom"] { border-bottom-color: var(--c-green-100) !important; }
+    #wf-wrapper #page-aziendale .az-section--neutral svg { filter: grayscale(1) brightness(0.55) sepia(0.2) hue-rotate(60deg); }
+    #wf-wrapper #page-aziendale .az-section--neutral [style*="FBBC05"] { color: var(--c-green-700) !important; }
+    #wf-wrapper #page-aziendale .az-section--neutral span[style*="font-size:2rem"],
+    #wf-wrapper #page-aziendale .az-section--neutral span[style*="font-size:0.78rem"] { color: var(--c-green-700) !important; }
+    #wf-wrapper #page-aziendale .az-section--neutral .gr-widget-grid > div { background: var(--c-green-100) !important; border-radius: 0 !important; clip-path: none; }
+    #wf-wrapper #page-aziendale .az-section--neutral .gr-widget-grid div[style*="border-radius:50%"] { background: #fff !important; }
+    #wf-wrapper #page-aziendale .az-section--neutral .gr-widget-grid p,
+    #wf-wrapper #page-aziendale .az-section--neutral .gr-widget-grid span:not([style*="FBBC05"]) { color: #2b2b2b !important; }
+
     /* Risultati (bianco) */
     #wf-wrapper #page-aziendale .az-section--dark { background: #fff !important; }
     #wf-wrapper #page-aziendale .az-section--dark h2,
