@@ -2017,6 +2017,54 @@
     #wf-wrapper .vi-inner .cert-compact__sep { background: var(--c-terracotta); opacity: 0.4; }
     #wf-wrapper .vi-inner .cert-compact__list li { color: #3b2e26; }
   </style>
+
+  <style>
+    /* ════════ HOMEPAGE V1 + PAGINE INTERNE — rifiniture condivise ════════ */
+
+    /* Logo allo scroll: solo pittogramma verde salvia */
+    #wf-wrapper :is(#page-home, .vi-inner) .site-header__logo--pitto { display: none !important; height: 52px; width: auto; }
+    #wf-wrapper :is(#page-home, .vi-inner) .site-header.scrolled .site-header__logo--mark,
+    #wf-wrapper :is(#page-home, .vi-inner) .site-header.scrolled .site-header__logo--white,
+    #wf-wrapper :is(#page-home, .vi-inner) .site-header.scrolled .site-header__logo--dark { display: none !important; }
+    #wf-wrapper :is(#page-home, .vi-inner) .site-header.scrolled .site-header__logo--pitto { display: block !important; }
+    @media (max-width: 767px) { #wf-wrapper :is(#page-home, .vi-inner) .site-header__logo--pitto { height: 40px; } }
+
+    /* Voce di menu della pagina aperta */
+    #wf-wrapper :is(#page-home, .vi-inner) .site-nav__link.active { font-weight: 700 !important; box-shadow: inset 0 -2px 0 currentColor; border-radius: 0; }
+    #wf-wrapper :is(#page-home, .vi-inner) .site-nav__link.active::before { display: none; }
+    #wf-wrapper :is(#page-home, .vi-inner) .mobile-nav__link.active { color: var(--c-peach) !important; }
+
+    /* Testi grigi non leggibili su fondi chiari/caldi */
+    #wf-wrapper :is(#page-home, .vi-inner) .section__intro,
+    #wf-wrapper :is(#page-home, .vi-inner) .metodo-step__desc,
+    #wf-wrapper :is(#page-home, .vi-inner) .modalita-card__desc,
+    #wf-wrapper :is(#page-home, .vi-inner) .news-card__desc,
+    #wf-wrapper :is(#page-home, .vi-inner) .news-card__excerpt,
+    #wf-wrapper :is(#page-home, .vi-inner) main [style*="--c-neutral-400"],
+    #wf-wrapper :is(#page-home, .vi-inner) main [style*="--c-neutral-500"],
+    #wf-wrapper :is(#page-home, .vi-inner) main [style*="--c-neutral-600"] { color: #4a3a2e !important; }
+    #wf-wrapper :is(#page-home, .vi-inner) .metodo-step__num { color: var(--c-terracotta) !important; }
+    #wf-wrapper .vi-inner .event-card__meta,
+    #wf-wrapper .vi-inner .event-card__meta span { color: #4a3a2e !important; }
+
+    /* Yoga e Coaching: immagine del percorso grande, alta quanto il testo */
+    @media (min-width: 1024px) {
+      #wf-wrapper :is(#page-yoga, #page-coaching) main > section:nth-child(2) .inner-2col--center { grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: stretch; }
+      #wf-wrapper :is(#page-yoga, #page-coaching) main > section:nth-child(2) .inner-image { height: auto !important; min-height: 560px; position: relative; }
+      #wf-wrapper :is(#page-yoga, #page-coaching) main > section:nth-child(2) .inner-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    }
+
+    /* Onestà · Serietà · Impegno: scritta con separatori, non pulsanti */
+    #wf-wrapper .vi-inner .valori-band { gap: 0; align-items: center; }
+    #wf-wrapper .vi-inner .valori-band span {
+      background: none; clip-path: none; padding: 0; color: var(--c-terracotta);
+      font-family: var(--font-display); font-weight: 700; font-size: clamp(1.05rem, 1.8vw, 1.35rem); letter-spacing: 0.14em;
+      display: inline-flex; align-items: center;
+    }
+    #wf-wrapper .vi-inner .valori-band span + span::before {
+      content: ''; width: 9px; height: 9px; margin: 0 1.1rem; background: var(--c-peach); clip-path: var(--frag-a); flex-shrink: 0;
+    }
+  </style>
 </head>
 <body>
 
@@ -2045,6 +2093,7 @@
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"    alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--mark"  src="Assets/Foto/LOGO/VERDESALVIA/niLogocompletoverdesalvia.webp" alt="Nicoletta Ingusci"/>
+      <img class="site-header__logo--pitto" src="Assets/Foto/LOGO/VERDESALVIA/nipittogrammaverdesalvia.webp" alt="Nicoletta Ingusci"/>
     </a>
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
@@ -2782,16 +2831,17 @@
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--mark"  src="Assets/Foto/LOGO/VERDESALVIA/niLogocompletoverdesalvia.webp" alt="Nicoletta Ingusci"/>
+      <img class="site-header__logo--pitto" src="Assets/Foto/LOGO/VERDESALVIA/nipittogrammaverdesalvia.webp" alt="Nicoletta Ingusci"/>
     </a>
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
-        <li><a class="site-nav__link" href="#">Chi sono</a></li>
-        <li><a class="site-nav__link" href="#">Yoga</a></li>
-        <li><a class="site-nav__link" href="#">Coaching</a></li>
-        <li><a class="site-nav__link" href="#">Benessere aziendale</a></li>
-        <li><a class="site-nav__link" href="#">Eventi</a></li>
-        <li><a class="site-nav__link" href="#">News</a></li>
-        <li><a class="site-nav__link" href="#">Contatti</a></li>
+        <li><a class="site-nav__link" href="#page-chi-sono">Chi sono</a></li>
+        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
+        <li><a class="site-nav__link" href="#page-coaching">Coaching</a></li>
+        <li><a class="site-nav__link" href="#page-aziendale">Benessere aziendale</a></li>
+        <li><a class="site-nav__link" href="#page-eventi">Eventi</a></li>
+        <li><a class="site-nav__link" href="#page-news">News</a></li>
+        <li><a class="site-nav__link" href="#page-contatti">Contatti</a></li>
       </ul>
     </nav>
     <a href="#page-contatti" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
@@ -2799,13 +2849,13 @@
   </div>
 </header>
 <nav class="mobile-nav" aria-label="Menu mobile" aria-hidden="true">
-  <a class="mobile-nav__link" href="#">Chi sono</a>
-  <a class="mobile-nav__link" href="#">Yoga</a>
-  <a class="mobile-nav__link" href="#">Coaching</a>
-  <a class="mobile-nav__link" href="#">Benessere aziendale</a>
-  <a class="mobile-nav__link" href="#">Eventi</a>
-  <a class="mobile-nav__link" href="#">News</a>
-  <a class="mobile-nav__link" href="#">Contatti</a>
+  <a class="mobile-nav__link" href="#page-chi-sono">Chi sono</a>
+  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
+  <a class="mobile-nav__link" href="#page-coaching">Coaching</a>
+  <a class="mobile-nav__link" href="#page-aziendale">Benessere aziendale</a>
+  <a class="mobile-nav__link" href="#page-eventi">Eventi</a>
+  <a class="mobile-nav__link" href="#page-news">News</a>
+  <a class="mobile-nav__link" href="#page-contatti">Contatti</a>
   <a href="#page-contatti" class="btn btn--primary">Prenota una&nbsp;call</a>
 </nav>
 
@@ -2990,8 +3040,8 @@
           <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
-      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Chi sono</a></li><li><a class="footer__link" href="#">News</a></li><li><a class="footer__link" href="#">Contatti</a></li></ul></div>
+      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
+      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
       <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="#">[email — da&nbsp;inserire]</a></p><p class="footer__contact-item">[Città — da&nbsp;inserire]</p></div>
     </div>
     <div class="footer__bottom">
@@ -3012,16 +3062,17 @@
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--mark"  src="Assets/Foto/LOGO/VERDESALVIA/niLogocompletoverdesalvia.webp" alt="Nicoletta Ingusci"/>
+      <img class="site-header__logo--pitto" src="Assets/Foto/LOGO/VERDESALVIA/nipittogrammaverdesalvia.webp" alt="Nicoletta Ingusci"/>
     </a>
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
-        <li><a class="site-nav__link" href="#">Chi sono</a></li>
-        <li><a class="site-nav__link" href="#">Yoga</a></li>
-        <li><a class="site-nav__link" href="#">Coaching</a></li>
-        <li><a class="site-nav__link" href="#">Benessere aziendale</a></li>
-        <li><a class="site-nav__link" href="#">Eventi</a></li>
-        <li><a class="site-nav__link" href="#">News</a></li>
-        <li><a class="site-nav__link" href="#">Contatti</a></li>
+        <li><a class="site-nav__link" href="#page-chi-sono">Chi sono</a></li>
+        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
+        <li><a class="site-nav__link" href="#page-coaching">Coaching</a></li>
+        <li><a class="site-nav__link" href="#page-aziendale">Benessere aziendale</a></li>
+        <li><a class="site-nav__link" href="#page-eventi">Eventi</a></li>
+        <li><a class="site-nav__link" href="#page-news">News</a></li>
+        <li><a class="site-nav__link" href="#page-contatti">Contatti</a></li>
       </ul>
     </nav>
     <a href="#page-contatti" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
@@ -3029,13 +3080,13 @@
   </div>
 </header>
 <nav class="mobile-nav" aria-label="Menu mobile" aria-hidden="true">
-  <a class="mobile-nav__link" href="#">Chi sono</a>
-  <a class="mobile-nav__link" href="#">Yoga</a>
-  <a class="mobile-nav__link" href="#">Coaching</a>
-  <a class="mobile-nav__link" href="#">Benessere aziendale</a>
-  <a class="mobile-nav__link" href="#">Eventi</a>
-  <a class="mobile-nav__link" href="#">News</a>
-  <a class="mobile-nav__link" href="#">Contatti</a>
+  <a class="mobile-nav__link" href="#page-chi-sono">Chi sono</a>
+  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
+  <a class="mobile-nav__link" href="#page-coaching">Coaching</a>
+  <a class="mobile-nav__link" href="#page-aziendale">Benessere aziendale</a>
+  <a class="mobile-nav__link" href="#page-eventi">Eventi</a>
+  <a class="mobile-nav__link" href="#page-news">News</a>
+  <a class="mobile-nav__link" href="#page-contatti">Contatti</a>
   <a href="#page-contatti" class="btn btn--primary">Prenota una&nbsp;call</a>
 </nav>
 
@@ -3213,8 +3264,8 @@
           <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
-      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Chi sono</a></li><li><a class="footer__link" href="#">News</a></li><li><a class="footer__link" href="#">Contatti</a></li></ul></div>
+      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
+      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
       <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="#">[email — da&nbsp;inserire]</a></p><p class="footer__contact-item">[Città — da&nbsp;inserire]</p></div>
     </div>
     <div class="footer__bottom">
@@ -3346,16 +3397,17 @@
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--mark"  src="Assets/Foto/LOGO/VERDESALVIA/niLogocompletoverdesalvia.webp" alt="Nicoletta Ingusci"/>
+      <img class="site-header__logo--pitto" src="Assets/Foto/LOGO/VERDESALVIA/nipittogrammaverdesalvia.webp" alt="Nicoletta Ingusci"/>
     </a>
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
-        <li><a class="site-nav__link" href="#">Chi sono</a></li>
-        <li><a class="site-nav__link" href="#">Yoga</a></li>
-        <li><a class="site-nav__link" href="#">Coaching</a></li>
-        <li><a class="site-nav__link" href="#">Benessere aziendale</a></li>
-        <li><a class="site-nav__link" href="#">Eventi</a></li>
-        <li><a class="site-nav__link" href="#">News</a></li>
-        <li><a class="site-nav__link" href="#">Contatti</a></li>
+        <li><a class="site-nav__link" href="#page-chi-sono">Chi sono</a></li>
+        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
+        <li><a class="site-nav__link" href="#page-coaching">Coaching</a></li>
+        <li><a class="site-nav__link" href="#page-aziendale">Benessere aziendale</a></li>
+        <li><a class="site-nav__link" href="#page-eventi">Eventi</a></li>
+        <li><a class="site-nav__link" href="#page-news">News</a></li>
+        <li><a class="site-nav__link" href="#page-contatti">Contatti</a></li>
       </ul>
     </nav>
     <a href="#page-contatti" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
@@ -3363,13 +3415,13 @@
   </div>
 </header>
 <nav class="mobile-nav" aria-label="Menu mobile" aria-hidden="true">
-  <a class="mobile-nav__link" href="#">Chi sono</a>
-  <a class="mobile-nav__link" href="#">Yoga</a>
-  <a class="mobile-nav__link" href="#">Coaching</a>
-  <a class="mobile-nav__link" href="#">Benessere aziendale</a>
-  <a class="mobile-nav__link" href="#">Eventi</a>
-  <a class="mobile-nav__link" href="#">News</a>
-  <a class="mobile-nav__link" href="#">Contatti</a>
+  <a class="mobile-nav__link" href="#page-chi-sono">Chi sono</a>
+  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
+  <a class="mobile-nav__link" href="#page-coaching">Coaching</a>
+  <a class="mobile-nav__link" href="#page-aziendale">Benessere aziendale</a>
+  <a class="mobile-nav__link" href="#page-eventi">Eventi</a>
+  <a class="mobile-nav__link" href="#page-news">News</a>
+  <a class="mobile-nav__link" href="#page-contatti">Contatti</a>
   <a href="#page-contatti" class="btn btn--primary">Prenota una&nbsp;call</a>
 </nav>
 
@@ -3503,8 +3555,8 @@
           <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
-      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Chi sono</a></li><li><a class="footer__link" href="#">News</a></li><li><a class="footer__link" href="#">Contatti</a></li></ul></div>
+      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
+      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
       <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="#">[email — da&nbsp;inserire]</a></p><p class="footer__contact-item">[Città — da&nbsp;inserire]</p></div>
     </div>
     <div class="footer__bottom">
@@ -3582,16 +3634,17 @@
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--mark"  src="Assets/Foto/LOGO/VERDESALVIA/niLogocompletoverdesalvia.webp" alt="Nicoletta Ingusci"/>
+      <img class="site-header__logo--pitto" src="Assets/Foto/LOGO/VERDESALVIA/nipittogrammaverdesalvia.webp" alt="Nicoletta Ingusci"/>
     </a>
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
-        <li><a class="site-nav__link" href="#">Chi sono</a></li>
-        <li><a class="site-nav__link" href="#">Yoga</a></li>
-        <li><a class="site-nav__link" href="#">Coaching</a></li>
-        <li><a class="site-nav__link" href="#">Benessere aziendale</a></li>
-        <li><a class="site-nav__link" href="#">Eventi</a></li>
-        <li><a class="site-nav__link" href="#">News</a></li>
-        <li><a class="site-nav__link" href="#">Contatti</a></li>
+        <li><a class="site-nav__link" href="#page-chi-sono">Chi sono</a></li>
+        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
+        <li><a class="site-nav__link" href="#page-coaching">Coaching</a></li>
+        <li><a class="site-nav__link" href="#page-aziendale">Benessere aziendale</a></li>
+        <li><a class="site-nav__link" href="#page-eventi">Eventi</a></li>
+        <li><a class="site-nav__link" href="#page-news">News</a></li>
+        <li><a class="site-nav__link" href="#page-contatti">Contatti</a></li>
       </ul>
     </nav>
     <a href="#page-contatti" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
@@ -3599,13 +3652,13 @@
   </div>
 </header>
 <nav class="mobile-nav" aria-label="Menu mobile" aria-hidden="true">
-  <a class="mobile-nav__link" href="#">Chi sono</a>
-  <a class="mobile-nav__link" href="#">Yoga</a>
-  <a class="mobile-nav__link" href="#">Coaching</a>
-  <a class="mobile-nav__link" href="#">Benessere aziendale</a>
-  <a class="mobile-nav__link" href="#">Eventi</a>
-  <a class="mobile-nav__link" href="#">News</a>
-  <a class="mobile-nav__link" href="#">Contatti</a>
+  <a class="mobile-nav__link" href="#page-chi-sono">Chi sono</a>
+  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
+  <a class="mobile-nav__link" href="#page-coaching">Coaching</a>
+  <a class="mobile-nav__link" href="#page-aziendale">Benessere aziendale</a>
+  <a class="mobile-nav__link" href="#page-eventi">Eventi</a>
+  <a class="mobile-nav__link" href="#page-news">News</a>
+  <a class="mobile-nav__link" href="#page-contatti">Contatti</a>
   <a href="#page-contatti" class="btn btn--primary">Prenota una&nbsp;call</a>
 </nav>
 
@@ -3804,8 +3857,8 @@
           <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
-      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Chi sono</a></li><li><a class="footer__link" href="#">News</a></li><li><a class="footer__link" href="#">Contatti</a></li></ul></div>
+      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
+      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
       <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="#">[email — da&nbsp;inserire]</a></p><p class="footer__contact-item">[Città — da&nbsp;inserire]</p></div>
     </div>
     <div class="footer__bottom">
@@ -3874,16 +3927,17 @@
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--mark"  src="Assets/Foto/LOGO/VERDESALVIA/niLogocompletoverdesalvia.webp" alt="Nicoletta Ingusci"/>
+      <img class="site-header__logo--pitto" src="Assets/Foto/LOGO/VERDESALVIA/nipittogrammaverdesalvia.webp" alt="Nicoletta Ingusci"/>
     </a>
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
-        <li><a class="site-nav__link" href="#">Chi sono</a></li>
-        <li><a class="site-nav__link" href="#">Yoga</a></li>
-        <li><a class="site-nav__link" href="#">Coaching</a></li>
-        <li><a class="site-nav__link" href="#">Benessere aziendale</a></li>
-        <li><a class="site-nav__link" href="#">Eventi</a></li>
-        <li><a class="site-nav__link" href="#">News</a></li>
-        <li><a class="site-nav__link" href="#">Contatti</a></li>
+        <li><a class="site-nav__link" href="#page-chi-sono">Chi sono</a></li>
+        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
+        <li><a class="site-nav__link" href="#page-coaching">Coaching</a></li>
+        <li><a class="site-nav__link" href="#page-aziendale">Benessere aziendale</a></li>
+        <li><a class="site-nav__link" href="#page-eventi">Eventi</a></li>
+        <li><a class="site-nav__link" href="#page-news">News</a></li>
+        <li><a class="site-nav__link" href="#page-contatti">Contatti</a></li>
       </ul>
     </nav>
     <a href="#page-contatti" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
@@ -3891,13 +3945,13 @@
   </div>
 </header>
 <nav class="mobile-nav" aria-label="Menu mobile" aria-hidden="true">
-  <a class="mobile-nav__link" href="#">Chi sono</a>
-  <a class="mobile-nav__link" href="#">Yoga</a>
-  <a class="mobile-nav__link" href="#">Coaching</a>
-  <a class="mobile-nav__link" href="#">Benessere aziendale</a>
-  <a class="mobile-nav__link" href="#">Eventi</a>
-  <a class="mobile-nav__link" href="#">News</a>
-  <a class="mobile-nav__link" href="#">Contatti</a>
+  <a class="mobile-nav__link" href="#page-chi-sono">Chi sono</a>
+  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
+  <a class="mobile-nav__link" href="#page-coaching">Coaching</a>
+  <a class="mobile-nav__link" href="#page-aziendale">Benessere aziendale</a>
+  <a class="mobile-nav__link" href="#page-eventi">Eventi</a>
+  <a class="mobile-nav__link" href="#page-news">News</a>
+  <a class="mobile-nav__link" href="#page-contatti">Contatti</a>
   <a href="#page-contatti" class="btn btn--primary">Prenota una&nbsp;call</a>
 </nav>
 
@@ -3961,8 +4015,8 @@
           <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
-      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Chi sono</a></li><li><a class="footer__link" href="#">News</a></li><li><a class="footer__link" href="#">Contatti</a></li></ul></div>
+      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
+      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
       <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="#">[email — da&nbsp;inserire]</a></p><p class="footer__contact-item">[Città — da&nbsp;inserire]</p></div>
     </div>
     <div class="footer__bottom">
@@ -3982,16 +4036,17 @@
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--mark"  src="Assets/Foto/LOGO/VERDESALVIA/niLogocompletoverdesalvia.webp" alt="Nicoletta Ingusci"/>
+      <img class="site-header__logo--pitto" src="Assets/Foto/LOGO/VERDESALVIA/nipittogrammaverdesalvia.webp" alt="Nicoletta Ingusci"/>
     </a>
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
-        <li><a class="site-nav__link" href="#">Chi sono</a></li>
-        <li><a class="site-nav__link" href="#">Yoga</a></li>
-        <li><a class="site-nav__link" href="#">Coaching</a></li>
-        <li><a class="site-nav__link" href="#">Benessere aziendale</a></li>
-        <li><a class="site-nav__link" href="#">Eventi</a></li>
-        <li><a class="site-nav__link" href="#">News</a></li>
-        <li><a class="site-nav__link" href="#">Contatti</a></li>
+        <li><a class="site-nav__link" href="#page-chi-sono">Chi sono</a></li>
+        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
+        <li><a class="site-nav__link" href="#page-coaching">Coaching</a></li>
+        <li><a class="site-nav__link" href="#page-aziendale">Benessere aziendale</a></li>
+        <li><a class="site-nav__link" href="#page-eventi">Eventi</a></li>
+        <li><a class="site-nav__link" href="#page-news">News</a></li>
+        <li><a class="site-nav__link" href="#page-contatti">Contatti</a></li>
       </ul>
     </nav>
     <a href="#page-contatti" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
@@ -3999,13 +4054,13 @@
   </div>
 </header>
 <nav class="mobile-nav" aria-label="Menu mobile" aria-hidden="true">
-  <a class="mobile-nav__link" href="#">Chi sono</a>
-  <a class="mobile-nav__link" href="#">Yoga</a>
-  <a class="mobile-nav__link" href="#">Coaching</a>
-  <a class="mobile-nav__link" href="#">Benessere aziendale</a>
-  <a class="mobile-nav__link" href="#">Eventi</a>
-  <a class="mobile-nav__link" href="#">News</a>
-  <a class="mobile-nav__link" href="#">Contatti</a>
+  <a class="mobile-nav__link" href="#page-chi-sono">Chi sono</a>
+  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
+  <a class="mobile-nav__link" href="#page-coaching">Coaching</a>
+  <a class="mobile-nav__link" href="#page-aziendale">Benessere aziendale</a>
+  <a class="mobile-nav__link" href="#page-eventi">Eventi</a>
+  <a class="mobile-nav__link" href="#page-news">News</a>
+  <a class="mobile-nav__link" href="#page-contatti">Contatti</a>
   <a href="#page-contatti" class="btn btn--primary">Prenota una&nbsp;call</a>
 </nav>
 
@@ -4190,8 +4245,8 @@
           <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
-      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Chi sono</a></li><li><a class="footer__link" href="#">News</a></li><li><a class="footer__link" href="#">Contatti</a></li></ul></div>
+      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
+      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
       <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="#">[email — da&nbsp;inserire]</a></p><p class="footer__contact-item">[Città — da&nbsp;inserire]</p></div>
     </div>
     <div class="footer__bottom">
@@ -4211,16 +4266,17 @@
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--mark"  src="Assets/Foto/LOGO/VERDESALVIA/niLogocompletoverdesalvia.webp" alt="Nicoletta Ingusci"/>
+      <img class="site-header__logo--pitto" src="Assets/Foto/LOGO/VERDESALVIA/nipittogrammaverdesalvia.webp" alt="Nicoletta Ingusci"/>
     </a>
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
-        <li><a class="site-nav__link" href="#">Chi sono</a></li>
-        <li><a class="site-nav__link" href="#">Yoga</a></li>
-        <li><a class="site-nav__link" href="#">Coaching</a></li>
-        <li><a class="site-nav__link" href="#">Benessere aziendale</a></li>
-        <li><a class="site-nav__link" href="#">Eventi</a></li>
-        <li><a class="site-nav__link" href="#">News</a></li>
-        <li><a class="site-nav__link" href="#">Contatti</a></li>
+        <li><a class="site-nav__link" href="#page-chi-sono">Chi sono</a></li>
+        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
+        <li><a class="site-nav__link" href="#page-coaching">Coaching</a></li>
+        <li><a class="site-nav__link" href="#page-aziendale">Benessere aziendale</a></li>
+        <li><a class="site-nav__link" href="#page-eventi">Eventi</a></li>
+        <li><a class="site-nav__link" href="#page-news">News</a></li>
+        <li><a class="site-nav__link" href="#page-contatti">Contatti</a></li>
       </ul>
     </nav>
     <a href="#page-contatti" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
@@ -4228,13 +4284,13 @@
   </div>
 </header>
 <nav class="mobile-nav" aria-label="Menu mobile" aria-hidden="true">
-  <a class="mobile-nav__link" href="#">Chi sono</a>
-  <a class="mobile-nav__link" href="#">Yoga</a>
-  <a class="mobile-nav__link" href="#">Coaching</a>
-  <a class="mobile-nav__link" href="#">Benessere aziendale</a>
-  <a class="mobile-nav__link" href="#">Eventi</a>
-  <a class="mobile-nav__link" href="#">News</a>
-  <a class="mobile-nav__link" href="#">Contatti</a>
+  <a class="mobile-nav__link" href="#page-chi-sono">Chi sono</a>
+  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
+  <a class="mobile-nav__link" href="#page-coaching">Coaching</a>
+  <a class="mobile-nav__link" href="#page-aziendale">Benessere aziendale</a>
+  <a class="mobile-nav__link" href="#page-eventi">Eventi</a>
+  <a class="mobile-nav__link" href="#page-news">News</a>
+  <a class="mobile-nav__link" href="#page-contatti">Contatti</a>
   <a href="#page-contatti" class="btn btn--primary">Prenota una&nbsp;call</a>
 </nav>
 
@@ -4395,8 +4451,8 @@
           <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
-      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Chi sono</a></li><li><a class="footer__link" href="#">News</a></li><li><a class="footer__link" href="#">Contatti</a></li></ul></div>
+      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
+      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
       <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="#">[email — da&nbsp;inserire]</a></p><p class="footer__contact-item">[Città — da&nbsp;inserire]</p></div>
     </div>
     <div class="footer__bottom">
@@ -4416,16 +4472,17 @@
       <img class="site-header__logo--white" src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--dark"  src="Assets/Foto/LOGO/NERO/niLogocompletonero.webp"  alt="Nicoletta Ingusci" width="160" height="40"/>
       <img class="site-header__logo--mark"  src="Assets/Foto/LOGO/VERDESALVIA/niLogocompletoverdesalvia.webp" alt="Nicoletta Ingusci"/>
+      <img class="site-header__logo--pitto" src="Assets/Foto/LOGO/VERDESALVIA/nipittogrammaverdesalvia.webp" alt="Nicoletta Ingusci"/>
     </a>
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
-        <li><a class="site-nav__link" href="#">Chi sono</a></li>
-        <li><a class="site-nav__link" href="#">Yoga</a></li>
-        <li><a class="site-nav__link" href="#">Coaching</a></li>
-        <li><a class="site-nav__link" href="#">Benessere aziendale</a></li>
-        <li><a class="site-nav__link" href="#">Eventi</a></li>
-        <li><a class="site-nav__link" href="#">News</a></li>
-        <li><a class="site-nav__link" href="#">Contatti</a></li>
+        <li><a class="site-nav__link" href="#page-chi-sono">Chi sono</a></li>
+        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
+        <li><a class="site-nav__link" href="#page-coaching">Coaching</a></li>
+        <li><a class="site-nav__link" href="#page-aziendale">Benessere aziendale</a></li>
+        <li><a class="site-nav__link" href="#page-eventi">Eventi</a></li>
+        <li><a class="site-nav__link" href="#page-news">News</a></li>
+        <li><a class="site-nav__link" href="#page-contatti">Contatti</a></li>
       </ul>
     </nav>
     <a href="#page-contatti" class="btn btn--secondary header-cta">Prenota una&nbsp;call</a>
@@ -4433,13 +4490,13 @@
   </div>
 </header>
 <nav class="mobile-nav" aria-label="Menu mobile" aria-hidden="true">
-  <a class="mobile-nav__link" href="#">Chi sono</a>
-  <a class="mobile-nav__link" href="#">Yoga</a>
-  <a class="mobile-nav__link" href="#">Coaching</a>
-  <a class="mobile-nav__link" href="#">Benessere aziendale</a>
-  <a class="mobile-nav__link" href="#">Eventi</a>
-  <a class="mobile-nav__link" href="#">News</a>
-  <a class="mobile-nav__link" href="#">Contatti</a>
+  <a class="mobile-nav__link" href="#page-chi-sono">Chi sono</a>
+  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
+  <a class="mobile-nav__link" href="#page-coaching">Coaching</a>
+  <a class="mobile-nav__link" href="#page-aziendale">Benessere aziendale</a>
+  <a class="mobile-nav__link" href="#page-eventi">Eventi</a>
+  <a class="mobile-nav__link" href="#page-news">News</a>
+  <a class="mobile-nav__link" href="#page-contatti">Contatti</a>
   <a href="#page-contatti" class="btn btn--primary">Prenota una&nbsp;call</a>
 </nav>
 
@@ -4536,8 +4593,8 @@
           <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Yoga</a></li><li><a class="footer__link" href="#">Coaching</a></li><li><a class="footer__link" href="#">Benessere aziendale</a></li><li><a class="footer__link" href="#">Eventi e&nbsp;retreat</a></li></ul></div>
-      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#">Chi sono</a></li><li><a class="footer__link" href="#">News</a></li><li><a class="footer__link" href="#">Contatti</a></li></ul></div>
+      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
+      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
       <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="#">[email — da&nbsp;inserire]</a></p><p class="footer__contact-item">[Città — da&nbsp;inserire]</p></div>
     </div>
     <div class="footer__bottom">
@@ -4810,6 +4867,20 @@
   }
   initHeroSlider('page-home');
   initHeroSlider('page-home-v2');
+
+  /* Menu: evidenzia la voce della pagina aperta */
+  function markActiveNav() {
+    var page = document.querySelector('.wf-page.wf-visible');
+    if (!page) return;
+    var id = page.id === 'page-evento-detail' ? 'page-eventi' : page.id;
+    page.querySelectorAll('.site-nav__link, .mobile-nav__link').forEach(function (a) {
+      var on = a.getAttribute('href') === '#' + id;
+      a.classList.toggle('active', on);
+      if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+    });
+  }
+  window.addEventListener('hashchange', function () { setTimeout(markActiveNav, 0); });
+  markActiveNav();
 
   /* FAQ pagine interne: apre e chiude la risposta */
   document.addEventListener('click', function (ev) {
