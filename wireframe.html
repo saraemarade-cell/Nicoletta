@@ -2303,6 +2303,24 @@
     #wf-wrapper #page-aziendale .az-section--accent .az-process-item__step { color: #D8E2D9; }
     #wf-wrapper #page-aziendale .az-section--dark :is(path, circle, rect, polygon) { stroke: #637664; }
     #wf-wrapper #page-aziendale .mobile-nav .btn--primary, #wf-wrapper #page-aziendale .mobile-nav__link { color: #fff; }
+
+    /* ════════ REVISIONE 22/10 ════════ */
+    /* Logo nero dell'header → marrone terra del sito */
+    #wf-wrapper :is(#page-home, .vi-inner) .site-header :is(.site-header__logo--dark, .site-header__logo--mark, .site-header__logo--pitto) { filter: brightness(0) invert(30%) sepia(70%) saturate(400%) hue-rotate(335deg) brightness(100%); }
+    /* Yoga = tono cipria, Coaching = tono pesca (come le card in homepage) */
+    #wf-wrapper #page-coaching { --c-cream: #F3D6C2; --c-peach: #F8E1D6; }
+    #wf-wrapper #page-coaching :is(.section--cream, .page-hero--light, .page-hero--cream, .cta-block) :is(.section-label, .faq-question__icon, .faq-question svg),
+    #wf-wrapper #page-coaching .target-section__intro .section-label { background: #E9BE9F; color: #8A4630; }
+    #wf-wrapper #page-coaching .site-footer { background: var(--c-espresso) !important; }
+    /* Eventi: card su cipria in pesca, non bianche */
+    #wf-wrapper #page-eventi .event-card { background: #F0C9B0; }
+    #wf-wrapper #page-eventi .event-card__type { color: #8A4630; }
+    /* Benessere aziendale: icone visibili sul tondo verde, footer in salvia scuro */
+    #wf-wrapper #page-aziendale .az-risultato__icon :is(path, circle, rect, polygon) { stroke: #fff; }
+    #wf-wrapper #page-aziendale .site-footer { background: #4a5a4b !important; }
+    #wf-wrapper #page-aziendale .site-footer .footer__col h5 { color: #D8E2D9; }
+    #wf-wrapper #page-aziendale .site-footer .footer__social-link { background: #D8E2D9; color: #4a5a4b; }
+    #wf-wrapper #page-aziendale .site-footer .footer__col .btn--outline { border-color: #fff !important; color: #fff !important; }
   </style>
 </head>
 <body>
