@@ -2268,7 +2268,8 @@
     #wf-wrapper #page-aziendale :is(.site-header, .mobile-nav) { --c-green-700: #8A4630; --c-green-100: #F3D6C2; }
     /* Home: sezione eventi su cipria con card bianche (niente cipria su arancio) */
     #wf-wrapper #page-home [aria-label="Prossimi appuntamenti"] { background: var(--c-cream) !important; }
-    #wf-wrapper #page-home .hp-eventi__featured { background: #fff; }
+    #wf-wrapper #page-home .hp-eventi__featured { background: transparent; clip-path: none; }
+    #wf-wrapper #page-home .hp-eventi__featured-body { padding-left: 0; padding-right: 0; }
     /* Sezione Benessere aziendale: pulsanti bianchi su verde */
     #wf-wrapper :is(#page-home, .vi-inner) .aziendale-section .btn--primary { background: #fff; color: #637664; }
     #wf-wrapper :is(#page-home, .vi-inner) .aziendale-section .btn--primary:hover { background: #D8E2D9; color: #4a5a4b; }
