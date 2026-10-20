@@ -2285,6 +2285,24 @@
     #wf-wrapper :is(#page-home, .vi-inner) .aziendale-section .btn--secondary:hover { background: #D8E2D9; color: #4a5a4b; }
     /* Chi sono: il body non deve diventare contenitore di scroll, altrimenti la foto sticky non segue la pagina */
     body:has(#page-chi-sono.wf-visible) { overflow-x: clip; overflow-y: visible; }
+    /* Su sfondo cipria: etichette e simboli (FAQ, icone contatti) in pesca scuro invece che bianco */
+    #wf-wrapper .vi-inner :is(.section--cream, .page-hero--light, .page-hero--cream, .cta-block) :is(.section-label, .faq-question__icon, .faq-question svg, .contact-info__item svg) { background: #F0C9B0; color: #8A4630; }
+    #wf-wrapper .vi-inner .target-section__intro .section-label { background: #F0C9B0; color: #8A4630; }
+    /* Benessere aziendale: nessun elemento cipria/pesca sui fondi verdi — solo bianco e salvia chiaro */
+    #wf-wrapper #page-aziendale .site-header .header-cta { background: #fff !important; color: #637664 !important; }
+    #wf-wrapper #page-aziendale .site-header .header-cta:hover { background: #D8E2D9 !important; color: #4a5a4b !important; }
+    #wf-wrapper #page-aziendale .site-header.scrolled .header-cta { background: #637664 !important; color: #fff !important; }
+    #wf-wrapper #page-aziendale .site-header.scrolled .header-cta:hover { background: #4a5a4b !important; color: #fff !important; }
+    #wf-wrapper #page-aziendale .site-header:not(.scrolled) .site-nav__link.active { color: #fff !important; }
+    #wf-wrapper #page-aziendale :is(.page-hero--dark, .az-section--medium, .az-section--accent, #az-richiesta) polygon { stroke: #93A496; }
+    #wf-wrapper #page-aziendale :is(.page-hero--dark, .az-section--accent) :is(.section-label--peach, .section-label--light) { background: rgba(255,255,255,0.16); color: #fff; }
+    #wf-wrapper #page-aziendale :is(.page-hero--dark, .az-section--accent) .btn--secondary { background: #fff; color: #637664; }
+    #wf-wrapper #page-aziendale :is(.page-hero--dark, .az-section--accent) .btn--secondary:hover { background: #D8E2D9; color: #4a5a4b; }
+    #wf-wrapper #page-aziendale .page-hero--dark .btn--outline-frag { color: #fff !important; border-color: #fff !important; }
+    #wf-wrapper #page-aziendale .az-section--accent .az-process-item__num { background: #fff !important; color: #637664 !important; }
+    #wf-wrapper #page-aziendale .az-section--accent .az-process-item__step { color: #D8E2D9; }
+    #wf-wrapper #page-aziendale .az-section--dark :is(path, circle, rect, polygon) { stroke: #637664; }
+    #wf-wrapper #page-aziendale .mobile-nav .btn--primary, #wf-wrapper #page-aziendale .mobile-nav__link { color: #fff; }
   </style>
 </head>
 <body>
