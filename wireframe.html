@@ -6,7 +6,7 @@
   <title>Wireframe — Nicoletta Ingusci</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Josefin+Sans:wght@300;400;600;700&family=Syne:wght@500;600;700&display=swap"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Josefin+Sans:wght@300;400;600;700&family=Syne:wght@400;500;600;700&display=swap"/>
   <link rel="stylesheet" href="css/tokens.css"/>
   <link rel="stylesheet" href="css/styles.css"/>
 
@@ -2392,6 +2392,86 @@
     @media (max-width: 900px) {
       #wf-wrapper :is(#page-home, .vi-inner) .site-footer .footer__main > * { grid-column: 1 / -1 !important; grid-row: auto !important; text-align: left !important; }
     }
+
+    /* ════════ FIGMA — DETTAGLI (17/11, screenshot ravvicinati) ════════ */
+    #wf-wrapper :is(#page-home, .vi-inner) {
+      --t-title: #5E5E58; --t-body: #5F6A5E; --bg-warm: #EFF0E4; --bg-soft: #FBFAF4;
+    }
+    /* Titoli: Syne regolare, grigio caldo; testi Josefin leggero */
+    #wf-wrapper :is(#page-home, .vi-inner) :is(h1, h2, h3, h4, .hero-slide__title, .percorso-card__title, .news-card__title, .event-card__title, .nicoletta-stat__num) { font-family: "Syne", sans-serif; font-weight: 400 !important; }
+    #wf-wrapper :is(#page-home, .vi-inner) main :is(h2, h3):not(.az-text-white):not(.cta-block__title) { color: var(--t-title); }
+    #wf-wrapper :is(#page-home, .vi-inner) main p { font-weight: 300; color: var(--t-body); }
+    #wf-wrapper :is(#page-home, .vi-inner) :is(.page-hero--dark, .az-section--dark, .az-section--medium, .az-section--accent, .home-hero, .aziendale-section) p { color: rgba(255,255,255,0.88); }
+    /* Pulsanti: pillola, maiuscoletto */
+    #wf-wrapper :is(#page-home, .vi-inner) .btn { border-radius: 999px !important; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.72rem; font-weight: 600; padding: 0.85rem 1.7rem; }
+    #wf-wrapper :is(#page-home, .vi-inner) .btn--sm, #wf-wrapper :is(#page-home, .vi-inner) :is(.percorso-card, .news-card, .hp-eventi__item, .event-card) .btn { padding: 0.6rem 1.15rem; font-size: 0.66rem; }
+    #wf-wrapper :is(#page-home, .vi-inner) .percorso-card .btn--outline-frag, #wf-wrapper :is(#page-home, .vi-inner) .news-card .btn--outline-frag { background: #637664 !important; color: #fff !important; border: 0 !important; }
+    #wf-wrapper :is(#page-home, .vi-inner) .home-hero .btn--secondary, #wf-wrapper :is(#page-home, .vi-inner) .site-header .header-cta { background: #fff !important; color: #4A5A4B !important; }
+    #wf-wrapper :is(#page-home, .vi-inner) .site-header.scrolled .header-cta { background: #637664 !important; color: #fff !important; }
+    /* Header: voci piccole maiuscole e linea sottile */
+    #wf-wrapper :is(#page-home, .vi-inner) .site-nav__link { font-family: "Josefin Sans", sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }
+    #wf-wrapper :is(#page-home, .vi-inner) .site-header:not(.scrolled) { border-bottom: 1px solid rgba(255,255,255,0.45); }
+    body.light-hero #wf-wrapper .vi-inner .site-header:not(.scrolled) { border-bottom-color: rgba(99,118,100,0.35); }
+    /* Hero home: etichetta con linee ai due lati, titolo grande leggero, pillola bianca */
+    #wf-wrapper #page-home .hero-slide__label { display: inline-flex; align-items: center; gap: 1rem; letter-spacing: 0.2em; font-weight: 400; color: #fff; }
+    #wf-wrapper #page-home .hero-slide__label::before, #wf-wrapper #page-home .hero-slide__label::after { content: ''; width: 46px; height: 1px; background: rgba(255,255,255,0.7); }
+    #wf-wrapper #page-home .hero-slide__title { font-size: clamp(2.6rem, 5.4vw, 4.6rem); line-height: 1.08; }
+    #wf-wrapper #page-home .hero-slide__desc { font-weight: 300; max-width: 52ch; margin-inline: auto; }
+    /* Sezioni home: sfondi come nel Figma */
+    #wf-wrapper #page-home [aria-label="Chi è Nicoletta Ingusci"] { background: var(--bg-warm); }
+    #wf-wrapper #page-home [aria-label="Percorsi Coaching e Yoga"] { background: var(--bg-soft); }
+    #wf-wrapper #page-home [aria-label="News e Risorse"] { background: var(--bg-soft); }
+    #wf-wrapper #page-home [aria-label="Prossimi appuntamenti"] { background: #D8E2D9 !important; }
+    #wf-wrapper #page-home [aria-label="Testimonianze"] { background: var(--bg-warm); }
+    #wf-wrapper #page-home .cta-block { background: #D8E2D9; }
+    #wf-wrapper #page-home [aria-label="Chi è Nicoletta Ingusci"] .inner-image, #wf-wrapper #page-home [aria-label="Chi è Nicoletta Ingusci"] img:not(.nicoletta-certs) { border-radius: 16px; box-shadow: 0 10px 30px rgba(60,70,60,0.10); }
+    #wf-wrapper #page-home .nicoletta-stat__num { color: var(--t-title); }
+    #wf-wrapper #page-home .nicoletta-stat__label { color: #8a9486; letter-spacing: 0.14em; font-size: 0.62rem; text-transform: uppercase; }
+    /* Percorsi: intestazione a sinistra con descrizione a destra; card senza riquadro */
+    #wf-wrapper #page-home [aria-label="Percorsi Coaching e Yoga"] .section__header { display: grid; grid-template-columns: 1fr 340px; column-gap: 3rem; align-items: end; text-align: left; max-width: none; }
+    #wf-wrapper #page-home [aria-label="Percorsi Coaching e Yoga"] .section__header .section-label { grid-column: 1 / -1; margin-bottom: 1rem; }
+    #wf-wrapper #page-home [aria-label="Percorsi Coaching e Yoga"] .section__header h2 { grid-column: 1; text-align: left; }
+    #wf-wrapper #page-home [aria-label="Percorsi Coaching e Yoga"] .section__header .section__intro { grid-column: 2; margin: 0 !important; max-width: none; font-size: 0.95rem; }
+    #wf-wrapper :is(#page-home, .vi-inner) .percorso-card, #wf-wrapper :is(#page-home, .vi-inner) .percorso-card__body, #wf-wrapper :is(#page-home, .vi-inner) .news-card, #wf-wrapper :is(#page-home, .vi-inner) .news-card__body { background: transparent !important; box-shadow: none !important; }
+    #wf-wrapper :is(#page-home, .vi-inner) .percorso-card, #wf-wrapper :is(#page-home, .vi-inner) .news-card { overflow: visible; }
+    #wf-wrapper :is(#page-home, .vi-inner) .percorso-card__body, #wf-wrapper :is(#page-home, .vi-inner) .news-card__body { padding-left: 0; padding-right: 0; }
+    #wf-wrapper :is(#page-home, .vi-inner) :is(.percorso-card__image, .news-card__image) { border-radius: 16px; overflow: hidden; }
+    #wf-wrapper :is(#page-home, .vi-inner) .percorso-card__title { font-size: 1.5rem; color: var(--t-title); }
+    #wf-wrapper :is(#page-home, .vi-inner) .news-card__cat, #wf-wrapper :is(#page-home, .vi-inner) .tag { background: none !important; padding: 0; color: #9F644A !important; font-weight: 600; letter-spacing: 0.14em; font-size: 0.66rem; text-transform: uppercase; }
+    #wf-wrapper :is(#page-home, .vi-inner) .news-card__date { color: #8a9486; font-size: 0.78rem; }
+    /* "Vedi tutto" come link sottolineato */
+    #wf-wrapper :is(#page-home, .vi-inner) .section__header--flex > .btn, #wf-wrapper :is(#page-home, .vi-inner) .btn.hp-eventi__vedi-tutto {
+      background: none !important; border: 0 !important; padding: 0 !important; color: var(--t-title) !important; text-decoration: underline !important; text-underline-offset: 4px; letter-spacing: 0.14em; font-size: 0.74rem; border-radius: 0 !important;
+    }
+    /* In programma: righe con linea, pillola verde piccola */
+    #wf-wrapper #page-home .hp-eventi__lista-title { font-family: "Syne", sans-serif; font-weight: 400; font-size: clamp(1.8rem, 3vw, 2.6rem); color: #637664; }
+    #wf-wrapper #page-home .hp-eventi__item { border-color: rgba(94,94,88,0.35) !important; background: none; }
+    #wf-wrapper #page-home .hp-eventi__item-date { color: var(--t-title); font-weight: 400; font-size: 0.8rem; letter-spacing: 0; }
+    /* Testimonianze: schede morbide */
+    #wf-wrapper #page-home [aria-label="Testimonianze"] .gr-widget-grid > div { background: transparent !important; border-bottom: 1px solid rgba(94,94,88,0.25); border-radius: 0 !important; }
+    /* Modulo Contatti: scheda con bordo sottile e campi bianchi */
+    #wf-wrapper #page-contatti .contact-form { border: 1px solid #93A496; border-radius: 16px; padding: 2rem; }
+    #wf-wrapper #page-contatti :is(.form-input, input[type="text"], input[type="email"], input[type="tel"], select, textarea) { background: #fff !important; border: 0 !important; border-radius: 8px; }
+    #wf-wrapper #page-contatti .form-label { font-weight: 400; font-size: 0.82rem; letter-spacing: 0.02em; color: var(--t-title); text-transform: none; }
+    /* Footer */
+    #wf-wrapper :is(#page-home, .vi-inner) .site-footer { background: #637664 !important; color: #fff; padding: 5rem 0 3.5rem; }
+    #wf-wrapper :is(#page-home, .vi-inner) .ft-top { display: grid; grid-template-columns: 1fr 1.6fr; gap: 3rem; align-items: start; }
+    #wf-wrapper :is(#page-home, .vi-inner) .ft-logo img { width: 220px; height: auto; }
+    #wf-wrapper :is(#page-home, .vi-inner) .ft-contact { display: flex; flex-direction: column; gap: 1.1rem; align-items: flex-start; }
+    #wf-wrapper :is(#page-home, .vi-inner) .ft-email { font-family: "Syne", sans-serif; font-weight: 400; font-size: clamp(1.8rem, 4.6vw, 4rem); line-height: 1.05; color: #E8EDE6; text-decoration: none; word-break: break-word; }
+    #wf-wrapper :is(#page-home, .vi-inner) .ft-address { font-size: 1.15rem; font-weight: 400; color: #E8EDE6; text-decoration: underline; text-underline-offset: 5px; }
+    #wf-wrapper :is(#page-home, .vi-inner) .ft-grid { display: grid; grid-template-columns: 1.1fr 1fr 1fr 1.2fr; gap: 3rem; margin-top: 4.5rem; }
+    #wf-wrapper :is(#page-home, .vi-inner) .ft-col h5 { font-family: "Syne", sans-serif; font-weight: 400; font-size: 1.45rem; color: #E8EDE6; margin-bottom: 1rem; letter-spacing: 0; text-transform: none; }
+    #wf-wrapper :is(#page-home, .vi-inner) .ft-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.55rem; }
+    #wf-wrapper :is(#page-home, .vi-inner) .ft-col a { color: rgba(232,237,230,0.9); font-size: 0.82rem; font-weight: 400; text-decoration: none; }
+    #wf-wrapper :is(#page-home, .vi-inner) .ft-col a:hover { text-decoration: underline; }
+    #wf-wrapper :is(#page-home, .vi-inner) .ft-col--legal p { color: rgba(232,237,230,0.85); font-size: 0.72rem; font-weight: 400; }
+    @media (max-width: 900px) {
+      #wf-wrapper :is(#page-home, .vi-inner) .ft-top, #wf-wrapper :is(#page-home, .vi-inner) .ft-grid { grid-template-columns: 1fr 1fr; }
+      #wf-wrapper :is(#page-home, .vi-inner) .ft-top { grid-template-columns: 1fr; }
+      #wf-wrapper #page-home [aria-label="Percorsi Coaching e Yoga"] .section__header { grid-template-columns: 1fr; }
+      #wf-wrapper #page-home [aria-label="Percorsi Coaching e Yoga"] .section__header .section__intro { grid-column: 1; margin-top: 1rem !important; }
+    }
   </style>
 </head>
 <body>
@@ -2809,23 +2889,21 @@
 
 <footer class="site-footer" role="contentinfo">
   <div class="container">
-    <div class="footer__main">
-      <div class="footer__brand">
-        <div class="footer__logo"><a href="#page-home" onclick="history.replaceState(null,'','#');window.location.hash='page-home';return false;"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
-        <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
-        <div class="footer__social" aria-label="Social media">
-          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10.4H7.8v3h2.6V21h3.1z"/></svg></a>
-          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
-        </div>
+    <div class="ft-top">
+      <a href="#page-home" class="ft-logo" aria-label="Nicoletta Ingusci — Homepage"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="220" height="56" loading="lazy"/></a>
+      <div class="ft-contact">
+        <a class="ft-email" href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a>
+        <a class="ft-address" href="https://www.google.com/maps/search/?api=1&query=Via+Cadorna+19+Bolzano" target="_blank" rel="noopener noreferrer">Via Cadorna 19, Bolzano</a>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
-      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
-      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a></p><p class="footer__contact-item">Bolzano</p><a href="#page-contatti" class="btn btn--outline" style="color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.2);font-size:0.875rem;margin-top:1rem;padding:0.55rem 1.2rem;">Prenota una&nbsp;call</a></div>
     </div>
-    <div class="footer__bottom">
-      <nav class="footer__legal" aria-label="Link legali"><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></nav>
-      <p class="footer__copy">&copy; <span class="footer-year"></span> Nicoletta Ingusci. Tutti i diritti riservati.</p>
+    <div class="ft-grid">
+      <div class="ft-col"><h5>Sitemap</h5><ul role="list">
+        <li><a href="#page-chi-sono">Chi sono</a></li><li><a href="#page-coaching">Coaching</a></li><li><a href="#page-aziendale">Benessere aziendale</a></li><li><a href="#page-yoga">Yoga</a></li><li><a href="#page-eventi">Eventi</a></li><li><a href="#page-news">News</a></li><li><a href="#page-contatti">Contatti</a></li></ul></div>
+      <div class="ft-col"><h5>Privacy</h5><ul role="list">
+        <li><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></li><li><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li></ul></div>
+      <div class="ft-col"><h5>Social</h5><ul role="list">
+        <li><a href="https://www.instagram.com/nicoletta.ingusci/" target="_blank" rel="noopener noreferrer">Instagram</a></li><li><a href="https://www.facebook.com/nicoletta.ingusci/" target="_blank" rel="noopener noreferrer">Facebook</a></li><li><a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" target="_blank" rel="noopener noreferrer">LinkedIn</a></li></ul></div>
+      <div class="ft-col ft-col--legal"><p>&copy; <span class="footer-year"></span> Nicoletta Ingusci. Tutti i diritti riservati.</p></div>
     </div>
   </div>
 </footer>
@@ -3358,23 +3436,21 @@
 
 <footer class="site-footer" role="contentinfo">
   <div class="container">
-    <div class="footer__main">
-      <div class="footer__brand">
-        <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
-        <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
-        <div class="footer__social" aria-label="Social media">
-          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10.4H7.8v3h2.6V21h3.1z"/></svg></a>
-          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
-        </div>
+    <div class="ft-top">
+      <a href="#page-home" class="ft-logo" aria-label="Nicoletta Ingusci — Homepage"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="220" height="56" loading="lazy"/></a>
+      <div class="ft-contact">
+        <a class="ft-email" href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a>
+        <a class="ft-address" href="https://www.google.com/maps/search/?api=1&query=Via+Cadorna+19+Bolzano" target="_blank" rel="noopener noreferrer">Via Cadorna 19, Bolzano</a>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
-      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
-      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a></p><p class="footer__contact-item">Bolzano</p></div>
     </div>
-    <div class="footer__bottom">
-      <nav class="footer__legal" aria-label="Link legali"><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></nav>
-      <p class="footer__copy">&copy; <span class="footer-year"></span> Nicoletta Ingusci. Tutti i diritti riservati.</p>
+    <div class="ft-grid">
+      <div class="ft-col"><h5>Sitemap</h5><ul role="list">
+        <li><a href="#page-chi-sono">Chi sono</a></li><li><a href="#page-coaching">Coaching</a></li><li><a href="#page-aziendale">Benessere aziendale</a></li><li><a href="#page-yoga">Yoga</a></li><li><a href="#page-eventi">Eventi</a></li><li><a href="#page-news">News</a></li><li><a href="#page-contatti">Contatti</a></li></ul></div>
+      <div class="ft-col"><h5>Privacy</h5><ul role="list">
+        <li><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></li><li><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li></ul></div>
+      <div class="ft-col"><h5>Social</h5><ul role="list">
+        <li><a href="https://www.instagram.com/nicoletta.ingusci/" target="_blank" rel="noopener noreferrer">Instagram</a></li><li><a href="https://www.facebook.com/nicoletta.ingusci/" target="_blank" rel="noopener noreferrer">Facebook</a></li><li><a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" target="_blank" rel="noopener noreferrer">LinkedIn</a></li></ul></div>
+      <div class="ft-col ft-col--legal"><p>&copy; <span class="footer-year"></span> Nicoletta Ingusci. Tutti i diritti riservati.</p></div>
     </div>
   </div>
 </footer>
@@ -3592,23 +3668,21 @@
 
 <footer class="site-footer" role="contentinfo">
   <div class="container">
-    <div class="footer__main">
-      <div class="footer__brand">
-        <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
-        <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
-        <div class="footer__social" aria-label="Social media">
-          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10.4H7.8v3h2.6V21h3.1z"/></svg></a>
-          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
-        </div>
+    <div class="ft-top">
+      <a href="#page-home" class="ft-logo" aria-label="Nicoletta Ingusci — Homepage"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="220" height="56" loading="lazy"/></a>
+      <div class="ft-contact">
+        <a class="ft-email" href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a>
+        <a class="ft-address" href="https://www.google.com/maps/search/?api=1&query=Via+Cadorna+19+Bolzano" target="_blank" rel="noopener noreferrer">Via Cadorna 19, Bolzano</a>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
-      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
-      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a></p><p class="footer__contact-item">Bolzano</p></div>
     </div>
-    <div class="footer__bottom">
-      <nav class="footer__legal" aria-label="Link legali"><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></nav>
-      <p class="footer__copy">&copy; <span class="footer-year"></span> Nicoletta Ingusci. Tutti i diritti riservati.</p>
+    <div class="ft-grid">
+      <div class="ft-col"><h5>Sitemap</h5><ul role="list">
+        <li><a href="#page-chi-sono">Chi sono</a></li><li><a href="#page-coaching">Coaching</a></li><li><a href="#page-aziendale">Benessere aziendale</a></li><li><a href="#page-yoga">Yoga</a></li><li><a href="#page-eventi">Eventi</a></li><li><a href="#page-news">News</a></li><li><a href="#page-contatti">Contatti</a></li></ul></div>
+      <div class="ft-col"><h5>Privacy</h5><ul role="list">
+        <li><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></li><li><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li></ul></div>
+      <div class="ft-col"><h5>Social</h5><ul role="list">
+        <li><a href="https://www.instagram.com/nicoletta.ingusci/" target="_blank" rel="noopener noreferrer">Instagram</a></li><li><a href="https://www.facebook.com/nicoletta.ingusci/" target="_blank" rel="noopener noreferrer">Facebook</a></li><li><a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" target="_blank" rel="noopener noreferrer">LinkedIn</a></li></ul></div>
+      <div class="ft-col ft-col--legal"><p>&copy; <span class="footer-year"></span> Nicoletta Ingusci. Tutti i diritti riservati.</p></div>
     </div>
   </div>
 </footer>
@@ -3780,23 +3854,21 @@
 
 <footer class="site-footer" role="contentinfo">
   <div class="container">
-    <div class="footer__main">
-      <div class="footer__brand">
-        <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
-        <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
-        <div class="footer__social" aria-label="Social media">
-          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10.4H7.8v3h2.6V21h3.1z"/></svg></a>
-          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
-        </div>
+    <div class="ft-top">
+      <a href="#page-home" class="ft-logo" aria-label="Nicoletta Ingusci — Homepage"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="220" height="56" loading="lazy"/></a>
+      <div class="ft-contact">
+        <a class="ft-email" href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a>
+        <a class="ft-address" href="https://www.google.com/maps/search/?api=1&query=Via+Cadorna+19+Bolzano" target="_blank" rel="noopener noreferrer">Via Cadorna 19, Bolzano</a>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
-      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
-      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a></p><p class="footer__contact-item">Bolzano</p></div>
     </div>
-    <div class="footer__bottom">
-      <nav class="footer__legal" aria-label="Link legali"><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></nav>
-      <p class="footer__copy">&copy; <span class="footer-year"></span> Nicoletta Ingusci. Tutti i diritti riservati.</p>
+    <div class="ft-grid">
+      <div class="ft-col"><h5>Sitemap</h5><ul role="list">
+        <li><a href="#page-chi-sono">Chi sono</a></li><li><a href="#page-coaching">Coaching</a></li><li><a href="#page-aziendale">Benessere aziendale</a></li><li><a href="#page-yoga">Yoga</a></li><li><a href="#page-eventi">Eventi</a></li><li><a href="#page-news">News</a></li><li><a href="#page-contatti">Contatti</a></li></ul></div>
+      <div class="ft-col"><h5>Privacy</h5><ul role="list">
+        <li><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></li><li><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li></ul></div>
+      <div class="ft-col"><h5>Social</h5><ul role="list">
+        <li><a href="https://www.instagram.com/nicoletta.ingusci/" target="_blank" rel="noopener noreferrer">Instagram</a></li><li><a href="https://www.facebook.com/nicoletta.ingusci/" target="_blank" rel="noopener noreferrer">Facebook</a></li><li><a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" target="_blank" rel="noopener noreferrer">LinkedIn</a></li></ul></div>
+      <div class="ft-col ft-col--legal"><p>&copy; <span class="footer-year"></span> Nicoletta Ingusci. Tutti i diritti riservati.</p></div>
     </div>
   </div>
 </footer>
@@ -3935,23 +4007,21 @@
 
 <footer class="site-footer" role="contentinfo">
   <div class="container">
-    <div class="footer__main">
-      <div class="footer__brand">
-        <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
-        <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
-        <div class="footer__social" aria-label="Social media">
-          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10.4H7.8v3h2.6V21h3.1z"/></svg></a>
-          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
-        </div>
+    <div class="ft-top">
+      <a href="#page-home" class="ft-logo" aria-label="Nicoletta Ingusci — Homepage"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="220" height="56" loading="lazy"/></a>
+      <div class="ft-contact">
+        <a class="ft-email" href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a>
+        <a class="ft-address" href="https://www.google.com/maps/search/?api=1&query=Via+Cadorna+19+Bolzano" target="_blank" rel="noopener noreferrer">Via Cadorna 19, Bolzano</a>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
-      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
-      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a></p><p class="footer__contact-item">Bolzano</p></div>
     </div>
-    <div class="footer__bottom">
-      <nav class="footer__legal" aria-label="Link legali"><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></nav>
-      <p class="footer__copy">&copy; <span class="footer-year"></span> Nicoletta Ingusci. Tutti i diritti riservati.</p>
+    <div class="ft-grid">
+      <div class="ft-col"><h5>Sitemap</h5><ul role="list">
+        <li><a href="#page-chi-sono">Chi sono</a></li><li><a href="#page-coaching">Coaching</a></li><li><a href="#page-aziendale">Benessere aziendale</a></li><li><a href="#page-yoga">Yoga</a></li><li><a href="#page-eventi">Eventi</a></li><li><a href="#page-news">News</a></li><li><a href="#page-contatti">Contatti</a></li></ul></div>
+      <div class="ft-col"><h5>Privacy</h5><ul role="list">
+        <li><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></li><li><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li></ul></div>
+      <div class="ft-col"><h5>Social</h5><ul role="list">
+        <li><a href="https://www.instagram.com/nicoletta.ingusci/" target="_blank" rel="noopener noreferrer">Instagram</a></li><li><a href="https://www.facebook.com/nicoletta.ingusci/" target="_blank" rel="noopener noreferrer">Facebook</a></li><li><a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" target="_blank" rel="noopener noreferrer">LinkedIn</a></li></ul></div>
+      <div class="ft-col ft-col--legal"><p>&copy; <span class="footer-year"></span> Nicoletta Ingusci. Tutti i diritti riservati.</p></div>
     </div>
   </div>
 </footer>
@@ -4080,23 +4150,21 @@
 
 <footer class="site-footer" role="contentinfo">
   <div class="container">
-    <div class="footer__main">
-      <div class="footer__brand">
-        <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
-        <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
-        <div class="footer__social" aria-label="Social media">
-          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10.4H7.8v3h2.6V21h3.1z"/></svg></a>
-          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
-        </div>
+    <div class="ft-top">
+      <a href="#page-home" class="ft-logo" aria-label="Nicoletta Ingusci — Homepage"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="220" height="56" loading="lazy"/></a>
+      <div class="ft-contact">
+        <a class="ft-email" href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a>
+        <a class="ft-address" href="https://www.google.com/maps/search/?api=1&query=Via+Cadorna+19+Bolzano" target="_blank" rel="noopener noreferrer">Via Cadorna 19, Bolzano</a>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
-      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
-      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a></p><p class="footer__contact-item">Bolzano</p></div>
     </div>
-    <div class="footer__bottom">
-      <nav class="footer__legal" aria-label="Link legali"><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></nav>
-      <p class="footer__copy">&copy; <span class="footer-year"></span> Nicoletta Ingusci. Tutti i diritti riservati.</p>
+    <div class="ft-grid">
+      <div class="ft-col"><h5>Sitemap</h5><ul role="list">
+        <li><a href="#page-chi-sono">Chi sono</a></li><li><a href="#page-coaching">Coaching</a></li><li><a href="#page-aziendale">Benessere aziendale</a></li><li><a href="#page-yoga">Yoga</a></li><li><a href="#page-eventi">Eventi</a></li><li><a href="#page-news">News</a></li><li><a href="#page-contatti">Contatti</a></li></ul></div>
+      <div class="ft-col"><h5>Privacy</h5><ul role="list">
+        <li><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></li><li><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li></ul></div>
+      <div class="ft-col"><h5>Social</h5><ul role="list">
+        <li><a href="https://www.instagram.com/nicoletta.ingusci/" target="_blank" rel="noopener noreferrer">Instagram</a></li><li><a href="https://www.facebook.com/nicoletta.ingusci/" target="_blank" rel="noopener noreferrer">Facebook</a></li><li><a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" target="_blank" rel="noopener noreferrer">LinkedIn</a></li></ul></div>
+      <div class="ft-col ft-col--legal"><p>&copy; <span class="footer-year"></span> Nicoletta Ingusci. Tutti i diritti riservati.</p></div>
     </div>
   </div>
 </footer>
@@ -4252,23 +4320,21 @@
 
 <footer class="site-footer" role="contentinfo">
   <div class="container">
-    <div class="footer__main">
-      <div class="footer__brand">
-        <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
-        <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
-        <div class="footer__social" aria-label="Social media">
-          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10.4H7.8v3h2.6V21h3.1z"/></svg></a>
-          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
-        </div>
+    <div class="ft-top">
+      <a href="#page-home" class="ft-logo" aria-label="Nicoletta Ingusci — Homepage"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="220" height="56" loading="lazy"/></a>
+      <div class="ft-contact">
+        <a class="ft-email" href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a>
+        <a class="ft-address" href="https://www.google.com/maps/search/?api=1&query=Via+Cadorna+19+Bolzano" target="_blank" rel="noopener noreferrer">Via Cadorna 19, Bolzano</a>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
-      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
-      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a></p><p class="footer__contact-item">Bolzano</p></div>
     </div>
-    <div class="footer__bottom">
-      <nav class="footer__legal" aria-label="Link legali"><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></nav>
-      <p class="footer__copy">&copy; <span class="footer-year"></span> Nicoletta Ingusci. Tutti i diritti riservati.</p>
+    <div class="ft-grid">
+      <div class="ft-col"><h5>Sitemap</h5><ul role="list">
+        <li><a href="#page-chi-sono">Chi sono</a></li><li><a href="#page-coaching">Coaching</a></li><li><a href="#page-aziendale">Benessere aziendale</a></li><li><a href="#page-yoga">Yoga</a></li><li><a href="#page-eventi">Eventi</a></li><li><a href="#page-news">News</a></li><li><a href="#page-contatti">Contatti</a></li></ul></div>
+      <div class="ft-col"><h5>Privacy</h5><ul role="list">
+        <li><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></li><li><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li></ul></div>
+      <div class="ft-col"><h5>Social</h5><ul role="list">
+        <li><a href="https://www.instagram.com/nicoletta.ingusci/" target="_blank" rel="noopener noreferrer">Instagram</a></li><li><a href="https://www.facebook.com/nicoletta.ingusci/" target="_blank" rel="noopener noreferrer">Facebook</a></li><li><a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" target="_blank" rel="noopener noreferrer">LinkedIn</a></li></ul></div>
+      <div class="ft-col ft-col--legal"><p>&copy; <span class="footer-year"></span> Nicoletta Ingusci. Tutti i diritti riservati.</p></div>
     </div>
   </div>
 </footer>
@@ -4443,23 +4509,21 @@
 
 <footer class="site-footer" role="contentinfo">
   <div class="container">
-    <div class="footer__main">
-      <div class="footer__brand">
-        <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
-        <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
-        <div class="footer__social" aria-label="Social media">
-          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10.4H7.8v3h2.6V21h3.1z"/></svg></a>
-          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
-        </div>
+    <div class="ft-top">
+      <a href="#page-home" class="ft-logo" aria-label="Nicoletta Ingusci — Homepage"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="220" height="56" loading="lazy"/></a>
+      <div class="ft-contact">
+        <a class="ft-email" href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a>
+        <a class="ft-address" href="https://www.google.com/maps/search/?api=1&query=Via+Cadorna+19+Bolzano" target="_blank" rel="noopener noreferrer">Via Cadorna 19, Bolzano</a>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
-      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
-      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a></p><p class="footer__contact-item">Bolzano</p></div>
     </div>
-    <div class="footer__bottom">
-      <nav class="footer__legal" aria-label="Link legali"><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></nav>
-      <p class="footer__copy">&copy; <span class="footer-year"></span> Nicoletta Ingusci. Tutti i diritti riservati.</p>
+    <div class="ft-grid">
+      <div class="ft-col"><h5>Sitemap</h5><ul role="list">
+        <li><a href="#page-chi-sono">Chi sono</a></li><li><a href="#page-coaching">Coaching</a></li><li><a href="#page-aziendale">Benessere aziendale</a></li><li><a href="#page-yoga">Yoga</a></li><li><a href="#page-eventi">Eventi</a></li><li><a href="#page-news">News</a></li><li><a href="#page-contatti">Contatti</a></li></ul></div>
+      <div class="ft-col"><h5>Privacy</h5><ul role="list">
+        <li><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></li><li><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li></ul></div>
+      <div class="ft-col"><h5>Social</h5><ul role="list">
+        <li><a href="https://www.instagram.com/nicoletta.ingusci/" target="_blank" rel="noopener noreferrer">Instagram</a></li><li><a href="https://www.facebook.com/nicoletta.ingusci/" target="_blank" rel="noopener noreferrer">Facebook</a></li><li><a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" target="_blank" rel="noopener noreferrer">LinkedIn</a></li></ul></div>
+      <div class="ft-col ft-col--legal"><p>&copy; <span class="footer-year"></span> Nicoletta Ingusci. Tutti i diritti riservati.</p></div>
     </div>
   </div>
 </footer>
@@ -4590,23 +4654,21 @@
 
 <footer class="site-footer" role="contentinfo">
   <div class="container">
-    <div class="footer__main">
-      <div class="footer__brand">
-        <div class="footer__logo"><a href="index.html"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="150" height="38" loading="lazy"/></a></div>
-        <p class="footer__payoff">Il benessere non è un&nbsp;traguardo. È una&nbsp;pratica che&nbsp;mette in dialogo corpo, mente e&nbsp;scienza.</p>
-        <div class="footer__social" aria-label="Social media">
-          <a href="https://www.instagram.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://www.facebook.com/nicoletta.ingusci/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10.4H7.8v3h2.6V21h3.1z"/></svg></a>
-          <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
-        </div>
+    <div class="ft-top">
+      <a href="#page-home" class="ft-logo" aria-label="Nicoletta Ingusci — Homepage"><img src="Assets/Foto/LOGO/BIANCO/niLogocompletobianco.webp" alt="Nicoletta Ingusci" width="220" height="56" loading="lazy"/></a>
+      <div class="ft-contact">
+        <a class="ft-email" href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a>
+        <a class="ft-address" href="https://www.google.com/maps/search/?api=1&query=Via+Cadorna+19+Bolzano" target="_blank" rel="noopener noreferrer">Via Cadorna 19, Bolzano</a>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
-      <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
-      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a></p><p class="footer__contact-item">Bolzano</p></div>
     </div>
-    <div class="footer__bottom">
-      <nav class="footer__legal" aria-label="Link legali"><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></nav>
-      <p class="footer__copy">&copy; <span class="footer-year"></span> Nicoletta Ingusci. Tutti i diritti riservati.</p>
+    <div class="ft-grid">
+      <div class="ft-col"><h5>Sitemap</h5><ul role="list">
+        <li><a href="#page-chi-sono">Chi sono</a></li><li><a href="#page-coaching">Coaching</a></li><li><a href="#page-aziendale">Benessere aziendale</a></li><li><a href="#page-yoga">Yoga</a></li><li><a href="#page-eventi">Eventi</a></li><li><a href="#page-news">News</a></li><li><a href="#page-contatti">Contatti</a></li></ul></div>
+      <div class="ft-col"><h5>Privacy</h5><ul role="list">
+        <li><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></li><li><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li></ul></div>
+      <div class="ft-col"><h5>Social</h5><ul role="list">
+        <li><a href="https://www.instagram.com/nicoletta.ingusci/" target="_blank" rel="noopener noreferrer">Instagram</a></li><li><a href="https://www.facebook.com/nicoletta.ingusci/" target="_blank" rel="noopener noreferrer">Facebook</a></li><li><a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" target="_blank" rel="noopener noreferrer">LinkedIn</a></li></ul></div>
+      <div class="ft-col ft-col--legal"><p>&copy; <span class="footer-year"></span> Nicoletta Ingusci. Tutti i diritti riservati.</p></div>
     </div>
   </div>
 </footer>
