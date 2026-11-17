@@ -2321,6 +2321,23 @@
     #wf-wrapper #page-aziendale .site-footer .footer__col h5 { color: #D8E2D9; }
     #wf-wrapper #page-aziendale .site-footer .footer__social-link { background: #D8E2D9; color: #4a5a4b; }
     #wf-wrapper #page-aziendale .site-footer .footer__col .btn--outline { border-color: #fff !important; color: #fff !important; }
+
+    /* ════════ REVISIONE PDF 27/10 ════════ */
+    #wf-wrapper .vi-inner .event-card { grid-template-columns: 90px 190px 1fr auto; }
+    #wf-wrapper .vi-inner .event-card__img { align-self: stretch; min-height: 130px; overflow: hidden; background: #fff; }
+    #wf-wrapper .vi-inner .event-card__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    @media (max-width: 900px) {
+      #wf-wrapper .vi-inner .event-card { grid-template-columns: 70px 1fr; }
+      #wf-wrapper .vi-inner .event-card__img { grid-column: 1 / -1; grid-row: 2; min-height: 180px; }
+      #wf-wrapper .vi-inner .event-card__body { grid-column: 1 / -1; }
+      #wf-wrapper .vi-inner .event-card__cta { grid-column: 1 / -1; }
+    }
+    #wf-wrapper .ev-schede { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    #wf-wrapper .ev-scheda h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: #8A4630; margin-bottom: 1rem; }
+    #wf-wrapper .ev-scheda p { margin-bottom: 1rem; max-width: 62ch; }
+    #wf-wrapper .ev-scheda__nota { color: #5A3528; font-style: italic; }
+    #wf-wrapper .modalita-luogo { margin-top: 2rem; font-size: 1rem; color: #4D251A; }
+    @media (max-width: 900px) { #wf-wrapper .ev-schede { grid-template-columns: 1fr; gap: 2.5rem; } }
   </style>
 </head>
 <body>
@@ -2340,7 +2357,7 @@
 <div class="wf-page wf-visible" id="page-home">
 
 <div class="info-bar" role="banner" aria-label="Comunicazione in evidenza">
-  <span>Running Retreat — aprile/maggio&nbsp;2027, date in&nbsp;arrivo &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span>
+  <span>Good Life — Sabato 14 novembre, Fiera Bolzano &nbsp;<a href="#page-eventi">Scopri di&nbsp;più</a></span>
   <button class="info-bar__close" aria-label="Chiudi barra">&#x2715;</button>
 </div>
 
@@ -2355,9 +2372,9 @@
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
         <li><a class="site-nav__link" href="#page-chi-sono">Chi sono</a></li>
-        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
         <li><a class="site-nav__link" href="#page-coaching">Coaching</a></li>
         <li><a class="site-nav__link" href="#page-aziendale">Benessere aziendale</a></li>
+        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
         <li><a class="site-nav__link" href="#page-eventi">Eventi</a></li>
         <li><a class="site-nav__link" href="#page-news">News</a></li>
         <li><a class="site-nav__link" href="#page-contatti">Contatti</a></li>
@@ -2369,9 +2386,9 @@
 </header>
 <nav class="mobile-nav" aria-label="Menu mobile" aria-hidden="true">
   <a class="mobile-nav__link" href="#page-chi-sono">Chi sono</a>
-  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
   <a class="mobile-nav__link" href="#page-coaching">Coaching</a>
   <a class="mobile-nav__link" href="#page-aziendale">Benessere aziendale</a>
+  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
   <a class="mobile-nav__link" href="#page-eventi">Eventi</a>
   <a class="mobile-nav__link" href="#page-news">News</a>
   <a class="mobile-nav__link" href="#page-contatti">Contatti</a>
@@ -2389,9 +2406,9 @@
     <svg style="position:absolute;bottom:40px;left:60px;opacity:0.12;" width="160" height="180" viewBox="0 0 160 180" fill="none"><polygon points="40,0 160,20 140,130 70,180 0,130 10,45" fill="#A8573A"/></svg>
   </div>
   <div class="hero-slides">
-    <div class="hero-slide active" style="background-image: url('Assets/Foto/homehero.webp');" role="group" aria-label="Slide 1 di 3">
+    <div class="hero-slide active" style="background-image: url('Assets/Fotodev/hero.webp');" role="group" aria-label="Slide 1 di 3">
       <div class="hero-slide__inner">
-        <span class="hero-slide__label">Yoga &middot; Coaching &middot; Benessere</span>
+        <span class="hero-slide__label">Coaching &middot; Benessere &middot; Yoga</span>
         <h1 class="hero-slide__title">Il benessere non&nbsp;<span style="white-space:nowrap">è un&nbsp;traguardo.</span><br>È una&nbsp;pratica.</h1>
         <p class="hero-slide__desc">Un approccio integrato che&nbsp;mette in dialogo corpo, mente e&nbsp;conoscenze scientifiche per&nbsp;costruire equilibrio, consapevolezza e&nbsp;cambiamenti sostenibili.</p>
         <div class="hero-slide__ctas">
@@ -2400,24 +2417,24 @@
         </div>
       </div>
     </div>
-    <div class="hero-slide" style="background-image: url('Assets/NEW%20images/hero/hero2.webp');" role="group" aria-label="Slide 2 di 3">
-      <div class="hero-slide__inner">
-        <span class="hero-slide__label">Percorso Yoga</span>
-        <h1 class="hero-slide__title">Movimento,<br>respiro e&nbsp;consapevolezza.</h1>
-        <p class="hero-slide__desc">Percorsi individuali e&nbsp;di gruppo che&nbsp;integrano pratica, anatomia e&nbsp;conoscenze scientifiche. In presenza e&nbsp;a distanza.</p>
-        <div class="hero-slide__ctas">
-          <a href="#page-yoga" class="btn btn--primary">Scopri il&nbsp;percorso Yoga</a>
-          <a href="#page-contatti" class="btn btn--secondary">Prenota una&nbsp;call</a>
-        </div>
-      </div>
-    </div>
-    <div class="hero-slide" style="background-image: url('Assets/NEW%20images/hero/hero3.webp');" role="group" aria-label="Slide 3 di 3">
+    <div class="hero-slide" style="background-image: url('Assets/NEW%20images/hero/hero3.webp');" role="group" aria-label="Slide 2 di 3">
       <div class="hero-slide__inner">
         <span class="hero-slide__label">Percorso Coaching</span>
         <h1 class="hero-slide__title">Dalla consapevolezza<br>all'azione.</h1>
         <p class="hero-slide__desc">Un percorso per&nbsp;fare chiarezza, superare ciò che&nbsp;ti limita e&nbsp;costruire il&nbsp;cambiamento.</p>
         <div class="hero-slide__ctas">
           <a href="#page-coaching" class="btn btn--primary">Scopri il&nbsp;Coaching</a>
+          <a href="#page-contatti" class="btn btn--secondary">Prenota una&nbsp;call</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-slide" style="background-image: url('Assets/NEW%20images/hero/hero2.webp');" role="group" aria-label="Slide 3 di 3">
+      <div class="hero-slide__inner">
+        <span class="hero-slide__label">Percorso Yoga</span>
+        <h1 class="hero-slide__title">Movimento,<br>respiro e&nbsp;consapevolezza.</h1>
+        <p class="hero-slide__desc">Percorsi individuali e&nbsp;di gruppo che&nbsp;integrano pratica, anatomia e&nbsp;conoscenze scientifiche. In presenza e&nbsp;a distanza.</p>
+        <div class="hero-slide__ctas">
+          <a href="#page-yoga" class="btn btn--primary">Scopri il&nbsp;percorso Yoga</a>
           <a href="#page-contatti" class="btn btn--secondary">Prenota una&nbsp;call</a>
         </div>
       </div>
@@ -2444,7 +2461,7 @@
         <span class="section-label">Chi è Nicoletta</span>
         <h2 style="margin-bottom:0.8rem;">La persona al&nbsp;centro. La&nbsp;competenza al&nbsp;servizio del&nbsp;cambiamento.</h2>
         <p class="nicoletta-preview__subtitle">Dove esperienza, metodo e&nbsp;scienza incontrano la&nbsp;persona.</p>
-        <p class="nicoletta-preview__intro">Nicoletta Ingusci lavora con&nbsp;persone e&nbsp;organizzazioni per&nbsp;costruire percorsi di&nbsp;benessere reali, personalizzati e&nbsp;sostenibili, integrando yoga, coaching e&nbsp;conoscenze scientifiche.</p>
+        <p class="nicoletta-preview__intro">Nicoletta Ingusci lavora con&nbsp;persone e&nbsp;organizzazioni per&nbsp;costruire percorsi di&nbsp;benessere reali, personalizzati e&nbsp;sostenibili, integrando coaching, yoga e&nbsp;conoscenze scientifiche.</p>
         <div class="nicoletta-stats-row">
           <div class="nicoletta-stat">
             <span class="nicoletta-stat__num">17+</span>
@@ -2467,27 +2484,17 @@
   </div>
 </section>
 
-<section class="section section--green section--lg" aria-label="Percorsi Yoga e Coaching">
+<section class="section section--green section--lg" aria-label="Percorsi Coaching e Yoga">
   <div class="container">
     <div class="section__header section__header--centered reveal">
       <span class="section-label">I percorsi</span>
       <h2>Due vie, un&nbsp;solo approccio integrato.</h2>
-      <p class="section__intro" style="margin-inline:auto;">Yoga e&nbsp;coaching sono strumenti distinti che&nbsp;puoi seguire separatamente o&nbsp;come parte di&nbsp;un&nbsp;percorso costruito intorno a te.</p>
+      <p class="section__intro" style="margin-inline:auto;">Coaching e&nbsp;yoga sono strumenti distinti che&nbsp;puoi seguire separatamente o&nbsp;come parte di&nbsp;un&nbsp;percorso costruito intorno a te.</p>
     </div>
     <div class="grid-3 reveal" style="gap:2rem;">
-      <article class="percorso-card percorso-card--yoga">
-        <div class="percorso-card__image">
-          <img src="Assets/NEW%20images/i%20percorsi/Tradizione%20anticaconoscenza.webp" alt="Percorso Yoga" loading="lazy"/>
-        </div>
-        <div class="percorso-card__body">
-          <h3 class="percorso-card__title">Tradizione antica, conoscenza contemporanea, pratica personale.</h3>
-          <p class="percorso-card__desc">Un sapere antico che&nbsp;dialoga con&nbsp;le conoscenze contemporanee sulla salute e&nbsp;sul benessere, attraverso percorsi costruiti sulla persona. Individualmente o&nbsp;in gruppo. In presenza oppure online.</p>
-          <a href="#page-yoga" class="btn btn--outline-frag">Scopri il&nbsp;percorso Yoga</a>
-        </div>
-      </article>
       <article class="percorso-card percorso-card--coaching">
         <div class="percorso-card__image">
-          <img src="Assets/NEW%20images/i%20percorsi/Comprenderescegliereagire.webp" alt="Percorso Coaching" loading="lazy"/>
+          <img src="Assets/Fotodev/coaching.webp" alt="Percorso Coaching" loading="lazy"/>
         </div>
         <div class="percorso-card__body">
           <h3 class="percorso-card__title">Comprendere. Scegliere. Agire.</h3>
@@ -2501,15 +2508,25 @@
         </div>
         <div class="percorso-card__body">
           <h3 class="percorso-card__title">Benessere Aziendale</h3>
-          <p class="percorso-card__desc">Programmi su&nbsp;misura per&nbsp;organizzazioni e&nbsp;team. Yoga, coaching e&nbsp;strumenti di&nbsp;gestione dello stress per&nbsp;costruire ambienti di&nbsp;lavoro più sani e&nbsp;produttivi.</p>
+          <p class="percorso-card__desc">Programmi su&nbsp;misura per&nbsp;organizzazioni e&nbsp;team. Coaching, yoga e&nbsp;strumenti di&nbsp;gestione dello stress per&nbsp;costruire ambienti di&nbsp;lavoro più sani e&nbsp;produttivi.</p>
           <a href="#page-aziendale" class="btn btn--outline-frag">Scopri il&nbsp;programma</a>
+        </div>
+      </article>
+      <article class="percorso-card percorso-card--yoga">
+        <div class="percorso-card__image">
+          <img src="Assets/NEW%20images/i%20percorsi/Tradizione%20anticaconoscenza.webp" alt="Percorso Yoga" loading="lazy"/>
+        </div>
+        <div class="percorso-card__body">
+          <h3 class="percorso-card__title">Tradizione antica, conoscenza contemporanea, pratica personale.</h3>
+          <p class="percorso-card__desc">Un sapere antico che&nbsp;dialoga con&nbsp;le conoscenze contemporanee sulla salute e&nbsp;sul benessere, attraverso percorsi costruiti sulla persona. Individualmente o&nbsp;in gruppo. In presenza oppure online.</p>
+          <a href="#page-yoga" class="btn btn--outline-frag">Scopri il&nbsp;percorso Yoga</a>
         </div>
       </article>
     </div>
     <div style="margin-top:2.5rem;background:var(--c-white);padding:2rem 2.5rem;border:1px solid var(--c-green-100);display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;" class="reveal">
       <div>
         <h3 style="font-size:1.2rem;margin-bottom:0.4rem;">Hai bisogno di&nbsp;un&nbsp;percorso su&nbsp;misura?</h3>
-        <p style="color:var(--c-neutral-400);font-size:0.9rem;max-width:50ch;">Yoga e&nbsp;coaching possono essere integrati in un&nbsp;percorso costruito intorno a te.</p>
+        <p style="color:var(--c-neutral-400);font-size:0.9rem;max-width:50ch;">Coaching e&nbsp;yoga possono essere integrati in un&nbsp;percorso costruito intorno a te.</p>
       </div>
       <a href="#page-contatti" class="btn btn--primary">Richiedi informazioni</a>
     </div>
@@ -2556,30 +2573,30 @@
     </div>
     <div class="grid-3 reveal">
       <article class="news-card">
-        <div class="news-card__image"><img src="Assets/Foto/newseeventi.webp" alt="Running Retreat" loading="lazy"/></div>
+        <div class="news-card__image"><img src="Assets/Fotodev/goodlife.webp" alt="Il benessere non è un’altra cosa da fare: ci vediamo a Good Life" style="object-fit:contain;background:#fff;" loading="lazy"/></div>
         <div class="news-card__body">
-          <div class="news-card__meta"><span class="news-card__cat">Retreat</span><time class="news-card__date">Aprile/maggio</time></div>
-          <h3 class="news-card__title">Running Retreat</h3>
-          <p class="news-card__excerpt">Il nuovo retreat in&nbsp;arrivo tra&nbsp;aprile e&nbsp;maggio. Date e&nbsp;location da&nbsp;definire.</p>
-          <a href="javascript:void(0)" aria-disabled="true" title="[DA DEFINIRE: link]" class="btn btn--outline-frag is-inactive">Leggi l'articolo</a>
+          <div class="news-card__meta"><span class="news-card__cat">Evento</span><time class="news-card__date">14 novembre</time></div>
+          <h3 class="news-card__title">Il benessere non è un’altra cosa da&nbsp;fare: ci vediamo a&nbsp;Good Life</h3>
+          <p class="news-card__excerpt">Sabato 14 novembre, alle 12.30 circa, sarò a&nbsp;Good Life, la fiera del vivere bene alla Fiera Bolzano. Parlerò di come smettere di rincorrere il benessere e iniziare a sentirlo.</p>
+          <a href="#page-news" class="btn btn--outline-frag">Leggi l'articolo</a>
         </div>
       </article>
       <article class="news-card">
-        <div class="news-card__image"><img src="Assets/Foto/newseeventi2.webp" alt="Anima Retreat" loading="lazy"/></div>
+        <div class="news-card__image"><img src="Assets/Fotodev/yogaalmuseo.webp" alt="Yoga al Museo: tre appuntamenti al Museion" loading="lazy"/></div>
         <div class="news-card__body">
-          <div class="news-card__meta"><span class="news-card__cat">Retreat</span><time class="news-card__date">Marzo</time></div>
-          <h3 class="news-card__title">Anima Retreat</h3>
-          <p class="news-card__excerpt">Torna l’esperienza che&nbsp;unisce yoga, medicina, scienza e&nbsp;natura. Date e&nbsp;location da&nbsp;definire.</p>
-          <a href="javascript:void(0)" aria-disabled="true" title="[DA DEFINIRE: link]" class="btn btn--outline-frag is-inactive">Leggi l'articolo</a>
+          <div class="news-card__meta"><span class="news-card__cat">Yoga</span><time class="news-card__date">7 · 28 nov · 12 dic</time></div>
+          <h3 class="news-card__title">Yoga al&nbsp;Museo: tre appuntamenti al&nbsp;Museion</h3>
+          <p class="news-card__excerpt">Lo yoga entra nelle mostre del Museion di Bolzano: sabato 7 e 28 novembre e sabato 12 dicembre, dalle 15 alle 16.</p>
+          <a href="#page-news" class="btn btn--outline-frag">Leggi l'articolo</a>
         </div>
       </article>
       <article class="news-card">
-        <div class="news-card__image"><img src="Assets/Foto/newseeventi3.webp" alt="Yoga al&nbsp;Museo" loading="lazy"/></div>
+        <div class="news-card__image"><img src="Assets/Fotodev/runningretreat.webp" alt="Running Retreat: arriva il nuovo ritiro di primavera" loading="lazy"/></div>
         <div class="news-card__body">
-          <div class="news-card__meta"><span class="news-card__cat">Yoga</span><time class="news-card__date">7/11 · 28/11 · 12/12</time></div>
-          <h3 class="news-card__title">Yoga al&nbsp;Museo</h3>
-          <p class="news-card__excerpt">Tre appuntamenti di&nbsp;yoga negli spazi del&nbsp;Museion, alle ore&nbsp;15.00.</p>
-          <a href="javascript:void(0)" aria-disabled="true" title="[DA DEFINIRE: link]" class="btn btn--outline-frag is-inactive">Leggi l'articolo</a>
+          <div class="news-card__meta"><span class="news-card__cat">Retreat</span><time class="news-card__date">Primavera 2027</time></div>
+          <h3 class="news-card__title">Running Retreat: arriva il nuovo ritiro di&nbsp;primavera</h3>
+          <p class="news-card__excerpt">Dopo Anima Retreat nasce un&nbsp;nuovo progetto: un retreat che unisce corsa, coaching, benessere e yoga. Si terrà nella primavera 2027, tra aprile e maggio.</p>
+          <a href="#page-news" class="btn btn--outline-frag">Leggi l'articolo</a>
         </div>
       </article>
     </div>
@@ -2599,12 +2616,12 @@
     <!-- Banner evento in evidenza -->
     <div class="hp-eventi__featured reveal">
       <div class="hp-eventi__featured-img">
-        <img src="Assets/Foto/newseeventi.webp" alt="Yoga al Museo — Museion" loading="lazy"/>
+        <img src="Assets/Fotodev/yogaalmuseo.webp" alt="Yoga a Museion — Dove lo sguardo rallenta" loading="lazy"/>
       </div>
       <div class="hp-eventi__featured-body">
         <span class="hp-eventi__featured-cat">Yoga</span>
-        <h3 class="hp-eventi__featured-title">Yoga al&nbsp;Museo</h3>
-        <p class="hp-eventi__featured-meta">7/11 · 28/11 · 12/12, ore&nbsp;15.00 &middot; Museion</p>
+        <h3 class="hp-eventi__featured-title">Yoga a&nbsp;Museion — Dove lo sguardo rallenta</h3>
+        <p class="hp-eventi__featured-meta">Sab 7 e&nbsp;28 novembre, sab 12 dicembre 2026, ore&nbsp;15-16 &middot; Museion, Piazza Piero Siena 1, Bolzano</p>
       </div>
     </div>
 
@@ -2613,19 +2630,19 @@
       <h3 class="hp-eventi__lista-title">In programma</h3>
       <ul class="hp-eventi__items" role="list">
         <li class="hp-eventi__item">
-          <span class="hp-eventi__item-date">7/11 · 28/11 · 12/12</span>
-          <span class="hp-eventi__item-info">Yoga al&nbsp;Museo, ore&nbsp;15.00 &nbsp;<span class="hp-eventi__item-sep">/</span>&nbsp; <span class="hp-eventi__item-place">Museion</span></span>
-          <a href="javascript:void(0)" aria-disabled="true" title="[DA DEFINIRE: link]" class="btn btn--primary hp-eventi__item-cta is-inactive">Prenota subito</a>
+          <span class="hp-eventi__item-date">Sab 14 novembre 2026</span>
+          <span class="hp-eventi__item-info">Good Life, ore&nbsp;12.30 circa &nbsp;<span class="hp-eventi__item-sep">/</span>&nbsp; <span class="hp-eventi__item-place">Fiera Bolzano, Piazza Fiera 1 — stand C20/12</span></span>
+          <a href="https://fierabolzano.it" target="_blank" rel="noopener noreferrer" class="btn btn--primary hp-eventi__item-cta">Scopri di&nbsp;più</a>
         </li>
         <li class="hp-eventi__item">
-          <span class="hp-eventi__item-date">14/11</span>
-          <span class="hp-eventi__item-info">Good Life, ore&nbsp;12.30 circa &nbsp;<span class="hp-eventi__item-sep">/</span>&nbsp; <span class="hp-eventi__item-place">[DA DEFINIRE]</span></span>
-          <a href="javascript:void(0)" aria-disabled="true" title="[DA DEFINIRE: link]" class="btn btn--primary hp-eventi__item-cta is-inactive">Prenota subito</a>
+          <span class="hp-eventi__item-date">Sab 7 e&nbsp;28 nov, sab 12 dic</span>
+          <span class="hp-eventi__item-info">Yoga a&nbsp;Museion — Dove lo sguardo rallenta &nbsp;<span class="hp-eventi__item-sep">/</span>&nbsp; <span class="hp-eventi__item-place">Museion, Piazza Piero Siena 1, Bolzano</span></span>
+          <a href="https://museion.it" target="_blank" rel="noopener noreferrer" class="btn btn--primary hp-eventi__item-cta">Prenota</a>
         </li>
         <li class="hp-eventi__item">
-          <span class="hp-eventi__item-date">10–11/4</span>
-          <span class="hp-eventi__item-info">Yoga Meeting &nbsp;<span class="hp-eventi__item-sep">/</span>&nbsp; <span class="hp-eventi__item-place">[DA DEFINIRE]</span></span>
-          <a href="javascript:void(0)" aria-disabled="true" title="[DA DEFINIRE: link]" class="btn btn--primary hp-eventi__item-cta is-inactive">Prenota subito</a>
+          <span class="hp-eventi__item-date">10-11 aprile 2027</span>
+          <span class="hp-eventi__item-info">Yoga Meeting — masterclass e&nbsp;workshop &nbsp;<span class="hp-eventi__item-sep">/</span>&nbsp; <span class="hp-eventi__item-place">Kurhaus, Passeggiata Lungo Passirio 8, Merano</span></span>
+          <a href="https://yogameeting.org" target="_blank" rel="noopener noreferrer" class="btn btn--primary hp-eventi__item-cta">Programma</a>
         </li>
       </ul>
     </div>
@@ -2661,7 +2678,7 @@
         <div class="reveal">
       <!-- PLUGIN PLACEHOLDER: WP Reviews Plugin for Google (https://it.wordpress.org/plugins/wp-reviews-plugin-for-google/) -->
       <div style="border:1.5px dashed var(--c-neutral-200);border-radius:14px;padding:1.5rem;background:var(--c-white);position:relative;">
-        <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--c-neutral-100);border:1px solid var(--c-neutral-200);border-radius:20px;padding:3px 14px;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--c-neutral-400);white-space:nowrap;">Plugin WordPress â WP Google Reviews</div>
+        <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--c-neutral-100);border:1px solid var(--c-neutral-200);border-radius:20px;padding:3px 14px;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--c-neutral-400);white-space:nowrap;">Plugin WordPress &mdash; WP Google Reviews</div>
 
         <!-- Rating complessivo -->
         <div style="display:flex;align-items:center;gap:1.2rem;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--c-neutral-100);">
@@ -2690,7 +2707,7 @@
               </div>
             </div>
             <div style="margin-bottom:0.5rem;"><span aria-hidden="true" style="color:#FBBC05;letter-spacing:1px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
-            <p style="font-size:0.78rem;color:var(--c-neutral-500);line-height:1.55;">[Testo della recensione Google â verr&agrave; caricato automaticamente dal plugin.]</p>
+            <p style="font-size:0.78rem;color:var(--c-neutral-500);line-height:1.55;">[Testo della recensione Google &mdash; verr&agrave; caricato automaticamente dal plugin.]</p>
           </div>
 
           <div style="background:var(--c-neutral-50);border-radius:10px;padding:1rem 1rem 0.9rem;">
@@ -2702,7 +2719,7 @@
               </div>
             </div>
             <div style="margin-bottom:0.5rem;"><span aria-hidden="true" style="color:#FBBC05;letter-spacing:1px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
-            <p style="font-size:0.78rem;color:var(--c-neutral-500);line-height:1.55;">[Testo della recensione Google â verr&agrave; caricato automaticamente dal plugin.]</p>
+            <p style="font-size:0.78rem;color:var(--c-neutral-500);line-height:1.55;">[Testo della recensione Google &mdash; verr&agrave; caricato automaticamente dal plugin.]</p>
           </div>
 
           <div style="background:var(--c-neutral-50);border-radius:10px;padding:1rem 1rem 0.9rem;">
@@ -2714,7 +2731,7 @@
               </div>
             </div>
             <div style="margin-bottom:0.5rem;"><span aria-hidden="true" style="color:#FBBC05;letter-spacing:1px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
-            <p style="font-size:0.78rem;color:var(--c-neutral-500);line-height:1.55;">[Testo della recensione Google â verr&agrave; caricato automaticamente dal plugin.]</p>
+            <p style="font-size:0.78rem;color:var(--c-neutral-500);line-height:1.55;">[Testo della recensione Google &mdash; verr&agrave; caricato automaticamente dal plugin.]</p>
           </div>
 
         </div>
@@ -2748,9 +2765,9 @@
           <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
+      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
       <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
-      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="#">[email — da&nbsp;inserire]</a></p><p class="footer__contact-item">[Città — da&nbsp;inserire]</p><a href="#page-contatti" class="btn btn--outline" style="color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.2);font-size:0.875rem;margin-top:1rem;padding:0.55rem 1.2rem;">Prenota una&nbsp;call</a></div>
+      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a></p><p class="footer__contact-item">Bolzano</p><a href="#page-contatti" class="btn btn--outline" style="color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.2);font-size:0.875rem;margin-top:1rem;padding:0.55rem 1.2rem;">Prenota una&nbsp;call</a></div>
     </div>
     <div class="footer__bottom">
       <nav class="footer__legal" aria-label="Link legali"><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></nav>
@@ -3081,7 +3098,7 @@
 <!-- PAGINE RIMANENTI: verranno aggiunte nei prossimi step -->
 <div class="wf-page vi-inner" id="page-chi-sono">
 
-<div class="info-bar"><span>Running Retreat — aprile/maggio&nbsp;2027, date in&nbsp;arrivo &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
+<div class="info-bar"><span>Good Life — Sabato 14 novembre, Fiera Bolzano &nbsp;<a href="#page-eventi">Scopri di&nbsp;più</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
   <div class="header-inner">
     <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
@@ -3093,9 +3110,9 @@
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
         <li><a class="site-nav__link" href="#page-chi-sono">Chi sono</a></li>
-        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
         <li><a class="site-nav__link" href="#page-coaching">Coaching</a></li>
         <li><a class="site-nav__link" href="#page-aziendale">Benessere aziendale</a></li>
+        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
         <li><a class="site-nav__link" href="#page-eventi">Eventi</a></li>
         <li><a class="site-nav__link" href="#page-news">News</a></li>
         <li><a class="site-nav__link" href="#page-contatti">Contatti</a></li>
@@ -3107,9 +3124,9 @@
 </header>
 <nav class="mobile-nav" aria-label="Menu mobile" aria-hidden="true">
   <a class="mobile-nav__link" href="#page-chi-sono">Chi sono</a>
-  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
   <a class="mobile-nav__link" href="#page-coaching">Coaching</a>
   <a class="mobile-nav__link" href="#page-aziendale">Benessere aziendale</a>
+  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
   <a class="mobile-nav__link" href="#page-eventi">Eventi</a>
   <a class="mobile-nav__link" href="#page-news">News</a>
   <a class="mobile-nav__link" href="#page-contatti">Contatti</a>
@@ -3122,8 +3139,8 @@
   <div class="container">
     <div class="page-hero__inner">
       <span class="section-label">Nicoletta Ingusci</span>
-      <h1>Un metodo costruito sulla conoscenza, affinato dall’esperienza, guidato dall’ascolto.</h1>
-      <p class="page-hero__desc">[DA DEFINIRE: titolo professionale e&nbsp;qualifica] Lavora con&nbsp;persone e&nbsp;organizzazioni per&nbsp;costruire percorsi di&nbsp;benessere reali, personalizzati e&nbsp;sostenibili.</p>
+      <h1>Coaching, benessere, yoga: il&nbsp;tuo equilibrio, un&nbsp;passo alla&nbsp;volta.</h1>
+      <p class="page-hero__desc">Percorsi di&nbsp;coaching, programmi di&nbsp;benessere e&nbsp;yoga a&nbsp;Bolzano e&nbsp;online, per&nbsp;persone e&nbsp;aziende.</p>
     </div>
   </div>
 </section>
@@ -3297,9 +3314,9 @@
           <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
+      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
       <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
-      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="#">[email — da&nbsp;inserire]</a></p><p class="footer__contact-item">[Città — da&nbsp;inserire]</p></div>
+      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a></p><p class="footer__contact-item">Bolzano</p></div>
     </div>
     <div class="footer__bottom">
       <nav class="footer__legal" aria-label="Link legali"><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></nav>
@@ -3310,9 +3327,7 @@
 
 </div><!-- /page-chi-sono -->
 <div class="wf-page vi-inner" id="page-yoga">
-<input type="checkbox" id="yoga-modal-toggle">
-
-<div class="info-bar"><span>Running Retreat — aprile/maggio&nbsp;2027, date in&nbsp;arrivo &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
+<div class="info-bar"><span>Good Life — Sabato 14 novembre, Fiera Bolzano &nbsp;<a href="#page-eventi">Scopri di&nbsp;più</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
   <div class="header-inner">
     <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
@@ -3324,9 +3339,9 @@
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
         <li><a class="site-nav__link" href="#page-chi-sono">Chi sono</a></li>
-        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
         <li><a class="site-nav__link" href="#page-coaching">Coaching</a></li>
         <li><a class="site-nav__link" href="#page-aziendale">Benessere aziendale</a></li>
+        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
         <li><a class="site-nav__link" href="#page-eventi">Eventi</a></li>
         <li><a class="site-nav__link" href="#page-news">News</a></li>
         <li><a class="site-nav__link" href="#page-contatti">Contatti</a></li>
@@ -3338,9 +3353,9 @@
 </header>
 <nav class="mobile-nav" aria-label="Menu mobile" aria-hidden="true">
   <a class="mobile-nav__link" href="#page-chi-sono">Chi sono</a>
-  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
   <a class="mobile-nav__link" href="#page-coaching">Coaching</a>
   <a class="mobile-nav__link" href="#page-aziendale">Benessere aziendale</a>
+  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
   <a class="mobile-nav__link" href="#page-eventi">Eventi</a>
   <a class="mobile-nav__link" href="#page-news">News</a>
   <a class="mobile-nav__link" href="#page-contatti">Contatti</a>
@@ -3356,7 +3371,7 @@
       <h1>Lo Yoga come percorso di&nbsp;conoscenza di&nbsp;sé.</h1>
       <p class="page-hero__desc">Una pratica integrale, radicata nella tradizione, che&nbsp;attraverso corpo, respiro e&nbsp;consapevolezza ci insegna ad&nbsp;ascoltarci, conoscerci e&nbsp;abitare con&nbsp;più presenza il&nbsp;nostro corpo ma&nbsp;soprattutto la&nbsp;nostra vita.</p>
       <div class="page-hero__ctas">
-        <label for="yoga-modal-toggle" class="btn btn--primary" style="cursor:pointer;">Prenota un&nbsp;corso</label>
+        <a href="https://www.eversports.it/s/nicoletta-ingusci" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Prenota un&nbsp;corso</a>
         <a href="#page-eventi" class="btn btn--outline-frag">Retreat e&nbsp;workshop</a>
       </div>
     </div>
@@ -3445,9 +3460,10 @@
       <div class="modalita-grid">
         <div class="modalita-card"><div class="modalita-card__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h4 class="modalita-card__title">Sessioni individuali</h4><p class="modalita-card__desc">Lavoro personalizzato, ritmo proprio, massima attenzione alle esigenze specifiche. In&nbsp;presenza o&nbsp;online.</p></div>
         <div class="modalita-card"><div class="modalita-card__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4 class="modalita-card__title">Sessioni di&nbsp;gruppo</h4><p class="modalita-card__desc">Gruppi piccoli e&nbsp;omogenei per&nbsp;una pratica condivisa e&nbsp;supportata.</p></div>
-        <div class="modalita-card"><div class="modalita-card__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h4 class="modalita-card__title">Online</h4><p class="modalita-card__desc">Percorsi a&nbsp;distanza con&nbsp;la&nbsp;stessa qualità e&nbsp;attenzione delle sessioni in&nbsp;presenza.</p></div>
+        <div class="modalita-card"><div class="modalita-card__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h4 class="modalita-card__title">Online</h4><p class="modalita-card__desc">Percorsi a&nbsp;distanza con&nbsp;la&nbsp;stessa qualità e&nbsp;attenzione delle sessioni in&nbsp;presenza — su Eversports.</p></div>
         <div class="modalita-card"><div class="modalita-card__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div><h4 class="modalita-card__title">Retreat e&nbsp;workshop</h4><p class="modalita-card__desc">Appuntamenti intensivi, residenziali o&nbsp;giornalieri. <a href="#page-eventi" class="modalita-card__link">Vedi il&nbsp;calendario</a></p></div>
       </div>
+      <p class="modalita-luogo"><strong>In presenza</strong> in via Cadorna 19, Bolzano. <strong>Online</strong> su Eversports.</p>
     </div>
   </div>
 </section>
@@ -3488,6 +3504,17 @@
   </div>
 </section>
 
+<section class="section section--neutral" aria-label="Prenota una lezione">
+  <div class="container">
+    <div class="section__header section__header--centered reveal">
+      <span class="section-label">Calendario</span>
+      <h2>Prenota una lezione.</h2>
+      <p class="section__intro">Le lezioni, in presenza e online, si prenotano su Eversports.</p>
+    </div>
+    <div class="reveal" style="text-align:center;"><a href="https://www.eversports.it/s/nicoletta-ingusci" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Vedi il&nbsp;calendario e&nbsp;prenota</a></div>
+  </div>
+</section>
+
 <section class="section section--cream">
   <div class="container">
     <div class="inner-2col">
@@ -3521,9 +3548,9 @@
           <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
+      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
       <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
-      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="#">[email — da&nbsp;inserire]</a></p><p class="footer__contact-item">[Città — da&nbsp;inserire]</p></div>
+      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a></p><p class="footer__contact-item">Bolzano</p></div>
     </div>
     <div class="footer__bottom">
       <nav class="footer__legal" aria-label="Link legali"><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></nav>
@@ -3531,123 +3558,9 @@
     </div>
   </div>
 </footer>
-
-<!-- YOGA: modal prenotazione corsi (stile Eversports) -->
-<div id="yoga-booking-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;background:rgba(0,0,0,0.55);align-items:center;justify-content:center;padding:1rem;overflow:auto;box-sizing:border-box;">
-  <div style="background:#f5f5f5;border-radius:12px;width:100%;max-width:680px;max-height:92vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,0.22);font-family:inherit;">
-
-    <!-- Header -->
-    <div style="background:#fff;border-radius:12px 12px 0 0;padding:1rem 1.4rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e8e8e8;position:sticky;top:0;z-index:2;">
-      <strong style="font-size:1rem;">Prenota una lezione</strong>
-      <label for="yoga-modal-toggle" style="cursor:pointer;width:32px;height:32px;border-radius:50%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:1rem;color:#666;line-height:1;">&#x2715;</label>
-    </div>
-
-    <!-- Navigazione settimana -->
-    <div style="background:#fff;padding:0.75rem 1.4rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e8e8e8;">
-      <button style="background:none;border:none;cursor:pointer;font-size:1.2rem;color:#555;padding:0 0.5rem;">&#8249;</button>
-      <span style="font-size:0.85rem;font-weight:600;color:#222;">Lun 14 – Dom 20 Gen 2025</span>
-      <button style="background:none;border:none;cursor:pointer;font-size:1.2rem;color:#555;padding:0 0.5rem;">&#8250;</button>
-    </div>
-
-    <!-- Lista classi per giorno -->
-    <div style="padding:1rem;display:flex;flex-direction:column;gap:0.75rem;">
-
-      <!-- Giorno: Lunedì -->
-      <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.25rem 0 0.1rem;">Lunedì 14 Gennaio</p>
-      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
-        <div style="min-width:52px;text-align:center;">
-          <div style="font-size:1rem;font-weight:700;color:#222;">09:00</div>
-          <div style="font-size:0.7rem;color:#999;">60 min</div>
-        </div>
-        <div style="flex:1;min-width:0;">
-          <div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Hatha Yoga</div>
-          <div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; In presenza &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">3 posti</span></div>
-        </div>
-        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
-      </div>
-
-      <!-- Giorno: Martedì -->
-      <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.5rem 0 0.1rem;">Martedì 15 Gennaio</p>
-      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
-        <div style="min-width:52px;text-align:center;">
-          <div style="font-size:1rem;font-weight:700;color:#222;">07:30</div>
-          <div style="font-size:0.7rem;color:#999;">60 min</div>
-        </div>
-        <div style="flex:1;min-width:0;">
-          <div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Yoga e mindfulness</div>
-          <div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Online &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">8 posti</span></div>
-        </div>
-        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
-      </div>
-      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
-        <div style="min-width:52px;text-align:center;">
-          <div style="font-size:1rem;font-weight:700;color:#222;">18:30</div>
-          <div style="font-size:0.7rem;color:#999;">75 min</div>
-        </div>
-        <div style="flex:1;min-width:0;">
-          <div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Pranayama e respiro</div>
-          <div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Gruppo · In presenza &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">6 posti</span></div>
-        </div>
-        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
-      </div>
-
-      <!-- Giorno: Giovedì -->
-      <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.5rem 0 0.1rem;">Giovedì 17 Gennaio</p>
-      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
-        <div style="min-width:52px;text-align:center;">
-          <div style="font-size:1rem;font-weight:700;color:#222;">09:00</div>
-          <div style="font-size:0.7rem;color:#999;">90 min</div>
-        </div>
-        <div style="flex:1;min-width:0;">
-          <div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Vinyasa Flow</div>
-          <div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Gruppo · In presenza &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">5 posti</span></div>
-        </div>
-        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
-      </div>
-
-      <!-- Giorno: Venerdì -->
-      <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.5rem 0 0.1rem;">Venerdì 18 Gennaio</p>
-      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
-        <div style="min-width:52px;text-align:center;">
-          <div style="font-size:1rem;font-weight:700;color:#222;">10:00</div>
-          <div style="font-size:0.7rem;color:#999;">60 min</div>
-        </div>
-        <div style="flex:1;min-width:0;">
-          <div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Hatha Yoga</div>
-          <div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Individuale &nbsp;·&nbsp; <span style="color:#e57c3b;font-weight:600;">1 posto</span></div>
-        </div>
-        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
-      </div>
-
-      <!-- Giorno: Sabato — esaurito -->
-      <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.5rem 0 0.1rem;">Sabato 19 Gennaio</p>
-      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);opacity:0.55;">
-        <div style="min-width:52px;text-align:center;">
-          <div style="font-size:1rem;font-weight:700;color:#aaa;">10:00</div>
-          <div style="font-size:0.7rem;color:#bbb;">90 min</div>
-        </div>
-        <div style="flex:1;min-width:0;">
-          <div style="font-size:0.92rem;font-weight:600;color:#888;margin-bottom:0.2rem;">Yin Yoga</div>
-          <div style="font-size:0.75rem;color:#aaa;">Nicoletta Ingusci &nbsp;·&nbsp; Gruppo · In presenza &nbsp;·&nbsp; <span style="color:#aaa;">Esaurito</span></div>
-        </div>
-        <button disabled style="background:#e8e8e8;color:#aaa;font-size:0.78rem;font-weight:600;padding:0.5rem 1rem;border-radius:6px;border:none;white-space:nowrap;flex-shrink:0;cursor:not-allowed;">Lista d'attesa</button>
-      </div>
-
-    </div><!-- /lista classi -->
-
-    <!-- Footer modal -->
-    <div style="padding:1rem 1.4rem;text-align:center;border-top:1px solid #e8e8e8;background:#fff;border-radius:0 0 12px 12px;">
-      <span style="font-size:0.78rem;color:#aaa;">Prenotazione gestita tramite Eversports</span>
-    </div>
-
-  </div>
-</div>
-
 </div><!-- /page-yoga -->
 <div class="wf-page vi-inner" id="page-coaching">
-<input type="checkbox" id="coaching-modal-toggle">
-
-<div class="info-bar"><span>Running Retreat — aprile/maggio&nbsp;2027, date in&nbsp;arrivo &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
+<div class="info-bar"><span>Good Life — Sabato 14 novembre, Fiera Bolzano &nbsp;<a href="#page-eventi">Scopri di&nbsp;più</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
   <div class="header-inner">
     <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
@@ -3659,9 +3572,9 @@
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
         <li><a class="site-nav__link" href="#page-chi-sono">Chi sono</a></li>
-        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
         <li><a class="site-nav__link" href="#page-coaching">Coaching</a></li>
         <li><a class="site-nav__link" href="#page-aziendale">Benessere aziendale</a></li>
+        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
         <li><a class="site-nav__link" href="#page-eventi">Eventi</a></li>
         <li><a class="site-nav__link" href="#page-news">News</a></li>
         <li><a class="site-nav__link" href="#page-contatti">Contatti</a></li>
@@ -3673,9 +3586,9 @@
 </header>
 <nav class="mobile-nav" aria-label="Menu mobile" aria-hidden="true">
   <a class="mobile-nav__link" href="#page-chi-sono">Chi sono</a>
-  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
   <a class="mobile-nav__link" href="#page-coaching">Coaching</a>
   <a class="mobile-nav__link" href="#page-aziendale">Benessere aziendale</a>
+  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
   <a class="mobile-nav__link" href="#page-eventi">Eventi</a>
   <a class="mobile-nav__link" href="#page-news">News</a>
   <a class="mobile-nav__link" href="#page-contatti">Contatti</a>
@@ -3716,7 +3629,7 @@
         <p class="valori-band" aria-label="Onestà, serietà, impegno"><span>Onestà</span><span>Serietà</span><span>Impegno</span></p>
       </div>
       <div class="inner-image reveal" style="clip-path:polygon(0 0, 86% 0, 100% 14%, 100% 100%, 14% 100%, 0 86%);overflow:hidden;">
-        <img src="Assets/NEW%20images/i%20percorsi/Comprenderescegliereagire.webp" alt="Sessione di Coaching con Nicoletta Ingusci" loading="lazy"/>
+        <img src="Assets/Fotodev/coaching.webp" alt="Sessione di Coaching con Nicoletta Ingusci" loading="lazy"/>
       </div>
     </div>
   </div>
@@ -3779,6 +3692,17 @@
   </div>
 </section>
 
+<section class="section section--cream" aria-label="Consulenza individuale">
+  <div class="container">
+    <div class="section__header section__header--centered reveal">
+      <span class="section-label">Consulenza</span>
+      <h2>Consulenza individuale.</h2>
+      <p class="section__intro">Sessioni individuali da&nbsp;1 a&nbsp;1,5&nbsp;ore, in&nbsp;presenza o&nbsp;online. Per costi e&nbsp;disponibilità scrivimi.</p>
+    </div>
+    <div class="reveal" style="text-align:center;"><a href="#page-contatti" class="btn btn--primary">Scrivimi</a></div>
+  </div>
+</section>
+
 <section class="section section--neutral">
   <div class="container">
     <div class="inner-2col">
@@ -3790,7 +3714,7 @@
       <div class="faq-list reveal">
         <div class="faq-item"><button class="faq-question">Il coaching è come&nbsp;una&nbsp;terapia?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">No. Coaching e&nbsp;psicoterapia hanno obiettivi diversi. Il coaching lavora su&nbsp;presente e&nbsp;futuro, obiettivi, risorse e&nbsp;scelte. Quando utile, i&nbsp;due percorsi possono affiancarsi nel rispetto delle rispettive competenze.</div></div>
         <div class="faq-item"><button class="faq-question">Quanto dura un&nbsp;percorso?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">Dipende dalla persona e&nbsp;dall’obiettivo. Non credo che&nbsp;un&nbsp;percorso debba essere lungo per&nbsp;essere efficace: con&nbsp;impegno, anche pochi incontri possono generare cambiamenti importanti.</div></div>
-        <div class="faq-item"><button class="faq-question">Le sessioni sono in&nbsp;presenza o&nbsp;online?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">Entrambe. Il percorso può svolgersi in&nbsp;presenza oppure online, in&nbsp;base alle esigenze della persona.</div></div>
+        <div class="faq-item"><button class="faq-question">Le sessioni sono in&nbsp;presenza o&nbsp;online?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">Entrambe: in presenza in via Cadorna 19, Bolzano, oppure online.</div></div>
         <div class="faq-item"><button class="faq-question">Come si inizia?<span class="faq-question__icon" aria-hidden="true">+</span></button><div class="faq-answer">Con una prima sessione, che&nbsp;è già parte del&nbsp;percorso. Partiamo da&nbsp;dove sei, da&nbsp;ciò che&nbsp;vuoi cambiare o&nbsp;raggiungere e&nbsp;iniziamo da&nbsp;lì.</div></div>
       </div>
     </div>
@@ -3812,9 +3736,9 @@
           <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
+      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
       <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
-      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="#">[email — da&nbsp;inserire]</a></p><p class="footer__contact-item">[Città — da&nbsp;inserire]</p></div>
+      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a></p><p class="footer__contact-item">Bolzano</p></div>
     </div>
     <div class="footer__bottom">
       <nav class="footer__legal" aria-label="Link legali"><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></nav>
@@ -3822,69 +3746,9 @@
     </div>
   </div>
 </footer>
-
-<!-- COACHING: modal prenotazione consulenza -->
-<div id="coaching-booking-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;background:rgba(0,0,0,0.55);align-items:center;justify-content:center;padding:1rem;overflow:auto;box-sizing:border-box;">
-  <div style="background:#f5f5f5;border-radius:12px;width:100%;max-width:680px;max-height:92vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,0.22);font-family:inherit;">
-
-    <div style="background:#fff;border-radius:12px 12px 0 0;padding:1rem 1.4rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e8e8e8;position:sticky;top:0;z-index:2;">
-      <strong style="font-size:1rem;">Prenota una consulenza</strong>
-      <label for="coaching-modal-toggle" style="cursor:pointer;width:32px;height:32px;border-radius:50%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:1rem;color:#666;line-height:1;">&#x2715;</label>
-    </div>
-
-    <div style="background:#fff;padding:0.75rem 1.4rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e8e8e8;">
-      <button style="background:none;border:none;cursor:pointer;font-size:1.2rem;color:#555;padding:0 0.5rem;">&#8249;</button>
-      <span style="font-size:0.85rem;font-weight:600;color:#222;">Lun 14 – Dom 20 Gen 2025</span>
-      <button style="background:none;border:none;cursor:pointer;font-size:1.2rem;color:#555;padding:0 0.5rem;">&#8250;</button>
-    </div>
-
-    <div style="padding:1rem;display:flex;flex-direction:column;gap:0.75rem;">
-
-      <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.25rem 0 0.1rem;">Lunedì 14 Gennaio</p>
-      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
-        <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">10:00</div><div style="font-size:0.7rem;color:#999;">60 min</div></div>
-        <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Sessione di coaching</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Individuale · Online &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">Disponibile</span></div></div>
-        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
-      </div>
-      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
-        <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">15:00</div><div style="font-size:0.7rem;color:#999;">60 min</div></div>
-        <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Sessione di coaching</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Individuale · Online &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">Disponibile</span></div></div>
-        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
-      </div>
-
-      <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.5rem 0 0.1rem;">Mercoledì 16 Gennaio</p>
-      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
-        <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">09:30</div><div style="font-size:0.7rem;color:#999;">60 min</div></div>
-        <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Sessione di coaching</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Individuale · In presenza &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">Disponibile</span></div></div>
-        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
-      </div>
-      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
-        <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#aaa;">17:00</div><div style="font-size:0.7rem;color:#bbb;">60 min</div></div>
-        <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#888;margin-bottom:0.2rem;">Sessione di coaching</div><div style="font-size:0.75rem;color:#aaa;">Nicoletta Ingusci &nbsp;·&nbsp; Individuale · Online &nbsp;·&nbsp; <span style="color:#aaa;">Esaurito</span></div></div>
-        <button disabled style="background:#e8e8e8;color:#aaa;font-size:0.78rem;font-weight:600;padding:0.5rem 1rem;border-radius:6px;border:none;white-space:nowrap;flex-shrink:0;cursor:not-allowed;">Lista d'attesa</button>
-      </div>
-
-      <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.5rem 0 0.1rem;">Venerdì 18 Gennaio</p>
-      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
-        <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">11:00</div><div style="font-size:0.7rem;color:#999;">60 min</div></div>
-        <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Sessione di coaching</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Individuale · Online &nbsp;·&nbsp; <span style="color:#e57c3b;font-weight:600;">1 posto</span></div></div>
-        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
-      </div>
-
-    </div>
-
-    <div style="padding:1rem 1.4rem;text-align:center;border-top:1px solid #e8e8e8;background:#fff;border-radius:0 0 12px 12px;">
-      <span style="font-size:0.78rem;color:#aaa;">Prenotazione gestita tramite Eversports</span>
-    </div>
-
-  </div>
-</div>
-
 </div><!-- /page-coaching -->
 <div class="wf-page vi-inner" id="page-aziendale">
-<input type="checkbox" id="aziendale-modal-toggle">
-
-<div class="info-bar"><span>Running Retreat — aprile/maggio&nbsp;2027, date in&nbsp;arrivo &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
+<div class="info-bar"><span>Good Life — Sabato 14 novembre, Fiera Bolzano &nbsp;<a href="#page-eventi">Scopri di&nbsp;più</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
   <div class="header-inner">
     <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
@@ -3896,9 +3760,9 @@
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
         <li><a class="site-nav__link" href="#page-chi-sono">Chi sono</a></li>
-        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
         <li><a class="site-nav__link" href="#page-coaching">Coaching</a></li>
         <li><a class="site-nav__link" href="#page-aziendale">Benessere aziendale</a></li>
+        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
         <li><a class="site-nav__link" href="#page-eventi">Eventi</a></li>
         <li><a class="site-nav__link" href="#page-news">News</a></li>
         <li><a class="site-nav__link" href="#page-contatti">Contatti</a></li>
@@ -3910,9 +3774,9 @@
 </header>
 <nav class="mobile-nav" aria-label="Menu mobile" aria-hidden="true">
   <a class="mobile-nav__link" href="#page-chi-sono">Chi sono</a>
-  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
   <a class="mobile-nav__link" href="#page-coaching">Coaching</a>
   <a class="mobile-nav__link" href="#page-aziendale">Benessere aziendale</a>
+  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
   <a class="mobile-nav__link" href="#page-eventi">Eventi</a>
   <a class="mobile-nav__link" href="#page-news">News</a>
   <a class="mobile-nav__link" href="#page-contatti">Contatti</a>
@@ -3923,7 +3787,7 @@
 
 <section class="page-hero page-hero--dark" style="min-height:520px;display:flex;align-items:flex-end;">
   <div class="az-hero-image" aria-hidden="true">
-    <img src="Assets/Foto/benessereaziendale.webp" alt=""/>
+    <img src="Assets/Fotodev/benessereaziendale.webp" alt=""/>
   </div>
   <svg class="aziendale-frag aziendale-frag--1" viewBox="0 0 460 460" fill="none" aria-hidden="true"><polygon points="40,0 460,18 420,460 0,442" stroke="#E3A987" stroke-width="1" fill="none"/></svg>
   <svg class="aziendale-frag aziendale-frag--2" viewBox="0 0 320 320" fill="none" aria-hidden="true"><polygon points="25,0 320,12 295,320 0,308" stroke="#93A496" stroke-width="1" fill="none"/></svg>
@@ -3934,7 +3798,7 @@
       <p class="page-hero__desc" style="color:rgba(255,255,255,0.85);">Programmi strutturati e&nbsp;personalizzati che&nbsp;integrano salute, prevenzione, coaching e&nbsp;formazione, costruiti a&nbsp;partire dai bisogni reali dell’azienda.</p>
       <p class="page-hero__desc" style="color:rgba(255,255,255,0.85);">Interventi concreti per&nbsp;sostenere benessere, consapevolezza, qualità delle relazioni e&nbsp;performance.</p>
       <div class="page-hero__ctas">
-        <a href="#page-contatti" class="btn btn--secondary">Richiedi una&nbsp;proposta</a>
+        <a href="#page-contatti" class="btn btn--secondary" data-prefill="benessere-aziendale">Richiedi una&nbsp;proposta</a>
         <a href="#page-eventi" class="btn btn--outline-frag">Scopri gli&nbsp;eventi</a>
       </div>
     </div>
@@ -4001,78 +3865,6 @@
   </div>
 </section>
 
-<section class="az-section az-section--neutral">
-  <div class="container">
-    <div class="section__header section__header--centered reveal">
-      <span class="section-label">Testimonianze</span>
-      <h2>Chi ha già scelto questo&nbsp;approccio.</h2>
-    </div>
-        <div class="reveal">
-      <!-- PLUGIN PLACEHOLDER: WP Reviews Plugin for Google (https://it.wordpress.org/plugins/wp-reviews-plugin-for-google/) -->
-      <div style="border:1.5px dashed var(--c-neutral-200);border-radius:14px;padding:1.5rem;background:var(--c-white);position:relative;">
-        <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--c-neutral-100);border:1px solid var(--c-neutral-200);border-radius:20px;padding:3px 14px;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--c-neutral-400);white-space:nowrap;">Plugin WordPress â WP Google Reviews</div>
-
-        <!-- Rating complessivo -->
-        <div style="display:flex;align-items:center;gap:1.2rem;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--c-neutral-100);">
-          <div style="display:flex;align-items:center;gap:0.6rem;">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-            <span style="font-size:0.78rem;font-weight:600;color:var(--c-neutral-600);">Google Reviews</span>
-          </div>
-          <div style="display:flex;align-items:baseline;gap:0.4rem;">
-            <span style="font-size:2rem;font-weight:700;color:var(--c-neutral-800);line-height:1;">[0.0]</span>
-            <div>
-              <div><span aria-hidden="true" style="color:#FBBC05;letter-spacing:1px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
-              <span style="font-size:0.72rem;color:var(--c-neutral-400);">[N] recensioni</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Griglia card recensioni -->
-        <div class="gr-widget-grid">
-
-          <div style="background:var(--c-neutral-50);border-radius:10px;padding:1rem 1rem 0.9rem;">
-            <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;">
-              <div style="width:36px;height:36px;border-radius:50%;background:var(--c-neutral-200);flex-shrink:0;"></div>
-              <div>
-                <p style="font-size:0.8rem;font-weight:600;color:var(--c-neutral-700);line-height:1.2;">[Nome recensore]</p>
-                <span style="font-size:0.68rem;color:var(--c-neutral-400);">[Data]</span>
-              </div>
-            </div>
-            <div style="margin-bottom:0.5rem;"><span aria-hidden="true" style="color:#FBBC05;letter-spacing:1px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
-            <p style="font-size:0.78rem;color:var(--c-neutral-500);line-height:1.55;">[Testo della recensione Google â verr&agrave; caricato automaticamente dal plugin.]</p>
-          </div>
-
-          <div style="background:var(--c-neutral-50);border-radius:10px;padding:1rem 1rem 0.9rem;">
-            <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;">
-              <div style="width:36px;height:36px;border-radius:50%;background:var(--c-neutral-200);flex-shrink:0;"></div>
-              <div>
-                <p style="font-size:0.8rem;font-weight:600;color:var(--c-neutral-700);line-height:1.2;">[Nome recensore]</p>
-                <span style="font-size:0.68rem;color:var(--c-neutral-400);">[Data]</span>
-              </div>
-            </div>
-            <div style="margin-bottom:0.5rem;"><span aria-hidden="true" style="color:#FBBC05;letter-spacing:1px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
-            <p style="font-size:0.78rem;color:var(--c-neutral-500);line-height:1.55;">[Testo della recensione Google â verr&agrave; caricato automaticamente dal plugin.]</p>
-          </div>
-
-          <div style="background:var(--c-neutral-50);border-radius:10px;padding:1rem 1rem 0.9rem;">
-            <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;">
-              <div style="width:36px;height:36px;border-radius:50%;background:var(--c-neutral-200);flex-shrink:0;"></div>
-              <div>
-                <p style="font-size:0.8rem;font-weight:600;color:var(--c-neutral-700);line-height:1.2;">[Nome recensore]</p>
-                <span style="font-size:0.68rem;color:var(--c-neutral-400);">[Data]</span>
-              </div>
-            </div>
-            <div style="margin-bottom:0.5rem;"><span aria-hidden="true" style="color:#FBBC05;letter-spacing:1px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
-            <p style="font-size:0.78rem;color:var(--c-neutral-500);line-height:1.55;">[Testo della recensione Google â verr&agrave; caricato automaticamente dal plugin.]</p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
 <section id="az-richiesta" class="az-section az-section--medium" style="background:var(--g-corporate);">
   <svg style="position:absolute;top:-60px;right:-60px;opacity:0.07;pointer-events:none;" width="400" height="400" viewBox="0 0 400 400" fill="none" aria-hidden="true"><polygon points="30,0 400,15 370,400 0,385" stroke="#E3A987" stroke-width="1"/></svg>
   <div class="container" style="position:relative;z-index:1;">
@@ -4080,7 +3872,7 @@
       <span class="section-label section-label--peach">Informazioni</span>
       <h2 class="az-text-white" style="margin-bottom:1.2rem;">Vuoi saperne di&nbsp;più?</h2>
       <p class="az-text-muted">Benessere Aziendale è il&nbsp;programma di&nbsp;benessere clinico e&nbsp;misurabile per&nbsp;le aziende di&nbsp;Alto Adige e&nbsp;Trentino, sviluppato con&nbsp;un’équipe di&nbsp;specialisti: si parte dalla misurazione dello stato di&nbsp;salute dei collaboratori, si costruisce un&nbsp;piano su&nbsp;misura e&nbsp;si verificano i&nbsp;risultati. Per&nbsp;programmi, formati e&nbsp;modalità di&nbsp;collaborazione visita <a href="https://www.benessereaziendale.it/" target="_blank" rel="noopener noreferrer">benessereaziendale.it</a> o&nbsp;scrivi a&nbsp;<a href="mailto:info@benessereaziendale.it">info@benessereaziendale.it</a>.</p>
-      <div class="cta-block__ctas" style="justify-content:center;margin-top:2rem;"><a href="https://www.benessereaziendale.it/" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Scopri il&nbsp;programma</a></div>
+      <div class="cta-block__ctas" style="justify-content:center;margin-top:2rem;"><a href="https://www.benessereaziendale.it/" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Scopri il&nbsp;programma</a><a href="#page-contatti" class="btn btn--outline-frag" data-prefill="benessere-aziendale">Richiedi una&nbsp;proposta</a></div>
     </div>
   </div>
 </section>
@@ -4099,9 +3891,9 @@
           <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
+      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
       <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
-      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="#">[email — da&nbsp;inserire]</a></p><p class="footer__contact-item">[Città — da&nbsp;inserire]</p></div>
+      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a></p><p class="footer__contact-item">Bolzano</p></div>
     </div>
     <div class="footer__bottom">
       <nav class="footer__legal" aria-label="Link legali"><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></nav>
@@ -4109,60 +3901,10 @@
     </div>
   </div>
 </footer>
-
-
-<!-- AZIENDALE: modal prenotazione -->
-<div id="aziendale-booking-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;background:rgba(0,0,0,0.55);align-items:center;justify-content:center;padding:1rem;overflow:auto;box-sizing:border-box;">
-  <div style="background:#f5f5f5;border-radius:12px;width:100%;max-width:680px;max-height:92vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,0.22);font-family:inherit;">
-    <div style="background:#fff;border-radius:12px 12px 0 0;padding:1rem 1.4rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e8e8e8;position:sticky;top:0;z-index:2;">
-      <strong style="font-size:1rem;">Richiedi una proposta personalizzata</strong>
-      <label for="aziendale-modal-toggle" style="cursor:pointer;width:32px;height:32px;border-radius:50%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:1rem;color:#666;line-height:1;">&#x2715;</label>
-    </div>
-    <div style="background:#fff;padding:0.75rem 1.4rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e8e8e8;">
-      <button style="background:none;border:none;cursor:pointer;font-size:1.2rem;color:#555;padding:0 0.5rem;">&#8249;</button>
-      <span style="font-size:0.85rem;font-weight:600;color:#222;">Lun 14 – Dom 20 Gen 2025</span>
-      <button style="background:none;border:none;cursor:pointer;font-size:1.2rem;color:#555;padding:0 0.5rem;">&#8250;</button>
-    </div>
-    <div style="padding:1rem;display:flex;flex-direction:column;gap:0.75rem;">
-      <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.25rem 0 0.1rem;">Martedì 15 Gennaio</p>
-      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
-        <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">10:00</div><div style="font-size:0.7rem;color:#999;">45 min</div></div>
-        <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Call conoscitiva</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Online &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">Disponibile</span></div></div>
-        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
-      </div>
-      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
-        <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">14:30</div><div style="font-size:0.7rem;color:#999;">45 min</div></div>
-        <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Call conoscitiva</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Online &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">Disponibile</span></div></div>
-        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
-      </div>
-      <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.5rem 0 0.1rem;">Giovedì 17 Gennaio</p>
-      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
-        <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">09:00</div><div style="font-size:0.7rem;color:#999;">45 min</div></div>
-        <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Incontro di valutazione</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; In presenza &nbsp;·&nbsp; <span style="color:#00897b;font-weight:600;">Disponibile</span></div></div>
-        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
-      </div>
-      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);opacity:0.55;">
-        <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#aaa;">16:00</div><div style="font-size:0.7rem;color:#bbb;">45 min</div></div>
-        <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#888;margin-bottom:0.2rem;">Call conoscitiva</div><div style="font-size:0.75rem;color:#aaa;">Nicoletta Ingusci &nbsp;·&nbsp; Online &nbsp;·&nbsp; <span style="color:#aaa;">Esaurito</span></div></div>
-        <button disabled style="background:#e8e8e8;color:#aaa;font-size:0.78rem;font-weight:600;padding:0.5rem 1rem;border-radius:6px;border:none;white-space:nowrap;flex-shrink:0;cursor:not-allowed;">Lista d'attesa</button>
-      </div>
-      <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin:0.5rem 0 0.1rem;">Venerdì 18 Gennaio</p>
-      <div style="background:#fff;border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
-        <div style="min-width:52px;text-align:center;"><div style="font-size:1rem;font-weight:700;color:#222;">11:00</div><div style="font-size:0.7rem;color:#999;">45 min</div></div>
-        <div style="flex:1;min-width:0;"><div style="font-size:0.92rem;font-weight:600;color:#222;margin-bottom:0.2rem;">Call conoscitiva</div><div style="font-size:0.75rem;color:#888;">Nicoletta Ingusci &nbsp;·&nbsp; Online &nbsp;·&nbsp; <span style="color:#e57c3b;font-weight:600;">1 posto</span></div></div>
-        <a href="#page-contatti" style="background:#00897b;color:#fff;font-size:0.8rem;font-weight:600;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Prenota</a>
-      </div>
-    </div>
-    <div style="padding:1rem 1.4rem;text-align:center;border-top:1px solid #e8e8e8;background:#fff;border-radius:0 0 12px 12px;">
-      <span style="font-size:0.78rem;color:#aaa;">Prenotazione gestita tramite Eversports</span>
-    </div>
-  </div>
-</div>
-
 </div><!-- /page-aziendale -->
 <div class="wf-page vi-inner" id="page-eventi">
 
-<div class="info-bar"><span>Running Retreat — aprile/maggio&nbsp;2027, date in&nbsp;arrivo &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
+<div class="info-bar"><span>Good Life — Sabato 14 novembre, Fiera Bolzano &nbsp;<a href="#page-eventi">Scopri di&nbsp;più</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
   <div class="header-inner">
     <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
@@ -4174,9 +3916,9 @@
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
         <li><a class="site-nav__link" href="#page-chi-sono">Chi sono</a></li>
-        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
         <li><a class="site-nav__link" href="#page-coaching">Coaching</a></li>
         <li><a class="site-nav__link" href="#page-aziendale">Benessere aziendale</a></li>
+        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
         <li><a class="site-nav__link" href="#page-eventi">Eventi</a></li>
         <li><a class="site-nav__link" href="#page-news">News</a></li>
         <li><a class="site-nav__link" href="#page-contatti">Contatti</a></li>
@@ -4188,9 +3930,9 @@
 </header>
 <nav class="mobile-nav" aria-label="Menu mobile" aria-hidden="true">
   <a class="mobile-nav__link" href="#page-chi-sono">Chi sono</a>
-  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
   <a class="mobile-nav__link" href="#page-coaching">Coaching</a>
   <a class="mobile-nav__link" href="#page-aziendale">Benessere aziendale</a>
+  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
   <a class="mobile-nav__link" href="#page-eventi">Eventi</a>
   <a class="mobile-nav__link" href="#page-news">News</a>
   <a class="mobile-nav__link" href="#page-contatti">Contatti</a>
@@ -4217,19 +3959,56 @@
     </div>
     <div class="events-list reveal">
       <article class="event-card">
-        <div class="event-card__date"><span class="event-card__day">7</span><span class="event-card__month">Nov</span></div>
-        <div class="event-card__body"><span class="event-card__type">Yoga al&nbsp;museo</span><h3 class="event-card__title">Yoga al&nbsp;Museo</h3><p class="event-card__desc">Tre appuntamenti: 7&nbsp;novembre, 28&nbsp;novembre e&nbsp;12&nbsp;dicembre.</p><div class="event-card__meta"><span>Ore 15.00</span><span>Museion</span></div></div>
-        <div class="event-card__cta"><a href="javascript:void(0)" aria-disabled="true" title="[DA DEFINIRE: link]" class="btn btn--primary btn--sm is-inactive">Scopri di&nbsp;più</a></div>
+        <div class="event-card__date"><span class="event-card__day">14</span><span class="event-card__month">Nov</span></div>
+        <div class="event-card__img"><img src="Assets/Fotodev/goodlife.webp" alt="Good Life — Fiera Bolzano, 13-15 novembre 2026" loading="lazy"/></div>
+        <div class="event-card__body"><span class="event-card__type">Evento</span><h3 class="event-card__title">Good Life</h3><p class="event-card__desc">Speech «Il benessere non è un’altra cosa da&nbsp;fare»: smettere di rincorrere il benessere e&nbsp;iniziare a&nbsp;sentirlo.</p><div class="event-card__meta"><span>Sab 14 novembre 2026, ore&nbsp;12.30 circa</span><span>Fiera Bolzano, Piazza Fiera 1 — stand C20/12</span></div></div>
+        <div class="event-card__cta"><a href="https://fierabolzano.it" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">Info sulla fiera</a></div>
       </article>
       <article class="event-card">
-        <div class="event-card__date"><span class="event-card__day">14</span><span class="event-card__month">Nov</span></div>
-        <div class="event-card__body"><span class="event-card__type">Evento</span><h3 class="event-card__title">Good Life</h3><p class="event-card__desc">[Breve descrizione — da&nbsp;definire.]</p><div class="event-card__meta"><span>Ore 12.30 circa</span><span>[DA DEFINIRE]</span></div></div>
-        <div class="event-card__cta"><a href="javascript:void(0)" aria-disabled="true" title="[DA DEFINIRE: link]" class="btn btn--primary btn--sm is-inactive">Scopri di&nbsp;più</a></div>
+        <div class="event-card__date"><span class="event-card__day">7·28</span><span class="event-card__month">Nov</span></div>
+        <div class="event-card__img"><img src="Assets/Fotodev/yogaalmuseo.webp" alt="Yoga a Museion — Dove lo sguardo rallenta" loading="lazy"/></div>
+        <div class="event-card__body"><span class="event-card__type">Yoga a&nbsp;Museion</span><h3 class="event-card__title">Yoga a&nbsp;Museion — Dove lo sguardo rallenta</h3><p class="event-card__desc">Un ciclo di appuntamenti dedicati al benessere dentro le mostre del museo. Vedi la scheda sotto.</p><div class="event-card__meta"><span>Sab 7 e&nbsp;28 novembre, sab 12 dicembre 2026, ore&nbsp;15-16</span><span>Museion, Piazza Piero Siena 1, Bolzano</span></div></div>
+        <div class="event-card__cta"><a href="https://museion.it" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">Info e&nbsp;prenotazione</a></div>
       </article>
       <article class="event-card">
         <div class="event-card__date"><span class="event-card__day">10–11</span><span class="event-card__month">Apr</span></div>
-        <div class="event-card__body"><span class="event-card__type">Evento</span><h3 class="event-card__title">Yoga Meeting</h3><p class="event-card__desc">[Breve descrizione — da&nbsp;definire.]</p><div class="event-card__meta"><span>[Orario — da&nbsp;definire]</span><span>[DA DEFINIRE]</span></div></div>
-        <div class="event-card__cta"><a href="javascript:void(0)" aria-disabled="true" title="[DA DEFINIRE: link]" class="btn btn--primary btn--sm is-inactive">Scopri di&nbsp;più</a></div>
+        <div class="event-card__img"><img src="Assets/Fotodev/yogameeting.webp" alt="Yoga Meeting — mani in una pratica di yoga" loading="lazy"/></div>
+        <div class="event-card__body"><span class="event-card__type">Yoga Meeting 2027</span><h3 class="event-card__title">Yoga Meeting</h3><p class="event-card__desc">Masterclass e&nbsp;workshop di&nbsp;Nicoletta. Vedi la scheda sotto.</p><div class="event-card__meta"><span>10-11 aprile 2027</span><span>Kurhaus, Passeggiata Lungo Passirio 8, Merano</span></div></div>
+        <div class="event-card__cta"><a href="https://yogameeting.org" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">Programma</a></div>
+      </article>
+      <article class="event-card">
+        <div class="event-card__date"><span class="event-card__day">2027</span><span class="event-card__month">Mar</span></div>
+        <div class="event-card__img"><img src="Assets/Fotodev/anima%20retreat.webp" alt="Anima Retreat — un gruppo seduto in cerchio durante una sessione" loading="lazy"/></div>
+        <div class="event-card__body"><span class="event-card__type">Retreat</span><h3 class="event-card__title">Anima Retreat – The Quality of&nbsp;Life</h3><p class="event-card__desc">Quattro giorni tra yoga, salute e&nbsp;natura.</p><div class="event-card__meta"><span>Prossima edizione: marzo 2027, date in&nbsp;arrivo</span></div></div>
+        <div class="event-card__cta"><a href="#page-evento-detail" class="btn btn--primary btn--sm">Scopri di&nbsp;più</a></div>
+      </article>
+      <article class="event-card">
+        <div class="event-card__date"><span class="event-card__day">2027</span><span class="event-card__month">Apr–Mag</span></div>
+        <div class="event-card__img"><img src="Assets/Fotodev/runningretreat.webp" alt="Running Retreat — un corridore in movimento" loading="lazy"/></div>
+        <div class="event-card__body"><span class="event-card__type">Retreat</span><h3 class="event-card__title">Running Retreat</h3><p class="event-card__desc">Primavera 2027, periodo aprile-maggio, date in&nbsp;arrivo.</p><div class="event-card__meta"><span>Primavera 2027</span></div></div>
+        <div class="event-card__cta"></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--neutral" aria-label="Schede evento">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="section-label">Schede</span>
+      <h2>Cosa succede negli appuntamenti.</h2>
+    </div>
+    <div class="ev-schede reveal">
+      <article class="ev-scheda">
+        <h3>Yoga a&nbsp;Museion — Dove lo sguardo rallenta</h3>
+        <p>Museion ospita, all’interno delle mostre in corso, un ciclo di&nbsp;appuntamenti dedicati al&nbsp;benessere. Le&nbsp;sessioni invitano a&nbsp;rallentare lo&nbsp;sguardo, attraversare il&nbsp;silenzio e&nbsp;riscoprire nell’osservazione uno spazio di&nbsp;autentica presenza, in&nbsp;dialogo con&nbsp;le opere e&nbsp;con&nbsp;gli spazi del&nbsp;museo.</p>
+        <p>Non servono abbigliamento né tappetino: solo presenza. Ingresso libero.</p>
+      </article>
+      <article class="ev-scheda">
+        <h3>Yoga Meeting 2027</h3>
+        <p><strong>Beyond Performance — Il potere dello yoga tra respiro, movimento e recupero.</strong> Masterclass di&nbsp;105&nbsp;minuti sullo yoga come alleato della preparazione sportiva e&nbsp;della longevità atletica: Pranayama, mobilità, equilibrio posturale e&nbsp;rilassamento profondo. Aperta a&nbsp;sportivi di&nbsp;ogni livello.</p>
+        <p><strong>La longevità prima della longevità — Quando lo yoga insegnava già l’arte di&nbsp;vivere bene.</strong> Workshop di&nbsp;90&nbsp;minuti sul dialogo tra filosofia yogica e&nbsp;scienza della longevità: stress, salute cardiovascolare, mobilità e&nbsp;benessere psicofisico.</p>
+        <p class="ev-scheda__nota">[Giorno e&nbsp;orario delle due sessioni — da&nbsp;definire con&nbsp;Nicoletta]</p>
       </article>
     </div>
   </div>
@@ -4257,9 +4036,9 @@
           <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
+      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
       <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
-      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="#">[email — da&nbsp;inserire]</a></p><p class="footer__contact-item">[Città — da&nbsp;inserire]</p></div>
+      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a></p><p class="footer__contact-item">Bolzano</p></div>
     </div>
     <div class="footer__bottom">
       <nav class="footer__legal" aria-label="Link legali"><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></nav>
@@ -4271,7 +4050,7 @@
 </div><!-- /page-eventi -->
 <div class="wf-page vi-inner" id="page-news">
 
-<div class="info-bar"><span>Running Retreat — aprile/maggio&nbsp;2027, date in&nbsp;arrivo &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
+<div class="info-bar"><span>Good Life — Sabato 14 novembre, Fiera Bolzano &nbsp;<a href="#page-eventi">Scopri di&nbsp;più</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
   <div class="header-inner">
     <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
@@ -4283,9 +4062,9 @@
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
         <li><a class="site-nav__link" href="#page-chi-sono">Chi sono</a></li>
-        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
         <li><a class="site-nav__link" href="#page-coaching">Coaching</a></li>
         <li><a class="site-nav__link" href="#page-aziendale">Benessere aziendale</a></li>
+        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
         <li><a class="site-nav__link" href="#page-eventi">Eventi</a></li>
         <li><a class="site-nav__link" href="#page-news">News</a></li>
         <li><a class="site-nav__link" href="#page-contatti">Contatti</a></li>
@@ -4297,9 +4076,9 @@
 </header>
 <nav class="mobile-nav" aria-label="Menu mobile" aria-hidden="true">
   <a class="mobile-nav__link" href="#page-chi-sono">Chi sono</a>
-  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
   <a class="mobile-nav__link" href="#page-coaching">Coaching</a>
   <a class="mobile-nav__link" href="#page-aziendale">Benessere aziendale</a>
+  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
   <a class="mobile-nav__link" href="#page-eventi">Eventi</a>
   <a class="mobile-nav__link" href="#page-news">News</a>
   <a class="mobile-nav__link" href="#page-contatti">Contatti</a>
@@ -4313,7 +4092,7 @@
     <div class="page-hero__inner">
       <span class="section-label">News</span>
       <h1>Articoli, risorse e&nbsp;aggiornamenti.</h1>
-      <p class="page-hero__desc">Contenuti su yoga, coaching e benessere. Approfondimenti, eventi pubblici e tutto quello che succede fuori dalla sede.</p>
+      <p class="page-hero__desc">Contenuti su coaching, benessere e yoga. Approfondimenti, eventi pubblici e tutto quello che succede fuori dalla sede.</p>
     </div>
   </div>
 </section>
@@ -4323,13 +4102,13 @@
     <span class="section-label reveal">In evidenza</span>
     <div class="inner-2col inner-2col--center reveal">
       <div class="inner-image">
-        <img src="Assets/Foto/newseeventi.webp" alt="I retreat del 2027" loading="lazy"/>
+        <img src="Assets/Fotodev/goodlife.webp" alt="Good Life — Fiera Bolzano, 13-15 novembre 2026" style="object-fit:contain;background:#fff;" loading="lazy"/>
       </div>
       <div>
-        <span class="tag tag--peach" style="margin-bottom:0.8rem;display:inline-block;">Retreat 2027</span>
-        <h2 style="margin-bottom:1rem;">I retreat del&nbsp;2027: Anima e&nbsp;Running Retreat</h2>
-        <p style="margin-bottom:1.2rem;">A&nbsp;marzo torna Anima Retreat, tra&nbsp;aprile e&nbsp;maggio arriva il&nbsp;nuovo Running Retreat. Cosa aspettarsi dalle due esperienze, in&nbsp;attesa di&nbsp;date e&nbsp;location.</p>
-        <a href="javascript:void(0)" aria-disabled="true" title="[DA DEFINIRE: link]" class="btn btn--primary is-inactive">Leggi l'articolo</a>
+        <span class="tag tag--peach" style="margin-bottom:0.8rem;display:inline-block;">Evento</span>
+        <h2 style="margin-bottom:1rem;">«Il benessere non è un’altra cosa da&nbsp;fare»: ci vediamo a&nbsp;Good Life</h2>
+        <p style="margin-bottom:1.2rem;">Sabato 14 novembre, alle 12.30 circa, sarò a&nbsp;Good Life, la fiera del vivere bene alla Fiera Bolzano. Parlerò di&nbsp;come smettere di&nbsp;rincorrere il&nbsp;benessere e&nbsp;iniziare a&nbsp;sentirlo, portando coaching e&nbsp;yoga nelle abitudini di&nbsp;tutti i&nbsp;giorni. Durante la&nbsp;fiera mi trovi allo stand C20/12: passa a&nbsp;conoscermi, a&nbsp;fare due chiacchiere o&nbsp;a&nbsp;scoprire i&nbsp;prossimi percorsi.</p>
+        <a href="https://fierabolzano.it" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Scopri di&nbsp;più</a>
       </div>
     </div>
   </div>
@@ -4340,107 +4119,52 @@
     <div class="section__header reveal">
       <span class="section-label">Incontri e&nbsp;panel</span>
       <h2>Eventi e&nbsp;appuntamenti pubblici.</h2>
-      <p class="section__intro">Una selezione di&nbsp;appuntamenti pubblici su&nbsp;yoga, benessere e&nbsp;coaching — panel, conversazioni e&nbsp;incontri aperti.</p>
+      <p class="section__intro">Una selezione di&nbsp;appuntamenti pubblici su&nbsp;coaching, benessere e&nbsp;yoga — panel, conversazioni e&nbsp;incontri aperti.</p>
     </div>
     <div class="grid-3 reveal">
 
       <article style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,0.07);">
-        <div style="aspect-ratio:4/3;background:var(--c-neutral-100);display:flex;align-items:center;justify-content:center;color:var(--c-neutral-300);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;">[Locandina — da&nbsp;aggiornare]</div>
+        <div style="aspect-ratio:4/3;overflow:hidden;background:#fff;"><img src="Assets/Fotodev/yogaalmuseo.webp" alt="Yoga a Museion — Dove lo sguardo rallenta" style="width:100%;height:100%;object-fit:cover;" loading="lazy"/></div>
         <div style="padding:1.2rem;">
           <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.6rem;flex-wrap:wrap;">
-            <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;background:var(--c-neutral-100);color:var(--c-neutral-500);padding:0.2rem 0.6rem;border-radius:4px;">Yoga</span>
+            <span class="tag tag--peach">Yoga</span>
           </div>
-          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Yoga al&nbsp;Museo</h3>
-          <p style="font-size:0.8rem;color:var(--c-neutral-400);line-height:1.55;margin-bottom:0.8rem;">Tre lezioni negli spazi del&nbsp;museo.</p>
+          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Yoga a&nbsp;Museion</h3>
+          <p style="font-size:0.8rem;color:var(--c-neutral-400);line-height:1.55;margin-bottom:0.8rem;">Tre appuntamenti dentro le mostre del museo: pratiche per rallentare lo sguardo.</p>
           <div style="font-size:0.75rem;color:var(--c-neutral-400);display:flex;flex-direction:column;gap:0.25rem;">
-            <span>7/11, 28/11 e&nbsp;12/12, ore&nbsp;15.00</span>
-            <span>Museion</span>
+            <span>Sab 7 e&nbsp;28 novembre, sab 12 dicembre 2026, ore&nbsp;15-16</span>
+            <span>Museion, Piazza Piero Siena 1, Bolzano</span>
           </div>
         </div>
       </article>
 
       <article style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,0.07);">
-        <div style="aspect-ratio:4/3;background:var(--c-neutral-100);display:flex;align-items:center;justify-content:center;color:var(--c-neutral-300);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;">[Locandina — da&nbsp;aggiornare]</div>
+        <div style="aspect-ratio:4/3;overflow:hidden;background:#fff;"><img src="Assets/Fotodev/goodlife.webp" alt="Good Life — Fiera Bolzano" style="width:100%;height:100%;object-fit:contain;" loading="lazy"/></div>
         <div style="padding:1.2rem;">
           <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.6rem;flex-wrap:wrap;">
-            <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;background:var(--c-neutral-100);color:var(--c-neutral-500);padding:0.2rem 0.6rem;border-radius:4px;">Evento</span>
+            <span class="tag tag--peach">Evento</span>
           </div>
           <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Good Life</h3>
-          <p style="font-size:0.8rem;color:var(--c-neutral-400);line-height:1.55;margin-bottom:0.8rem;">[Breve descrizione — da&nbsp;definire.]</p>
+          <p style="font-size:0.8rem;color:var(--c-neutral-400);line-height:1.55;margin-bottom:0.8rem;">Speech «Il benessere non è un’altra cosa da&nbsp;fare».</p>
           <div style="font-size:0.75rem;color:var(--c-neutral-400);display:flex;flex-direction:column;gap:0.25rem;">
-            <span>14/11, ore&nbsp;12.30 circa</span>
-            <span>[DA DEFINIRE]</span>
+            <span>Sab 14 novembre 2026, ore&nbsp;12.30 circa</span>
+            <span>Fiera Bolzano, Piazza Fiera 1 — stand C20/12</span>
           </div>
         </div>
       </article>
 
       <article style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,0.07);">
-        <div style="aspect-ratio:4/3;background:var(--c-neutral-100);display:flex;align-items:center;justify-content:center;color:var(--c-neutral-300);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;">[Locandina — da&nbsp;aggiornare]</div>
+        <div style="aspect-ratio:4/3;overflow:hidden;background:#fff;"><img src="Assets/Fotodev/yogameeting.webp" alt="Yoga Meeting — mani in una pratica di yoga" style="width:100%;height:100%;object-fit:cover;" loading="lazy"/></div>
         <div style="padding:1.2rem;">
           <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.6rem;flex-wrap:wrap;">
-            <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;background:var(--c-neutral-100);color:var(--c-neutral-500);padding:0.2rem 0.6rem;border-radius:4px;">Evento</span>
+            <span class="tag tag--peach">Yoga Meeting 2027</span>
           </div>
           <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Yoga Meeting</h3>
-          <p style="font-size:0.8rem;color:var(--c-neutral-400);line-height:1.55;margin-bottom:0.8rem;">[Breve descrizione — da&nbsp;definire.]</p>
+          <p style="font-size:0.8rem;color:var(--c-neutral-400);line-height:1.55;margin-bottom:0.8rem;">Masterclass e&nbsp;workshop di&nbsp;Nicoletta.</p>
           <div style="font-size:0.75rem;color:var(--c-neutral-400);display:flex;flex-direction:column;gap:0.25rem;">
-            <span>10–11/4</span>
-            <span>[DA DEFINIRE]</span>
+            <span>10-11 aprile 2027</span>
+            <span>Kurhaus, Passeggiata Lungo Passirio 8, Merano</span>
           </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<section class="section section--neutral">
-  <div class="container">
-    <div class="section__header reveal">
-      <span class="section-label">Video</span>
-      <h2>Guarda i&nbsp;contenuti.</h2>
-      <p class="section__intro">Interviste, pillole pratiche e&nbsp;approfondimenti su&nbsp;yoga, coaching e&nbsp;benessere.</p>
-    </div>
-    <div class="grid-3 reveal">
-
-      <article style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,0.07);">
-        <div style="aspect-ratio:16/9;background:var(--c-neutral-200);display:flex;align-items:center;justify-content:center;position:relative;">
-          <div style="width:48px;height:48px;border-radius:50%;background:rgba(0,0,0,0.55);display:flex;align-items:center;justify-content:center;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><polygon points="6 3 20 12 6 21 6 3"/></svg>
-          </div>
-          <span style="position:absolute;bottom:8px;right:10px;font-size:0.7rem;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:2px 6px;border-radius:3px;">[0:00]</span>
-        </div>
-        <div style="padding:1.2rem;">
-          <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;background:var(--c-neutral-100);color:var(--c-neutral-500);padding:0.2rem 0.6rem;border-radius:4px;display:inline-block;margin-bottom:0.6rem;">[Canale — es. YouTube]</span>
-          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">[Titolo video — da&nbsp;aggiornare]</h3>
-          <p style="font-size:0.8rem;color:var(--c-neutral-400);line-height:1.55;">[Breve descrizione del&nbsp;contenuto video.]</p>
-        </div>
-      </article>
-
-      <article style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,0.07);">
-        <div style="aspect-ratio:16/9;background:var(--c-neutral-200);display:flex;align-items:center;justify-content:center;position:relative;">
-          <div style="width:48px;height:48px;border-radius:50%;background:rgba(0,0,0,0.55);display:flex;align-items:center;justify-content:center;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><polygon points="6 3 20 12 6 21 6 3"/></svg>
-          </div>
-          <span style="position:absolute;bottom:8px;right:10px;font-size:0.7rem;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:2px 6px;border-radius:3px;">[0:00]</span>
-        </div>
-        <div style="padding:1.2rem;">
-          <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;background:var(--c-neutral-100);color:var(--c-neutral-500);padding:0.2rem 0.6rem;border-radius:4px;display:inline-block;margin-bottom:0.6rem;">[Canale — es. Instagram]</span>
-          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">[Titolo video — da&nbsp;aggiornare]</h3>
-          <p style="font-size:0.8rem;color:var(--c-neutral-400);line-height:1.55;">[Breve descrizione del&nbsp;contenuto video.]</p>
-        </div>
-      </article>
-
-      <article style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,0.07);">
-        <div style="aspect-ratio:16/9;background:var(--c-neutral-200);display:flex;align-items:center;justify-content:center;position:relative;">
-          <div style="width:48px;height:48px;border-radius:50%;background:rgba(0,0,0,0.55);display:flex;align-items:center;justify-content:center;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><polygon points="6 3 20 12 6 21 6 3"/></svg>
-          </div>
-          <span style="position:absolute;bottom:8px;right:10px;font-size:0.7rem;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:2px 6px;border-radius:3px;">[0:00]</span>
-        </div>
-        <div style="padding:1.2rem;">
-          <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;background:var(--c-neutral-100);color:var(--c-neutral-500);padding:0.2rem 0.6rem;border-radius:4px;display:inline-block;margin-bottom:0.6rem;">[Canale — da&nbsp;aggiornare]</span>
-          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">[Titolo video — da&nbsp;aggiornare]</h3>
-          <p style="font-size:0.8rem;color:var(--c-neutral-400);line-height:1.55;">[Breve descrizione del&nbsp;contenuto video.]</p>
         </div>
       </article>
 
@@ -4455,12 +4179,9 @@
       <h2>Esplora le&nbsp;risorse.</h2>
     </div>
     <div class="grid-3 reveal">
-      <article class="news-card"><div class="news-card__image"><img src="Assets/Foto/newseeventi2.webp" alt="[Titolo articolo 1]" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--peach">Retreat</span><h3 class="news-card__title">Running Retreat 2027: correre con&nbsp;consapevolezza</h3><p class="news-card__desc">Perché unire corsa e&nbsp;yoga, e&nbsp;cosa cambia nel&nbsp;modo di&nbsp;muoversi.</p><a href="javascript:void(0)" class="news-card__link" aria-disabled="true" title="[DA DEFINIRE: link articolo]">Leggi →</a></div></article>
-      <article class="news-card"><div class="news-card__image"><img src="Assets/Foto/newseeventi3.webp" alt="[Titolo articolo 2]" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--peach">Yoga</span><h3 class="news-card__title">Lo&nbsp;yoga entra al&nbsp;museo</h3><p class="news-card__desc">Com’è nata l’idea di&nbsp;praticare al&nbsp;Museion e&nbsp;cosa offre lo&nbsp;spazio dell’arte alla&nbsp;pratica.</p><a href="javascript:void(0)" class="news-card__link" aria-disabled="true" title="[DA DEFINIRE: link articolo]">Leggi →</a></div></article>
-      <article class="news-card"><div class="news-card__image"><img src="Assets/Foto/newseeventi.webp" alt="[Titolo articolo 3]" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--peach">Eventi</span><h3 class="news-card__title">Good Life: appunti dall’incontro</h3><p class="news-card__desc">I temi emersi e&nbsp;le domande del&nbsp;pubblico, in&nbsp;sintesi.</p><a href="javascript:void(0)" class="news-card__link" aria-disabled="true" title="[DA DEFINIRE: link articolo]">Leggi →</a></div></article>
-      <article class="news-card"><div class="news-card__image"><img src="Assets/Foto/newseeventi2.webp" alt="[Titolo articolo 4]" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--peach">Aziende</span><h3 class="news-card__title">Il benessere in&nbsp;azienda si misura</h3><p class="news-card__desc">Dalla misurazione dello stato di&nbsp;salute al&nbsp;piano su&nbsp;misura: come funziona Benessere Aziendale.</p><a href="javascript:void(0)" class="news-card__link" aria-disabled="true" title="[DA DEFINIRE: link articolo]">Leggi →</a></div></article>
-      <article class="news-card"><div class="news-card__image"><img src="Assets/Foto/newseeventi3.webp" alt="[Titolo articolo 5]" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--peach">[Categoria — da&nbsp;aggiornare]</span><h3 class="news-card__title">[Titolo articolo 5 — da&nbsp;aggiornare]</h3><p class="news-card__desc">[Estratto breve — da&nbsp;aggiornare.]</p><a href="javascript:void(0)" class="news-card__link" aria-disabled="true" title="[DA DEFINIRE: link articolo]">Leggi →</a></div></article>
-      <article class="news-card"><div class="news-card__image"><img src="Assets/Foto/newseeventi.webp" alt="[Titolo articolo 6]" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--peach">[Categoria — da&nbsp;aggiornare]</span><h3 class="news-card__title">[Titolo articolo 6 — da&nbsp;aggiornare]</h3><p class="news-card__desc">[Estratto breve — da&nbsp;aggiornare.]</p><a href="javascript:void(0)" class="news-card__link" aria-disabled="true" title="[DA DEFINIRE: link articolo]">Leggi →</a></div></article>
+      <article class="news-card"><div class="news-card__image"><img src="Assets/Fotodev/yogaalmuseo.webp" alt="Yoga al Museo: tre appuntamenti al Museion" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--peach">Yoga</span><h3 class="news-card__title">Yoga al&nbsp;Museo: tre appuntamenti al&nbsp;Museion</h3><p class="news-card__desc">Lo yoga entra nelle mostre del Museion di&nbsp;Bolzano: sabato 7 e&nbsp;28 novembre e&nbsp;sabato 12 dicembre, dalle 15 alle 16. Pratiche per rallentare lo sguardo, attraversare il&nbsp;silenzio e&nbsp;ritrovare presenza, in&nbsp;dialogo con&nbsp;le opere. Non servono abbigliamento né tappetino. Ingresso libero, info e&nbsp;prenotazione su&nbsp;museion.it.</p><a href="https://museion.it" target="_blank" rel="noopener noreferrer" class="news-card__link">Info e&nbsp;prenotazione →</a></div></article>
+      <article class="news-card"><div class="news-card__image"><img src="Assets/Fotodev/runningretreat.webp" alt="Running Retreat: arriva il nuovo ritiro di primavera" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--peach">Retreat</span><h3 class="news-card__title">Running Retreat: arriva il&nbsp;nuovo ritiro di&nbsp;primavera</h3><p class="news-card__desc">Dopo Anima Retreat nasce un&nbsp;nuovo progetto: un&nbsp;retreat che&nbsp;unisce corsa, coaching, benessere e&nbsp;yoga. Si terrà nella primavera 2027, tra&nbsp;aprile e&nbsp;maggio; date e&nbsp;location saranno annunciate a&nbsp;breve. Vuoi ricevere le&nbsp;informazioni in&nbsp;anteprima? Scrivimi a&nbsp;info@nicolettaingusci.it.</p><a href="mailto:info@nicolettaingusci.it" target="_blank" rel="noopener noreferrer" class="news-card__link">Scrivimi →</a></div></article>
+      <article class="news-card"><div class="news-card__image"><img src="Assets/Fotodev/benessereaziendale.webp" alt="Benessere Aziendale: coaching e benessere per le aziende di Alto Adige e Trentino" loading="lazy"/></div><div class="news-card__body"><span class="tag tag--peach">Aziende</span><h3 class="news-card__title">Benessere Aziendale: coaching e&nbsp;benessere per&nbsp;le aziende di&nbsp;Alto Adige e&nbsp;Trentino</h3><p class="news-card__desc">Il benessere delle persone è anche il&nbsp;benessere dell’azienda. Benessere Aziendale è il&nbsp;programma clinico e&nbsp;misurabile sviluppato con&nbsp;un’équipe di&nbsp;specialisti: si&nbsp;parte dalla misurazione dello stato di&nbsp;salute dei collaboratori, si&nbsp;costruisce un&nbsp;piano su&nbsp;misura e&nbsp;si&nbsp;verificano i&nbsp;risultati. Scopri programmi e&nbsp;formati su&nbsp;benessereaziendale.it.</p><a href="https://www.benessereaziendale.it/" target="_blank" rel="noopener noreferrer" class="news-card__link">benessereaziendale.it →</a></div></article>
     </div>
   </div>
 </section>
@@ -4487,9 +4208,9 @@
           <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
+      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
       <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
-      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="#">[email — da&nbsp;inserire]</a></p><p class="footer__contact-item">[Città — da&nbsp;inserire]</p></div>
+      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a></p><p class="footer__contact-item">Bolzano</p></div>
     </div>
     <div class="footer__bottom">
       <nav class="footer__legal" aria-label="Link legali"><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></nav>
@@ -4501,7 +4222,7 @@
 </div><!-- /page-news -->
 <div class="wf-page vi-inner" id="page-evento-detail">
 
-<div class="info-bar"><span>Running Retreat — aprile/maggio&nbsp;2027, date in&nbsp;arrivo &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
+<div class="info-bar"><span>Good Life — Sabato 14 novembre, Fiera Bolzano &nbsp;<a href="#page-eventi">Scopri di&nbsp;più</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
   <div class="header-inner">
     <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
@@ -4513,9 +4234,9 @@
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
         <li><a class="site-nav__link" href="#page-chi-sono">Chi sono</a></li>
-        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
         <li><a class="site-nav__link" href="#page-coaching">Coaching</a></li>
         <li><a class="site-nav__link" href="#page-aziendale">Benessere aziendale</a></li>
+        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
         <li><a class="site-nav__link" href="#page-eventi">Eventi</a></li>
         <li><a class="site-nav__link" href="#page-news">News</a></li>
         <li><a class="site-nav__link" href="#page-contatti">Contatti</a></li>
@@ -4527,9 +4248,9 @@
 </header>
 <nav class="mobile-nav" aria-label="Menu mobile" aria-hidden="true">
   <a class="mobile-nav__link" href="#page-chi-sono">Chi sono</a>
-  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
   <a class="mobile-nav__link" href="#page-coaching">Coaching</a>
   <a class="mobile-nav__link" href="#page-aziendale">Benessere aziendale</a>
+  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
   <a class="mobile-nav__link" href="#page-eventi">Eventi</a>
   <a class="mobile-nav__link" href="#page-news">News</a>
   <a class="mobile-nav__link" href="#page-contatti">Contatti</a>
@@ -4544,13 +4265,12 @@
     <div class="page-hero__inner">
       <div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.8rem;flex-wrap:wrap;">
         <span class="event-badge" style="position:static;">Retreat</span>
-        <span style="font-size:0.8rem;color:var(--c-neutral-400);letter-spacing:0.1em;text-transform:uppercase;"><span class="ev-meta">Prossime date in&nbsp;arrivo</span></span>
+        <span style="font-size:0.8rem;color:var(--c-neutral-400);letter-spacing:0.1em;text-transform:uppercase;"><span class="ev-meta">Marzo 2027</span></span>
       </div>
       <h1>Anima Retreat – The Quality of&nbsp;Life</h1>
-      <p class="page-hero__desc">Un’esperienza che&nbsp;unisce yoga, medicina, scienza e&nbsp;natura per&nbsp;esplorare ciò che&nbsp;realmente determina la&nbsp;qualità della nostra vita.</p>
+      <p class="page-hero__desc">Prossima edizione: marzo 2027, date in&nbsp;arrivo.</p>
       <div class="page-hero__ctas" style="margin-top:1.5rem;">
-        <a href="#form-iscrizione" class="btn btn--primary" onclick="document.getElementById('form-iscrizione').scrollIntoView({behavior:'smooth'});return false;">Iscriviti ora</a>
-        <a href="#" class="btn btn--outline-frag" title="[DA DEFINIRE: file PDF del programma]">Scarica il&nbsp;programma&nbsp;PDF</a>
+        <a href="#form-iscrizione" class="btn btn--primary" onclick="document.getElementById('form-iscrizione').scrollIntoView({behavior:'smooth'});return false;">Richiedi informazioni</a>
       </div>
     </div>
   </div>
@@ -4560,21 +4280,17 @@
   <div class="container">
     <div class="inner-2col inner-2col--center reveal">
       <div class="inner-image" style="clip-path:polygon(0 0,86% 0,100% 14%,100% 100%,14% 100%,0 86%);overflow:hidden;">
-        <img src="Assets/Foto/newseeventi.webp" alt="[ALT TEXT DA DEFINIRE — immagine evento/location non fornita]" loading="lazy"/>
+        <img src="Assets/Fotodev/anima%20retreat.webp" alt="Un gruppo seduto in cerchio durante una sessione del retreat" loading="lazy"/>
       </div>
       <div>
-        <span class="section-label">Il programma</span>
-        <h2 style="margin-bottom:1.2rem;">Un’esperienza che&nbsp;unisce yoga, medicina, scienza e&nbsp;natura</h2>
+        <span class="section-label">Il retreat</span>
+        <h2 style="margin-bottom:1.2rem;">Quattro giorni tra yoga, salute e&nbsp;natura.</h2>
         <div class="ev-programma__testo">
-        <p>Pratiche di&nbsp;asana, pranayama e&nbsp;meditazione si intrecciano con&nbsp;gli interventi di&nbsp;medici e&nbsp;professionisti della salute, offrendo strumenti concreti per&nbsp;migliorare il&nbsp;proprio benessere in&nbsp;modo semplice e&nbsp;sostenibile.</p>
-        <p>La grande novità di&nbsp;questa edizione sarà un&nbsp;percorso alimentare dedicato: un’alimentazione studiata per&nbsp;nutrire il&nbsp;corpo in&nbsp;profondità, favorire i&nbsp;naturali processi di&nbsp;riequilibrio dell’organismo e&nbsp;dimostrare come un&nbsp;piatto semplice, equilibrato e&nbsp;consapevole possa diventare uno strumento quotidiano di&nbsp;salute.</p>
-        <p>Accanto allo yoga, la&nbsp;natura sarà protagonista attraverso passeggiate e&nbsp;trekking, mentre le&nbsp;costellazioni sistemico-familiari offriranno uno spazio di&nbsp;ascolto e&nbsp;crescita interiore.</p>
-        <p>L’obiettivo è semplice: fornire conoscenze, esperienze e&nbsp;strumenti pratici da&nbsp;portare nella vita di&nbsp;tutti i&nbsp;giorni, perché il&nbsp;benessere non nasce da&nbsp;gesti straordinari, ma&nbsp;dalla qualità delle scelte che&nbsp;compiamo ogni giorno.</p>
-        <p>Il retreat include una formazione certificata <strong>Yoga Alliance International – 20H</strong>.</p>
-        <p><em>Un invito a&nbsp;vivere con&nbsp;più presenza, più consapevolezza e&nbsp;più qualità.</em></p>
+        <p>Pratica di&nbsp;asana, pranayama e&nbsp;meditazione, incontri con&nbsp;medici e&nbsp;professionisti della salute, un&nbsp;percorso alimentare dedicato, passeggiate e&nbsp;trekking, costellazioni sistemico-familiari.</p>
+        <p>Il retreat include una formazione certificata Yoga Alliance International da&nbsp;20&nbsp;ore.</p>
         </div>
         <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:1.5rem;padding:1.2rem;background:var(--c-green-100);">
-          <div><span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--c-green-700);display:block;margin-bottom:0.25rem;">Data</span><strong>Prossime date in&nbsp;arrivo</strong></div>
+          <div><span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--c-green-700);display:block;margin-bottom:0.25rem;">Data</span><strong>Prossima edizione: marzo 2027, date in&nbsp;arrivo</strong></div>
           <div><span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--c-green-700);display:block;margin-bottom:0.25rem;">Luogo</span><strong>[DA DEFINIRE]</strong></div>
           <div><span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--c-green-700);display:block;margin-bottom:0.25rem;">Quota</span><strong>[DA DEFINIRE]</strong></div>
         </div>
@@ -4587,7 +4303,7 @@
   <div class="container">
     <div class="section__header reveal"><span class="section-label">Il team</span><h2>Chi ti accompagna.</h2></div>
     <div class="ev-team reveal">
-      <article class="ev-team__card"><h3 class="ev-team__name">Dr.ssa Nicoletta Ingusci</h3><p class="ev-team__desc">Insegnante e&nbsp;Formatrice Yoga E-800, coach ICF e&nbsp;specialista in&nbsp;PNL. Accompagna le&nbsp;persone in&nbsp;percorsi di&nbsp;crescita e&nbsp;benessere, integrando yoga, coaching e&nbsp;conoscenze scientifiche per&nbsp;trasformare la&nbsp;consapevolezza in&nbsp;uno stile di&nbsp;vita sano.</p></article>
+      <article class="ev-team__card"><h3 class="ev-team__name">Dr.ssa Nicoletta Ingusci</h3><p class="ev-team__desc">Insegnante e&nbsp;Formatrice Yoga E-800, coach ICF e&nbsp;specialista in&nbsp;PNL. Accompagna le&nbsp;persone in&nbsp;percorsi di&nbsp;crescita e&nbsp;benessere, integrando coaching, yoga e&nbsp;conoscenze scientifiche per&nbsp;trasformare la&nbsp;consapevolezza in&nbsp;uno stile di&nbsp;vita sano.</p></article>
       <article class="ev-team__card"><h3 class="ev-team__name">Dr.ssa Federica Rungger</h3><p class="ev-team__desc">Biologa Nutrizionista: la&nbsp;sua missione è trasformare l’alimentazione in&nbsp;uno strumento di&nbsp;salute, energia e&nbsp;benessere, accompagnando ogni persona verso uno stile di&nbsp;vita più consapevole e&nbsp;sostenibile.</p></article>
       <article class="ev-team__card"><h3 class="ev-team__name">Dr.ssa Isabella Comazzi</h3><p class="ev-team__desc">Medico chirurgo specialista in&nbsp;Scienza dell’alimentazione e&nbsp;medico estetico. Unisce la&nbsp;medicina della nutrizione e&nbsp;la medicina estetica perché crede che&nbsp;la vera bellezza nasca dal&nbsp;benessere interiore e&nbsp;dall’equilibrio dell’organismo.</p></article>
       <article class="ev-team__card"><h3 class="ev-team__name">Dr.ssa Simona Sitia</h3><p class="ev-team__desc">Medico internista, specialista in&nbsp;Nefrologia, che&nbsp;predilige un&nbsp;approccio olistico alla persona e&nbsp;crede fortemente nella prevenzione a&nbsp;360&nbsp;gradi delle malattie.</p></article>
@@ -4597,26 +4313,13 @@
   </div>
 </section>
 
-<section class="section section--neutral" aria-label="Bozza di programma">
-  <div class="container">
-    <div class="section__header reveal"><span class="section-label">Bozza di&nbsp;programma</span><h2>Quattro giorni, giorno per&nbsp;giorno.</h2><p class="section__intro">Il programma può subire variazioni.</p></div>
-    <div class="ev-days reveal">
-      <div class="ev-day"><h3 class="ev-day__title">Giovedì 1 ottobre</h3><ul class="ev-day__list"><li><span class="ev-day__time">15.00-17.00</span><span>Check in</span></li><li><span class="ev-day__time">17.30-19.00</span><span>Cerimonia di&nbsp;apertura</span></li><li><span class="ev-day__time">19.15</span><span>Cena</span></li><li><span class="ev-day__time">21.00-21.30</span><span>Meditazione (Nicoletta e&nbsp;Dina)</span></li></ul></div>
-      <div class="ev-day"><h3 class="ev-day__title">Venerdì 2 ottobre</h3><ul class="ev-day__list"><li><span class="ev-day__time">6.00-8.00</span><span>Sessione Yoga (Nicoletta)</span></li><li><span class="ev-day__time">8.30-9.30</span><span>Colazione consapevole (Dr.ssa Rungger)</span></li><li><span class="ev-day__time">10.30-12.30</span><span>Trekking (Alessandro)</span></li><li><span class="ev-day__time">13.00-14.00</span><span>Pranzo consapevole (Dr.ssa Rungger)</span></li><li><span class="ev-day__time">15.00-18.00</span><span>Laboratorio esperienziale (Dr.ssa Dina Tommasi)</span></li><li><span class="ev-day__time">19.30</span><span>Cena consapevole (Dr.ssa Rungger)</span></li><li><span class="ev-day__time">21.00-22.30</span><span>Meditazione (Nicoletta) o&nbsp;Costellazioni Familiari (Dr.ssa Dina Tommasi)</span></li></ul></div>
-      <div class="ev-day"><h3 class="ev-day__title">Sabato 3 ottobre</h3><ul class="ev-day__list"><li><span class="ev-day__time">6.00-8.00</span><span>Sessione Yoga (Nicoletta)</span></li><li><span class="ev-day__time">8.15</span><span>Colazione consapevole (Dr.ssa Rungger)</span></li><li><span class="ev-day__time">10.30-12.30</span><span>Trekking (Alessandro)</span></li><li><span class="ev-day__time">13.00-14.00</span><span>Pranzo consapevole (Dr.ssa Rungger)</span></li><li><span class="ev-day__time">16.00-18.00</span><span>Laboratorio esperienziale (Dr.ssa Isabella Comazzi)</span></li><li><span class="ev-day__time">19.30</span><span>Cena consapevole (Dr.ssa Rungger)</span></li><li><span class="ev-day__time">21.00-21.30</span><span>Meditazione Slow Beauty Ritual (Nicoletta e&nbsp;Dr.ssa Isabella Comazzi)</span></li></ul></div>
-      <div class="ev-day"><h3 class="ev-day__title">Domenica 4 ottobre</h3><ul class="ev-day__list"><li><span class="ev-day__time">6.00-8.00</span><span>Sessione Yoga (Nicoletta)</span></li><li><span class="ev-day__time">8.15</span><span>Colazione consapevole (Dr.ssa Rungger)</span></li><li><span class="ev-day__time">10.30-12.00</span><span>Laboratorio esperienziale (Dr.ssa Simona Sitia)</span></li><li><span class="ev-day__time">12.00-13.00</span><span>Cerimonia di&nbsp;chiusura</span></li><li><span class="ev-day__time">13.00-14.00</span><span>Pranzo per&nbsp;chi vuole</span></li></ul></div>
-    </div>
-    <p class="ev-days__note reveal">Nelle pause più lunghe è possibile richiedere sessioni private o&nbsp;consulti agli esperti.</p>
-  </div>
-</section>
-
 <!-- FORM ISCRIZIONE — uno per tutti gli eventi, tracciamento per pagina -->
 <section class="section section--cream" id="form-iscrizione">
   <div class="container" style="max-width:720px;">
     <div class="section__header section__header--centered reveal">
       <span class="section-label">Iscrizione</span>
-      <h2>Prenota il&nbsp;tuo posto.</h2>
-      <p class="section__intro">Il programma qui sotto è quello dell’ultima edizione. Lascia i&nbsp;tuoi dati: ti scriviamo appena le&nbsp;nuove date sono confermate.</p>
+      <h2>Vuoi partecipare alla prossima edizione?</h2>
+      <p class="section__intro">Scrivimi per ricevere informazioni e&nbsp;il&nbsp;programma completo: <a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a>.</p>
     </div>
     <div class="reveal" style="background:#fff;border-radius:12px;padding:2.5rem;box-shadow:0 2px 20px rgba(0,0,0,0.07);">
       <form style="display:flex;flex-direction:column;gap:1.4rem;" novalidate>
@@ -4647,7 +4350,7 @@
           <label for="ev-privacy" style="font-size:0.78rem;color:var(--c-neutral-400);line-height:1.5;">Ho letto e accetto la <a href="https://www.iubenda.com/privacy-policy/23619329" style="color:var(--c-green-700);" target="_blank" rel="noopener noreferrer">Privacy Policy</a>. <span class="req" aria-hidden="true">*</span> I dati saranno trattati nel rispetto della normativa vigente.</label>
         </div>
         <div style="padding-top:0.6rem;border-top:1px solid var(--c-neutral-100);">
-          <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;">Invia iscrizione</button>
+          <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;">Invia richiesta</button>
           <p style="font-size:0.72rem;color:var(--c-neutral-400);margin-top:0.8rem;text-align:center;">Questa è una simulazione frontend. Nessun dato viene effettivamente inviato.</p>
         </div>
       </form>
@@ -4667,14 +4370,16 @@
     </div>
     <div class="events-list reveal">
       <article class="event-card">
-        <div class="event-card__date"><span class="event-card__day">[GG]</span><span class="event-card__month">[Mese]</span></div>
-        <div class="event-card__body"><span class="event-card__type">[Retreat]</span><h3 class="event-card__title">[Evento correlato 1 — da&nbsp;aggiornare]</h3><p class="event-card__desc">[Breve descrizione — da&nbsp;aggiornare]</p><div class="event-card__meta"><span>[Luogo]</span></div></div>
-        <div class="event-card__cta"><a href="#page-evento-detail" class="btn btn--primary btn--sm">Scopri e iscriviti</a></div>
+        <div class="event-card__date"><span class="event-card__day">14</span><span class="event-card__month">Nov</span></div>
+        <div class="event-card__img"><img src="Assets/Fotodev/goodlife.webp" alt="Good Life — Fiera Bolzano" loading="lazy"/></div>
+        <div class="event-card__body"><span class="event-card__type">Evento</span><h3 class="event-card__title">Good Life</h3><p class="event-card__desc">Speech «Il benessere non è un’altra cosa da&nbsp;fare».</p><div class="event-card__meta"><span>Sab 14 novembre 2026, ore&nbsp;12.30 circa</span><span>Fiera Bolzano — stand C20/12</span></div></div>
+        <div class="event-card__cta"><a href="#page-eventi" class="btn btn--primary btn--sm">Scopri di&nbsp;più</a></div>
       </article>
       <article class="event-card">
-        <div class="event-card__date"><span class="event-card__day">[GG]</span><span class="event-card__month">[Mese]</span></div>
-        <div class="event-card__body"><span class="event-card__type">[Workshop]</span><h3 class="event-card__title">[Evento correlato 2 — da&nbsp;aggiornare]</h3><p class="event-card__desc">[Breve descrizione — da&nbsp;aggiornare]</p><div class="event-card__meta"><span>[Luogo]</span></div></div>
-        <div class="event-card__cta"><a href="#page-evento-detail" class="btn btn--primary btn--sm">Scopri e iscriviti</a></div>
+        <div class="event-card__date"><span class="event-card__day">7·28</span><span class="event-card__month">Nov</span></div>
+        <div class="event-card__img"><img src="Assets/Fotodev/yogaalmuseo.webp" alt="Yoga a Museion" loading="lazy"/></div>
+        <div class="event-card__body"><span class="event-card__type">Yoga a&nbsp;Museion</span><h3 class="event-card__title">Yoga a&nbsp;Museion</h3><p class="event-card__desc">Dove lo sguardo rallenta.</p><div class="event-card__meta"><span>Sab 7 e&nbsp;28 novembre, sab 12 dicembre 2026</span><span>Museion, Bolzano</span></div></div>
+        <div class="event-card__cta"><a href="#page-eventi" class="btn btn--primary btn--sm">Scopri di&nbsp;più</a></div>
       </article>
     </div>
   </div>
@@ -4694,9 +4399,9 @@
           <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
+      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
       <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
-      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="#">[email — da&nbsp;inserire]</a></p><p class="footer__contact-item">[Città — da&nbsp;inserire]</p></div>
+      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a></p><p class="footer__contact-item">Bolzano</p></div>
     </div>
     <div class="footer__bottom">
       <nav class="footer__legal" aria-label="Link legali"><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></nav>
@@ -4708,7 +4413,7 @@
 </div><!-- /page-evento-detail -->
 <div class="wf-page vi-inner" id="page-contatti">
 
-<div class="info-bar"><span>Running Retreat — aprile/maggio&nbsp;2027, date in&nbsp;arrivo &nbsp;<a href="#page-eventi">Scopri le&nbsp;date</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
+<div class="info-bar"><span>Good Life — Sabato 14 novembre, Fiera Bolzano &nbsp;<a href="#page-eventi">Scopri di&nbsp;più</a></span><button class="info-bar__close" aria-label="Chiudi">&#x2715;</button></div>
 <header class="site-header with-infobar">
   <div class="header-inner">
     <a href="#page-home" class="site-header__logo" aria-label="Nicoletta Ingusci — Homepage">
@@ -4720,9 +4425,9 @@
     <nav class="site-nav" aria-label="Navigazione principale">
       <ul class="site-nav__links" role="list">
         <li><a class="site-nav__link" href="#page-chi-sono">Chi sono</a></li>
-        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
         <li><a class="site-nav__link" href="#page-coaching">Coaching</a></li>
         <li><a class="site-nav__link" href="#page-aziendale">Benessere aziendale</a></li>
+        <li><a class="site-nav__link" href="#page-yoga">Yoga</a></li>
         <li><a class="site-nav__link" href="#page-eventi">Eventi</a></li>
         <li><a class="site-nav__link" href="#page-news">News</a></li>
         <li><a class="site-nav__link" href="#page-contatti">Contatti</a></li>
@@ -4734,9 +4439,9 @@
 </header>
 <nav class="mobile-nav" aria-label="Menu mobile" aria-hidden="true">
   <a class="mobile-nav__link" href="#page-chi-sono">Chi sono</a>
-  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
   <a class="mobile-nav__link" href="#page-coaching">Coaching</a>
   <a class="mobile-nav__link" href="#page-aziendale">Benessere aziendale</a>
+  <a class="mobile-nav__link" href="#page-yoga">Yoga</a>
   <a class="mobile-nav__link" href="#page-eventi">Eventi</a>
   <a class="mobile-nav__link" href="#page-news">News</a>
   <a class="mobile-nav__link" href="#page-contatti">Contatti</a>
@@ -4769,9 +4474,9 @@
             <label for="interesse" class="form-label">Mi interessa <span aria-hidden="true">*</span></label>
             <select id="interesse" name="interesse" class="form-input" required>
               <option value="">Seleziona un&nbsp;percorso</option>
-              <option value="yoga">Yoga</option>
               <option value="coaching">Coaching</option>
               <option value="benessere-aziendale">Benessere aziendale</option>
+              <option value="yoga">Yoga</option>
               <option value="evento">Un evento / retreat</option>
               <option value="altro">Altro</option>
             </select>
@@ -4781,16 +4486,16 @@
           <button type="submit" class="btn btn--primary form-submit">Invia messaggio</button>
           <div class="form-success" aria-live="polite" hidden>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#637664" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="#637664" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <p>Messaggio inviato. Ti rispondo entro 1-2 giorni lavorativi.</p>
+            <p>Messaggio inviato. Ti rispondo entro 48 ore.</p>
           </div>
         </form>
       </div>
       <div class="reveal">
         <div class="contact-info">
           <h3 style="margin-bottom:1.5rem;font-size:1.1rem;">Informazioni utili</h3>
-          <div class="contact-info__item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="1.5"/><path d="M4 4l8 8 8-8" stroke="currentColor" stroke-width="1.5"/></svg><div><p class="contact-info__label">Email</p><a href="#" class="contact-info__value">[email — da&nbsp;inserire]</a></div></div>
-          <div class="contact-info__item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-6.9-7-12a7 7 0 0114 0c0 5.1-7 12-7 12z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9" r="2" stroke="currentColor" stroke-width="1.5"/></svg><div><p class="contact-info__label">Dove si lavora</p><p class="contact-info__value">[DA DEFINIRE]</p></div></div>
-          <div class="contact-info__item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><div><p class="contact-info__label">Tempi di&nbsp;risposta</p><p class="contact-info__value">Entro 1-2 giorni lavorativi</p></div></div>
+          <div class="contact-info__item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="1.5"/><path d="M4 4l8 8 8-8" stroke="currentColor" stroke-width="1.5"/></svg><div><p class="contact-info__label">Email</p><a href="mailto:info@nicolettaingusci.it" class="contact-info__value">info@nicolettaingusci.it</a></div></div>
+          <div class="contact-info__item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-6.9-7-12a7 7 0 0114 0c0 5.1-7 12-7 12z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9" r="2" stroke="currentColor" stroke-width="1.5"/></svg><div><p class="contact-info__label">Lezioni</p><p class="contact-info__value">In presenza in via Cadorna 19, Bolzano, e&nbsp;online su Eversports</p></div></div>
+          <div class="contact-info__item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><div><p class="contact-info__label">Per le&nbsp;aziende</p><a href="https://www.benessereaziendale.it/" class="contact-info__value" target="_blank" rel="noopener noreferrer">benessereaziendale.it</a></div></div>
         </div>
         <div style="margin-top:2.5rem;">
           <p class="contact-info__label contact-social__title">Seguimi</p>
@@ -4801,9 +4506,8 @@
           </div>
         </div>
         <div style="margin-top:2.5rem;padding:2rem 1.75rem;background:var(--c-green-100);clip-path:polygon(0 0,95% 0,100% 10%,100% 100%,5% 100%,0 90%);">
-          <p style="font-weight:700;font-size:1rem;margin-bottom:0.4rem;">Consulto individuale</p>
-          <p style="font-size:0.8rem;font-weight:600;color:var(--c-green-700);margin-bottom:0.75rem;">[DA DEFINIRE: durata · prezzo — da&nbsp;validare con&nbsp;la cliente]</p>
-          <p style="font-size:0.875rem;color:var(--c-neutral-600);line-height:1.75;">Un incontro one-to-one per&nbsp;valutare insieme il&nbsp;percorso più adatto alle tue esigenze. Seleziona il&nbsp;percorso di&nbsp;interesse nel form e&nbsp;indicalo nel messaggio. Ti rispondo con&nbsp;le disponibilità.</p>
+          <p style="font-weight:700;font-size:1rem;margin-bottom:0.4rem;">Consulenza individuale</p>
+          <p style="font-size:0.875rem;color:var(--c-neutral-600);line-height:1.75;">Sessioni individuali da&nbsp;1 a&nbsp;1,5&nbsp;ore, in&nbsp;presenza o&nbsp;online. Per costi e&nbsp;disponibilità scrivimi.</p>
         </div>
       </div>
     </div>
@@ -4817,9 +4521,13 @@
       <h2>Hai un&nbsp;dubbio?</h2>
     </div>
     <div class="faq reveal" style="max-width:720px;">
-      <div class="faq-item"><button class="faq-question" aria-expanded="false">Come funziona il&nbsp;primo contatto?<svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><div class="faq-answer"><p>Dopo che&nbsp;invii il&nbsp;form, ti rispondo via email entro 1-2 giorni lavorativi. Se è il&nbsp;caso, organizziamo un&nbsp;consulto individuale per&nbsp;capire come posso aiutarti.</p></div></div>
-      <div class="faq-item"><button class="faq-question" aria-expanded="false">I percorsi si svolgono in presenza o&nbsp;online?<svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><div class="faq-answer"><p><!-- PROPOSTA: da validare con Nicoletta -->Entrambe. I&nbsp;percorsi si svolgono in&nbsp;presenza oppure online: nel primo contatto scegliamo insieme la&nbsp;modalità più adatta a&nbsp;te.</p></div></div>
-      <div class="faq-item"><button class="faq-question" aria-expanded="false">Offrite preventivi per&nbsp;aziende?<svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><div class="faq-answer"><p>Sì. Seleziona “Benessere aziendale” nel form e&nbsp;descrivi brevemente il&nbsp;tuo contesto (dimensione del&nbsp;team, obiettivi). Rispondo con&nbsp;una prima proposta personalizzata.</p></div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false">Le lezioni sono in&nbsp;presenza o&nbsp;online?<svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><div class="faq-answer"><p>Entrambe: in&nbsp;presenza in&nbsp;via Cadorna 19, Bolzano, e&nbsp;online su&nbsp;Eversports.</p></div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false">Come prenoto una lezione?<svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><div class="faq-answer"><p>In presenza: scrivimi a&nbsp;<a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a>. Online: su&nbsp;Eversports, <a href="https://www.eversports.it/s/nicoletta-ingusci" target="_blank" rel="noopener noreferrer">https://www.eversports.it/s/nicoletta-ingusci</a>.</p></div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false">Come mi iscrivo a&nbsp;un&nbsp;retreat?<svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><div class="faq-answer"><p>Scrivimi a&nbsp;<a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a>: ti mando il&nbsp;programma e&nbsp;le modalità di&nbsp;iscrizione della prossima edizione.</p></div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false">Fai consulenze individuali di&nbsp;coaching?<svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><div class="faq-answer"><p>Sì, sessioni individuali da&nbsp;1 a&nbsp;1,5&nbsp;ore, in&nbsp;presenza o&nbsp;online. Per costi e&nbsp;disponibilità scrivimi a&nbsp;<a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a>.</p></div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false">Proponi programmi di&nbsp;benessere per&nbsp;le aziende?<svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><div class="faq-answer"><p>Sì, con&nbsp;Benessere Aziendale, il&nbsp;programma per&nbsp;le aziende di&nbsp;Alto Adige e&nbsp;Trentino. Info su&nbsp;<a href="https://www.benessereaziendale.it/" target="_blank" rel="noopener noreferrer">benessereaziendale.it</a> o&nbsp;a&nbsp;<a href="mailto:info@benessereaziendale.it">info@benessereaziendale.it</a>.</p></div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false">Partecipi a&nbsp;eventi e&nbsp;collaborazioni?<svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><div class="faq-answer"><p>Sì: trovi i&nbsp;prossimi appuntamenti nella <a href="#page-eventi">pagina Eventi</a>. Per proposte di&nbsp;collaborazione scrivi a&nbsp;<a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a>.</p></div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false">Qual è il&nbsp;modo migliore per&nbsp;contattarti?<svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><div class="faq-answer"><p>L’email <a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a>. Ti rispondo entro 48&nbsp;ore.</p></div></div>
     </div>
   </div>
 </section>
@@ -4838,9 +4546,9 @@
           <a href="https://www.linkedin.com/in/nicoletta-ingusci-2b113655" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.9H3.8V20h3.1V8.9zM5.3 3.8a1.8 1.8 0 100 3.6 1.8 1.8 0 000-3.6zM20.2 13.6c0-3-1.6-4.9-4.3-4.9-1.5 0-2.5.8-2.9 1.6V8.9h-3V20h3.1v-5.7c0-1.5.6-2.6 2-2.6 1.3 0 1.9 1 1.9 2.6V20h3.2v-6.4z"/></svg></a>
         </div>
       </div>
-      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
+      <div class="footer__col"><h5>Percorsi</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-coaching">Coaching</a></li><li><a class="footer__link" href="#page-aziendale">Benessere aziendale</a></li><li><a class="footer__link" href="#page-yoga">Yoga</a></li><li><a class="footer__link" href="#page-eventi">Eventi e&nbsp;retreat</a></li></ul></div>
       <div class="footer__col"><h5>Nicoletta</h5><ul class="footer__links" role="list"><li><a class="footer__link" href="#page-chi-sono">Chi sono</a></li><li><a class="footer__link" href="#page-news">News</a></li><li><a class="footer__link" href="#page-contatti">Contatti</a></li></ul></div>
-      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="#">[email — da&nbsp;inserire]</a></p><p class="footer__contact-item">[Città — da&nbsp;inserire]</p></div>
+      <div class="footer__col"><h5>Contatti</h5><p class="footer__contact-item"><a href="mailto:info@nicolettaingusci.it">info@nicolettaingusci.it</a></p><p class="footer__contact-item">Bolzano</p></div>
     </div>
     <div class="footer__bottom">
       <nav class="footer__legal" aria-label="Link legali"><a href="https://www.iubenda.com/privacy-policy/23619329" target="_blank" rel="noopener noreferrer">Privacy Policy</a><a href="https://www.iubenda.com/privacy-policy/23619329/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a></nav>
@@ -5011,6 +4719,14 @@
   document.addEventListener('click', function(e) {
     var m = document.getElementById('yoga-booking-modal');
     if (m && m.style.display === 'flex' && e.target === m) closeYogaModal();
+  });
+
+  /* CTA "Richiedi una proposta": apre Contatti con il servizio già selezionato */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('[data-prefill]');
+    if (!a) return;
+    var sel = document.getElementById('interesse');
+    if (sel) sel.value = a.getAttribute('data-prefill');
   });
 
   /* ── HAMBURGER MENU — tutte le pagine ── */
